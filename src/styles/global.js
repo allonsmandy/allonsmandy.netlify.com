@@ -99,5 +99,6 @@ const GlobalStyles = createGlobalStyle`
 
 ::selection{background: var(--texts); color: var(--postColor);}
 ::-moz-selection{background: var(--texts); color: var(--postColor);}
+
 `
 export default GlobalStyles

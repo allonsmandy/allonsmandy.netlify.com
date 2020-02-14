@@ -14,12 +14,13 @@ const BlogList = props => {
   const { currentPage, numPages } = props.pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
-  const prevPage = currentPage - 1 === 1 ? "/" : `/page/${currentPage - 1}`
-  const nextPage = `/page/${currentPage + 1}`
+  const prevPage =
+    currentPage - 1 === 1 ? "/blog" : `blog/page/${currentPage - 1}`
+  const nextPage = `blog/page/${currentPage + 1}`
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Blog" />
       <S.ListWrapper>
         {postList.map(
           (

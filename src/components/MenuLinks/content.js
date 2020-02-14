@@ -1,7 +1,7 @@
 const links = [
   {
-    label: "Inicio",
-    url: "/",
+    label: "Blog",
+    url: "/blog",
   },
   {
     label: "Sobre mim",
