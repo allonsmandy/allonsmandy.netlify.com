@@ -2,7 +2,7 @@ backend:
   name: github
   repo: allonsmandy/allonsmandy.netlify.com.br
   branch: master
-  site_domain: https://allonsmandy.netlify.com/
+  site_domain: allonsmandy.netlify.com
 
 publish_mode: editorial_workflow
 media_folder: "static/assets/img"
