@@ -1,0 +1,56 @@
+backend:
+  name: github
+  repo: allonsmandy/allonsmandy.netlify.com.br
+  branch: master
+  site_domain: https://allonsmandy.netlify.com/
+
+publish_mode: editorial_workflow
+media_folder: "static/assets/img"
+public_folder: "assets/img"
+
+collections:
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
+    label: "Posts" # Used in the UI
+    folder: "posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD hh:mm:ss",
+        }
+      - { label: "image", name: "image", widget: "image" }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options: ["Offtopic", "css", "js", "html", "svg", "dev", "misc"],
+        }
+      - {
+          label: "Background",
+          name: "background",
+          widget: "select",
+          options:
+            [
+              { label: "Devops", value: "#B31917" },
+              { label: "CSS", value: "#2DA0C3" },
+              { label: "JS", value: "#D6BA32" },
+              { label: "HTML", value: "#EB7728" },
+              { label: "Vue", value: "#7D669E" },
+              { label: "React", value: "#637a91" },
+              { label: "WP", value: "#7AAB13" },
+              { label: "Git", value: "#aAAB13" },
+              { label: "UI", value: "#bAAB13" },
+              { label: "UX", value: "#7cAB13" },
+              { label: "WP", value: "#71AB13" },
+              { label: "Gulp", value: "#2AAB13" },
+              { label: "Python", value: "#7A2B1a" },
+              { label: "Dev", value: "#7AABe3" },
+              { label: "Offtopic", value: "#7A2B13" },
+            ],
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
