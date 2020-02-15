@@ -7,7 +7,7 @@ module.exports = {
     position: "Programadora Front-end",
     description: `Aprendendo e compartilhando conhecimento sempre que possivel! ^_^`,
     author: `Amanda Almeida Matos`,
-    siteUrl: `https://allonsmandy.netlify.com.br`,
+    siteUrl: `https://allonsmandy.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-transition-link`,
@@ -82,6 +82,6 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify-cms`
+    `gatsby-plugin-netlify-cms`,
   ],
 }
