@@ -47,7 +47,7 @@ export const MenuBarLink = styled(AniLink)`
 `
 
 export const MenuBarItem = styled.span`
-  color: pink;
+  color: var(--maiscor);
   cursor: pointer;
   display: block;
   height: 3.75rem;

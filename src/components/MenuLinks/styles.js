@@ -11,28 +11,32 @@ export const MenuLinksWrapper = styled.nav`
 export const MenuLinksList = styled.ul`
   font-size: 1.2rem;
   font-weight: 300;
+  list-style: none;
+  padding-left: 0;
 `
 
 export const MenuLinksItem = styled.li`
   padding: 0.1rem 0;
 
   .active {
-    color: var(--outracor);
+    color: var(--highlight);
     background: var(--mediumBackground);
   }
 `
 
 export const MenuLinksLink = styled(AniLink)`
-  color: var(--algo);
+  color: var(--post);
+  text-transform: uppercase;
+  font-family: sans-serif;
   text-decoration: none;
   transition: color 0.5s;
-  border: 1px solid var(--borders);
+  border-bottom: 1px solid var(--background);
   display: block;
-  padding: 0.2rem 0.9rem;
-  font-size: 1rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
 
   &:hover {
-    color: var(--postColor);
-    background: var(--background);
+    color: var(--texts);
+    border-bottom: 1px solid var(--maiscor);
   }
 `

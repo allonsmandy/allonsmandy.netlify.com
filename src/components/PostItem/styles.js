@@ -3,7 +3,7 @@ import media from "styled-media-query"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 export const PostItemLink = styled(AniLink)`
-  color: var(--outracor);
+  color: var(--post);
   display: flex;
   text-decoration: none;
   body#grid & {

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import media from "styled-media-query"
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -11,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   del, dfn, em, img, ins, kbd, q, s, samp,
   small, strike, strong, sub, sup, tt, var,
   b, u, i, center,
-  dl, dt, dd, ol, ul, li,
+  dl, dt, dd, 
   fieldset, form, label, legend,
   table, caption, tbody, tfoot, thead, tr, th, td,
   article, aside, canvas, details, embed,
@@ -30,12 +31,6 @@ const GlobalStyles = createGlobalStyle`
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
-  body {
-    line-height: 1;
-  }
-  ol, ul {
-    list-style: none;
-  }
   blockquote, q {
     quotes: none;
   }
@@ -44,22 +39,114 @@ const GlobalStyles = createGlobalStyle`
     content: '';
     content: none;
   }
+
+  blockquote {
+    border-left: 0.1rem double var(--mediumBackground);
+    padding: 0 0.875rem;
+    margin: 3.125rem auto;
+    transition: border-left 0.5s;
+
+    > p {
+      color: var(--texts);
+      font-family: monospace;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    &:hover {
+      border-left: 0.4rem double var(--highlight);
+    }
+  }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
+
   * {
     box-sizing: border-box;
   }
+
   body {
-    background: #35282f;
+    background: var(--background);
     line-height: 1;
     font-size: 100%;
   }
+  
   img {
     display: block;
+    max-width: 100%;
   	width: 100%;
   	height: auto;
+  }
+
+  ul,
+  ol {
+    padding-left: 2.5rem;
+    list-style: disc;
+    margin: 0 auto 1.2rem;
+  }
+
+  li {
+    padding: 0.325rem 0;
+    color: var(--secondary);
+    font-family: sans-serif;
+
+    & > ul {
+      margin-bottom: 0;
+    }
+  }
+
+  p,
+  li {
+    code {
+      word-wrap: break-word;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 600;
+    letter-spacing: 0.069rem;
+    line-height: 1.4;
+    margin: 0 auto 1rem;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+  }
+
+
+  h1 {
+    font-size: 2.8rem;
+
+    ${media.lessThan("large")`
+      font-size: 1.875rem;
+    `}
+  }
+  h2 {
+    font-size: 2.1rem;
+
+    ${media.lessThan("large")`
+      font-size: 1.375rem;
+    `}
+  }
+  h3 {
+    font-size: 1.6rem;
+
+    ${media.lessThan("large")`
+      font-size: 1.125rem;
+    `}
+  }
+  h4 {
+    font-size: 1.4rem;
+  }
+  h5 {
+    font-size: 1.2rem;
+  }
+  strong {
+    font-weight: 700;
   }
 
   body.dark {
@@ -69,21 +156,25 @@ const GlobalStyles = createGlobalStyle`
     --highlight: #b59faa;
     --mediumBackground: #35282f;
     --background: #150d13b0;
-    --secondary: #cc99cd;
-    --outracor: #bbb595;
+    --secondary: #c5aec5;
+    --outracor: #4e2128bd;
+    --post: #e2bc94;
     --maiscor: #dc7f7f;
-    --algo: #8899a6;
+    --algo: #e2e2ec;
   }
 
   body.light {
-    --borders: #dedede;
-    --postColor: #111;
-    --texts: #555555;
-    --highlight: #1fa1f2;
-    --mediumBackground: #f0f0f3;
-    --background: #e5e0c9;
-    --secondary: red;
-    --black: #222;
+    --borders: #d6d4cd;
+    --postColor: #222;
+    --texts: #9a7085;
+    --highlight: #043838aa;
+    --mediumBackground: #e6e4da;
+    --background: #f2f0e8;
+    --secondary: #d07c4a;
+    --outracor: #cab5ba47;
+    --post: #9e0328bd;
+    --maiscor: #dc7f7f;
+    --algo: brown;
   }
 
 

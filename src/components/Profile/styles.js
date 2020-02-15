@@ -9,7 +9,7 @@ export const ProfileWrapper = styled.section`
 `
 
 export const ProfileLink = styled(AniLink)`
-  color: var(--texts);
+  color: var(--secondary);
   text-decoration: none;
   transition: color 0.5s;
 
