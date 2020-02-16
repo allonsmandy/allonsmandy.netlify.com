@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: allonsmandy/allonsmandy.netlify.com.br
+  repo: allonsmandy/allonsmandy.netlify.com
   branch: master
   site_domain: allonsmandy.netlify.com
 
