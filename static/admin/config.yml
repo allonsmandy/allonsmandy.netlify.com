@@ -3,7 +3,6 @@ backend:
   repo: allonsmandy/allonsmandy.netlify.com.br
   branch: master
   site_domain: allonsmandy.netlify.com
-  base_url: https://allonsmandy.netlify.com/
 
 publish_mode: editorial_workflow
 media_folder: "static/assets/img"
