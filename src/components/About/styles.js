@@ -1,12 +1,18 @@
 import styled from "styled-components"
 
 export const AboutTitle = styled.h1`
-  color: var(--highlight);
+  color: #c5aec5;
   font-size: 2.8rem;
   padding: 0 1rem;
+  position: absolute;
+  font-family: monospace;
+  top: 10px;
+  font-weight: 100;
 `
 
-export const AboutImg = styled.img``
+export const AboutImg = styled.img`
+  filter: var(--filter);
+`
 
 export const AboutSkillsList = styled.ul`
   display: grid;
@@ -62,7 +68,7 @@ export const AboutSkillsListItem = styled.li`
 
 export const AboutDescription = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  margin: 1rem 0.5rem;
 
   img {
     padding: 0.6rem;
@@ -72,7 +78,6 @@ export const AboutDescription = styled.div`
   }
 
   p {
-    padding: 1rem 2rem;
     color: var(--postColor);
     line-height: 1.4;
 

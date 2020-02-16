@@ -82,9 +82,9 @@ export const MainContent = styled.section`
   iframe,
   .button-post {
     color: var(--postColor);
-    font-weight: 300;
-    line-height: 1.3;
-    letter-spacing: 0.069rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.002rem;
     padding: 0 1.4rem;
 
     ${media.lessThan("large")`
@@ -95,6 +95,8 @@ export const MainContent = styled.section`
 
   p {
     margin: 0 auto 1rem;
+    font-size: 1.2rem !important;
+    font-family: serif;
   }
 
   img {

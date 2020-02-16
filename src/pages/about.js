@@ -29,7 +29,7 @@ const AboutPage = () => (
         conhecimentos diversos na qual amo estudar. <br /> Sou uma moça das
         artes e também da tecnologia, gosto de programaçao, especialmente{" "}
         <strong>front-end</strong>, pois adoro a possibilidade de criar projetos
-        e desenvolvê-los atentendo minhas preces de criatividade. <br />{" "}
+        e desenvolvê-los atendendo minhas preces de criatividade. <br />{" "}
         Leonardo da Vinci me inspira muito, assim como Van Gogh. Sempre que
         posso vou capturando o que há de melhor nas pessoas, e assim vou me
         estruturando e se inspirando por este mundinho! ^^ <br /> Gosto de ser

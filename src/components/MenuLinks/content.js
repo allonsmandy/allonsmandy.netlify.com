@@ -15,10 +15,10 @@ const links = [
     label: "Scrapbook",
     url: "/scrapbook",
   },
-  {
-    label: "Envie uma mensagem",
-    url: "/form",
-  },
+  // {
+  //   label: "Envie um email",
+  //   url: "https://mailto:allonsmandy@gmail.com",
+  // },
 ]
 
 export default links
