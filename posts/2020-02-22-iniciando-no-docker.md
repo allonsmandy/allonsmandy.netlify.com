@@ -38,11 +38,11 @@ O volume fica salvo no Docker Host, ou seja, fica salvo no computador onde a Doc
 
 ### REDES
 
-Por padrão, os containers ficam na mesma rede com o nome bridge e a comunicação deve ser feita através do IP. Porém, se criarmos nossa própria rede podemos podemos usar o noome dela ao invés do IP
+Por padrão, os containers ficam na mesma rede com o nome bridge e a comunicação deve ser feita através do IP. Porém, se criarmos nossa própria rede podemos podemos usar o nome dela ao invés do IP
 
-Além disso, uma imagem pode ter um tag que serve para pegar uma determinada versão dessa imagem.
+Além disso, uma imagem pode ter um **tag** que serve para pegar uma determinada versão dessa imagem.
 
-### **DOCKER COMPOSE** 
+### **DOCKER COMPOSE**
 
 Permite que você execute pilhas de Containers, por exemplo, servidores da Web, servidores de aplicativos e Containers de servidor de banco de dados sendo executados juntos para atender a um aplicativo específico.
 
@@ -59,9 +59,50 @@ Outra coisa legal, é que podemos definir o comportamento que o Docker vai ter c
 
 Em resumo, utilizando o Docker Compose, em vez de o administrador executar o docker run na mão para cada container e subir os serviços separados, linkando os containers das aplicações manualmente, temos um único arquivo que vai fazer essa orquestração e vai subir os serviços/containers de uma só vez. Isso diminui a responsabilidade do Sysadmin ou do desenvolvedor de ter que gerenciar o deploy e se preocupar em rodar todos esses comandos para ter a sua aplicação rodando com todas as suas dependências.
 
-## docker-compose.yml 
+## docker-compose.yml
 
-##### (a receita de bolo para construirmos nossa aplicação)
+O arquivo de definição do **Docker Compose** é o local onde é especificado todo o ambiente (*rede*, *volume* e *serviços*), ele é escrito seguindo o formato **YAML**. Esse arquivo por padrão tem como nome **docker-compose.yml**.
+
+O padrão **YAML** utiliza a indentação como separador dos blocos de códigos das definições, por conta disso o uso da indentação é um fator muito importante, ou seja, caso não a utilize corretamente, o **docker-compose** falhará em sua execução.
+
+Cada linha desse arquivo pode ser definida com uma chave valor ou uma lista. Vamos aos exemplos pra ficar mais claro a explicação:
+
+```
+version: '3'
+services:
+  web:
+    build: .
+      context: ./dir
+      dockerfile: Dockerfile-alternate
+      args:
+        versao: 1
+    ports:
+      - "5000:5000"
+  redis:
+    image: redis
+```
+
+* A primeira linha define a versão do **docker-compose.yml**, no caso vou usar a 3 (para saber mais [acesse este link](https://docs.docker.com/compose/compose-file/#versioning))
+* No mesmo nível de indentação temos services, que define o início do bloco de serviços que serão definidos logo abaixo.
+* No segundo nível de indentação (aqui feito com dois espaços) temos o nome do primeiro serviço desse arquivo, que recebe o nome de web. Ele abre o bloco de definições do serviço, ou seja, a partir do próximo nível de indentação, tudo que for definido faz parte desse serviço.
+* No próximo nível de indentação (feito novamente com mais dois espaços) temos a primeira definição do serviço web, que nesse caso é o **build** que informa que esse serviço será criado não a partir de uma imagem pronta, mas que será necessário construir sua imagem antes de sua execução. Seria o equivalente ao comando **docker build**. Ele também abre um novo bloco de código para parametrizar o funcionamento dessa construção da imagem.
+* No próximo nível de indentação (feito novamente com mais dois espaços) temos um parâmetro do **build**, que nesse caso é o **context**. Ele é responsável por informar qual contexto de arquivos será usado para construir a imagem em questão, ou seja, **apenas arquivos existentes dentro dessa pasta poderão ser usados na construção da imagem**. O contexto escolhido foi o `“./dir”`, ou seja, isso indica que uma pasta chamada **dir**, que se encontra no mesmo nível de sistema de arquivo do **docker-compose.yml** ou do lugar onde esse comando será executado, será usada como contexto da criação dessa imagem. Quando logo após da chave um valor é fornecido, isso indica que nenhum bloco de código será aberto.
+* No mesmo nível de indentação da definição **context**, ou seja, ainda dentro do bloco de definição do **build**, temos o **dockerfile**, ele indica o nome do arquivo que será usado para construção da imagem em questão. Seria o equivalente ao parâmetro **“-f”** do comando **docker build**. Caso essa definição não existisse, o **docker-compose** procuraria por padrão por um arquivo chamado **Dockerfile** dentro da pasta informada no **context**.
+* No mesmo nível de indentação da definição dockerfile, ou seja, ainda dentro do bloco de definição do build, temos o **args**, ele define os argumentos que serão usados pelo Dockerfile, seria o equivalente ao parâmetro` “–build-args”` do comando docker build. Como não foi informado o seu valor na mesma linha, fica evidente que ela abre um novo bloco de código.
+
+  No próximo nível de indentação (feito novamente com mais dois espaços) temos a chave “versao” e o valor “1”, ou seja, como essa definição faz parte do bloco de código args, essa chave valor é o único argumento que será passado para o Dockerfile, ou seja, o arquivo Dockerfile em questão deverá estar preparado para receber esse argumento ou ele se perderá na construção da imagem
+* Voltando dois níveis de indentação (quatro espaços a menos em relação a linha anterior) temos a definição ports, que seria o equivalente ao parâmetro “-p” do comando docker container run. Ele define qual porta do container será exposta no Docker host. Que no nosso caso será a porta 5000 do container, com a 5000 do *Docker host.
+* Voltando um nível de indentação (dois espaços a menos em relação a linha anterior) saímos do bloco de código do serviço web, isso indica que nenhuma definição informada nessa linha será aplicada a esse serviço, ou seja, precisamos iniciar um bloco de código de um serviço novo, que no nosso caso será com nome de redis.
+* No próximo nível de indentação (feito novamente com mais dois espaços) temos a primeira definição do serviço redis, que nesse caso é o image que é responsável por informar qual imagem será usada para iniciar esse container. Essa imagem será obtida do repositório configurado no Docker host, que por padrão é o hub.docker.com.
+
+Após entender e criar seu próprio **arquivo de definição** precisamos saber como gerenciá-lo e para isso utilizaremos o binário **docker-compose**, que entre várias opções de uso temos as seguintes mais comuns:
+
+* **build**: Usada para construir todas as imagens dos **serviços** que estão descritos com a definição **build** em seu bloco de código.
+* **up**: Iniciar todos os **serviços** que estão no arquivo **docker-compose.yml**
+* **stop**: Parar todos os **serviço s**que estão no arquivo **docker-compose.yml**
+* **ps**: Listar todos os **serviços** que foram iniciados a partir do arquivo **docker-compose.yml**
+
+Para outras opções visite sua [documentação](https://docs.docker.com/compose/reference/).
 
 ![Arquitetura Docker](assets/img/arquitetura.png)
 
@@ -94,16 +135,11 @@ EXPOSE $PORT
 `-t` => como voce quer taguear sua imagem? (nome do usuario que criou / nome da imagem)\
 `-f` => nome do arquivo do meu Dockerfile (não precisa se tiver o nome padrao)
 
-`docker build -f Dockerfile -t mandy/node .
-`
+`docker build -f Dockerfile -t mandy/node .`
 
 **Agora que temos a imagem pronta (docker images) da pra criar um container com ela**
 
-
-
-
-SUBINDO IMAGEM NO DOCKERHUB PARA COMPARTILHAR SUA IMAGEM COM OUTRAS PESSOAS
-(crie sua conta no dockerhub)
+SUBINDO IMAGEM NO DOCKERHUB PARA COMPARTILHAR SUA IMAGEM COM OUTRAS PESSOAS (crie sua conta no dockerhub)
 
 ```
 docker login
@@ -115,78 +151,69 @@ docker pull mandy/node
 
 ## Vamos conhecer muito de seus comandos? ^-^
 
-`docker rm ID_DO_CONTAINER` - remove um container
-
-`docker container prune` - remove todos os containers inativos de uma só vez
-
-`docker inspect ID_DO_CONTAINER` - Verifica qual rede ele pertence, na parte de *network*
-
-`docker pull NOME_USUARIO/NOME_IMAGEM` - baixa a imagem de um usuário especifico
-
-* **Comandos relacionados às informações** 
+* ##### **Comandos relacionados às informações** 
 
 `docker version` - exibe a versão do docker que está instalada. 
 
 `docker inspect ID_CONTAINER` - retorna diversas informações sobre o container. 
 
-`docker ps` - exibe todos os containers em execução no momento.
-`docker ps -a` - exibe todos os containers, independentemente de estarem em execução ou não.
+`docker ps` - exibe todos os containers em execução no momento. `docker ps -a` - exibe todos os containers, independentemente de estarem em execução ou não.
 
-`docker images `- mostra todas as imagens
+`docker images`- mostra todas as imagens
 
-* **Comandos relacionados à execução**
+* #### **Comandos relacionados à execução**
 
+`docker run NOME_DA_IMAGEM` - cria um container com a respectiva imagem passada como parâmetro. 
 
-`docker run NOME_DA_IMAGEM` - cria um container com a respectiva imagem passada como parâmetro.
-`docker run -it NOME_DA_IMAGEM` - conecta o terminal que estamos utilizando com o do container.
-`docker run -d -P --name NOME_DO_CONTAINER dockersamples/static-site` - ao executar, dá um nome ao container.
+`docker run -it NOME_DA_IMAGEM` - conecta o terminal que estamos utilizando com o do container. 
+
+`docker run -d -P --name NOME_DO_CONTAINER dockersamples/static-site` - ao executar, dá um nome ao container. 
+
 `docker run -d -p 12345:80 dockersamples/static-site` - define uma porta específica para ser atribuída à porta 80 do container, neste caso 12345. 
 
 `docker run -v "CAMINHO_VOLUME" NOME_DA_IMAGEM` - cria um volume no respectivo caminho do container. 
 
 `docker run -it --name NOME_CONTAINER --network NOME_DA_REDE NOME_IMAGEM` - cria um container especificando seu nome e qual rede deverá ser usada. 
 
-* **Comandos relacionados à inicialização/interrupção** 
+* #### **Comandos relacionados à inicialização/interrupção** 
 
-`docker start ID_CONTAINER `- inicia o container com **id** em questão. 
+`docker start ID_CONTAINER`- inicia o container com **id** em questão. 
 
-`docker start -a -i ID_CONTAINER` - inicia o container com id em questão e integra os terminais, além de permitir interação entre ambos.
-`docker stop ID_CONTAINER `- interrompe o container com id em questão.
+`docker start -a -i ID_CONTAINER` - inicia o container com id em questão e integra os terminais, além de permitir interação entre ambos. 
+
+`docker stop ID_CONTAINER`- interrompe o container com id em questão.
 
 `docker stop -t 0 ID_CONTAINER` => passa o tempo de espera pra parar esse container
 
+* #### **Comandos relacionados à remoção**
 
-* **Comandos relacionados à remoção**
+`docker rm ID_CONTAINER` - remove o container com id em questão. 
 
+`docker container prune`- remove todos os containers que estão parados. 
 
-`docker rm ID_CONTAINER` - remove o container com id em questão.
-`docker container prune `- remove todos os containers que estão parados.
 `docker rmi NOME_DA_IMAGEM` - remove a imagem passada como parâmetro.
 
+* #### **Comandos relacionados à construção de Dockerfile**
 
-* **Comandos relacionados à construção de Dockerfile**
-
-`docker build -f Dockerfile `- cria uma imagem a partir de um Dockerfile.
+`docker build -f Dockerfile`- cria uma imagem a partir de um Dockerfile.
 
 `docker build -f Dockerfile -t NOME_USUARIO/NOME_IMAGEM` - constrói e nomeia uma imagem não-oficial.
 
 `docker build -f Dockerfile -t NOME_USUARIO/NOME_IMAGEM CAMINHO_DOCKERFILE` - constrói e nomeia uma imagem não-oficial informando o caminho para o Dockerfile.
 
-* **Comandos relacionados ao Docker Hub** 
+* #### **Comandos relacionados ao Docker Hub** 
 
 `docker login` - inicia o processo de login no Docker Hub. 
 
-`docker push NOME_USUARIO/NOME_IMAGEM `- envia a imagem criada para o Docker Hub.
+`docker push NOME_USUARIO/NOME_IMAGEM`- envia a imagem criada para o Docker Hub.
 
 `docker pull NOME_USUARIO/NOME_IMAGEM` - baixa a imagem desejada do Docker Hub.
 
+* #### **Comandos relacionados à rede**
 
-* **Comandos relacionados à rede**
+`hostname -i`- mostra o ip atribuído ao container pelo docker (*funciona apenas dentro do container*)
 
-
-`hostname -i `- mostra o ip atribuído ao container pelo docker (*funciona apenas dentro do container*)
-
-`docker network create --driver bridge NOME_DA_REDE `- cria uma rede especificando o driver desejado.
+`docker network create --driver bridge NOME_DA_REDE`- cria uma rede especificando o driver desejado.
 
 ### **EXEMPLOS**
 
@@ -202,7 +229,6 @@ COPY /public /var/www/public \
 COPY /docker/config/nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80 443
 ENTRYPOINT \["nginx"] CMD \["-g", "daemon off;"]
-
 ```
 
 Utilizamos a última versão disponível da imagem do nginx como base
@@ -210,7 +236,11 @@ Utilizamos a última versão disponível da imagem do nginx como base
 * Copiamos o conteúdo da pasta public, que contém os arquivos estáticos, e um arquivo de con guração do NGINX para dentro do container.
 * É executado o comando nginx, passando os parâmetros extras -g e daemon off.
 
-###### *referências <3* \
+
+
+Referências <3 
+
 <https://e-tinet.com/linux/container-docker/>\
 <https://imasters.com.br/banco-de-dados/docker-compose-o-que-e-para-que-serve-o-que-come>\
-<https://www.inventti.com.br/container-docker-e-suas-vantagens/>
+<https://www.inventti.com.br/container-docker-e-suas-vantagens/>\
+<http://stack.desenvolvedor.expert/appendix/docker/introducao.html>
