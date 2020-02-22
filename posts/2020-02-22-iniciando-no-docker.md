@@ -88,9 +88,8 @@ services:
 * No próximo nível de indentação (feito novamente com mais dois espaços) temos a primeira definição do serviço web, que nesse caso é o **build** que informa que esse serviço será criado não a partir de uma imagem pronta, mas que será necessário construir sua imagem antes de sua execução. Seria o equivalente ao comando **docker build**. Ele também abre um novo bloco de código para parametrizar o funcionamento dessa construção da imagem.
 * No próximo nível de indentação (feito novamente com mais dois espaços) temos um parâmetro do **build**, que nesse caso é o **context**. Ele é responsável por informar qual contexto de arquivos será usado para construir a imagem em questão, ou seja, **apenas arquivos existentes dentro dessa pasta poderão ser usados na construção da imagem**. O contexto escolhido foi o `“./dir”`, ou seja, isso indica que uma pasta chamada **dir**, que se encontra no mesmo nível de sistema de arquivo do **docker-compose.yml** ou do lugar onde esse comando será executado, será usada como contexto da criação dessa imagem. Quando logo após da chave um valor é fornecido, isso indica que nenhum bloco de código será aberto.
 * No mesmo nível de indentação da definição **context**, ou seja, ainda dentro do bloco de definição do **build**, temos o **dockerfile**, ele indica o nome do arquivo que será usado para construção da imagem em questão. Seria o equivalente ao parâmetro **“-f”** do comando **docker build**. Caso essa definição não existisse, o **docker-compose** procuraria por padrão por um arquivo chamado **Dockerfile** dentro da pasta informada no **context**.
-* No mesmo nível de indentação da definição dockerfile, ou seja, ainda dentro do bloco de definição do build, temos o **args**, ele define os argumentos que serão usados pelo Dockerfile, seria o equivalente ao parâmetro` “–build-args”` do comando docker build. Como não foi informado o seu valor na mesma linha, fica evidente que ela abre um novo bloco de código.
-
-  No próximo nível de indentação (feito novamente com mais dois espaços) temos a chave “versao” e o valor “1”, ou seja, como essa definição faz parte do bloco de código args, essa chave valor é o único argumento que será passado para o Dockerfile, ou seja, o arquivo Dockerfile em questão deverá estar preparado para receber esse argumento ou ele se perderá na construção da imagem
+* No mesmo nível de indentação da definição dockerfile, ou seja, ainda dentro do bloco de definição do build, temos o **args**, ele define os argumentos que serão usados pelo Dockerfile, seria o equivalente ao parâmetro`“–build-args”` do comando docker build. Como não foi informado o seu valor na mesma linha, fica evidente que ela abre um novo bloco de código. 
+* No próximo nível de indentação (feito novamente com mais dois espaços) temos a chave “versao” e o valor “1”, ou seja, como essa definição faz parte do bloco de código args, essa chave valor é o único argumento que será passado para o Dockerfile, ou seja, o arquivo Dockerfile em questão deverá estar preparado para receber esse argumento ou ele se perderá na construção da imagem
 * Voltando dois níveis de indentação (quatro espaços a menos em relação a linha anterior) temos a definição ports, que seria o equivalente ao parâmetro “-p” do comando docker container run. Ele define qual porta do container será exposta no Docker host. Que no nosso caso será a porta 5000 do container, com a 5000 do *Docker host.
 * Voltando um nível de indentação (dois espaços a menos em relação a linha anterior) saímos do bloco de código do serviço web, isso indica que nenhuma definição informada nessa linha será aplicada a esse serviço, ou seja, precisamos iniciar um bloco de código de um serviço novo, que no nosso caso será com nome de redis.
 * No próximo nível de indentação (feito novamente com mais dois espaços) temos a primeira definição do serviço redis, que nesse caso é o image que é responsável por informar qual imagem será usada para iniciar esse container. Essa imagem será obtida do repositório configurado no Docker host, que por padrão é o hub.docker.com.
@@ -151,7 +150,7 @@ docker pull mandy/node
 
 ## Vamos conhecer muito de seus comandos? ^-^
 
-* ##### **Comandos relacionados às informações** 
+* ##### **Comandos relacionados às informações**
 
 `docker version` - exibe a versão do docker que está instalada. 
 
@@ -175,7 +174,7 @@ docker pull mandy/node
 
 `docker run -it --name NOME_CONTAINER --network NOME_DA_REDE NOME_IMAGEM` - cria um container especificando seu nome e qual rede deverá ser usada. 
 
-* #### **Comandos relacionados à inicialização/interrupção** 
+* #### **Comandos relacionados à inicialização/interrupção**
 
 `docker start ID_CONTAINER`- inicia o container com **id** em questão. 
 
@@ -201,7 +200,7 @@ docker pull mandy/node
 
 `docker build -f Dockerfile -t NOME_USUARIO/NOME_IMAGEM CAMINHO_DOCKERFILE` - constrói e nomeia uma imagem não-oficial informando o caminho para o Dockerfile.
 
-* #### **Comandos relacionados ao Docker Hub** 
+* #### **Comandos relacionados ao Docker Hub**
 
 `docker login` - inicia o processo de login no Docker Hub. 
 
@@ -235,8 +234,6 @@ Utilizamos a última versão disponível da imagem do nginx como base
 
 * Copiamos o conteúdo da pasta public, que contém os arquivos estáticos, e um arquivo de con guração do NGINX para dentro do container.
 * É executado o comando nginx, passando os parâmetros extras -g e daemon off.
-
-
 
 Referências <3 
 
