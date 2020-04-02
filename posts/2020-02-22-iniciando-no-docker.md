@@ -67,7 +67,7 @@ O padrão **YAML** utiliza a indentação como separador dos blocos de códigos 
 
 Cada linha desse arquivo pode ser definida com uma chave valor ou uma lista. Vamos aos exemplos pra ficar mais claro a explicação:
 
-```
+```js
 version: '3'
 services:
   web:

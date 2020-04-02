@@ -14,7 +14,7 @@ export const PostHeader = styled.header`
 `
 
 export const PostTitle = styled.h1`
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 700;
   padding: 0 1.4rem;
   margin: 0.5rem auto;
@@ -27,7 +27,7 @@ export const PostTitle = styled.h1`
 `
 
 export const PostDescription = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   font-weight: 200;
   padding: 0 1.4rem;
   font-style: italic;
@@ -84,7 +84,6 @@ export const MainContent = styled.section`
     color: var(--postColor);
     font-weight: 500;
     line-height: 1.5;
-    letter-spacing: 0.002rem;
     padding: 0 1.4rem;
 
     ${media.lessThan("large")`
@@ -95,8 +94,8 @@ export const MainContent = styled.section`
 
   p {
     margin: 0 auto 1rem;
-    font-size: 1.2rem !important;
-    font-family: serif;
+    font-size: 1.0rem !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   img {
@@ -115,6 +114,10 @@ export const MainContent = styled.section`
   hr {
     border: 1px solid var(--borders);
     margin: 3rem auto;
+  }
+
+  code {
+    background: var(--code);
   }
 
   #twitter-widget-0,
@@ -160,6 +163,7 @@ export const MainContent = styled.section`
     ${media.lessThan("large")`
       padding: 0;
     `}
+
   }
 
   .instagram-media {

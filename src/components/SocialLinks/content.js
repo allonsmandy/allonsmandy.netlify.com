@@ -8,12 +8,8 @@ const links = [
     url: "https://twitter.com/allonsmandy/",
   },
   {
-    label: "Blogger",
-    url: "https://blogimaginantes.blogspot.com.br/",
-  },
-  {
     label: "Codepen",
-    url: "https://codepen.com/allonsmandy/",
+    url: "https://codepen.io/allonsmandy/",
   },
   {
     label: "Linkedin",

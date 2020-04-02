@@ -6,13 +6,16 @@ export const PostItemLink = styled(AniLink)`
   color: var(--post);
   display: flex;
   text-decoration: none;
+  transition: all .3s;
+
   body#grid & {
     background-color: var(--background);
   }
-
   &:hover {
-    color: var(--highlight);
+    background-color: var(--mediumBackground);
+    /* color: var(--mediumBackground); */
   }
+
 `
 
 export const PostItemWrapper = styled.section`
@@ -21,12 +24,17 @@ export const PostItemWrapper = styled.section`
   display: flex;
   padding: 1rem 3rem;
   width: 100%;
+  transition: all .3s;
 
   body#grid & {
+    text-align: center;
     border: none;
     padding: 2rem 1rem;
     flex-direction: column;
     justify-content: center;
+  }
+  &:hover {
+    background-color: var(--mediumBackground);
   }
 
   ${media.lessThan("large")`
@@ -46,8 +54,8 @@ export const PostItemTag = styled.div`
   font-size: 1rem;
   font-weight: 700;
   justify-content: center;
-  min-height: 70px;
-  min-width: 70px;
+  min-height: 80px;
+  min-width: 80px;
   text-transform: uppercase;
 
   ${media.lessThan("large")`
@@ -83,16 +91,18 @@ export const PostItemDate = styled.time`
   font-size: 0.7rem;
   text-transform: uppercase;
   font-family: sans-serif;
+  color: var(--borders);
 `
 
 export const PostItemTitle = styled.h1`
-  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-size: 1.4rem;
   font-weight: 700;
-  margin: 0.2rem 0 0.5rem;
+  margin: 0.2rem 0 0.3rem;
 `
 
 export const PostItemDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
   line-height: 1.2;
 `
