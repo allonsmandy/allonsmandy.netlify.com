@@ -47,6 +47,7 @@ collections:
               "UI",
               "UX",
               "WP",
+              "GraphQL"
             ],
         }
       - {
@@ -72,6 +73,7 @@ collections:
               { label: "Dev", value: "#88c18c" },
               { label: "Mobile", value: "#9fbb68" },
               { label: "Offtopic", value: "#989898" },
+              { label: "GraphQL", value: "#e663ab" },
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
