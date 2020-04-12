@@ -30,13 +30,14 @@ export const MenuLinksLink = styled(AniLink)`
   font-family: sans-serif;
   text-decoration: none;
   transition: color 0.5s;
-  border-bottom: 1px solid var(--background);
+  /* border-bottom: 1px solid var(--background); */
   display: block;
   padding: 0.5rem 0.9rem;
   font-size: 0.9rem;
 
   &:hover {
     color: var(--texts);
-    border-bottom: 1px solid var(--maiscor);
+    font-weight: bold;
+    /* border-bottom: 1px solid var(--maiscor); */
   }
 `

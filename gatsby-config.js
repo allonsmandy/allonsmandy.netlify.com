@@ -5,8 +5,8 @@ module.exports = {
   siteMetadata: {
     title: `allonsmandy`,
     position: "Programadora Front-end",
-    description: `Aprendendo e compartilhando conhecimento sempre que possivel! ^_^`,
-    author: `Amanda Almeida Matos`,
+    description: `Aprendendo e compartilhando conhecimento sempre que possivel!`,
+    author: `Mandy`,
     siteUrl: `https://allonsmandy.netlify.com`,
   },
   plugins: [
@@ -75,8 +75,8 @@ module.exports = {
         name: `Amanda Almeida Matos`,
         short_name: `Amanda Almeida Matos`,
         start_url: `/`,
-        background_color: `#271b25`,
-        theme_color: `#271b25`,
+        background_color: `#211b1fb0`,
+        theme_color: `#211b1fb0`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
       },

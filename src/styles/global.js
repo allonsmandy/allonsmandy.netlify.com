@@ -25,6 +25,8 @@ const GlobalStyles = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
@@ -42,19 +44,20 @@ const GlobalStyles = createGlobalStyle`
 
   blockquote {
     border-left: 0.1rem double var(--mediumBackground);
-    padding: 0 0.875rem;
+    padding: 0 0.875rem .3rem;
     margin: 3.125rem auto;
     transition: border-left 0.5s;
+    background-color: var(--texts);
 
     > p {
-      color: var(--texts);
+      color: var(--mediumBackground) !important;
       font-family: monospace;
       font-size: 1rem;
       line-height: 1.4;
     }
 
     &:hover {
-      border-left: 0.4rem double var(--highlight);
+      border-left: 0.4rem double var(--algo);
     }
   }
 
@@ -117,7 +120,6 @@ const GlobalStyles = createGlobalStyle`
     font-family: sans-serif;
   }
 
-
   h1 {
     font-size: 2.8rem;
 
@@ -125,6 +127,13 @@ const GlobalStyles = createGlobalStyle`
       font-size: 1.875rem;
     `}
   }
+
+  h1.titlePage {
+    color: #c5aec5;
+    padding: 0 1rem;
+    font-weight: 100;
+  }
+
   h2 {
     font-size: 2.1rem;
 
@@ -149,18 +158,27 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 700;
   }
 
+  code.language-text, pre.language-text  {
+    border-radius: none !important;
+  }
+
+  p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2rem !important;
+  }
+
   body.dark {
     --borders: #584750;
     --texts: #d8b15a;
-    --postColor: #ccc;
+    --postColor: #d5dac2bf;
     --highlight: #b59faa;
     --mediumBackground: #35282f;
     --background: #211b1fb0;
     --code: #a04e4e;
-    --secondary: #c5aec5;
+    --secondary: #ceafce;
     --outracor: #443537bd;
     /* --post: #e2bc94; */
-    --post: #dc7588;
+    --post: #e097a4d9;
     --maiscor: #dc7f7f;
     --algo: #e2e2ec;
 
@@ -171,14 +189,14 @@ const GlobalStyles = createGlobalStyle`
     --borders: #d0ceb8;
     --postColor: #222;
     --code: black;
-    --texts: #9a7085;
+    --texts: #b14279;
     --highlight: #043838aa;
     --mediumBackground: #e6e4da;
     --background: #e8e7db;
-    --secondary: #dc7588;
+    --secondary: #af6774;
     --outracor: #cab5ba47;
-    --post: #6b4b43d1;
-    --maiscor: #ce4949;
+    --post: #bf527dcf;
+    --maiscor: #797979;
     --algo: brown;
 
     --filter: opacity(70%);

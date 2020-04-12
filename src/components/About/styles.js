@@ -1,22 +1,80 @@
 import styled from "styled-components"
 
-export const AboutTitle = styled.h1`
-  color: #c5aec5;
-  font-size: 2.8rem;
-  padding: 0 1rem;
-  position: absolute;
-  font-family: monospace;
-  top: 10px;
-  font-weight: 100;
+export const Timeline = styled.section`
+  max-width: 320px;
+  padding: 5px 40px;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 19rem;
+    bottom: 0px;
+    width: 4px;
+    background: var(--post);
+  }
 `
 
-export const AboutImg = styled.img`
-  filter: var(--filter);
+export const Section = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+export const Entry = styled.div`
+  text-align: left;
+  position: relative;
+  margin-bottom: 1.2rem;
+`
+
+export const TimelineTitle = styled.div`
+  margin-bottom: 0.5em;
+  width: 107%;
+  text-align: right;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 4px solid salmon;
+    background-color: #fff;
+    border-radius: 100%;
+    top: 15%;
+    right: -18px;
+    z-index: 99;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--texts);
+  }
+
+  p {
+    margin: 0;
+    font-size: 100%;
+    color: var(--highlight);
+  }
+`
+
+export const btnDownload = styled.a`
+  color: var(--mediumBackground);
+  text-decoration: none;
+  background: var(--texts);
+  border: 1px solid var(--postColor);
+  padding: 5px 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--secondary);
+  }
 `
 
 export const AboutSkillsList = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
 `
 
 export const AboutSubtitle = styled.strong`
@@ -61,9 +119,23 @@ export const AboutGithub = styled.div`
 export const AboutSkillsListItem = styled.li`
   padding: 0.325rem 0;
   color: var(--secondary);
+  list-style-type: none;
   & > ul {
     margin-bottom: 0;
   }
+
+  span::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--secondary);
+    margin-right: 5px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 0px 3px var(--algo);
+    margin-right: 20px;
+  }
+  
 `
 
 export const AboutDescription = styled.div`

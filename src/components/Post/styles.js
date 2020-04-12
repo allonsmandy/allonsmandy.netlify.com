@@ -94,8 +94,6 @@ export const MainContent = styled.section`
 
   p {
     margin: 0 auto 1rem;
-    font-size: 1.0rem !important;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
   img {
@@ -114,10 +112,6 @@ export const MainContent = styled.section`
   hr {
     border: 1px solid var(--borders);
     margin: 3rem auto;
-  }
-
-  code {
-    background: var(--code);
   }
 
   #twitter-widget-0,
