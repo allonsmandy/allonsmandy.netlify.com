@@ -24,7 +24,9 @@ Não está vinculado a qualquer banco de dados ou sistema de armazenamento espec
 
 **SCHEMA**: define o "Esquema" da nossa API, pense nele como um container para todos os tipos da nossa API.
 
-###### TYPE SYSTEM
+> **GraphQL** é estaticamente *tipado*, tudo nele precisa de um tipo associado, e esses tipos formam um *schema*. É a partir desse *schema* que as queries são executadas e consequentemente validadas, tanto entrada quanto saída.
+
+##### TYPE SYSTEM
 
 O GraphQL tem seu proprio sistema de tipos para que possamos "descrever" dados para nossa API. Não seria mais necessário identificar nossos recursos por URL's.
 
@@ -50,14 +52,14 @@ type Comment {
 }
 ```
 
-Quando utilizados exclamação, significa que este campo é obrigatório!
+Os tipos acompanhados de **!** informam que não aceitam **null** como valor, ele é obrigatório. Perceba que há um relacionamento. Em **Post**, há o field ***comments*** que aponta para outro tipo, o **Comment**. Assim como em **author**, que no caso vai receber um tipo **User** já cadastrado na aplicação.
 
-###### **QUERIES**
+##### QUERIES
 
 Queries são o que usamos para buscar dados na nossa API. (analogia ao método **GET** do REST)\
 Obs: os campos são resolvidos paralelamente
 
-**Definição da Query**
+###### Definição da Query
 
 ```graphql
 type Query {   
@@ -65,7 +67,7 @@ type Query {
 }
 ```
 
-###### **Requisição no Client**
+###### Requisição no Client
 
 ```graphql
 {   
@@ -78,7 +80,7 @@ type Query {
 }
 ```
 
-###### **JSON retornado**
+###### JSON retornado
 
 ```json
 {   
@@ -93,12 +95,12 @@ type Query {
 }
 ```
 
-###### **MUTATIONS**
+##### **MUTATIONS**
 
 As Mutations nos permitem criar, alterar e deletar dados (analogia ao **POST**, **PUT** e **DELETE** do REST)\
 Obs: campos resolvidos em série (um após o outro)
 
-**Definição da Mutation**
+###### Definição da Mutation
 
 ```graphql
 type Mutation {   
@@ -106,7 +108,7 @@ type Mutation {
 }
 ```
 
-**Requisição no Client**
+###### Requisição no Client
 
 ```graphql
 {   
@@ -121,7 +123,7 @@ type Mutation {
 }
 ```
 
-**JSON retornado**
+###### JSON retornado
 
 ```json
 {
@@ -133,11 +135,11 @@ type Mutation {
 }
 ```
 
-###### **SCHEMA**
+##### **SCHEMA**
 
 O Schema engloba nossas **Queries**, **Mutations**, **Subscriptions**, **Directives**, etc
 
-**Definição do Schema**
+###### **Definição do Schema**
 
 ```graphql
 type Schema {
@@ -148,13 +150,13 @@ type Schema {
 
 #### **Como funciona a execução do GraphQL**
 
-###### RESOLVERS
+##### RESOLVERS
 
 O front-end envia a *consulta* ou *mutação* para a sua API que realiza a consulta no **schema** contendo as **querys** e **mutations**. 
 
 Cada campo no GraphQL possui uma função "**Resolver**". Ele é um método utilizado para implementar uma logica e retornar a informação que aquele campo especifico espera. Portanto, tendo o conhecimento do que foi solicitado, os **resolvers** são requeridos para resolver e encontrar os dados. 
 
-**Query para buscar pelo id**
+###### **Query para buscar pelo id**
 
 ```graphql
 type Query {
@@ -162,7 +164,7 @@ type Query {
 }
 ```
 
-***Resolver* assíncrono para query "user"**
+###### ***Resolver* assíncrono para query "user"**
 
 ```graphql
 Query {
@@ -179,11 +181,11 @@ Query {
 * **Context**:  geralmente coloca nele alguns objetos que será preciso utilizar por toda aplicação. *ex: instância aberta do banco de dados, guardar informações do usuario logado na aplicação, etc*
 * **Info**: traz algumas informações sobre a Query que estamos executando e que recebemos da aplicação client, ele guarda os campos que estão sendo requisitado na query
 
-###### TRIVIAL RESOLVERS
+##### **TRIVIAL RESOLVERS**
 
 Agora que temos o objeto User disponivel, precisamos resolver seus campos também. (no exemplo anterior, foi retornado na query o objeto User)
 
-**User**
+###### **User**
 
 ```graphql
 type User {
@@ -193,7 +195,7 @@ type User {
 }
 ```
 
-***Resolvers* dos campos do objeto "User"**
+###### ***Resolvers* dos campos do objeto "User"**
 
 ```graphql
 User {
@@ -211,7 +213,7 @@ User {
 
 Os campos do graphql eles só terminam de ser resolvidos quando um valor escalar é retornado.
 
-###### SCALAR TYPES (tipos primitivos de uma linguagem de programação)
+##### **SCALAR TYPES (tipos primitivos de uma linguagem de programação)**
 
 Um objeto GraphQL possui um nome e seus campos, mas em algum momento esses campos precisam ser resolvidos com valores concretos. É aí que entram os "tipos escalares": eles representam as folhas da árvore.
 
@@ -235,8 +237,8 @@ type Post {
 }
 ```
 
-###### Como funciona uma requisição a uma API Graphql
+##### Como funciona uma requisição a uma API Graphql
 
 Suponha que temos a nossa aplicação Client e o nosso servidor com o banco de dados. O Graphql é o intermediário, o ponto de entrada da nossa api, e a gente faz uma requisição pra lá fazendo uma query.
 
-![Como funciona uma requisição a uma API Graphql](assets/img/graphqqqltransparent.png "Como funciona uma requisição a uma API Graphql")
+![Como funciona uma requisição a uma API Graphql](assets/img/allonsmandygraphql.png "Como funciona uma requisição a uma API Graphql")
