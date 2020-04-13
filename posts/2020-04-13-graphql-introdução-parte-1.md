@@ -26,7 +26,7 @@ Não está vinculado a qualquer banco de dados ou sistema de armazenamento espec
 
 ###### TYPE SYSTEM
 
-O GraphQL tem seu proprio sistema de tipos para que possamos "descrever" dados para nossa API.
+O GraphQL tem seu proprio sistema de tipos para que possamos "descrever" dados para nossa API. Não seria mais necessário identificar nossos recursos por URL's.
 
 ```graphql
 type User {
@@ -78,7 +78,7 @@ type Query {
 }
 ```
 
-###### **JSON retornado** 
+###### **JSON retornado**
 
 ```json
 {   
@@ -150,7 +150,9 @@ type Schema {
 
 ###### RESOLVERS
 
-Cada campo no GraphQL possui uma função "Resolver". Ele é um método utilizado para implementar uma logica e retornar a informação que aquele campo especifico espera.
+O front-end envia a *consulta* ou *mutação* para a sua API que realiza a consulta no **schema** contendo as **querys** e **mutations**. 
+
+Cada campo no GraphQL possui uma função "**Resolver**". Ele é um método utilizado para implementar uma logica e retornar a informação que aquele campo especifico espera. Portanto, tendo o conhecimento do que foi solicitado, os **resolvers** são requeridos para resolver e encontrar os dados. 
 
 **Query para buscar pelo id**
 
@@ -170,12 +172,12 @@ Query {
 }
 ```
 
-* Parametros
+###### Parametros
 
-  * **Parent**: objeto pai do campo, neste caso é o user
-  * **Args**: argumentos que vai passando para esta query, nesta situação ele vai ter o atributo id 
-  * **Context**:  geralmente coloca nele alguns objetos que será preciso utilizar por toda aplicação. *ex: instância aberta do banco de dados, guardar informações do usuario logado na aplicação, etc*
-  * **Info**: traz algumas informações sobre a Query que estamos executando e que recebemos da aplicação client, ele guarda os campos que estão sendo requisitado na query
+* **Parent**: objeto pai do campo, neste caso é o user
+* **Args**: argumentos que vai passando para esta query, nesta situação ele vai ter o atributo id 
+* **Context**:  geralmente coloca nele alguns objetos que será preciso utilizar por toda aplicação. *ex: instância aberta do banco de dados, guardar informações do usuario logado na aplicação, etc*
+* **Info**: traz algumas informações sobre a Query que estamos executando e que recebemos da aplicação client, ele guarda os campos que estão sendo requisitado na query
 
 ###### TRIVIAL RESOLVERS
 
@@ -233,6 +235,8 @@ type Post {
 }
 ```
 
-Como funciona uma requisição a uma API Graphql
+###### Como funciona uma requisição a uma API Graphql
 
-Suponha que temos a nossa aplicação Client e o nosso servidor com o bando de dados. O Graphql é o intermediário, o ponto de entrada da nossa api, e a gente faz uma requisição pra lá fazendo uma query.
+Suponha que temos a nossa aplicação Client e o nosso servidor com o banco de dados. O Graphql é o intermediário, o ponto de entrada da nossa api, e a gente faz uma requisição pra lá fazendo uma query.
+
+![Como funciona uma requisição a uma API Graphql](assets/img/graphqqqltransparent.png "Como funciona uma requisição a uma API Graphql")
