@@ -6,11 +6,7 @@ image: assets/img/GraphQL_Logo.svg.png
 category: GraphQL
 background: '#e663ab'
 ---
-
-
-
-
-#### O que é o Graphql?
+#### **O que é o Graphql?**
 
 É uma **linguagem de consulta a dados em API's** desenvolvida pelo Facebook. As consultas são interpretadas em tempo de execução no servidor usando um sistema de tipos que você define para seus dados.
 
@@ -20,61 +16,59 @@ Não está vinculado a qualquer banco de dados ou sistema de armazenamento espec
 
 #### **Conceitos básicos**
 
-Type system: sistema de tipos que usamos para descrever nossos dados
+**TYPE SYSTEM**: sistema de tipos que usamos para descrever nossos dados
 
-Queries: obtém dados da nossa API (read)
+**QUERIES**: obtém dados da nossa API (read)
 
-Mutations: faz alterações nos dados da nossa API (write)
+**MUTATIONS**: faz alterações nos dados da nossa API (write)
 
-Schema: define o "Esquema" da nossa API, pense nele como um container para todos os tipos da nossa API.
-
-
+**SCHEMA**: define o "Esquema" da nossa API, pense nele como um container para todos os tipos da nossa API.
 
 ###### TYPE SYSTEM
 
 O GraphQL tem seu proprio sistema de tipos para que possamos "descrever" dados para nossa API.
 
-1.   ```scheme
-   type User {
-     name: String!
-     email: String!
-     photo: String
-   }
+```graphql
+type User {
+  name: String!
+  email: String!
+  photo: String
+}
 
-   type Post {
-     title: String!
-     content: String!
-     photo: String!
-     author: User!
-     comments: [Comment!]!
-   }
+type Post {      
+  title: String!
+  content: String!
+  photo: String!
+  author: User!
+  comments: [Comment!]!    
+}
 
-   type Comment {
-     comment: String!
-     user: User!
-     post: Post!
-   }
-   ```
-
-   Quando utilizados exclamação, significa que este campo é obrigatório!
-
-###### QUERIES
-
-Queries são o que usamos para buscar dados na nossa API. (analogia ao método **GET** do REST)\
-Obs: campos resolvidos paralelamente
-
-**Definição da Query**
-
-```
-type Query {
-  users: [User!]!
+type Comment {      
+  comment: String!
+  user: User!
+  post: Post!
 }
 ```
 
-**Requisição no Client**
+Quando utilizados exclamação, significa que este campo é obrigatório!
 
+###### **QUERIES**
+
+Queries são o que usamos para buscar dados na nossa API. (analogia ao método **GET** do REST)\
+Obs: os campos são resolvidos paralelamente
+
+**Definição da Query**
+
+```graphql
+type Query {   
+  users: [User!]! 
+}
 ```
-{
+
+###### **Requisição no Client**
+
+```graphql
+{   
   query {
     users {
       name
@@ -84,38 +78,38 @@ type Query {
 }
 ```
 
-**JSON retornado** 
+###### **JSON retornado** 
 
-```
-{
+```json
+{   
   "data": {
-    "users": [
+    "users": [       
       {
-        "name": "Jon",
-        "email": "jon@email.com"
+        "name": "Mandinha",
+        "email": "mandinha@email.com"
       }
-    ]
+    ]   
   }
 }
 ```
 
-###### MUTATIONS
+###### **MUTATIONS**
 
 As Mutations nos permitem criar, alterar e deletar dados (analogia ao **POST**, **PUT** e **DELETE** do REST)\
 Obs: campos resolvidos em série (um após o outro)
 
 **Definição da Mutation**
 
-```
-type Mutation {
+```graphql
+type Mutation {   
   createUser(name: String!, email: String!): User!
 }
 ```
 
 **Requisição no Client**
 
-```
-{
+```graphql
+{   
   mutation {
     createUser (
       name: "Mandy",
@@ -141,18 +135,18 @@ type Mutation {
 
 ###### **SCHEMA**
 
-O Schema engloba nossas Queries, Mutations, Subscriptions, Directives, etc
+O Schema engloba nossas **Queries**, **Mutations**, **Subscriptions**, **Directives**, etc
 
 **Definição do Schema**
 
-```
+```graphql
 type Schema {
   query: Query,
   mutation: Mutation
 }
 ```
 
-Como funciona a execução do GraphQL
+#### **Como funciona a execução do GraphQL**
 
 ###### RESOLVERS
 
@@ -160,7 +154,7 @@ Cada campo no GraphQL possui uma função "Resolver". Ele é um método utilizad
 
 **Query para buscar pelo id**
 
-```
+```graphql
 type Query {
   user(id: ID!): User
 }
@@ -168,7 +162,7 @@ type Query {
 
 ***Resolver* assíncrono para query "user"**
 
-```
+```graphql
 Query {
   user (parent, args, context, info) {
     return context.db.UserModel.findById(args.id)
@@ -189,7 +183,7 @@ Agora que temos o objeto User disponivel, precisamos resolver seus campos també
 
 **User**
 
-```
+```graphql
 type User {
   name: String!
   email: String!
@@ -199,7 +193,7 @@ type User {
 
 ***Resolvers* dos campos do objeto "User"**
 
-```
+```graphql
 User {
   name (parent, args, context, info) {
     return parent.name;
@@ -229,7 +223,7 @@ Um objeto GraphQL possui um nome e seus campos, mas em algum momento esses campo
 
 A forma como os campos são resolvidos no GraphQL, é bem semelhante a estrutura de dados do tipo árvore:
 
-```
+```graphql
 type Post {
   title: String!
   content: String!
