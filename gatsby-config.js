@@ -34,7 +34,28 @@ module.exports = {
         path: `${__dirname}/posts`,
       },
     },
-  `gatsby-remark-prismjs`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-relative-images",
+            options: {
+              name: "uploads",
+            },
+          },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 960,
+              linkImagesToOriginal: false,
+              disabledBgImage: true
+            },
+          },
+          `gatsby-remark-prismjs`,
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
