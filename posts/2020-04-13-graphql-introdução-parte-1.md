@@ -240,3 +240,5 @@ type Post {
 ##### Como funciona uma requisição a uma API Graphql
 
 Suponha que temos a nossa aplicação Client e o nosso servidor com o banco de dados. O Graphql é o intermediário, o ponto de entrada da nossa api, e a gente faz uma requisição pra lá fazendo uma query.
+
+![](assets/img/allonsmandygraphql.png)
