@@ -197,7 +197,7 @@ type User {
 
 ###### ***Resolvers* dos campos do objeto "User"**
 
-```graphql
+```js
 User {
   name (parent, args, context, info) {
     return parent.name;
@@ -240,5 +240,3 @@ type Post {
 ##### Como funciona uma requisição a uma API Graphql
 
 Suponha que temos a nossa aplicação Client e o nosso servidor com o banco de dados. O Graphql é o intermediário, o ponto de entrada da nossa api, e a gente faz uma requisição pra lá fazendo uma query.
-
-![Como funciona uma requisição a uma API Graphql](assets/img/allonsmandygraphql.png "Como funciona uma requisição a uma API Graphql")
