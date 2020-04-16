@@ -74,25 +74,8 @@ const AboutPage = () => (
         <span>Nodejs Básico</span>
       </S.AboutSkillsListItem>
     </S.AboutSkillsList>
-
-    <S.AboutSubtitle>
-      Interesses/Aprendendo
-    </S.AboutSubtitle>
-    <S.AboutSkillsList>
-      <S.AboutSkillsListItem>
-        <span>Devops</span>
-      </S.AboutSkillsListItem>
-      <S.AboutSkillsListItem>
-        <span>Python</span>
-      </S.AboutSkillsListItem>
-      <S.AboutSkillsListItem>
-        <span>Graphql</span>
-      </S.AboutSkillsListItem>
-      <S.AboutSkillsListItem>
-        <span>React Native</span>
-      </S.AboutSkillsListItem>
-    </S.AboutSkillsList>
     </div>
+
 
 <S.Timeline>
   <S.Entry>

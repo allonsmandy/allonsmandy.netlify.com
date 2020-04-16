@@ -88,8 +88,8 @@ export const AboutSubtitle = styled.strong`
   &:after {
     content: "";
     display: block;
-    margin: 0.6rem auto;
-    width: 100px;
+    margin: 0.3rem auto;
+    width: 15px;
     height: 2px;
     background: var(--algo);
   }

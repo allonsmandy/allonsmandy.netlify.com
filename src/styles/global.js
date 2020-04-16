@@ -43,22 +43,22 @@ const GlobalStyles = createGlobalStyle`
   }
 
   blockquote {
-    border-left: 0.1rem double var(--mediumBackground);
-    padding: 0 0.875rem .3rem;
-    margin: 3.125rem auto;
+    margin: 2.125rem auto;
     transition: border-left 0.5s;
     background-color: var(--texts);
+    padding: 0.2rem;
 
     > p {
       color: var(--mediumBackground) !important;
       font-family: monospace;
-      font-size: 1rem;
-      line-height: 1.4;
+      font-size: 1rem !important;
+      position: relative;
+      top: 6px;
     }
+  }
 
-    &:hover {
-      border-left: 0.4rem double var(--algo);
-    }
+  pre[class*="language-"] {
+    margin: .5em -2px !important;
   }
 
   table {
@@ -88,6 +88,7 @@ const GlobalStyles = createGlobalStyle`
     padding-left: 2.5rem;
     list-style: disc;
     margin: 0 auto 1.2rem;
+    line-height: 1.4;
   }
 
   li {
@@ -118,6 +119,13 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto 1rem;
     letter-spacing: 2px;
     font-family: sans-serif;
+  }
+
+  h6 {
+    font-weight: bold;
+    color: var(--maiscor);
+    padding: 0 1.4rem;
+    text-transform: uppercase;
   }
 
   h1 {
@@ -189,14 +197,14 @@ const GlobalStyles = createGlobalStyle`
     --borders: #d0ceb8;
     --postColor: #222;
     --code: black;
-    --texts: #b14279;
+    --texts: #b78f6b;
     --highlight: #043838aa;
     --mediumBackground: #e6e4da;
     --background: #e8e7db;
     --secondary: #af6774;
     --outracor: #cab5ba47;
     --post: #bf527dcf;
-    --maiscor: #797979;
+    --maiscor: #d45175;
     --algo: brown;
 
     --filter: opacity(70%);

@@ -123,7 +123,6 @@ export const MainContent = styled.section`
   h1,
   h2,
   h3,
-  h4,
   h5 {
     color: var(--texts);
 
@@ -132,6 +131,11 @@ export const MainContent = styled.section`
       display: inline-block;
       margin-right: 1rem;
     }
+  }
+
+  h4 {
+    color: var(--texts);
+    text-align: center;
   }
 
   .gatsby-resp-image-background-image {
