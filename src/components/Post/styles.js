@@ -138,11 +138,6 @@ export const MainContent = styled.section`
     text-align: center;
   }
 
-  .gatsby-resp-image-background-image {
-    z-index: 2;
-    opacity: 1 !important;
-  }
-
   .gatsby-resp-image-image {
     box-shadow: none !important;
     transition: opacity 0.2s;
