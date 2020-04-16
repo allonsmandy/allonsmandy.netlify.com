@@ -4,5 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-import "lazysizes"
 require("prismjs/themes/prism-tomorrow.css")
