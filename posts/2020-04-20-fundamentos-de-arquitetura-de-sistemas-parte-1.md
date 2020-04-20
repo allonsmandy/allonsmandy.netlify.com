@@ -59,9 +59,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 \`\``json
 
-{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha", 		"cidade": "Nárnia",
-		"numero": 22
-	}
+{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha", 		"cidade": "Nárnia", 		"numero": 22 	}
 }
 
 \`\``
@@ -104,8 +102,26 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então sempre que enviar uma mensagem xml, essa mensagem vai seguir esta estrutura.
 
-
-
 * O **SOAP Envelop**e é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
 * O **SOAP Header** é o elemento onde possui informações de atributos e metadados da requisição
 * O **SOAP Body** é o elemento que contém os detalhes da mensagem
+
+###### Exemplo de mensagem SOAP
+
+\`\``
+
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	\
+        <soap:Header> </soap:Header>
+	<soap:Body>
+		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco">
+			<m:Bairro>Teixeirinha</m:Bairro>
+			<m:Cidade>Nárnia</m:Cidade>
+			<m:CEP>9999-99</m:CEP>
+			<m:Numero>22</m:Numero>
+		</m:Endereco>
+	</soap:Body>
+</soap:Envelope>
+
+\`\``
+
+Observe que há o elemento Envelope que encapsula os outros elementos, em seguida temos o elemento Header que neste caso não possui nada, depois temos o Body com o MetodoEndereço e dentro dele tem os atributos que estão sendo enviados para ele.
