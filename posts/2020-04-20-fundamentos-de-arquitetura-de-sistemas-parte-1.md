@@ -8,7 +8,7 @@ background: '#88c18c'
 ---
 Irei documentando aqui todo o meu aprendizado da disciplina de **Fundamentos de Arquiterura de Sistemas**, do bootcamp **Code Like a Fullstack Girl**. Espero que estes conteúdos possam ajudar outras pessoas também :)
 
-Os posts ficará dividido em:
+Os posts ficarão divididos em:
 
 * Vantagens e desenvolvimento de Web Services
 * Conceitos de arquitetura em aplicações para Internet
@@ -17,7 +17,7 @@ Os posts ficará dividido em:
 
 Vamos iniciar o assunto do primeiro tópico :)
 
-#### Vantagens e desenvolvimento de Web Services
+### Vantagens e desenvolvimento de Web Services
 
 ###### O que são Web Services?
 
@@ -29,7 +29,8 @@ Podemos dizer que Serviços Web são API's que se comunicam por meio de redes so
 
 ![Exemplificando](assets/img/unnamed.png "Exemplificando")
 
-Uma aplicacao x que ela tem um banco de dados, e ai temos outra aplicaçao a Y que acessa seu banco de dados, e essas aplicaçoes preicsam se comunicar, só que essas aplicaçoes sao de empresas diferentes, em redes diferentes, bandos de dados diferentes, linguagens diferentes, como elas podem se comunicar nesse cenesarui?
+Observe a imagem acima.\
+Uma **aplicação x** possui um banco de dados pertencente a ela mesma chamado **database x**, e a **aplicaçao Y** também possui seu próprio banco chamado **database x**. Essas aplicações precisam se comunicar, só que essas aplicaçoes sao de empresas diferentes, em redes diferentes, bandos de dados diferentes, linguagens diferentes, como elas podem se comunicar nesse cenário?
 
 o web service ele vai ter acesso ao  banco de dados, a diferença é que ele vai expor uma uri para que a aplicaçao x consiga fazer o acesso, entao ao inves dela ir direto ao banco ela vai ao web service, e o web service vai fazer troca de mensagem com a aplicaçao y, seja com json, xml, graphql, etc
 
