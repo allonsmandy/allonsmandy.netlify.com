@@ -59,8 +59,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 \`\``json
 
-{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha", 		"cidade": "Nárnia", 		"numero": 22 	}
-}
+{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha", 		"cidade": "Nárnia", 		"numero": 22 	} }
 
 \`\``
 
@@ -111,8 +110,8 @@ O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então 
 \`\``
 
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	\
-        <soap:Header> </soap:Header>
-	<soap:Body>
+        <soap:Header> </soap:Header> 	\
+         <soap:Body>
 		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco">
 			<m:Bairro>Teixeirinha</m:Bairro>
 			<m:Cidade>Nárnia</m:Cidade>
@@ -125,3 +124,13 @@ O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então 
 \`\``
 
 Observe que há o elemento Envelope que encapsula os outros elementos, em seguida temos o elemento Header que neste caso não possui nada, depois temos o Body com o MetodoEndereço e dentro dele tem os atributos que estão sendo enviados para ele.
+
+##### Entendendo o que é WSDL e XSD
+
+###### O que é WSDL? (Web Services Description Language)
+
+O WSDL é usado para descrever Web Services, funciona como um contrato do serviço. A descrição é feita em um documento XML, onde é descrito o serviço, especificações de acesso, operações e métodos.
+
+###### O que é XSD? (XML Schema Definition)
+
+É um Schema no formato XML usado para definir a estrutura de dados que será validada no XML. O XSD funciona como uma documentação de como deve ser montado o SOAP Message (XML) que será enviado através de Web Service.
