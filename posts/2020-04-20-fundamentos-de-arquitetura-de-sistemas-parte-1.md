@@ -32,11 +32,11 @@ Podemos dizer que Serviços Web são API's que se comunicam por meio de redes so
 Observe a imagem acima.\
 Uma **aplicação x** possui um banco de dados pertencente a ela mesma chamado **database x**, e a **aplicaçao Y** também possui seu próprio banco chamado **database x**. Essas aplicações precisam se comunicar, só que elas sao de empresas diferentes, estão em redes diferentes, possuem banco de dados diferentes, linguagens diferentes, como elas podem se comunicar nesse cenário? A **aplicação y** precisa de uma informação do **database x**, porém, como tudo é diferente, como que ela vai acessar?
 
-O **Web Service** vai ter acesso ao banco de dados, a diferença é que ele vai expor uma **uri** para que a **aplicaçao y** consiga fazer o acesso, entao ao inves dela ir direto ao banco ela vai ao web service, e o web service vai fazer troca de mensagem com a aplicaçao y, seja com json, xml, graphql, etc
+O **Web Service** vai ter acesso ao banco de dados, a diferença é que ele vai expor uma **uri** para que a **aplicaçao y** consiga fazer o acesso, então ao invés dela ir direto ao **database x**,ela vai ao web service, e o web service vai fazer uma troca de mensagem com a **aplicação y**, seja com json, xml, graphql, etc
 
-essa linguagem de marcaçao é meio que universal, entao voce pode escrever um web service em python e ter a aplicaçao em java que ela vai saber se comunicar.
+Essa linguagem de marcação utilizada é meio que universal, então você pode escrever um web service em python e ter a aplicaçao em java que ela vai conseguir se comunicar, e se caso a aplicação mude de linguagem, o serviço continua exposto pela web e a linguagem para trocar essa mensagem continua sendo a mesma.
 
-toda essa comunicao é pelo protocolo http e por uma uri 
+Toda essa comunicação é pelo protocolo http e por uma uri, que neste caso é http://webservice.com/dados/
 
 entao a aplicaçao Y vai fazer uma requisiçao http pro web service, o web service vai pegar essa requiçao, ele vai no bd faz a consulta e deve para a aplicaçao y.
 
