@@ -59,8 +59,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 \`\``json
 
-{ 	"endereco": {
-		"cep":"9999-99",
+{ 	"endereco": { 		"cep":"9999-99",
 		"bairro": "Teixeirinha",
 		"cidade": "Nárnia",
 		"numero": 22
@@ -87,24 +86,23 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 ##### ESTRUTURA SOAP (Simple object Access Protocol)
 
 * É um protocolo baseado em XML para acessar serviços web principalmente por HTTP
-* Pode-se dizer que soap é uma definiçao de como serviços web se comunicam
+* Pode-se dizer que soap é uma definição de como serviços web se comunicam
 * Foi desenvolvido para facilitar integrações entre aplicações
 
 ###### VANTAGENS
 
-* Permite integraçoes entre aplicaçoes, independente de linguagem, pois usa como linguagem comum o XML
+* Permite integrações entre aplicações, independente de linguagem, pois usa como linguagem comum o XML
 * É independente de plataforma e software
-* Meio de transporte generico, ou seja, pode ser usado por outros protocolos além do http
+* Meio de transporte genérico, ou seja, pode ser usado por outros protocolos além do http
 
 ##### XML (Extensible markup language)
 
-É uma linguagem de marcaçao criada na decada de 90 pela w3c
+* É uma linguagem de marcação criada na década de 90 pela w3c
+* Facilita a separação de conteúdo, já que ele possui tags e através delas você consegue separar bem o que você ta enviando de mensagem
+* Não tem limitação de criação de tags, ou seja, você consegue mandar muitos atributos
+* Linguagem comum para integrações entre aplicações, então fica muito facil interagir com as aplicaçoes utilizando xml, é uma linguagem simples de manipular
 
-facilita a separaçao de conteudo, ja que ele possui tags, e atraves delas voce consegue seprar bem o que voce ta enviando de mensagem
 
-nao tem limitaçao de criaçao de tags, ou seja, voce consegue mandar muitos atributos
-
-linguagem comum para integrações entre aplicações, entao fica muito facil interagir com as aplicaçoes utilizando xml, é uma linguagem simples de manipular
 
 O soap message possui uma estrutura unica que deve sempre ser segyuda
 
