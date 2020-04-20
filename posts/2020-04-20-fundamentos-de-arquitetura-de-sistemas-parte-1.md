@@ -111,8 +111,7 @@ O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então 
 
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	\
         <soap:Header> </soap:Header> 	\
-         <soap:Body>
-		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco">
+         <soap:Body> 		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco">
 			<m:Bairro>Teixeirinha</m:Bairro>
 			<m:Cidade>Nárnia</m:Cidade>
 			<m:CEP>9999-99</m:CEP>
@@ -134,3 +133,22 @@ O WSDL é usado para descrever Web Services, funciona como um contrato do servi�
 ###### O que é XSD? (XML Schema Definition)
 
 É um Schema no formato XML usado para definir a estrutura de dados que será validada no XML. O XSD funciona como uma documentação de como deve ser montado o SOAP Message (XML) que será enviado através de Web Service.
+
+**Acesse o seguinte web service público -> <http://soapclient.com/xml/soapresponder.wsdl>**
+
+Note que na uri há um **.wsdl**, ele que traz os recursos do contrato deste serviço. Também é comum que você veja ?wsdl :)
+
+Todo o código que aparece nesta página é o nosso wsdl. Primeiramente temos o definition, depois temos message com o Method1, este é o único método que se tem dentro deste serviço, e abaixo é o response que ele retorna. Descendo mais um pouco, você vai ver o binding, ele vai dizer as operações que tem, e se você quiser ver os detalhes da operação você ver em message, observe que ele possui dois atributos, bstrParam1 e bstrParam2, mais embaixo tem o atributo que vai ser retornado, no caso o bstrReturn.
+
+Você tem também o xsd ainda no campo de message, em type:
+
+\`\``
+
+<message name="Method1">
+<part name="bstrParam1" type="xsd:string"/>
+<part name="bstrParam2" type="xsd:string"/>
+</message>
+
+\`\``
+
+Você sabe com isso que deve ser passado uma string nesses parametros!
