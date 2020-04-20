@@ -59,8 +59,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 \`\``json
 
-{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha",
-		"cidade": "Nárnia",
+{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha", 		"cidade": "Nárnia",
 		"numero": 22
 	}
 }
@@ -101,12 +100,12 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 * Não tem limitação de criação de tags, ou seja, você consegue mandar muitos atributos bem separados e organizados
 * Linguagem comum para integrações entre aplicações, então fica muito facil interagir com as aplicaçoes utilizando xml, é uma linguagem simples de manipular, de se utilizar e entender.
 
+![SOAP](assets/img/soap estrutureunnamed.png "SOAP")
+
+O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então sempre que enviar uma mensagem xml, essa mensagem vai seguir esta estrutura.
 
 
-O soap message possui uma estrutura unica que deve sempre ser segyuda
 
-o soap envelope é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
-
-O SOAP HEADER é o elemento onde possui informações de atributos e metadados da requisiçao
-
-o soap body é o elemento que contém os detalhes da mensagem
+* O **SOAP Envelop**e é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
+* O **SOAP Header** é o elemento onde possui informações de atributos e metadados da requisição
+* O **SOAP Body** é o elemento que contém os detalhes da mensagem
