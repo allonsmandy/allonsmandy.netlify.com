@@ -1,20 +1,33 @@
 ---
 title: Fundamentos de Arquitetura de Sistemas - Parte 1
-description: vantagens e desenvolvimento de web services
+description: Vantagens e desenvolvimento de web services
 date: '2020-04-20 08:09:30'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
 background: '#88c18c'
 ---
+Irei documentando aqui todo o meu aprendizado da disciplina de **Fundamentos de Arquiterura de Sistemas**, do bootcamp **Code Like a Fullstack Girl**. Espero que estes conteúdos possam ajudar outras pessoas também :)
+
+Os posts ficará dividido em:
+
+* Vantagens e desenvolvimento de Web Services
+* Conceitos de arquitetura em aplicações para Internet
+* A arquitetura de aplicações móveis e internet das coisas
+* Conceitos de responsividade e experiência do usuário
+
+Vamos iniciar o assunto do primeiro tópico :)
+
 #### Vantagens e desenvolvimento de Web Services
 
-O que são Web Services?
+###### O que são Web Services?
 
-Serviços Web ou Web Services são soluções para aplicações se comunicarem independente de linguagem, softwares e hardwares utilizados.
+**Serviços Web** ou **Web Services** são soluções para aplicações se comunicarem independente de linguagem, softwares e hardwares utilizados.
 
-Inicialmente Services Web foram criados para troca de mensagens utilizando a linguagem XML (Extensible Markup Language) sobre o protocolo HTTP sendo identificado por URI (Uniform Resource Identifier)
+Inicialmente **Services Web** foram criados para troca de mensagens utilizando a linguagem **XML** sobre o protocolo HTTP sendo identificado por **URI** (Uniform Resource Identifier)
 
-Podemos dizer que Serviços Web são API's que se comunicam por meio de redes sobre o protocolo HTTP
+Podemos dizer que Serviços Web são API's que se comunicam por meio de redes sobre o protocolo HTTP.
+
+![Exemplificando](assets/img/unnamed.png "Exemplificando")
 
 Uma aplicacao x que ela tem um banco de dados, e ai temos outra aplicaçao a Y que acessa seu banco de dados, e essas aplicaçoes preicsam se comunicar, só que essas aplicaçoes sao de empresas diferentes, em redes diferentes, bandos de dados diferentes, linguagens diferentes, como elas podem se comunicar nesse cenesarui?
 
@@ -28,13 +41,7 @@ entao a aplicaçao Y vai fazer uma requisiçao http pro web service, o web servi
 
 aentao temos uma integraçao universal, qualquer aplicacao pode integrar, melhora a segurança pois o banco de dados está guardado lá, e tem velocidade nas integraçoes!
 
-
-
 a aplicaçao y quer retorna um endereço
-
-
-
-
 
 vantagens
 
@@ -76,8 +83,6 @@ Permite integraçoes entre aplicaçoes, independente de linguagem, pois usa como
 
 Meio de transporte generico, ou seja, pode ser usado por outros protocolos além do http
 
-
-
 XML - Extensible markup language
 
 É uma linguagem de marcaçao criada na decada de 90 pela w3c
@@ -88,11 +93,7 @@ nao tem limitaçao de criaçao de tags, ou seja, voce consegue mandar muitos atr
 
 linguagem comum para integrações entre aplicações, entao fica muito facil interagir com as aplicaçoes utilizando xml, é uma linguagem simples de manipular
 
-
-
 O soap message possui uma estrutura unica que deve sempre ser segyuda
-
-
 
 o soap envelope é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
 
