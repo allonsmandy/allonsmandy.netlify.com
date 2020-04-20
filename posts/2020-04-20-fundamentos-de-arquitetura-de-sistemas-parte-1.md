@@ -36,13 +36,38 @@ O **Web Service** vai ter acesso ao banco de dados, a diferença é que ele vai 
 
 Essa linguagem de marcação utilizada é meio que universal, então você pode escrever um web service em python e ter a aplicaçao em java que ela vai conseguir se comunicar, e se caso a aplicação mude de linguagem, o serviço continua exposto pela web e a linguagem para trocar essa mensagem continua sendo a mesma.
 
-Toda essa comunicação é pelo protocolo http e por uma uri, que neste caso é http://webservice.com/dados/
+Toda essa comunicação é pelo protocolo http e por uma uri, que neste caso é *http://webservice.com/dados/*
 
-entao a aplicaçao Y vai fazer uma requisiçao http pro web service, o web service vai pegar essa requiçao, ele vai no bd faz a consulta e deve para a aplicaçao y.
+Então a **aplicação y** vai fazer uma requisição http para o web service, o web service vai pegar essa requisição, ele vai no **database x**, faz a consulta e devolve para a **aplicação y**.
 
-aentao temos uma integraçao universal, qualquer aplicacao pode integrar, melhora a segurança pois o banco de dados está guardado lá, e tem velocidade nas integraçoes!
+Portanto, teremos uma integração universal, pois qualquer aplicação pode integrar, além de melhorar a segurança pois o banco de dados está guardado, então só o servidor que pode acessar e quem quiser acessar precisa passar por ele, assim como também tem velocidade nas integrações!
 
-a aplicaçao y quer retorna um endereço
+###### Exemplo de arquivo XML
+
+\`\``xml
+
+<endereco>
+	<cep>999-999</cep>
+	<bairro>Teixeirinha</bairro>
+	<cidade>Nárnia</cidade>
+	<numero>22</numero>
+</endereco>
+
+\`\``
+
+###### Exemplo de arquivo JSON
+
+\`\``json
+
+{ 	"endereco": {
+		"cep":"9999-99",
+		"bairro": "Teixeirinha",
+		"cidade": "Nárnia",
+		"numero": 22
+	}
+}
+
+\`\``
 
 vantagens
 
