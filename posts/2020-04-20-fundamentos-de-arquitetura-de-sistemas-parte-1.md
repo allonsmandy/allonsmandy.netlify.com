@@ -59,8 +59,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 \`\``json
 
-{ 	"endereco": { 		"cep":"9999-99",
-		"bairro": "Teixeirinha",
+{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha",
 		"cidade": "Nárnia",
 		"numero": 22
 	}
@@ -99,8 +98,8 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 * É uma linguagem de marcação criada na década de 90 pela w3c
 * Facilita a separação de conteúdo, já que ele possui tags e através delas você consegue separar bem o que você ta enviando de mensagem
-* Não tem limitação de criação de tags, ou seja, você consegue mandar muitos atributos
-* Linguagem comum para integrações entre aplicações, então fica muito facil interagir com as aplicaçoes utilizando xml, é uma linguagem simples de manipular
+* Não tem limitação de criação de tags, ou seja, você consegue mandar muitos atributos bem separados e organizados
+* Linguagem comum para integrações entre aplicações, então fica muito facil interagir com as aplicaçoes utilizando xml, é uma linguagem simples de manipular, de se utilizar e entender.
 
 
 
