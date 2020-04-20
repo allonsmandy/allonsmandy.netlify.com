@@ -30,9 +30,9 @@ Podemos dizer que Serviços Web são API's que se comunicam por meio de redes so
 ![Exemplificando](assets/img/unnamed.png "Exemplificando")
 
 Observe a imagem acima.\
-Uma **aplicação x** possui um banco de dados pertencente a ela mesma chamado **database x**, e a **aplicaçao Y** também possui seu próprio banco chamado **database x**. Essas aplicações precisam se comunicar, só que essas aplicaçoes sao de empresas diferentes, em redes diferentes, bandos de dados diferentes, linguagens diferentes, como elas podem se comunicar nesse cenário?
+Uma **aplicação x** possui um banco de dados pertencente a ela mesma chamado **database x**, e a **aplicaçao Y** também possui seu próprio banco chamado **database x**. Essas aplicações precisam se comunicar, só que elas sao de empresas diferentes, estão em redes diferentes, possuem banco de dados diferentes, linguagens diferentes, como elas podem se comunicar nesse cenário? A **aplicação y** precisa de uma informação do **database x**, porém, como tudo é diferente, como que ela vai acessar?
 
-o web service ele vai ter acesso ao  banco de dados, a diferença é que ele vai expor uma uri para que a aplicaçao x consiga fazer o acesso, entao ao inves dela ir direto ao banco ela vai ao web service, e o web service vai fazer troca de mensagem com a aplicaçao y, seja com json, xml, graphql, etc
+O **Web Service** vai ter acesso ao banco de dados, a diferença é que ele vai expor uma **uri** para que a **aplicaçao y** consiga fazer o acesso, entao ao inves dela ir direto ao banco ela vai ao web service, e o web service vai fazer troca de mensagem com a aplicaçao y, seja com json, xml, graphql, etc
 
 essa linguagem de marcaçao é meio que universal, entao voce pode escrever um web service em python e ter a aplicaçao em java que ela vai saber se comunicar.
 
