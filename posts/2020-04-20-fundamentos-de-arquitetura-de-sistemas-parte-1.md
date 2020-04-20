@@ -69,47 +69,34 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 \`\``
 
-vantagens
+#### Vantagens de utilizar Web Services
 
-linguagem comum 
+* Linguagem comum 
+* Integração facilitada
+* Reutilização de implementação, pois o retorno é sempre o mesmo então fica fácil de reutilizar
+* Melhora segurança
+* Custos
 
-integraçao
+###### Principais tecnologias
 
-reutilizaçao de implementaçao
+* Soap
+* Rest
+* xml
+* Json
 
-segurança
+##### ESTRUTURA SOAP (Simple object Access Protocol)
 
-custos
+* É um protocolo baseado em XML para acessar serviços web principalmente por HTTP
+* Pode-se dizer que soap é uma definiçao de como serviços web se comunicam
+* Foi desenvolvido para facilitar integrações entre aplicações
 
-principais tecnologias
+###### VANTAGENS
 
-soap
+* Permite integraçoes entre aplicaçoes, independente de linguagem, pois usa como linguagem comum o XML
+* É independente de plataforma e software
+* Meio de transporte generico, ou seja, pode ser usado por outros protocolos além do http
 
-rest
-
-xml
-
-json
-
-###### ESTRUTURA SOAP
-
-Soapo - Simple object Access Protocol
-
-É um protocolo baseado em XML para acessar serviços web principalmente por HTTP
-
-Pode-se dizer que soap é uma definiçao de como serviços web se comunicam
-
-Foi desenvolvido para facilitar integrações entre aplicações
-
-VANTAGENS
-
-Permite integraçoes entre aplicaçoes, independente de linguagem, pois usa como linguagem comum o XML
-
-É independente de plataforma e software
-
-Meio de transporte generico, ou seja, pode ser usado por outros protocolos além do http
-
-XML - Extensible markup language
+##### XML (Extensible markup language)
 
 É uma linguagem de marcaçao criada na decada de 90 pela w3c
 
