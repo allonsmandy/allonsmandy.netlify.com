@@ -111,8 +111,7 @@ O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então 
 
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	\
         <soap:Header> </soap:Header> 	\
-         <soap:Body> 		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco"> 			<m:Bairro>Teixeirinha</m:Bairro>
-			<m:Cidade>Nárnia</m:Cidade>
+         <soap:Body> 		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco"> 			<m:Bairro>Teixeirinha</m:Bairro> 			<m:Cidade>Nárnia</m:Cidade>
 			<m:CEP>9999-99</m:CEP>
 			<m:Numero>22</m:Numero>
 		</m:Endereco>
