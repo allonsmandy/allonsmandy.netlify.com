@@ -17,9 +17,9 @@ Os posts ficarão divididos em:
 
 Vamos iniciar o assunto do primeiro tópico :)
 
-### Vantagens e desenvolvimento de Web Services
+## Vantagens e desenvolvimento de Web Services
 
-###### O que são Web Services?
+#### O que são Web Services?
 
 **Serviços Web** ou **Web Services** são soluções para aplicações se comunicarem independente de linguagem, softwares e hardwares utilizados.
 
@@ -66,7 +66,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 }
 ```
 
-#### Vantagens de utilizar Web Services
+###### Vantagens de utilizar Web Services
 
 * Linguagem comum 
 * Integração facilitada
@@ -81,7 +81,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 * xml
 * Json
 
-##### ESTRUTURA SOAP (Simple object Access Protocol)
+## ESTRUTURA SOAP (Simple object Access Protocol)
 
 * É um protocolo baseado em XML para acessar serviços web principalmente por HTTP
 * Pode-se dizer que soap é uma definição de como serviços web se comunicam
@@ -127,13 +127,13 @@ O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então 
 
 Observe que há o elemento Envelope que encapsula os outros elementos, em seguida temos o elemento Header que neste caso não possui nada, depois temos o Body com o MetodoEndereço e dentro dele tem os atributos que estão sendo enviados para ele.
 
-##### Entendendo o que é WSDL e XSD
+### Entendendo o que é WSDL e XSD
 
-###### O que é WSDL? (Web Services Description Language)
+#### O que é WSDL? (Web Services Description Language)
 
 O WSDL é usado para descrever Web Services, funciona como um contrato do serviço. A descrição é feita em um documento XML, onde é descrito o serviço, especificações de acesso, operações e métodos.
 
-###### O que é XSD? (XML Schema Definition)
+#### O que é XSD? (XML Schema Definition)
 
 É um Schema no formato XML usado para definir a estrutura de dados que será validada no XML. O XSD funciona como uma documentação de como deve ser montado o SOAP Message (XML) que será enviado através de Web Service.
 
@@ -154,7 +154,7 @@ Você tem também o xsd ainda no campo de message, em type:
 
 Você sabe com isso que deve ser passado uma string nesses parametros!
 
-#### O que são REST, API e JSON?
+## O que são REST, API e JSON?
 
 ##### REST (Representational State Transfer)
 
@@ -176,7 +176,7 @@ Esse Client vai fazer uma requisição HTTP para o Servidor, e esse servidor vai
 
 > Quando uma aplicação web disponibiliza um conjunto de rotinas e padrões através de serviços web podemos chamar esse conjunto de API.
 
-##### API (Application Programming Interface)
+### API (Application Programming Interface)
 
 * São conjuntos de rotinas documentados e disponibilizados por uma aplicação para que outras aplicações possam consumir suas funcionalidades. 
 * Ficou popular com o aumento dos serviços web
@@ -189,7 +189,7 @@ Esse Client vai fazer uma requisição HTTP para o Servidor, e esse servidor vai
 * DELETE - Solicita a exclusão de um recurso
 * PUT - Solicita a atualização de um recurso
 
-#### JSON (JavaScript Object Notation)
+### JSON (JavaScript Object Notation)
 
 * Formatação leve utilizada para troca de mensagens entre sistemas
 * Usa-se de uma estrutura de chave e valor e também de listas ordenadas
@@ -217,7 +217,7 @@ Acima temos novamente um exemplo da estrutura JSON. Sempre inicia e termina com 
 
 Dentro da estrutura temos o *nome*, que é a chave, e o valor, que no caso é *Os Vingadores*. Em seguida temos o atributo *ano_lançamento* com seu valor *2019*. Veja que nos personagens há uma estrutura de lista, os personagens virou uma lista pois ele tem mais de um personagem.
 
-##### Integração com REST e métodos HTTP na prática
+
 
 ###### Código de estado
 
@@ -228,3 +228,5 @@ Usado pelo servidor para avisar o client sobre o estado da operação solicitada
 * 3xx - Redirecionamento
 * 4xx - Erro do Client
 * 5xx - Erro do servidor
+
+Para saber mais sobre os outros status code: <https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status>
