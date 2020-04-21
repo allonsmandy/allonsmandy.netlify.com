@@ -166,10 +166,65 @@ Você sabe com isso que deve ser passado uma string nesses parametros!
 * Utiliza dos métodos HTTP para definir a operação que está sendo efetuada.
 * Arquitetura de fácil compreensão.
 
+###### Estrutura do REST
 
+![Estrutura REST](assets/img/RESTunnamed.png "Estrutura REST")
 
-Vamos supor que temos um Client e do outro lado um Servidor, o Client é quem está consumindo o serviço e o servidor é que disponibiliza o serviço. O Client pode ser uma outra aplicação que você está integrando, como por exemplo uma página web, um aplicativo, etc.
+Vamos supor que temos um **Client** e do outro lado um **Servidor**, o Client é quem está consumindo o serviço e o servidor é que disponibiliza o serviço. O Client pode ser uma outra aplicação que você está integrando, como por exemplo uma página web, um aplicativo, etc.
 
 Esse Client vai fazer uma requisição HTTP para o Servidor, e esse servidor vai retornar um código de operação (esse código diz o status se ocorreu tudo certo, deu algum erro, etc)  e uma mensagem (pode ser texto puro, json, xml, etc)
 
 > Quando uma aplicação web disponibiliza um conjunto de rotinas e padrões através de serviços web podemos chamar esse conjunto de API.
+
+##### API (Application Programming Interface)
+
+* São conjuntos de rotinas documentados e disponibilizados por uma aplicação para que outras aplicações possam consumir suas funcionalidades. 
+* Ficou popular com o aumento dos serviços web
+* As maiores plataformas de tecnologia disponibilizam APIs pra acessos de suas funcionalidades, algumas delas são: Facebook, Twitter, Telegram, Whatsapp, Github...
+
+###### Principais métodos HTTP
+
+* GET - Solicita a representação de um recurso
+* POST - Solicita a criação de um recurso
+* DELETE - Solicita a exclusão de um recurso
+* PUT - Solicita a atualização de um recurso
+
+#### JSON (JavaScript Object Notation)
+
+* Formatação leve utilizada para troca de mensagens entre sistemas
+* Usa-se de uma estrutura de chave e valor e também de listas ordenadas
+* Um dos formatos mais populares e mais utilizados para troca de mensagens entre sistemas
+
+```json
+{
+  "nome": "Os Vingadores",
+  "ano_lancamento": "2019",
+  "personagens": [
+    {
+      "nome": "Thanos"
+    },
+    {
+      "nome": "Homem de Ferro
+    },
+    {
+      "nome": "Thor"
+    }
+  ]
+}
+```
+
+Acima temos novamente um exemplo da estrutura JSON. Sempre inicia e termina com **{}**.
+
+Dentro da estrutura temos o *nome*, que é a chave, e o valor, que no caso é *Os Vingadores*. Em seguida temos o atributo *ano_lançamento* com seu valor *2019*. Veja que nos personagens há uma estrutura de lista, os personagens virou uma lista pois ele tem mais de um personagem.
+
+##### Integração com REST e métodos HTTP na prática
+
+###### Código de estado
+
+Usado pelo servidor para avisar o client sobre o estado da operação solicitada.
+
+* 1xx - Informativo
+* 2xx - Sucesso
+* 3xx - Redirecionamento
+* 4xx - Erro do Client
+* 5xx - Erro do servidor
