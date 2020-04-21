@@ -17,9 +17,9 @@ Os posts ficarão divididos em:
 
 Vamos iniciar o assunto do primeiro tópico :)
 
-### Vantagens e desenvolvimento de Web Services
+## Vantagens e desenvolvimento de Web Services
 
-###### O que são Web Services?
+#### O que são Web Services?
 
 **Serviços Web** ou **Web Services** são soluções para aplicações se comunicarem independente de linguagem, softwares e hardwares utilizados.
 
@@ -44,26 +44,29 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 ###### Exemplo de arquivo XML
 
-\`\``xml
-
+```xml
 <endereco>
 	<cep>999-999</cep>
 	<bairro>Teixeirinha</bairro>
 	<cidade>Nárnia</cidade>
 	<numero>22</numero>
 </endereco>
-
-\`\``
+```
 
 ###### Exemplo de arquivo JSON
 
-\`\``json
+```json
+{ 	
+   "endereco":  { 		
+      "cep":"9999-99", 		
+      "bairro": "Teixeirinha", 		
+      "cidade": "Nárnia", 		
+      "numero": 22 	
+    } 
+}
+```
 
-{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha", 		"cidade": "Nárnia", 		"numero": 22 	} }
-
-\`\``
-
-#### Vantagens de utilizar Web Services
+###### Vantagens de utilizar Web Services
 
 * Linguagem comum 
 * Integração facilitada
@@ -78,7 +81,7 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 * xml
 * Json
 
-##### ESTRUTURA SOAP (Simple object Access Protocol)
+## ESTRUTURA SOAP (Simple object Access Protocol)
 
 * É um protocolo baseado em XML para acessar serviços web principalmente por HTTP
 * Pode-se dizer que soap é uma definição de como serviços web se comunicam
@@ -101,35 +104,36 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então sempre que enviar uma mensagem xml, essa mensagem vai seguir esta estrutura.
 
-* O **SOAP Envelop**e é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
+* O **SOAP Envelope** é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
 * O **SOAP Header** é o elemento onde possui informações de atributos e metadados da requisição
 * O **SOAP Body** é o elemento que contém os detalhes da mensagem
 
 ###### Exemplo de mensagem SOAP
 
-\`\``
-
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	\
-        <soap:Header> </soap:Header> 	\
-         <soap:Body> 		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco"> 			<m:Bairro>Teixeirinha</m:Bairro>
-			<m:Cidade>Nárnia</m:Cidade>
-			<m:CEP>9999-99</m:CEP>
-			<m:Numero>22</m:Numero>
-		</m:Endereco>
+```
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	
+        <soap:Header> 
+        </soap:Header>
+         <soap:Body> 		
+              <m:MetodoEndereco xmlns:m="http://www.example.org/endereco"> 			                     
+                   <m:Bairro>Teixeirinha</m:Bairro> 	
+                   <m:Cidade>Nárnia</m:Cidade>
+		   <m:CEP>9999-99</m:CEP>
+	           <m:Numero>22</m:Numero>
+	      </m:Endereco>
 	</soap:Body>
 </soap:Envelope>
-
-\`\``
+```
 
 Observe que há o elemento Envelope que encapsula os outros elementos, em seguida temos o elemento Header que neste caso não possui nada, depois temos o Body com o MetodoEndereço e dentro dele tem os atributos que estão sendo enviados para ele.
 
-##### Entendendo o que é WSDL e XSD
+### Entendendo o que é WSDL e XSD
 
-###### O que é WSDL? (Web Services Description Language)
+#### O que é WSDL? (Web Services Description Language)
 
 O WSDL é usado para descrever Web Services, funciona como um contrato do serviço. A descrição é feita em um documento XML, onde é descrito o serviço, especificações de acesso, operações e métodos.
 
-###### O que é XSD? (XML Schema Definition)
+#### O que é XSD? (XML Schema Definition)
 
 É um Schema no formato XML usado para definir a estrutura de dados que será validada no XML. O XSD funciona como uma documentação de como deve ser montado o SOAP Message (XML) que será enviado através de Web Service.
 
@@ -141,15 +145,88 @@ Todo o código que aparece nesta página é o nosso wsdl. Primeiramente temos o 
 
 Você tem também o xsd ainda no campo de message, em type:
 
-\`\``
-
+```
 <message name="Method1">
 <part name="bstrParam1" type="xsd:string"/>
 <part name="bstrParam2" type="xsd:string"/>
 </message>
-
-\`\``
+```
 
 Você sabe com isso que deve ser passado uma string nesses parametros!
 
-#### O que são REST, API e JSON?
+## O que são REST, API e JSON?
+
+##### REST (Representational State Transfer)
+
+É um estilo de arquitetura de software que define a implementação de um serviço web. Podem trabalhar com os formatos XML, JSON ou outros.
+
+###### Vantagens do REST
+
+* Permite integrações entre aplicações e também entre cliente e servidor em páginas web e aplicações.
+* Utiliza dos métodos HTTP para definir a operação que está sendo efetuada.
+* Arquitetura de fácil compreensão.
+
+###### Estrutura do REST
+
+![Estrutura REST](assets/img/RESTunnamed.png "Estrutura REST")
+
+Vamos supor que temos um **Client** e do outro lado um **Servidor**, o Client é quem está consumindo o serviço e o servidor é que disponibiliza o serviço. O Client pode ser uma outra aplicação que você está integrando, como por exemplo uma página web, um aplicativo, etc.
+
+Esse Client vai fazer uma requisição HTTP para o Servidor, e esse servidor vai retornar um código de operação (esse código diz o status se ocorreu tudo certo, deu algum erro, etc)  e uma mensagem (pode ser texto puro, json, xml, etc)
+
+> Quando uma aplicação web disponibiliza um conjunto de rotinas e padrões através de serviços web podemos chamar esse conjunto de API.
+
+### API (Application Programming Interface)
+
+* São conjuntos de rotinas documentados e disponibilizados por uma aplicação para que outras aplicações possam consumir suas funcionalidades. 
+* Ficou popular com o aumento dos serviços web
+* As maiores plataformas de tecnologia disponibilizam APIs pra acessos de suas funcionalidades, algumas delas são: Facebook, Twitter, Telegram, Whatsapp, Github...
+
+###### Principais métodos HTTP
+
+* GET - Solicita a representação de um recurso
+* POST - Solicita a criação de um recurso
+* DELETE - Solicita a exclusão de um recurso
+* PUT - Solicita a atualização de um recurso
+
+### JSON (JavaScript Object Notation)
+
+* Formatação leve utilizada para troca de mensagens entre sistemas
+* Usa-se de uma estrutura de chave e valor e também de listas ordenadas
+* Um dos formatos mais populares e mais utilizados para troca de mensagens entre sistemas
+
+```json
+{
+  "nome": "Os Vingadores",
+  "ano_lancamento": "2019",
+  "personagens": [
+    {
+      "nome": "Thanos"
+    },
+    {
+      "nome": "Homem de Ferro
+    },
+    {
+      "nome": "Thor"
+    }
+  ]
+}
+```
+
+Acima temos novamente um exemplo da estrutura JSON. Sempre inicia e termina com **{}**.
+
+Dentro da estrutura temos o *nome*, que é a chave, e o valor, que no caso é *Os Vingadores*. Em seguida temos o atributo *ano_lançamento* com seu valor *2019*. Veja que nos personagens há uma estrutura de lista, os personagens virou uma lista pois ele tem mais de um personagem.
+
+
+
+###### Código de estado
+
+Usado pelo servidor para avisar o client sobre o estado da operação solicitada.
+
+* 1xx - Informativo
+* 2xx - Sucesso
+* 3xx - Redirecionamento
+* 4xx - Erro do Client
+* 5xx - Erro do servidor
+
+Para saber mais sobre os outros status code: <https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status>
