@@ -44,24 +44,27 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 ###### Exemplo de arquivo XML
 
-\`\``xml
-
+```xml
 <endereco>
 	<cep>999-999</cep>
 	<bairro>Teixeirinha</bairro>
 	<cidade>Nárnia</cidade>
 	<numero>22</numero>
 </endereco>
-
-\`\``
+```
 
 ###### Exemplo de arquivo JSON
 
-\`\``json
-
-{ 	"endereco": { 		"cep":"9999-99", 		"bairro": "Teixeirinha", 		"cidade": "Nárnia", 		"numero": 22 	} }
-
-\`\``
+```json
+{ 	
+   "endereco":  { 		
+      "cep":"9999-99", 		
+      "bairro": "Teixeirinha", 		
+      "cidade": "Nárnia", 		
+      "numero": 22 	
+    } 
+}
+```
 
 #### Vantagens de utilizar Web Services
 
@@ -101,24 +104,26 @@ Portanto, teremos uma integração universal, pois qualquer aplicação pode int
 
 O "SOAP Message" possui uma estrutura unica que deve sempre ser seguida. Então sempre que enviar uma mensagem xml, essa mensagem vai seguir esta estrutura.
 
-* O **SOAP Envelop**e é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
+* O **SOAP Envelope** é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP
 * O **SOAP Header** é o elemento onde possui informações de atributos e metadados da requisição
 * O **SOAP Body** é o elemento que contém os detalhes da mensagem
 
 ###### Exemplo de mensagem SOAP
 
-\`\``
-
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	\
-        <soap:Header> </soap:Header> 	\
-         <soap:Body> 		<m:MetodoEndereco xmlns:m="http://www.example.org/endereco"> 			<m:Bairro>Teixeirinha</m:Bairro> 			<m:Cidade>Nárnia</m:Cidade>
-			<m:CEP>9999-99</m:CEP>
-			<m:Numero>22</m:Numero>
-		</m:Endereco>
+```
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"> 	
+        <soap:Header> 
+        </soap:Header>
+         <soap:Body> 		
+              <m:MetodoEndereco xmlns:m="http://www.example.org/endereco"> 			                     
+                   <m:Bairro>Teixeirinha</m:Bairro> 	
+                   <m:Cidade>Nárnia</m:Cidade>
+		   <m:CEP>9999-99</m:CEP>
+	           <m:Numero>22</m:Numero>
+	      </m:Endereco>
 	</soap:Body>
 </soap:Envelope>
-
-\`\``
+```
 
 Observe que há o elemento Envelope que encapsula os outros elementos, em seguida temos o elemento Header que neste caso não possui nada, depois temos o Body com o MetodoEndereço e dentro dele tem os atributos que estão sendo enviados para ele.
 
@@ -140,15 +145,31 @@ Todo o código que aparece nesta página é o nosso wsdl. Primeiramente temos o 
 
 Você tem também o xsd ainda no campo de message, em type:
 
-\`\``
-
+```
 <message name="Method1">
 <part name="bstrParam1" type="xsd:string"/>
 <part name="bstrParam2" type="xsd:string"/>
 </message>
-
-\`\``
+```
 
 Você sabe com isso que deve ser passado uma string nesses parametros!
 
 #### O que são REST, API e JSON?
+
+##### REST (Representational State Transfer)
+
+É um estilo de arquitetura de software que define a implementação de um serviço web. Podem trabalhar com os formatos XML, JSON ou outros.
+
+###### Vantagens do REST
+
+* Permite integrações entre aplicações e também entre cliente e servidor em páginas web e aplicações.
+* Utiliza dos métodos HTTP para definir a operação que está sendo efetuada.
+* Arquitetura de fácil compreensão.
+
+
+
+Vamos supor que temos um Client e do outro lado um Servidor, o Client é quem está consumindo o serviço e o servidor é que disponibiliza o serviço. O Client pode ser uma outra aplicação que você está integrando, como por exemplo uma página web, um aplicativo, etc.
+
+Esse Client vai fazer uma requisição HTTP para o Servidor, e esse servidor vai retornar um código de operação (esse código diz o status se ocorreu tudo certo, deu algum erro, etc)  e uma mensagem (pode ser texto puro, json, xml, etc)
+
+> Quando uma aplicação web disponibiliza um conjunto de rotinas e padrões através de serviços web podemos chamar esse conjunto de API.
