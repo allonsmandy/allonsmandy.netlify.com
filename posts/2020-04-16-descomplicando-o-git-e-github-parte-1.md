@@ -17,19 +17,17 @@ Tópicos que irei abordar:
 * Enviando para o github
 * O que é readme.md?
 
-#### CONFIGURAÇÃO NA MAQUINA
+### CONFIGURAÇÃO NA MAQUINA
 
 Vamos autorizar o Github a acessar nosso computador :3 Para isso, precisaremos de uma chave SSH. Abra o seu terminal e digite o seguinte:
 
 ```gitconfig
 ssh-keygen -t rsa -b 4096 -C "seu_email@dominio.com"
-
 ```
 
 Aperte **ENTER**. 
 
-Em seguida, ele irá pedir uma senha. Sempre que você for enviar algo para seu repositório ou até mesmo baixar, precisará digitar esta senha. Eu prefiro deixar sem :)
-Irá aparecer uma mensagem dizendo que deu tudo certo. Agora, precisamos adicionar a chave criada ao **ssh-agent**, mas pra isso precisamos ativar primeiro, digite isto: 
+Em seguida, ele irá pedir uma senha. Sempre que você for enviar algo para seu repositório ou até mesmo baixar, precisará digitar esta senha. Eu prefiro deixar sem :) Irá aparecer uma mensagem dizendo que deu tudo certo. Agora, precisamos adicionar a chave criada ao **ssh-agent**, mas pra isso precisamos ativar primeiro, digite isto: 
 
 ```gitconfig
 eval $(ssh-agent -s)
@@ -37,11 +35,9 @@ eval $(ssh-agent -s)
 
 Agora, digite este comando para que a chave gerada seja adicionada
 
-
 ```gitconfig
 ssh-add ~/.ssh/id_rsa
 ```
-
 
 Precisamos associar nossa chave criada à nossa conta no github. Digite o seguinte: 
 
@@ -51,20 +47,15 @@ clip < ~/.ssh/id_rsa.pub
 
 (ou você pode utilizar o **cat** ao invés de **clip** caso esteja no linux)
 
+**A chave criada está no seu ctrl+v!!!** Na sua conta criada do github, vá em **Settings ->** **SSH and GBG Keys -> New SSH Key**. No **title**, coloque o nome que você preferir para a sua chave. Em **key**, é só você dar CTRL+V para colar a chave criada. Então é só clicar em Add Key :3
 
-**A chave criada está no seu ctrl+v!!!**
-Na sua conta criada do github, vá em **Settings ->** **SSH and GBG Keys -> New SSH Key**.
-No **title**, coloque o nome que você preferir para a sua chave. Em **key**, é só você dar CTRL+V para colar a chave criada. Então é só clicar em Add Key :3
-
-###### 
-VAMOS TESTAR A CONFIGURAÇÃO? 
+##### VAMOS TESTAR A CONFIGURAÇÃO?
 
 Digite no terminal o seguinte: 
 
 ```gitconfig
 ssh -T git@github.com
 ```
-
 
 O resultado deverá ser este:
 
@@ -76,7 +67,7 @@ The authenticity of host ‘github.com (207.97.227.239)’ can’t be establishe
 
 Digite **yes** e aperte ENTER! Pronto, deverá aparecer uma mensagem de sucesso dando um oizinho pra ti :P Para mais informações, só acessar o [tutorial na pagina oficial do github.](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
-#### Trabalhando com repositórios
+### Trabalhando com repositórios
 
 Repositório é o local onde ficará todos os arquivos do seu projeto, incluindo o histórico dele.
 
@@ -118,10 +109,9 @@ git add .
 
 ![](https://miro.medium.com/max/391/1*mUv7A8KKk0gP4N35_LeyUg.png)
 
-**Agora vamos escrever nosso primeiro commit!** 
+###### **Agora vamos escrever nosso primeiro commit!** 
 
-Commits é como se fossem pontos do nosso projeto que foram modificados, ele é utilizado para que possamos escrever mensagens simples sobre o que foi alterado no projeto.
-digite: 
+Commits é como se fossem pontos do nosso projeto que foram modificados, ele é utilizado para que possamos escrever mensagens simples sobre o que foi alterado no projeto. digite: 
 
 ```gitattributes
 git commit -m “Meu primeiro commit"
@@ -143,11 +133,10 @@ Ok, vou dar continuidade ao meu projeto ^^
 
 Irei fazer alguma alterações...
 
-Pronto! Agora eu tenho 4 commits! Mas…escrevi um commit errado, o que faço? Simples :)
-Se quiser alterar o nome do **ÚLTIMO COMMIT**, digite: 
+Pronto! Agora eu tenho 4 commits! Mas…escrevi um commit errado, o que faço? Simples :) Se quiser alterar o nome do **ÚLTIMO COMMIT**, digite: 
 
 ```gitattributes
-
+git commit --amend -m "Corrigindo a mensagem do último commit"
 ```
 
 ![](https://miro.medium.com/max/687/1*VY31GEW2oNkvFHeLu3f3Ng.png)
@@ -160,14 +149,11 @@ git rebase -i HEAD~5
 
 Este comando vai mostrar os ultimos 5 commits.
 
-
-Agora você aperta a tecla **i** para que possas modificar o texto. Altere a palavra **pick** para **reword** no commit que você vai alterar, depois aperte **ESC** e digite `:wq!`
-Em seguida, vai aparecer para você alterar o nome dele. Digite **i** novamente, altere o nome, aperte **ESC** e digite `:wq!`
-Pronto :3 Se tiver alguma duvida, veja o gif a seguir (desculpinha pelos erros XD)
+Agora você aperta a tecla **i** para que possas modificar o texto. Altere a palavra **pick** para **reword** no commit que você vai alterar, depois aperte **ESC** e digite `:wq!` Em seguida, vai aparecer para você alterar o nome dele. Digite **i** novamente, altere o nome, aperte **ESC** e digite `:wq!` Pronto :3 Se tiver alguma duvida, veja o gif a seguir (desculpinha pelos erros XD)
 
 ![](https://miro.medium.com/max/568/1*l0e4yrvELSh2vu1ZKLUAFQ.gif)
 
-#### Enviando para o Github
+### Enviando para o Github
 
 Precisamos criar um repositório em nossa conta do github que é onde ficará os arquivos do nosso projeto, vá no seu perfil, clique na aba de **Repositories** e em seguida, clique no botão verdinho escrito **New**
 
@@ -183,7 +169,6 @@ Irá aparece algumas dicas simples que o github mostra de como enviar seus códi
 
 ```gitattributes
 git remote add origin https://github.com/link_do_seu_repositorio
-
 ```
 
 Lembre-se que a url que você deverá adicionar é a do repositório que você acabou de criar, ela é a primeira informação que aparece quando você cria um repositório novo no github.
@@ -202,7 +187,7 @@ Prontinho!! Seus arquivos estão no github!!
 
 Agora você pode ir repetindo os processos anteriores enquanto trabalha localmente no seu projeto, ao fazer alterações, adicione elas com o comando **git add** e em seguida coloque a mensagem do seu commit. Como seu projeto já está sincronizado com seu repositório no github, agora é só digitar **git push origin master** sem precisar do git remote de novo :)
 
-#### O que é o readme.md?
+### O que é o readme.md?
 
 Basicamente, ele é um arquivo de texto, formatado em **Markdown**, no qual você poderá documentar o seu projeto. 
 
@@ -212,15 +197,12 @@ Você pode adicioná-lo diretamente no repositório do github, naquele botão ve
 
 Uma das alternativas é atualizar seu projeto local com o comando `git pull origin master`, ele vai pegar as alterações feitas no repositorio do github e adicionar no seu repositorio local ^^ Porém, vamos criar o readme pela linha de comando :D digite: `touch readme.md`
 
-
 Seu readme.md foi criado! Digite algo nele e faça os processos anteriores para adiciona-lo no seu github.
 
 1. git add readme.md
 2. git commit -m “Adicionei o readme.md”
 3. git push origin master
 
-
 Prontinho :) Só seguir estes passos simples e você já está fazendo uso dos comandos básicos e essenciais do git ^^
 
-
-Qualquer dúvida, é só entrar em contato :)
+###### Qualquer dúvida, é só entrar em contato :)
