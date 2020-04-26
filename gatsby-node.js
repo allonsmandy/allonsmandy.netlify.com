@@ -17,7 +17,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: "slug",
-      value: `/${slug.slice(12)}`,
+      value: `/blog/${slug.slice(12)}`,
     })
   }
 }
@@ -84,7 +84,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     Array.from({ length: numPages }).forEach((_, index) => {
       createPage({
-        path: index === 0 ? "/blog" : `/page/${index + 1}`,
+        path: index === 0 ? "/blog" : `/blog/page/${index + 1}`,
         component: path.resolve(`./src/templates/blog-list.js`),
         context: {
           limit: postsPerPage,
