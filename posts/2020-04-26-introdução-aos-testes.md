@@ -112,10 +112,7 @@ npm install --save-dev mocha chai
 
 scripts de test => ./node_modules/.bin/mocha tests/\*\*/*.spec.js --watch
 
-
-
-* describe: vai descrever os testes de uma certa função e afins ele serve pra gente conseguir criar um bloco onde a gente vai testar
-  metodos de uma função, o describe vai ser o que vai iniciar o teste.
+* describe: vai descrever os testes de uma certa função e afins ele serve pra gente conseguir criar um bloco onde a gente vai testar metodos de uma função, o describe vai ser o que vai iniciar o teste.
   usamos pra separar os metodos ou classes, podemos ter varios describe, pra minha classe Main, mas posso ter descibre dentro de outros tbm
 
 ```
@@ -148,25 +145,101 @@ it('should happen blabla', function() {
   // entrada de dados/ método sum(2, 2)
   // espera retornar (4) => true | (3) => false Broken test! :P
 }
-
 ```
 
-
-
-* reporters do mocha: é como informa como os testes estao passando de uma forma diferente, menor, enfim. 
-  npm test -- --reporters
+* reporters do mocha: é como informa como os testes estao passando de uma forma diferente, menor, enfim.  npm test -- --reporters
   npm test -- --reporter=nyan (muito fofinhooooo >u<)
   verde: teste que está passando
   vermelho: erros
   azul: quantos testes voce falou pra nao ser rodado no momento
-
-
-
-* bail:  npm test -- --bail
-  no primeiro momento que encontrar um erro ele vai parar
+* bail:  npm test -- --bail no primeiro momento que encontrar um erro ele vai parar
   vai consertando por pedaço por pedaço e isso é bom :3
-* only: roda somente este bloco 
-  context.only('...', function () {})
-* skip: serve pra nao rodar este teste em especifico
-  it.skip('should happen blablabla', function() {})
+* only: roda somente este bloco  context.only('...', function () {})
+* skip: serve pra nao rodar este teste em especifico it.skip('should happen blablabla', function() {})
   mostra na coloração azul
+
+Introduçao aos hooks
+
+
+
+* hooks: codigos que sao rodados a partir de alguma ação que foi executada 
+  serve por exemplo pra criar metodos que sao rodados antes de outros
+  ou seja, os hooks vao ajudar para que a gente consiga diminuir as
+  nossas duplicatas
+  before => roda uma vez antes do bloco
+  after => roda uma vez depois do bloco
+  beforeEach => roda todas as vezes antes de cada bloco
+  afterEach => roda todas as vezes depois de cada bloco
+* chai: responsavel por cada it, ele que de fato vai testar
+  chains => palavrinhas que vao conectar nossos testes
+
+```javascript
+
+    describe('method B', function () {
+
+        before(function () {
+            // inicio de conexao com o banco
+            // criar um conjunto de dados
+            console.log('before')
+        })
+
+        after(function () {
+            // fecha conexao com o banco
+            // apagar esse conjunto de dados
+            console.log('after')
+        })
+
+        beforeEach(function () {
+            console.log('beforeEach')
+
+            arr = [1, 2, 3]
+        })
+
+        afterEach(function () {
+            console.log('afterEach')
+        })
+
+        // testar tipos ou se existe (smoke test)
+        it('should be an array', function () {
+            expect(arr).to.be.a('array')
+        })
+
+
+        it('should have a size of 4 when push another value to the array', function () {
+
+            arr.push(4)
+            expect(arr).to.have.lengthOf(4)
+            // console.log(arr.length) //4
+        })
+
+        it('should have a size of 2 when pop a value from the array', function () {
+
+            arr.pop()
+            expect(arr).to.have.lengthOf(2)
+            // console.log(arr.length) //2
+        })
+
+        it('should remove the value 3 when use pop in the array', function () {
+
+            arr.pop()
+            expect(arr).to.not.include(3)
+            // console.log(arr.pop() === 3) //true
+        })
+
+        it('should return true when pop 3 front the array', function () {
+            expect(arr.pop() === 3).to.be.true
+        })
+    })
+})
+
+//before
+//beforeEach
+//teste1
+
+//afterEach
+//beforeEach
+//teste2
+
+//afterEach
+//after
+```
