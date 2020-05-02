@@ -10,6 +10,7 @@ import { ThList as List } from "styled-icons/typicons/ThList"
 import getThemeColor from "../../utils/getThemeColor"
 
 import * as S from "./styles"
+import * as GA from './trackers'
 
 const MenuBar = () => {
   const [theme, setTheme] = useState(null)
@@ -56,7 +57,7 @@ const MenuBar = () => {
       </S.MenuBarGroup>
 
       <S.MenuBarGroup>
-        <S.MenuBarItem
+        {/* <S.MenuBarItem
           title="Mudar o tema"
           onClick={() => {
             window.__setPreferredTheme(isDarkMode ? "light" : "dark")
@@ -64,7 +65,7 @@ const MenuBar = () => {
           className={theme}
         >
           <Light />
-        </S.MenuBarItem>
+        </S.MenuBarItem> */}
         <S.MenuBarItem
           title="Mudar a visualização"
           onClick={() => {
@@ -74,7 +75,11 @@ const MenuBar = () => {
         >
           {isListMode ? <Grid /> : <List />}
         </S.MenuBarItem>
-        <S.MenuBarItem title="Ir para o topo">
+        <S.MenuBarItem title="Ir para o topo"
+          onClick={() => {
+            GA.topClickTrack()
+            window.scroll({ top: 0, behavior: 'smooth' })
+          }}>
           <Arrow />
         </S.MenuBarItem>
       </S.MenuBarGroup>

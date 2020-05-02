@@ -1,15 +1,24 @@
 import styled from "styled-components"
 
 export const Timeline = styled.section`
-  max-width: 320px;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
   padding: 5px 40px;
   position: relative;
+
+  strong {
+    position: relative;
+    left: 71px;
+    top: 15px;
+  }
 
   &:before {
     content: "";
     position: absolute;
-    top: 0px;
-    left: 19rem;
+    top: 74px;
+    left: 347px;
+    height: 215px;
     bottom: 0px;
     width: 4px;
     background: var(--post);
@@ -17,9 +26,16 @@ export const Timeline = styled.section`
 `
 
 export const Section = styled.section`
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+
+  svg {
+    position: relative;
+    top: 2px;
+    width: 23px;
+  }
 `
 export const Entry = styled.div`
   text-align: left;
@@ -66,6 +82,9 @@ export const btnDownload = styled.a`
   border: 1px solid var(--postColor);
   padding: 5px 10px;
   cursor: pointer;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
 
   &:hover {
     background: var(--secondary);
@@ -95,6 +114,19 @@ export const AboutSubtitle = styled.strong`
   }
 `
 
+export const AboutEducation = styled.div`
+    color: var(--postColor);
+    display: flex;
+    flex-direction: column;
+    
+    ul {
+      list-style: none;
+      position: relative;
+      right: 15px;
+    }
+
+`
+
 export const AboutGithub = styled.div`
   padding: 1rem 2rem;
   display: flex;
@@ -117,7 +149,7 @@ export const AboutGithub = styled.div`
 `
 
 export const AboutSkillsListItem = styled.li`
-  padding: 0.325rem 0;
+  padding: 0.225rem 0;
   color: var(--secondary);
   list-style-type: none;
   & > ul {
