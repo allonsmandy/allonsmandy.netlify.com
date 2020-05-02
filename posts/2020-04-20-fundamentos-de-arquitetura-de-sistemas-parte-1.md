@@ -27,7 +27,7 @@ Inicialmente **Web Services** foram criados para troca de mensagens utilizando a
 
 Podemos dizer que Serviços Web são API's que se comunicam por meio de redes sobre o protocolo HTTP.
 
-![Exemplificando](assets/img/unnamed.png "Exemplificando")
+![Exemplificando](assets/img/services web example allonsmandy.png "Exemplificando")
 
 Observe a imagem acima.\
 Uma **aplicação x** possui um banco de dados pertencente a ela mesma chamado **database x**, e a **aplicaçao Y** também possui seu próprio banco chamado **database y**. Essas aplicações precisam se comunicar, só que elas sao de empresas diferentes, estão em redes diferentes, possuem banco de dados diferentes, linguagens diferentes, como elas podem se comunicar nesse cenário? A **aplicação y** precisa de uma informação do **database x**, porém, como tudo é diferente, como que ela vai acessar?
@@ -168,7 +168,7 @@ Você sabe com isso que deve ser passado uma string nesses parametros!
 
 ###### Estrutura do REST
 
-![Estrutura REST](assets/img/RESTunnamed.png "Estrutura REST")
+![Estrutura REST](assets/img/estrutura rest.jpg "Estrutura REST")
 
 Vamos supor que temos um **Client** e do outro lado um **Servidor**, o Client é quem está consumindo o serviço e o servidor é que disponibiliza o serviço. O Client pode ser uma outra aplicação que você está integrando, como por exemplo uma página web, um aplicativo, etc.
 
