@@ -27,3 +27,19 @@ Essa arquitetura é a mais simples porém ela tem alguns pontos falhos no qual v
 ###### MICROSERVIÇOS #1
 
 ![](assets/img/microservices.png)
+
+Uma outra arquitetura comum e que se fala muito é o de Microserviços.
+
+Existem diversas maneiras de se fazer microserviços, há muitos meios e estratégias pra se trabalhar com ele.
+
+Neste caso há o "template" do exemplo de um microserviço que neste caso é o mais caótico.
+
+Diferente do monolito que eu tinha uma única aplicação e que eu só tinha mais instâncias da mesma aplicação pra atender a demanda, nos microserviços eu vou ter um serviço para cada alteração.
+
+Assim como no monolito, o serviço 1 pode acabar recebendo uma grande demanda de acesso, então uma unica instância do serviço 1 pode não ser suficiente. Portanto, ele pode ser escalado dentro do proprio Nodo 1.
+
+Cada caixa pequena do Nodo seria mais ou menos como funciona o monolito, então neste caso eu aumentei a complexidade que agora eu tenho varios serviços (antigamente eu tinha um serviço na arquitetura de monolito) e esses varios serviços precisam ter uma certa comunicação.
+
+No monolito é simplesmente código, como eu tenho uma unica base de codigo, eu vou ter comunicaçao de uma funcionalidade com outra funcionalidade através de chamada de codigo do sistema. Nesse caso eu posso ter o sistema de autenticação no serviço 1 e o sistema de pagamento no serviço 2, só que como eu vou fazer o serviço de pagamento sem estar relacionado ao usuario? O serviço 1 e 2 precisam estabelecer algum tipo de comunicação!
+
+E o que acontece neste caso é que o serviço 1 pode acabar chamando diretamente o serviço 2, pode ser por exemplo pelo protocolo http, entao pensando em um sistema de microserviços deste exemplo, nós podemos ter Clients: web ou mobile acessando este proxy, o proxy http vai verificar qual o serviço responsavel por aquela determinada operação e ai vai redirecionar para o serviço 1 ou para o 2. Neste exemplo o serviço 3 é um serviço interno que nao possui a camada http de comunicação com as aplicações web e mobile. Assim como o serviço 1 e 2, o serviço 3 tem a comunicaçao direta entre eles.
