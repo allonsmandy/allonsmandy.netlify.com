@@ -16,11 +16,11 @@ Mecanismo mais simples pra gente começar a aplicação, geralmente as aplicaç�
 
 ![monolito](assets/img/monolitounnamed.png "monolito")
 
-No cenário de monolito acima, nós vamos ter aplicações client, sendo web e mobile, "conversando" com este serviço através de protocolo http e, no caso do exemplo, nós temos uma aplicação que vai ter três instâncias, e essas instâncias vão estar sendo organizadas através de um sistema de orquestração de aplicação, enfim...
+No cenário de monolito acima, nós vamos ter aplicações client, sendo web e mobile, "conversando" com este serviço através do protocolo http e, no caso do exemplo, nós temos uma aplicação que vai ter três instâncias, e essas instâncias vão estar sendo organizadas através de um sistema de orquestração de aplicação, enfim...
 
-Elas vão passar sempre por um **proxy http** e este proxy vai redirecionar para qual instância trabalhar, e estas instâncias estarão conectadas em um banco de dados, podendo ser mais de um banco com base na escalabilidade deste banco.
+Elas vão passar sempre por um **proxy http** e este proxy vai redirecionar para qual instância trabalhar, e estas instâncias estarão conectadas em um banco de dados.
 
-É interessante ter várias instâncias para que seja distribuida a demanda entre as instâncias, e também por motivos de erro . Se por exemplo a instancia 1 falhar, ainda teriamos a 2 e 3. Portanto, os proximos requests que entrarem neste proxy, ele vai parar de redirecionar para a instância 1 e vai redirecionar para a 2 e 3.
+É interessante ter várias instâncias para que seja distribuida a demanda entre as instâncias, e também por motivos de erro. Se por exemplo a instancia 1 falhar, ainda teriamos a 2 e 3. Portanto, os proximos requests que entrarem neste proxy, ele vai parar de redirecionar para a instância 1 e vai redirecionar para a 2 e 3.
 
 Essa arquitetura é a mais simples porém ela tem alguns pontos falhos no qual veremos depois.
 
@@ -106,7 +106,7 @@ Encerrando o pipeline ele vai pegar a resposta e devolver para o Client.
 
 Desse modo, diferente da arquitetura anterior que continha o Message Broker, os serviços estão desaclopados entre eles, porém se o serviço 2 tiver fora do ar naquele momento, o serviço 1 vai fazer o seu passo, o gerenciador de pipeline vai tentar passar para o serviço 2 e ai ele vai acabar quebrando, já que o serviço vai estar fora do ar então isso acarretará em um erro.
 
-A importância de ter um gerenciador de pipeline é que, caso o serviço 2 por exemplo dê um erro, este gerenciador tem que estar apto a saber que falhou neste deterinado serviço, e assim ele tem que saber voltar para o serviço 1 e reverter aquilo que já foi feito pra não gerar nenhuma inconsistência no sistema.
+A importância de ter um gerenciador de pipeline é que, caso o serviço 2 por exemplo dê um erro, este gerenciador tem que estar apto a saber que falhou neste determinado serviço, e assim ele tem que saber voltar para o serviço 1 e reverter aquilo que já foi feito pra não gerar nenhuma inconsistência no sistema.
 
 Se no passo 1 o usuario fez a autenticação, no passo 2 ele efetuou o pagamento só que no passo 3 acontece algum erro, tem que estar apto a voltar e reverter o pagamento do usuario.
 
@@ -122,24 +122,26 @@ CONTRA
 * Provisionamento mais complexo
 * Plataforma inteira depende do gerenciador de pipeline
 
-GERENCIAMENTO DE ERROS E VOLUME DE ACESSO
+#### GERENCIAMENTO DE ERROS E VOLUME DE ACESSO
 
 Todas as arquiteturas sempre tem em comum o gerenciamento de erros e volumes de acesso, de nada adianta uma arquitetura que parece ser simples de visualizar e manter, se ela não tem um gerenciamento de erro ou um gerenciamento correto de um grande volume de acesso.
 
-Gerenciamento de erros
+###### Gerenciamento de erros
 
 Onde é mais complexo:
 
 * Processos assíncronos (Microserviços #2)
 
-  Como eu tenho comunicação assincrona, no momomento que um serviço recebeu aquela mensagem e ele gerou um certo erro, não tem como eu voltar e fazer uma reversão do passo anterior. O erro aconteceu ali e ali mesmo ele ficou completamente isolado.
+Como eu tenho comunicação assincrona, no momomento que um serviço recebeu aquela mensagem e ele gerou um certo erro, não tem como eu voltar e fazer uma reversão do passo anterior. O erro aconteceu ali e ali mesmo ele ficou completamente isolado.
+
 * Pipeline
 
-  No meio da pipeline se houver um problema em algum passo, esse passo tem que saber a reversão como tem que saber reversão dos passos anteriores, e isso muitas vezes pode se tornar complexo.
+No meio da pipeline se houver um problema em algum passo, esse passo tem que saber a reversão como tem que saber reversão dos passos anteriores, e isso muitas vezes pode se tornar complexo.
 
 Solução
 
 * Dead letter queue
 
-  Cria uma fila separada do Message Broker, e toda vez que é processada a mensagem e ela gera um erro, eu pego essa mensagem e coloco nessa fila, dai eu tento processar a mensagem novamente. 
+Cria uma fila separada do Message Broker, e toda vez que é processada a mensagem e ela gera um erro, eu pego essa mensagem e coloco nessa fila, dai eu tento processar a mensagem novamente. 
+
 * Filas de re-tentativas
