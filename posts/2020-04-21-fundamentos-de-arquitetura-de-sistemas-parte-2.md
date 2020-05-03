@@ -43,3 +43,13 @@ Cada caixa pequena do Nodo seria mais ou menos como funciona o monolito, então 
 No monolito é simplesmente código, como eu tenho uma unica base de codigo, eu vou ter comunicaçao de uma funcionalidade com outra funcionalidade através de chamada de codigo do sistema. Nesse caso eu posso ter o sistema de autenticação no serviço 1 e o sistema de pagamento no serviço 2, só que como eu vou fazer o serviço de pagamento sem estar relacionado ao usuario? O serviço 1 e 2 precisam estabelecer algum tipo de comunicação!
 
 E o que acontece neste caso é que o serviço 1 pode acabar chamando diretamente o serviço 2, pode ser por exemplo pelo protocolo http, entao pensando em um sistema de microserviços deste exemplo, nós podemos ter Clients: web ou mobile acessando este proxy, o proxy http vai verificar qual o serviço responsavel por aquela determinada operação e ai vai redirecionar para o serviço 1 ou para o 2. Neste exemplo o serviço 3 é um serviço interno que nao possui a camada http de comunicação com as aplicações web e mobile. Assim como o serviço 1 e 2, o serviço 3 tem a comunicaçao direta entre eles.
+
+###### MICROSERVIÇOS #2
+
+![](assets/img/microservices2.png)
+
+Este outro modelo de microserviços é uma arquitetura na qual ainda teremos serviços, ainda vamos ter a camada http sendo respondidos pelo serviço 1 e 2, e a unica diferença é que agora nós não temos mais aquele canal de comunicação direta entre o serviço 1 e 2, e entre o 2 e 3. Nesse caso a gente vai ter um Message Broker, a vantagem disso é que nós não vamos ficar presos a um serviço que está acorrentado diretamente no outro e tudo vai passar por um Message Broker.
+
+Se o serviço 1 precisa se comunicar com o serviço 2, mas por algum motivo o serviço 2 está fora do ar, o serviço 1 não vai mais quebrar, pois qualquer operação que ele for fazer  é completamente independente e desacoblado do serviço 2. Porém qualquer informação que o serviço 1 precise passar adiante, ele vai botar uma mensagem no Message Broker e quando o serviço 2 estiver online, ele vai no Message Broker buscar estas mensagens, interpretar elas e fazer uma determinada operação.
+
+A desvantagem é que a plataforma meio que fica refém deste Message Broker, e se ele apresentar algum problema a arquitetura inteira sofre as consequencias.
