@@ -290,9 +290,15 @@ Sem contar que, caso você esteja realizando um determinado teste de requisiçõ
 
 Palavrinhas que vão conectar nossos testes
 
+###### Instalação do mocha e chai
+
 `npm install --save-dev mocha chai`
 
-scripts de test =>`./node_modules/.bin/mocha tests/*`*`/`*
+Scripts do Package.json:
+
+` "test": "./node_modules/.bin/mocha tests/`**`/*.spec.js",`**    
+
+ **`"test:tdd": "./node_modules/.bin/mocha tests/`**
 
 ### Exemplos
 
@@ -484,7 +490,9 @@ Ele cria uma tabelinha e tem todos os arquivos que ele testou e até os que nao 
 
 Supomos que eu quero que tenha pelo menos 80% de cobertura nas linhas, eu nao vou deixar que a pessoa suba o codigo que tenha pelo menos 80% de cobertura, ou seja, a pessoa vai ter que escrever os testes senão não vai subir
 
-###### CONFIGURAÇÃO PARA ADICIONAR DEPOIS DOS SCRIPTS DO PACKAGE.JSON
+###### CONFIGURAÇÃO DO PACKAGE.JSON
+
+Adicione depois do comando "scripts"
 
 ```javascript
 "nyc": {
