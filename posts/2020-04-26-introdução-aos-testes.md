@@ -16,6 +16,8 @@ background: '#88c18c'
 
 #### Como funciona o fluxo do TDD?
 
+TDD é o **Desenvolvimento Orientado por Testes** (Test Driven Development). Isso mesmo! Desenvolvemos o nosso software baseado em testes que são escritos ANTES do código!
+
 ###### Fluxo de Teste
 
 1. Escrever o teste
@@ -38,7 +40,6 @@ background: '#88c18c'
 
 ```javascript
 export const sum = (num1, num2) => num1 + num2
-
 ```
 
 ```javascript
@@ -51,7 +52,9 @@ it('should return when receive 2,2') {
 
 ![Pirâmide de testes](assets/img/tests.png "Pirâmide de testes")
 
-**Testes unitários:** São aqueles testes de responsabilidade unica onde você testa como um método funciona de forma isolada, ou seja, esse teste unitário vai fazer os testes do método pra ver se retorna um valor, etc.
+###### **Testes unitários**
+
+São aqueles testes de responsabilidade unica onde você testa como um método funciona de forma isolada, ou seja, esse teste unitário vai fazer os testes do método pra ver se retorna um valor, etc.
 
 É um simples e pequeno teste automatizado que prova o comportamento de um único método. Tem como objetivo ser bem rápido e fazer o teste de um comportamento.
 
@@ -61,20 +64,24 @@ it('should return when receive 2,2') {
 * Procure usar *mocks* para chamadas externas
 * Utilize o teste unitário para organizar o design do seu código
 
-**Testes de serviço ou integração:** Supomos que temos um componente no qual já fizemos todos os testes unitários, e este componente faz uma chamada ao banco, a api, e ai a gente busca alguns resultados e retorna outras coisas. No unitário esta parte de serviço a gente simplesmente faz um *mock....* ou seja,fazemos uma chamada pra um valor que já sabemos qual vai ser, *pois não queremos testar a api no unitario* e sim como vai se comportar. No teste de integração precisa saber se de fato vai integrar e funcionar, então não da pra criar mais estes *mocks*.
+###### **Testes de serviço ou integração**
+
+Supomos que temos um componente no qual já fizemos todos os testes unitários, e este componente faz uma chamada ao banco, a api, e ai a gente busca alguns resultados e retorna outras coisas. No unitário esta parte de serviço a gente simplesmente faz um *mock....* ou seja,fazemos uma chamada pra um valor que já sabemos qual vai ser, *pois não queremos testar a api no unitario* e sim como vai se comportar. No teste de integração precisa saber se de fato vai integrar e funcionar, então não da pra criar mais estes *mocks*.
 
 É um teste para validar se os componentes estão funcionando em conjunto.
 
 * **Cuidado para não criar um teste inútil**
 * **Isole o máximo possivel dos ambientes**
 
-**Testes de UI/ e2e:** Você ver a maquina mexendo na UI por você. Este teste é importante pra verificar se não tem um botão que esta sendo escondido onde não deveria, se conseguimos chamar um dropdown e ele ta funcionando, se ele pode ser clicável, enfim. Além de também termos os testes de regressão que é quando faz uma mudança ou outra de css ou js e você acaba quebrando uma integração.
+###### **Testes de UI/ e2e**
+
+Você ver a maquina mexendo na UI por você. Este teste é importante pra verificar se não tem um botão que esta sendo escondido onde não deveria, se conseguimos chamar um dropdown e ele ta funcionando, se ele pode ser clicável, enfim. Além de também termos os testes de regressão que é quando faz uma mudança ou outra de css ou js e você acaba quebrando uma integração.
 
 **O teste de aceitação é realizado com o proposito de avaliar a qualidade externa do produto e, na medida do possível, também a qualidade em uso.**
 
 * **Valide apenas o fluxo de funcionamento do projeto, ou seja, você tem que validar a etapa indo de A pra B, indo de B para C. O usuário abriu a pagina, o usuário digitou no search, abriu a tela, ele clicou no link, etc.**
 
-SPIES, STUBS E MOCKS 
+### SPIES, STUBS E MOCKS 
 
 ###### SPIES
 
@@ -161,14 +168,6 @@ Códigos que são rodados a partir de alguma ação que foi executada. Serve por
 * **after** => roda uma vez depois do bloco 
 * **beforeEach** => roda todas as vezes antes de cada bloco 
 * **afterEach** => roda todas as vezes depois de cada bloco
-
-###### chai
-
-Responsavel por cada it, ele que de fato vai testar 
-
-###### chains
-
-Palavrinhas que vão conectar nossos testes
 
 ```javascript
   describe('method B', function () {
@@ -264,7 +263,20 @@ No primeiro momento que encontrar um erro ele vai parar vai consertando por peda
 
 **only**: roda somente o bloco especificado
 
-`context.only('...', function () {})
-`**skip**: serve pra nao rodar o teste em especifico. Mostra na coloração azul
+`context.only('...', function () {})`**skip**: serve pra nao rodar o teste em especifico. Mostra na coloração azul
 
 `it.skip('should happen blablabla', function() {})`
+
+**Algumas notinhas bobas de rodapé, pode ignorar se quiser XD**
+
+###### chai
+
+Responsavel por cada it, ele que de fato vai testar 
+
+###### chains
+
+Palavrinhas que vão conectar nossos testes
+
+`npm install --save-dev mocha chai`
+
+scripts de test =>` ./node_modules/.bin/mocha tests/*`*`/`*
