@@ -1,6 +1,6 @@
 ---
 title: Introdução aos testes
-description: Um pouco da teoria sobre testes
+description: Um pouco da teoria sobre testes + Mocha e Chai + code coverage
 date: '2020-04-26 06:59:50'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: testes
@@ -81,7 +81,7 @@ Você ver a maquina mexendo na UI por você. Este teste é importante pra verifi
 
 * **Valide apenas o fluxo de funcionamento do projeto, ou seja, você tem que validar a etapa indo de A pra B, indo de B para C. O usuário abriu a pagina, o usuário digitou no search, abriu a tela, ele clicou no link, etc.**
 
-### SPIES, STUBS E MOCKS 
+### SPIES, STUBS E MOCKS
 
 ###### SPIES
 
@@ -241,6 +241,10 @@ Códigos que são rodados a partir de alguma ação que foi executada. Serve por
 
 ### Exemplificando com o Mocha e Chai
 
+Como o próprio site do Mocha diz: 
+
+> “Mocha é um framework Javascript que roda em aplicações Node.js e no browser para realizar testes assíncronos de uma maneira simples e fácil”.
+
 ###### Reporters do mocha
 
 * É como informa como os testes estao passando de uma forma diferente, menor, enfim. 
@@ -267,11 +271,13 @@ No primeiro momento que encontrar um erro ele vai parar vai consertando por peda
 
 `it.skip('should happen blablabla', function() {})`
 
-**Algumas notinhas bobas de rodapé, pode ignorar se quiser XD**
+#### Chai - Uma biblioteca de Assertion
 
-###### chai
+Nele, o desenvolvedor tem a opção de escolher a melhor interface que deseja para a realização de suas asserções nos seus testes: “**should**”, “**expect**” e “**assert**”. 
 
-Responsavel por cada it, ele que de fato vai testar 
+Sem contar que, caso você esteja realizando um determinado teste de requisições via HTTP, o Chai te auxilia de maneira magistral a realizar as asserções necessárias.
+
+![](https://static.imasters.com.br/wp-content/uploads/2018/04/HERE.jpg)
 
 ###### chains
 
@@ -279,4 +285,218 @@ Palavrinhas que vão conectar nossos testes
 
 `npm install --save-dev mocha chai`
 
-scripts de test =>` ./node_modules/.bin/mocha tests/*`*`/`*
+scripts de test =>`./node_modules/.bin/mocha tests/*`*`/`*
+
+### Exemplos
+
+###### fizzbuzz.js
+
+```
+const FizzBuzz = (num) => {
+
+    if (num === 0) {
+        return 0
+    }
+
+    if (num % 3 === 0 && num % 5 === 0) {
+        return 'FizzBuzz'
+    }
+
+    if (num % 3 === 0) {
+        return 'Fizz'
+    }
+
+    if (num % 5 == 0) {
+        return 'Buzz'
+    }
+
+    return num
+
+}
+
+export default FizzBuzz
+```
+
+###### fizzbuzz.spec.js
+
+```
+/*
+    Desafio FizzBuzz
+    Escreva uma lib que receba um número e:
+    Se o número for divisível por 3, no lugar do número escreva 'Fizz'
+    Se o número for divisível por 5, no lugar do número escreva 'Buzz'
+    Se o número for divisível por 3 e 5, no lugar do número escreva 'FizzBuzz'
+    Se não for múltiplo de nada, retorna o número
+*/
+
+import { expect } from 'chai'
+import FizzBuzz from '../src/main'
+
+describe('FizzBuzz', () => {
+
+    it('should return `fizz` when multiple of 3', () => {
+        expect(FizzBuzz(3)).to.be.equal('Fizz')
+        expect(FizzBuzz(6)).to.be.equal('Fizz')
+    })
+
+    it('should return `Buzz` when multiple of 5', () => {
+        expect(FizzBuzz(5)).to.be.equal('Buzz')
+    })
+
+    it('should return `FizzBuzz` when multiple of 3 and 5', () => {
+        expect(FizzBuzz(15)).to.be.equal('FizzBuzz')
+    })
+
+    it('should return the number when non-nultiple', () => {
+        expect(FizzBuzz(7)).to.be.equal(7)
+    })
+
+    it('should return 0 when 0', () => {
+        expect(FizzBuzz(0)).to.be.equal(0)
+    })
+})
+```
+
+outro exemplo
+
+###### calc.js
+
+```javascript
+const sum = (num1, num2) => num1 + num2
+const sub = (num1, num2) => num1 - num2
+const mult = (num1, num2) => num1 * num2
+const div = (num1, num2) => (num2 === 0) ? 'não é possivel divisão por zero' : num1 / num2
+
+export { sum, sub, mult, div }
+```
+
+###### calc.spec.js
+
+```javascript
+import { expect } from 'chai'
+import { sum, sub, mult, div } from '../src/main'
+
+describe('Calc', () => {
+
+    //smoke tests
+    describe('smoke tests', () => {
+
+        it('should exist the method `sum`', () => {
+
+            expect(sum).to.exist
+            expect(sum).to.be.a('function')
+        })
+
+        it('should exist the method `sub`', () => {
+
+            expect(sub).to.exist
+            expect(sub).to.be.a('function')
+        })
+
+        it('should exist the method `mult`', () => {
+
+            expect(mult).to.exist
+            expect(mult).to.be.a('function')
+        })
+
+        it('should exist the method `div`', () => {
+
+            expect(div).to.exist
+            expect(div).to.be.a('function')
+        })
+    })
+
+    // teste de soma
+    describe('Sum', () => {
+
+        it('should return 4 when `sum(2, 2)`', () => {
+
+            expect(sum(2, 2)).to.be.equal(4)
+        })
+
+    })
+
+    // testes de subtração
+    describe('Sub', () => {
+        it('should return -4 when `sub(6, 10)`', () => {
+
+            expect(sub(6, 10)).to.be.equal(-4)
+        })
+    })
+
+    // testes de multiplicação
+    describe('Mult', () => {
+
+        it('should return 12 when `mult(2, 6)`', () => {
+
+            expect(mult(2, 6)).to.be.equal(12)
+        })
+    })
+
+
+    // testes de divisão
+    describe('Div', () => {
+
+        it('should return 2 when `sum(12, 6)`', () => {
+            expect(div(12, 6)).to.be.equal(2)
+        })
+
+        it('should return `não é possivel divisão por zero` when divide by 0', function () {
+            expect(div(12, 0)).to.be.equal('não é possivel divisão por zero')
+        })
+    })
+})
+```
+
+### CODE COVERAGE
+
+É uma cobertura de codigo, ele vai analisar todos os pedaços do seu codigo que foram passados pelo testes, o interessante é que ele consegue analisar se alguma parte do seu codigo nao foi testada.
+
+Vai analisar se aquele trecho do código foi rodado, isso nao significa que ele tenha sido testado corretamente, a unica coisa que o teste de cobertura faz é se algum teste rodou aquela linha.
+
+Ele é muito importante e util, vejamos...
+
+**Biblioteca que vai permitir fazer esse code coverage**
+
+`npm install —save-dev nyc`
+
+adicione nos scrips do seu package.json: 
+
+`"test:coverage": "nyc npm test"`
+
+Ele cria uma tabelinha e tem todos os arquivos que ele testou e até os que nao faz necessidade
+
+* **stmts** ⇒ linhas que voce ta rodando e testando
+* **branchs** => se tem o if else e se ta pegando
+* **funcs** => funções
+* **lines** => analisar a quantidade de todas as linhas que voce ta cobrindo se é 100% ou  nao
+
+```javascript
+"nyc": {
+  "reporter": ["text", "html"],
+  "exclude": ["tests/\*\*"]
+}
+```
+
+**Coverage nao é um significado de qualidade!**
+
+Supomos que eu quero que tenha pelo menos 80% de cobertura nas linhas, eu nao vou deixar que a pessoa suba o codigo que tenha pelo menos 80% de cobertura, ou seja, a pessoa vai ter que escrever os testes senão não vai subir
+
+###### CONFIGURAÇÃO PARA ADICIONAR DEPOIS DOS SCRIPTS DO PACKAGE.JSON
+
+```javascript
+"nyc": {
+  "check-coverage": true,
+  "functions": 80,
+  "lines": 80
+}
+```
+
+Nos scripts voce coloca isso:
+
+```javascript
+"scripts": {
+  "lint": "./node_modules/.bin/eslint src/*.js" 
+  "prepush": "npm run lint && npm run test:coverage"
+}
+```
