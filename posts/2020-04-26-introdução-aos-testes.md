@@ -245,7 +245,7 @@ Como o próprio site do Mocha diz:
 
 > “Mocha é um framework Javascript que roda em aplicações Node.js e no browser para realizar testes assíncronos de uma maneira simples e fácil”.
 
-###### Reporters do mocha 
+###### Reporters do mocha
 
 * É como informa como os testes estao passando de uma forma diferente, menor, enfim. 
 
@@ -298,7 +298,7 @@ scripts de test =>`./node_modules/.bin/mocha tests/*`*`/`*
 
 ###### fizzbuzz.js
 
-```
+```javascript
 const FizzBuzz = (num) => {
 
     if (num === 0) {
@@ -326,7 +326,7 @@ export default FizzBuzz
 
 ###### fizzbuzz.spec.js
 
-```
+```javascript
 /*
     Desafio FizzBuzz
     Escreva uma lib que receba um número e:
