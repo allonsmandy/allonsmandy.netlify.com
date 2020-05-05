@@ -488,7 +488,14 @@ Supomos que eu quero que tenha pelo menos 80% de cobertura nas linhas, eu nao vo
 "nyc": {
   "check-coverage": true,
   "functions": 80,
-  "lines": 80
+  "lines": 80,
+  "reporter": [
+    "text",
+    "html"
+  ],
+  "exclude": [
+    "tests/**"
+  ]
 }
 ```
 
