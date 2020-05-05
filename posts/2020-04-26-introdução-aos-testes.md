@@ -1,12 +1,12 @@
 ---
 title: Introdução aos testes
-description: testes
+description: Um pouco da teoria sobre testes
 date: '2020-04-26 06:59:50'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: testes
 background: '#88c18c'
 ---
-Por que testar?
+#### Por que testar?
 
 * Reduz o tempo gasto em análise e correção de bugs
 * Facilita refatoração
@@ -14,9 +14,9 @@ Por que testar?
 * Melhora o design do código
 * Garante que o trabalho tenha qualidade
 
-Como funciona o fluxo do TDD?
+#### Como funciona o fluxo do TDD?
 
-Fluxo de Teste
+###### Fluxo de Teste
 
 1. Escrever o teste
 2. Escrever o código para o teste passar
@@ -25,51 +25,56 @@ Fluxo de Teste
 5. Escrever um terceiro caso de teste (se necessário)
 6. Refatorar o código
 
-Pensando como testar
+###### Pensando como testar
 
 * O que o código precisa fazer?
 * Que dados ele recebe?
 * Que dados ele precisa retornar?
 * Que ações precisam acontecer para o código rodar?
 
-Padrão do Teste
+###### Padrão do Teste
 
-* "Ele deve fazer isso quando aquilo" - "it should do that when this"
+* "Ele deve fazer isso quando aquilo..." - "*it should do that when this*"
+
+```javascript
+export const sum = (num1, num2) => num1 + num2
 
 ```
-it('should return when receive  2,2') {
+
+```javascript
+it('should return when receive 2,2') {
   expect(sum(2, 2)).to.equal(4)
 }
 ```
 
-Tipos de Testes
+#### Tipos de Testes
 
-Pirâmide imagem...UI / SERVICE / UNIT
+![Pirâmide de testes](assets/img/tests.png "Pirâmide de testes")
 
-Testes unitários: São aqueles testes de responsabilidade unica onde voce testa como um metodo funciona de forma isolada, ou seja, esse teste unitario vai fazer os testes do metodo pra ver se retorna um valor, etc.
+**Testes unitários:** São aqueles testes de responsabilidade unica onde você testa como um método funciona de forma isolada, ou seja, esse teste unitário vai fazer os testes do método pra ver se retorna um valor, etc.
 
-**É um simples e pequeno teste automatizado que prova o comportamento de um único método. Tem como objetivo ser bem rápido e fazer o teste de um comportamento.**
+É um simples e pequeno teste automatizado que prova o comportamento de um único método. Tem como objetivo ser bem rápido e fazer o teste de um comportamento.
 
-* **Evite o ruído entre os testes (isolamento). Todos os testes precisam ser independentes, sem depender de um teste externo.**
-* **Pra evitar é sempre legal usar beforeEach e Aftereach pra limpar as variaveis globais que voce possa ter criado**
-* **Escolha os melhores asserts para cada momento**
-* **Procure usar mocks para chamadas externas**
-* **Utilize o teste unitario para organizar o design do seu codigo**
+* Evite o ruído entre os testes (isolamento). Todos os testes precisam ser independentes, sem depender de um teste externo.
+* Pra evitar isso é sempre legal usar **beforeEach** e **afterEach** para limpar as variáveis globais que você possa ter criado.
+* Escolha os melhores *asserts* para cada momento
+* Procure usar *mocks* para chamadas externas
+* Utilize o teste unitário para organizar o design do seu código
 
-Testes de serviço ou integração: A gente tem um componente que ja fizemos todos os testes unitarios, e este componente faz uma chamada ao banco, a api, e a gente busca alguns resultados e retorna outras coisas. No unitario esta parte de serviço a gente simplesmente faz um mock, faz uma chamada pra um valor que ja sabemos qual vai ser, pois nao queremos testar a api no unitario e sim como vai se comportar. No integraçao precisa saber se de fato vai intefrar e funcionar, entao nao da pra criar mais estes mocks.
+**Testes de serviço ou integração:** Supomos que temos um componente no qual já fizemos todos os testes unitários, e este componente faz uma chamada ao banco, a api, e ai a gente busca alguns resultados e retorna outras coisas. No unitário esta parte de serviço a gente simplesmente faz um *mock....* ou seja,fazemos uma chamada pra um valor que já sabemos qual vai ser, *pois não queremos testar a api no unitario* e sim como vai se comportar. No teste de integração precisa saber se de fato vai integrar e funcionar, então não da pra criar mais estes *mocks*.
 
-**É um teste para validar se os componentes estão funcionando em conjunto.**
+É um teste para validar se os componentes estão funcionando em conjunto.
 
 * **Cuidado para não criar um teste inútil**
 * **Isole o máximo possivel dos ambientes**
 
-Testes de UI/ e2e: Você ver a maquina mexendo na UI por você. ELe é importante pra verficiar se nao tem um botao que esta sendo escondido ondenao deveria, se conseguimos chamar um dropdown e ele ta funcionando, se ele pode ser clicável, enfim. ALém de tambem termos os testes de regressão que é quando faz uma mudança ou outra de css ou js e voce acaba quebrando uma integraçao.
+**Testes de UI/ e2e:** Você ver a maquina mexendo na UI por você. Este teste é importante pra verificar se não tem um botão que esta sendo escondido onde não deveria, se conseguimos chamar um dropdown e ele ta funcionando, se ele pode ser clicável, enfim. Além de também termos os testes de regressão que é quando faz uma mudança ou outra de css ou js e você acaba quebrando uma integração.
 
-**O teste de aceitação é realizado com o proposito de avaliar a qualidade externa do produto e, na medida do possivel, também a qualidade em uso.**
+**O teste de aceitação é realizado com o proposito de avaliar a qualidade externa do produto e, na medida do possível, também a qualidade em uso.**
 
-* **Valide apenas o fluxo de funcionamento do projeto,ou seja, voce tem que validar a etapa indo de a pra b, indo de b pra c. O usuario abriu a pagina, o usuario digitou no search, abriu a tela, ele clicou no link, etc.**
+* **Valide apenas o fluxo de funcionamento do projeto, ou seja, você tem que validar a etapa indo de A pra B, indo de B para C. O usuário abriu a pagina, o usuário digitou no search, abriu a tela, ele clicou no link, etc.**
 
-**SPIES, STUBS E MOCKS**
+#### SPIES, STUBS E MOCKS
 
 **SPIES**
 
@@ -112,8 +117,7 @@ npm install --save-dev mocha chai
 
 scripts de test => ./node_modules/.bin/mocha tests/\*\*/*.spec.js --watch
 
-* describe: vai descrever os testes de uma certa função e afins ele serve pra gente conseguir criar um bloco onde a gente vai testar metodos de uma função, o describe vai ser o que vai iniciar o teste.
-  usamos pra separar os metodos ou classes, podemos ter varios describe, pra minha classe Main, mas posso ter descibre dentro de outros tbm
+* describe: vai descrever os testes de uma certa função e afins ele serve pra gente conseguir criar um bloco onde a gente vai testar metodos de uma função, o describe vai ser o que vai iniciar o teste. usamos pra separar os metodos ou classes, podemos ter varios describe, pra minha classe Main, mas posso ter descibre dentro de outros tbm
 
 ```
 describe('Main', function() {
@@ -147,34 +151,20 @@ it('should happen blabla', function() {
 }
 ```
 
-* reporters do mocha: é como informa como os testes estao passando de uma forma diferente, menor, enfim.  npm test -- --reporters
-  npm test -- --reporter=nyan (muito fofinhooooo >u<)
-  verde: teste que está passando
-  vermelho: erros
-  azul: quantos testes voce falou pra nao ser rodado no momento
-* bail:  npm test -- --bail no primeiro momento que encontrar um erro ele vai parar
-  vai consertando por pedaço por pedaço e isso é bom :3
+* reporters do mocha: é como informa como os testes estao passando de uma forma diferente, menor, enfim.  npm test -- --reporters npm test -- --reporter=nyan (muito fofinhooooo >u<) verde: teste que está passando vermelho: erros azul: quantos testes voce falou pra nao ser rodado no momento
+* bail:  npm test -- --bail no primeiro momento que encontrar um erro ele vai parar vai consertando por pedaço por pedaço e isso é bom :3
 * only: roda somente este bloco  context.only('...', function () {})
-* skip: serve pra nao rodar este teste em especifico it.skip('should happen blablabla', function() {})
-  mostra na coloração azul
+* skip: serve pra nao rodar este teste em especifico it.skip('should happen blablabla', function() {}) mostra na coloração azul
 
 Introduçao aos hooks
 
-
-
-* hooks: codigos que sao rodados a partir de alguma ação que foi executada 
-  serve por exemplo pra criar metodos que sao rodados antes de outros
-  ou seja, os hooks vao ajudar para que a gente consiga diminuir as
-  nossas duplicatas
-  before => roda uma vez antes do bloco
+* hooks: codigos que sao rodados a partir de alguma ação que foi executada  serve por exemplo pra criar metodos que sao rodados antes de outros ou seja, os hooks vao ajudar para que a gente consiga diminuir as nossas duplicatas before => roda uma vez antes do bloco
   after => roda uma vez depois do bloco
   beforeEach => roda todas as vezes antes de cada bloco
   afterEach => roda todas as vezes depois de cada bloco
-* chai: responsavel por cada it, ele que de fato vai testar
-  chains => palavrinhas que vao conectar nossos testes
+* chai: responsavel por cada it, ele que de fato vai testar chains => palavrinhas que vao conectar nossos testes
 
 ```javascript
-
     describe('method B', function () {
 
         before(function () {
