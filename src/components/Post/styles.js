@@ -14,7 +14,7 @@ export const PostHeader = styled.header`
 `
 
 export const PostTitle = styled.h1`
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   padding: 0 1.4rem;
   margin: 0.5rem auto;
@@ -66,7 +66,7 @@ export const PostDate = styled.p`
 export const MainContent = styled.section`
   margin: auto;
   max-width: 70rem;
-  padding: 1rem 5rem;
+  padding: 1rem 3rem;
 
   ${media.lessThan("large")`
     padding: 2rem 0;

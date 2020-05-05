@@ -43,7 +43,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   blockquote {
-    margin: 2.125rem auto;
+    margin: 2.125rem 1rem;
     transition: border-left 0.5s;
     background-color: var(--texts);
     padding: 0.2rem;
@@ -88,12 +88,12 @@ const GlobalStyles = createGlobalStyle`
     padding-left: 2.5rem;
     list-style: disc;
     margin: 0 auto 1.2rem;
-    line-height: 1.4;
+    line-height: 1.3;
   }
 
   li {
     padding: 0.325rem 0;
-    color: var(--secondary);
+    color: var(--highlight);
     font-family: sans-serif;
 
     & > ul {
@@ -122,9 +122,12 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h6 {
+    letter-spacing: 2px;
+    line-height: 1.3;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--maiscor);
-    padding: 0 1.4rem;
+    padding: 0.7rem 1.4rem;
     text-transform: uppercase;
   }
 
@@ -180,13 +183,13 @@ const GlobalStyles = createGlobalStyle`
     --texts: #d8b15a;
     --postColor: #d5dac2bf;
     --highlight: #b59faa;
-    --mediumBackground: #35282f;
-    --background: #211b1fb0;
+    --mediumBackground: #330d24c7;
+    --background: #1f0d18;
     --code: #a04e4e;
     --secondary: #ceafce;
     --outracor: #443537bd;
     /* --post: #e2bc94; */
-    --post: #e097a4d9;
+    --post: #e097a4d3;
     --maiscor: #dc7f7f;
     --algo: #e2e2ec;
 
