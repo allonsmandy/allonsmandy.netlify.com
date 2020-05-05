@@ -50,7 +50,7 @@ it('should return when receive 2,2') {
 
 #### Tipos de Testes
 
-![Pirâmide de testes](assets/img/tests.png "Pirâmide de testes")
+![Pirâmide de testes](assets/img/opsa.png "Pirâmide de testes")
 
 ###### **Testes unitários**
 
