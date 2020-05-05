@@ -245,29 +245,36 @@ Como o próprio site do Mocha diz:
 
 > “Mocha é um framework Javascript que roda em aplicações Node.js e no browser para realizar testes assíncronos de uma maneira simples e fácil”.
 
-###### Reporters do mocha
+###### Reporters do mocha 
 
 * É como informa como os testes estao passando de uma forma diferente, menor, enfim. 
 
+O seguinte comando mostra uma lista de reporters que você pode utilizar
+
+###### `npm test -- --reporters`
+
+**EXEMPLO DE REPORTER!!!**
+
 ```javascript
-npm test -- --reporters npm test -- --reporter=nyan
+npm test -- --reporter=nyan
 ```
+
+![](assets/img/Captura de tela de 2020-05-05 01-04-15.png)
 
  (muito fofinhooooo >u<) 
 
-**verde**: Teste que está passando 
-
-**vermelho**: erros 
-
-**azul**: quantos testes voce falou pra nao ser rodado no momento 
-
-**bail**: npm test -- --bail 
+* **verde**: Teste que está passando 
+* **vermelho**: erros 
+* **azul**: quantos testes voce falou pra nao ser rodado no momento 
+* **bail**: npm test -- --bail 
 
 No primeiro momento que encontrar um erro ele vai parar vai consertando por pedaço por pedaço e isso é bom :3 
 
-**only**: roda somente o bloco especificado
+* **only**: roda somente o bloco especificado
 
-`context.only('...', function () {})`**skip**: serve pra nao rodar o teste em especifico. Mostra na coloração azul
+`context.only('...', function () {})`
+
+* **skip**: serve pra nao rodar o teste em especifico. Mostra na coloração azul
 
 `it.skip('should happen blablabla', function() {})`
 
@@ -471,12 +478,7 @@ Ele cria uma tabelinha e tem todos os arquivos que ele testou e até os que nao 
 * **funcs** => funções
 * **lines** => analisar a quantidade de todas as linhas que voce ta cobrindo se é 100% ou  nao
 
-```javascript
-"nyc": {
-  "reporter": ["text", "html"],
-  "exclude": ["tests/\*\*"]
-}
-```
+![](assets/img/coverage.png)
 
 **Coverage nao é um significado de qualidade!**
 
