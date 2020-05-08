@@ -58,8 +58,6 @@ Toda essa cadeia desde o momento que o produto é produzido até o momento que e
 
 ENERGY EFFICIENT: COm Iot é possivel começar a coletar dados tanto de fontes geradores de energia como tbm consumidoras criando uma rede de informaçoes iportantepra tomada de decisao..
 
-
-
 Como vimos, o IoI ja esta bastante presente em nossa vida. cada vez mais o que veremos é uma quantidade maior de coisas se conectando em uma ede, mandando informaçoes e info
 
 Segnundo mark weiser, nos estamos entrando na era da computaçao obliquea, esse momento é quando os computadores saem do nosso campo de visao, a tecnologia recua para um plano de fundo, e é nesse momento em que a tech se torna mt importante em nossas vidas pois n conseguimos vela de forma facil, com o crescimento de IoT esse processo vai se tornar cada vez mais rapido. Quando a tecnologia se trna realmente eficaz.
@@ -71,4 +69,23 @@ Segnundo mark weiser, nos estamos entrando na era da computaçao obliquea, esse 
 3. Ser capaz de processar e armazenar uma enorme quantidade de informaçoes
 4. Gerar valor a partir dos dados coletados
 
-#### Arquitetura IoT
+#### Arquitetura IoT e protocolo de comunicação
+
+Veremos um problema pra ficar melhor exemplificado.
+
+Um proprietario de uma frota de veiculo pretende saber em tempo real qual a localizaçao de cada um de seus veiculos, entao ele precisara ter um gps de cada veiculos da sua frota, e os gps vai coletar a posiçao geografica mais atual e vai transmitir para a nuvem como vimos anteriormente. essas posiçoes podem ser armazenados e os dados utilizados pra poder criar aplicaçao onde exista um mapa e nele consiga visulaizar a ultima posicao de cada um dos veiculos.
+
+Conectando as coisas...
+
+Precisamos pensar como conectar as coisas!Hoje existe uma grande quantidade de opçoes no mercado pra vc conecta seus dispositivs, elas vao desde soluçoes mais caseiras onde voce vai prototibar suas soluçoes iot, até as mais industria. E ai a gente ja começa a viver uma era de produto que voce ja nao consegue mais ver o circuito, microcontrolador que era bem aparenteno inicio do iot.
+
+hoje vc tem uma seire de produtos pra casa como lampas inteligentes, despertadores cameras, hoje ja existe essa diversidade de dispositivos e como eles aparecem pra gente.
+
+Considere esses atributos na escolha
+
+* Baixo consumo de energia
+* rede de dados limitado
+* resiliencia
+* segurança
+* customzaçao
+* baixo custo
