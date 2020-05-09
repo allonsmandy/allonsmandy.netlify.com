@@ -192,41 +192,58 @@ Como funciona a publicação
 
 ![Publish](assets/img/publishbg.png "Publish")
 
-Para publicar a mensagem você vai ter que ter um endereço desse broker, esse broker nada mais é que um software então ele tem um endereço na internet, tem dns, host, etc. nesse caso vou publicar a mensagem d aposiçao do gps em um broker que esta neste endereço:
+Para publicar a mensagem você vai ter que ter um endereço desse broker, esse broker nada mais é que um software então ele tem um endereço na internet, tem dns, host, etc. Nesse caso vou publicar a mensagem da posição do gps em um broker que está no endereço da imagem.
 
-do hostname em diante a gente chama de topico,é como se fosse um endereço onde eu vou entregar deteminado tipo de info
+Do hostname em diante a gente chama de **topico.** O tópico écomo se fosse um endereço onde eu vou entregar determinado tipo de informação.
 
-ele pode ser de varias formas, ele te da flexibilidade de voce definir os topicos conforme a necessidade do seu negocio
+Ele da a flexibilidade de você definir os tópicos conforme a necessidade do seu negocio.
 
-nesse caso aqui eu vou criar um topico onde a primeira parte é o identificador do usuario, ou seja, do meu gps. na sequencia vou ter o gps escrito mesmo, esse é o topico pra onde o gps ta publicando a info, e a info no caso é a latitude e longitude.
+Nesse caso eu criei um tópico onde a primeira parte é o identificador do usuário, ou seja, identificador do meu gps. Na sequencia vou ter o nome gps escrito mesmo, esse é o tópico para onde o gps ta publicando a informação, e a informação no caso é a latitude e longitude.
 
-A FLEXIBILIDADE DOS TOPICOS
+#### A FLEXIBILIDADE DOS TOPICOS
 
-Veja como foi composto o topico acima:
+![](assets/img/brokerbg.png)
 
-Essa flexibilidade permite voce modelar seu sistema conforme sua necessidade, nao so a de produzir o dado como a de ouvir.
+* mqtt://broker/user/accelerometer 
+* mqtt://broker/user/gps/position
+* mqtt://broker/user/gps/velocity
 
-Entao no caso ficaria mais ou menos assim:
+Essa flexibilidade permite você modelar seu sistema conforme sua necessidade, não só a de produzir o dado como a de ouvir.
 
-Cada veiculo num determinado momento assim que receber uma position geografica do gps, seja tracker ou o app, vai transmitir essa posiçao, vai publciar no brocker um topico especifico.
+Entao no caso do nosso exemplo ficaria mais ou menos assim:
 
-Eu poderia ter todos os veiculos publicando dados dentro do mesmo topico sem especifiar o id do usuario, isso tbm é uma questao de escolha no momento q vc ta desenhando sua soluçao, a questao é, se vc n passar o id do seu veiculo na composiçao do topico vc vai ter que passa no corpo da mensagem,alem da lat e longiutde vai ter o id do veiculo.
+* pub mqtt://broker/a6fb45/gps/position
+* pub mqtt://broker/f7j49k/gps/position
+* pub mqtt://broker/n4g0k9/gps/position
+* pub mqtt://broker/b0h2s4/gps/position
+* pub mqtt://broker/x0s9d6/gps/position
 
-Agora vou precisar consumir essas informaçoe, e vouf azer isso atraves do subscribe.
+Cada veiculo num determinado momento assim que receber uma posição geográfica do gps, seja pelo gps tracker ou pelo aplicativo, essa posição será transmitida e publicada no brocker um topico especifico.
 
-O subscribe é a capacidade que  client mqtt, um softwre, um deivce, envim, tem de se conectar ao broker e passar a ouvir um topico. Entao um exemplo é, eu poderia te rum outro app onde eu  pudesse rodar no tablet e acompanhar dea posiçao de uma motorista, ele teria que se inscrever em um topico de um usuario. 
+Eu poderia ter todos os veículos publicando dados dentro do mesmo tópico sem especificar o identificador do usuário, isso também é uma questão de escolha no momento que você for desenhar sua solução, a questão é, se você não passar o identificador do seu veiculo na composição do tópico, você vai ter que passar no corpo da mensagem, então alem da latitude e longitude teria que ter o identificador do veiculo também.
 
-quando faço a inscriçao, toda menagem que o broker receber naquele topico ele vai me entregar a mensagem.
+Agora vou precisar consumir essas informações. Vou fazer isso através do **subscribe**.
 
-entao na hora de inscrever no topicos pra receber mensagens eu poderia utilizar esse tipo de composiçao:
+![Subscribe](assets/img/subscribe.png "Subscribe")
 
-no terceiro topico por exemplo eu to me conectando no topico que vai receber info do acelerometro, diferente das infos que pego no primeiro e seugndo exemplo.
+O subscribe é a capacidade que o Client mqtt (software, device) tem de se conectar ao broker e passar a ouvir um tópico. Então um exemplo é, eu poderia ter um outro aplicativo no qual eu pudesse acompanhar a posição de uma motorista, e esse aplicativo teria que se inscrever em um tópico de um usuário. 
 
-Se eu quiser me inscrever num topico pra querer visuliazar as posiçoes de gps de todos os usuarios, eu usso o caracter +,posos usar o mesmo no final, assim eu possobuscar de um usaurio especifico todas as informaçoes que vem do gpf, que neste caso é a posiçao e velocidade.
+Quando faço a inscrição, toda menagem que o broker receber naquele tópico ele vai me entregar a mensagem. Então na hora de se inscrever nos tópicos pra receber mensagens eu poderia utilizar esse tipo de composição:
 
-o # significa que o broker vai te entregar todas as mensagens dos topicos internos, eu to me inscrevend orpa buscar a mensagem de todos os usuarios e de todos os sensores, todas as informaçoes de cada Sensor.
+* mqtt://broker/user/gps/position 
+* mqtt://broker/user/gps/velocity
+* mqtt://broker/user/accelerometor
+* mqtt://broker/+/gps/position
+* mqtt://broker/user/gps/+
+* mqtt://broker/+/#
 
-QoS 0
+No terceiro item por exemplo, eu to me conectando no tópico que vai receber informação do acelerômetro, diferente das informações que pego no primeiro e segundo exemplo.
+
+Se eu quiser me inscrever em um tópico pra visualizar as posições de gps de todos os usuários, eu uso o +, eu posso usar ele no final também, dai desta forma poderia buscar de um usuário especifico todas as informações que vem do gps, que neste caso é a posição e velocidade.
+
+O # significa que o broker vai te entregar todas as mensagens dos tópicos internos, eu to me inscrevendo para buscar a mensagem de todos os usuários e de todos os sensores, e também todas as informações de cada Sensor.
+
+#### QoS 0
 
 Mas se a gente tem um protoclo de comunicaçao, é importante ter certos niveis de garantia que elevai funcionar e pra isso o mtqqt fornece o qos, que é niveis diferentes de qualidadede serviços
 
