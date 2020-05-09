@@ -180,19 +180,19 @@ Tanto o Smartphone que está rodando um aplicativo vai utilizar o MQTT como prot
 * Criado pela IBM para conectar sensores de pipelines de petróleo a satélites
 * Padrão OASIS suportado pelas linguagens de programação mais populares
 
-#### MODELO CLIENTE SERVIDOR
+#### MODELO PUBLISH/SUBSCRIBE
 
-![Modelo Cliente Servidor](assets/img/modelo cliente servidor.png "Modelo Cliente Servidor")
+![](assets/img/modelo publish subscribe.png)
 
 Nesse modelo a gente separa quem é o fornecedor da mensagem e de quem é o consumidor. Você pode por exemplo, ser um gps que está capturando os pontos geográficos mais atualizado, e você vai estar simplesmente publicando para um mddleware, um software especializado em receber essa mensagem, no qual o objetivo dele é receber e entregar a mensagem. Ele que vai ser o roteador que faz a entrega para os clients que estão inscritos pra receber aquele tipo de mensagem. 
 
 Ele tem uma capacidade de escalabilidade de lidar com dados muito maior, pois houve o desacoplamento de quem publica e quem consome, um dispositivo publicando mensagem pode alimentar 10, 20, 30 outros dispositivos que tem interesse em ouvir.
 
-PUBLICAÇAO COMO FUNCIONA
+Como funciona a publicação
 
+![Publish](assets/img/publishbg.png "Publish")
 
-
-PRA PUBLICAR a msg vc vai ter que ter um endereço desse broker O(software) entao ele tem um endereço na internet, dns, host. nesse caso vou publicar a mensagem d aposiçao do gps em um broker que esta neste endereço:
+Para publicar a mensagem você vai ter que ter um endereço desse broker, esse broker nada mais é que um software então ele tem um endereço na internet, tem dns, host, etc. nesse caso vou publicar a mensagem d aposiçao do gps em um broker que esta neste endereço:
 
 do hostname em diante a gente chama de topico,é como se fosse um endereço onde eu vou entregar deteminado tipo de info
 
