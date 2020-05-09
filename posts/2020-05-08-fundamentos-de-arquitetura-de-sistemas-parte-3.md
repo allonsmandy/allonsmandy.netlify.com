@@ -167,22 +167,30 @@ O importante não é saber o tipo de dispositivo que vou ter, o importante é qu
 
 #### O protocolo MQTT
 
-É o protoclo de iOt, MAS CONHECIDOE UTILIZADO .
+MQTT é o protocolo de IoT mais comumente conhecido e utilizado.
 
-Ele vai ser a linguagem que tanto o smarthpone rodando um appele vai utilizar o mqtt como protocolo pra comunicarr com a nuvem , ou o gps tracker pode rodar um so que tbm falaria coma nuvem atraves desse protoclo.
+![MQTT](assets/img/Protocolo de comunicaçao mqtt.png "MQTT")
 
-MQTT
+Tanto o Smartphone que está rodando um aplicativo vai utilizar o MQTT como protocolo pra se comunicar com a nuvem, como também o **gps tracker** que pode por exemplo rodar um sistema operacional que irá se comunicar com a nuvem através desse protocolo.
+
+###### MQTT
 
 * Base na pilha TCP/IP
-* Protocolo de mensagem assincrona (M2M)
-* Criado pela IBM para conectar sensores de pipelines de petroleo a satelites
-* PADRAO OASIS suportado pelas linguagens de programaçao mais populares
+* Protocolo de mensagem assíncrona (M2M)
+* Criado pela IBM para conectar sensores de pipelines de petróleo a satélites
+* Padrão OASIS suportado pelas linguagens de programação mais populares
 
-MODELO CLIENTE SERVIDOR
+#### MODELO CLIENTE SERVIDOR
 
-Nesse modelo a gente separa quem é o fornecedor da mensagem daquela pessoa que é o consumidor, ha uma separaacao do client. voce pode por exemplo ser um gps que ta capturando os pontos geograficos mais att, e voce ta simplesmente publicando para um mddlewrare, um software especializado em receber essa mensagem, no qual o objetivo dele é receber e entregar a mensagem, ele é o roteador, ele entrega para os clients que estao inscritos pra receber aquele tipo de mensagem. ele tem uma apacidade de scalabilidade de lidar com dados mt maior, pois houve o desacoplamento de quem publica e quem consome, um dispostivo publicando mensagem pode alimentar 10 20 30 outros dispostivos que tem interesse em ouvir.
+![Modelo Cliente Servidor](assets/img/modelo cliente servidor.png "Modelo Cliente Servidor")
+
+Nesse modelo a gente separa quem é o fornecedor da mensagem e de quem é o consumidor. Você pode por exemplo, ser um gps que está capturando os pontos geográficos mais atualizado, e você vai estar simplesmente publicando para um mddleware, um software especializado em receber essa mensagem, no qual o objetivo dele é receber e entregar a mensagem. Ele que vai ser o roteador que faz a entrega para os clients que estão inscritos pra receber aquele tipo de mensagem. 
+
+Ele tem uma capacidade de escalabilidade de lidar com dados muito maior, pois houve o desacoplamento de quem publica e quem consome, um dispositivo publicando mensagem pode alimentar 10, 20, 30 outros dispositivos que tem interesse em ouvir.
 
 PUBLICAÇAO COMO FUNCIONA
+
+
 
 PRA PUBLICAR a msg vc vai ter que ter um endereço desse broker O(software) entao ele tem um endereço na internet, dns, host. nesse caso vou publicar a mensagem d aposiçao do gps em um broker que esta neste endereço:
 
