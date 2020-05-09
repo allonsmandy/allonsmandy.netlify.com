@@ -75,15 +75,17 @@ Veremos um problema pra ficar melhor exemplificado.
 
 ![O problema a resolver](assets/img/problema a resolver.png "O problema a resolver")
 
-Um proprietario de uma frota de veiculo pretende saber em tempo real qual a localizaçao de cada um de seus veiculos, entao ele precisara ter um gps de cada veiculos da sua frota, e os gps vai coletar a posiçao geografica mais atual e vai transmitir para a nuvem como vimos anteriormente. essas posiçoes podem ser armazenados e os dados utilizados pra poder criar aplicaçao onde exista um mapa e nele consiga visulaizar a ultima posicao de cada um dos veiculos.
+Um proprietário de uma frota de veiculo pretende saber em tempo real qual a localização de cada um de seus veículos. Ele precisará ter um gps em cada veiculo que irão coletar a posição geográfica mais atual que transmitirá para a nuvem. Essas posições poderão ser armazenadas e os dados utilizados para poder criar alguma aplicação por exemplo, no qual exista um mapa em que possa ser visualizado a ultima posição de cada um dos veículos.
 
-Conectando as coisas...
+#### Conectando as coisas...
 
-Precisamos pensar como conectar as coisas!Hoje existe uma grande quantidade de opçoes no mercado pra vc conecta seus dispositivs, elas vao desde soluçoes mais caseiras onde voce vai prototibar suas soluçoes iot, até as mais industria. E ai a gente ja começa a viver uma era de produto que voce ja nao consegue mais ver o circuito, microcontrolador que era bem aparenteno inicio do iot.
+Precisamos pensar como conectar as coisas! 
 
-hoje vc tem uma seire de produtos pra casa como lampas inteligentes, despertadores cameras, hoje ja existe essa diversidade de dispositivos e como eles aparecem pra gente.
+Hoje em dia existe uma grande quantidade de opções no mercado para você conectar seus dispositivos, desde soluções mais caseiras onde você vai prototipar suas soluções IoT, até as mais industriais. A gente já começa a viver uma era de produto em que você não consegue mais ver o circuito ou microcontrolador que era bem aparente no inicio do IoT.
 
-Considere esses atributos na escolha
+Atualmente existe uma serie de produtos para casa como lampadas, despertadores e câmeras inteligentes, há essa diversidade de dispositivos e como eles aparecem pra gente.
+
+###### Considere esses atributos na escolha
 
 * Baixo consumo de energia
 * rede de dados limitado
@@ -92,7 +94,7 @@ Considere esses atributos na escolha
 * customzaçao
 * baixo custo
 
-ARDUINO
+### ARDUINO
 
 É uma placa unica com microcontrolador...
 
@@ -104,39 +106,66 @@ ARDUINO
 
 EXEMPLO DE CODIGO
 
-...
+```cpp
+void setup() {
+  pinMode (LED_PIN, OUTPUT); //habilita o pino 13 para saida digital (OUTPUT) 
+}
 
-EMBARCADOS
+void loop() {
+  digitalWrite (LED_PIN, HIGH); // liga o LED
+  delay(1000); // espera 1 segundo (1000 milissegundos)
+  digitalWrite (LED_PIN, LOW); // desliga o LED
+  delay (1000); // espera 1 segundo
+}
 
-A patir do momento que vc pecisa ter mais garantia na sua soluçao IoT, voce vai precisar utiliza o mcu profissionais. o mcu é um microcontrolador, pensa nele como um chip capaz de fazer o processamento que o omputador faz em um chip, e qando vc coloca em um circuito eletronico cm entradas e saidas, voce tem na vedade o seu dispositivo.
+int main(void) {
+  // define LED_PIN 13
+  int LED_PIN = 13
+  
+  init();
+  
+  setup();
+  
+  for(;;)
+    loop();
+  
+  return 0;
+}
+```
 
-* Microcontrolador de chip unico
+##### EMBARCADOS
+
+A partir do momento que você precisa ter mais garantia na sua solução IoT, você vai precisar utiliza o MCU, ele é um microcontrolador. Pensa nele como um chip capaz de fazer o processamento que o computador faz só que em um chip, e quando você coloca em um circuito eletrônico com entradas e saídas, você tem o seu dispositivo.
+
+* Microcontrolador de chip único
 * Sistema operacional real-time
 * Embarcado
 * Uso industrial, medico, militar, transporte
 
-MINICOMPUTADORES
+##### MINICOMPUTADORES
 
-O rasbperry pi nao é so uma placa de circuitos, ele é um computador completo, ele é o mesmo computador que voce tem no seu notebook ou gabinete desktop or exemplo, ele tem processador, memoria, entradas e saidas, enfim.
+O **rasbperry pi** não é só uma placa de circuitos, ele é um computador completo. Ele é o mesmo computador que você tem no seu notebook ou gabinete desktop digamos assim, por exemplo. Ele tem processador, memoria, entradas e saídas, enfim.
 
 * Computador completo
 * hardware integrado a uma unica placa
-* Roda SO linux ou windows
-* uso domestico e cmercial
+* Roda sistema operacional linux e windows
+* uso domestico e comercial
 
-O PROTOCOLO DE COMUNICAÇAO
+#### O PROTOCOLO DE COMUNICAÇAO
 
-Vamos voltar ao nosso estudo de caso, em que precisamos monitorar a frota de veiculos de um determinado cliente,e pra isso estamos procurando sluçoes de monitoramente.
+Vamos voltar ao nosso estudo de caso em que precisamos monitorar a frota de veículos de um determinado cliente, e para isso estamos procurando soluções de monitoramento.
 
-Depois de estudo chegamos na conclusaoq ue vamos fazer esse monitoramente utilizando duas soluçoes: uma é instalar um gps tracker, e'uma soliuçaomais profisisonal , é mais confiavel doq ue a segunda soluçao, que é a de temos u app utiizando o proprio smartphone do motorista desse veiculo pra poder nos dar essa info de localizaçao.
+![Protocolo de comunicação](assets/img/protocolo de comunicação.png "Protocolo de comunicação")
 
-A soluçao do gpsttraker é mais confiavel pq é um embarcado, e por isso consigo mais controle, se dependo do smart do motorista eu tenho que construir um app e tenho que garantir q ele funcione sempre, o motorista pode sair de casa e esquecer por exemplo de abrir o app, a soluçao embarca posso ter esse compoentne ligado diretmente no sistema eletrico do veiculo, e o motoritsa da partida ele automaticamente é acionado e passa a transmitir as posiçoes para a nuvem.
+Depois desse estudo chegamos na conclusão. Iremos fazer esse monitoramento utilizando duas soluções: a primeira é instalar um **gps tracker**, que é uma solução mais profissional e mais confiável do que a segunda solução, que é a de temos um aplicativo utilizando o próprio Smartphone do motorista desse veiculo para poder nos dar a informação de localização.
 
-Ainda assim eu tenho nesse exemplo eu poso ter soluçao hibrida, eu posso querer que em determinados veiculos eu exiga um numeo amior de confiabilidade, entao eu intalo um gps traker, e em veiculos que eu nao preciso ter um nivel tao grande de confiabilidade eu posso ter sim um app desenvolvido pra rodar dentro do smarphtone.
+A solução do **gps tracker** é mais confiável porque é um *embarcado*, e por isso consigo ter mais controle. Caso eu dependa do Smartphone do motorista, além de construir um aplicativo eu tenho que garantir que ele sempre funcione. O motorista pode sair de casa e esquecer por exemplo de abrir o aplicativo, já na solução embarcada eu posso ter esse componente ligado diretamente no sistema elétrico do veiculo, e o motorista quando da partida ele automaticamente é acionado e passa a transmitir as posições para a nuvem.
 
-o importante nao é saber o tipo de dispositivo que vou ter, o importnte é que ambos conversem na mesma lingua, é ai que nasce a impotancia de ter um protoco de comunicaçao unica
+Ainda assim eu posso ter solução hibrida, ou seja, eu quero que em determinados veículos em que exija um número maior de confiabilidade instalar um **gps tracker**, e em veículos que eu não preciso ter um nível tao grande de confiabilidade eu posso ter um aplicativo desenvolvido para rodar dentro do Smartphone.
 
-O protocolo MQTT
+O importante não é saber o tipo de dispositivo que vou ter, o importante é que ambos conversem na mesma língua, e é ai que nasce a importância de ter um protocolo de comunicação unica.
+
+#### O protocolo MQTT
 
 É o protoclo de iOt, MAS CONHECIDOE UTILIZADO .
 
