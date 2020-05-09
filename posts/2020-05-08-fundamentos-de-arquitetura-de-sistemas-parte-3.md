@@ -73,6 +73,8 @@ Segnundo mark weiser, nos estamos entrando na era da computaçao obliquea, esse 
 
 Veremos um problema pra ficar melhor exemplificado.
 
+![O problema a resolver](assets/img/problema a resolver.png "O problema a resolver")
+
 Um proprietario de uma frota de veiculo pretende saber em tempo real qual a localizaçao de cada um de seus veiculos, entao ele precisara ter um gps de cada veiculos da sua frota, e os gps vai coletar a posiçao geografica mais atual e vai transmitir para a nuvem como vimos anteriormente. essas posiçoes podem ser armazenados e os dados utilizados pra poder criar aplicaçao onde exista um mapa e nele consiga visulaizar a ultima posicao de cada um dos veiculos.
 
 Conectando as coisas...
@@ -113,8 +115,6 @@ A patir do momento que vc pecisa ter mais garantia na sua soluçao IoT, voce vai
 * Embarcado
 * Uso industrial, medico, militar, transporte
 
-
-
 MINICOMPUTADORES
 
 O rasbperry pi nao é so uma placa de circuitos, ele é um computador completo, ele é o mesmo computador que voce tem no seu notebook ou gabinete desktop or exemplo, ele tem processador, memoria, entradas e saidas, enfim.
@@ -123,8 +123,6 @@ O rasbperry pi nao é so uma placa de circuitos, ele é um computador completo, 
 * hardware integrado a uma unica placa
 * Roda SO linux ou windows
 * uso domestico e cmercial
-
-
 
 O PROTOCOLO DE COMUNICAÇAO
 
@@ -146,14 +144,12 @@ Ele vai ser a linguagem que tanto o smarthpone rodando um appele vai utilizar o 
 
 MQTT
 
-*  Base na pilha TCP/IP
+* Base na pilha TCP/IP
 * Protocolo de mensagem assincrona (M2M)
 * Criado pela IBM para conectar sensores de pipelines de petroleo a satelites
 * PADRAO OASIS suportado pelas linguagens de programaçao mais populares
 
 MODELO CLIENTE SERVIDOR
-
-
 
 Nesse modelo a gente separa quem é o fornecedor da mensagem daquela pessoa que é o consumidor, ha uma separaacao do client. voce pode por exemplo ser um gps que ta capturando os pontos geograficos mais att, e voce ta simplesmente publicando para um mddlewrare, um software especializado em receber essa mensagem, no qual o objetivo dele é receber e entregar a mensagem, ele é o roteador, ele entrega para os clients que estao inscritos pra receber aquele tipo de mensagem. ele tem uma apacidade de scalabilidade de lidar com dados mt maior, pois houve o desacoplamento de quem publica e quem consome, um dispostivo publicando mensagem pode alimentar 10 20 30 outros dispostivos que tem interesse em ouvir.
 
@@ -175,13 +171,9 @@ Essa flexibilidade permite voce modelar seu sistema conforme sua necessidade, na
 
 Entao no caso ficaria mais ou menos assim:
 
-
-
 Cada veiculo num determinado momento assim que receber uma position geografica do gps, seja tracker ou o app, vai transmitir essa posiçao, vai publciar no brocker um topico especifico.
 
 Eu poderia ter todos os veiculos publicando dados dentro do mesmo topico sem especifiar o id do usuario, isso tbm é uma questao de escolha no momento q vc ta desenhando sua soluçao, a questao é, se vc n passar o id do seu veiculo na composiçao do topico vc vai ter que passa no corpo da mensagem,alem da lat e longiutde vai ter o id do veiculo.
-
-
 
 Agora vou precisar consumir essas informaçoe, e vouf azer isso atraves do subscribe.
 
@@ -191,8 +183,6 @@ quando faço a inscriçao, toda menagem que o broker receber naquele topico ele 
 
 entao na hora de inscrever no topicos pra receber mensagens eu poderia utilizar esse tipo de composiçao:
 
-
-
 no terceiro topico por exemplo eu to me conectando no topico que vai receber info do acelerometro, diferente das infos que pego no primeiro e seugndo exemplo.
 
 Se eu quiser me inscrever num topico pra querer visuliazar as posiçoes de gps de todos os usuarios, eu usso o caracter +,posos usar o mesmo no final, assim eu possobuscar de um usaurio especifico todas as informaçoes que vem do gpf, que neste caso é a posiçao e velocidade.
@@ -200,8 +190,6 @@ Se eu quiser me inscrever num topico pra querer visuliazar as posiçoes de gps d
 o # significa que o broker vai te entregar todas as mensagens dos topicos internos, eu to me inscrevend orpa buscar a mensagem de todos os usuarios e de todos os sensores, todas as informaçoes de cada Sensor.
 
 QoS 0
-
-
 
 Mas se a gente tem um protoclo de comunicaçao, é importante ter certos niveis de garantia que elevai funcionar e pra isso o mtqqt fornece o qos, que é niveis diferentes de qualidadede serviços
 
@@ -233,15 +221,11 @@ CLOUD
 * TBs ou PBs de informaçoes
 * Potencial de escala global
 
-
-
 o importante e vc ter uma visao de como funciona e tirar beneficios
 
 no problema que estamos tentando resolver de rastrear a posiçao da frota de veicuos, eu preciso de duas coisas: a primeira é armazenar as infos geografica q eu to obtendo dos meus veiculos em uma base de dados onde elas vao permanecer por o tempo q eu definir, e depois podem ser utilizadas.
 
 o obj primario da iot é coletar o dado e armazenar na nuvem, e a primncipal meta é utilizar o dado de forma inteligente.
-
-
 
 ..
 
@@ -252,8 +236,6 @@ e nesse caso to usando uma area em memoria de cache onde o dado vive de maneira 
 nos dois casos eu preciso ter o Worker, que é a minha aplicaçao, meu codigo, minha regra de negocio, aquiloq faço com minha info, o broker nao faz nada alaem de rotear as mensagem q estao chegando nele, o meu worker vai ter que fazer o subscribe nos topicos ou no topico do broker onde os apps ou gps traker vao publicar as informaçoes, o woker se inscever e ai o broker saber q ele tem que entregar a info do worker, e o worker pega a info e grava no local onde a info vai residir.
 
 no seungod worker so q ele praa ele o importante é o dado mais atual eai ele alimentaria a area de cache q ficaria a ultima posiçao apenas de cada usuarioo, dai asim eu posso ter uma aplicaçao web consumindo informaçoes e mostrando essa info real time.
-
-
 
 ..
 
