@@ -243,56 +243,58 @@ Se eu quiser me inscrever em um tópico pra visualizar as posições de gps de t
 
 O # significa que o broker vai te entregar todas as mensagens dos tópicos internos, eu to me inscrevendo para buscar a mensagem de todos os usuários e de todos os sensores, e também todas as informações de cada Sensor.
 
-#### QoS 0
+Mas se a gente tem um protocolo de comunicação, é importante ter certos níveis de garantia que ele vai funcionar. Por isso, o mqtt fornece o QoS, que possui níveis diferentes de qualidade de serviços. Ele fornece 3 niveis.
 
-Mas se a gente tem um protoclo de comunicaçao, é importante ter certos niveis de garantia que elevai funcionar e pra isso o mtqqt fornece o qos, que é niveis diferentes de qualidadede serviços
+### QoS 0
 
-ele fornece tres nives 0 1 2
+![QoS 0](assets/img/qos0bg.png "QoS 0")
 
-0
-
-* Nivel minimo de esforço
+* Nível minimo de esforço
 * Sem garantia de entrega da mensagem
-* Mensagem nao é retransmitida
+* Mensagem não é retransmitida
 * Custo menor em recursos computacionais
 
-1
+### QoS 1
+
+![QoS 1](assets/img/qos1.png "QoS 1")
 
 * Garante que a mensagem foi entregue no minimo uma vez ao recebedor
-* Mensagem pode ser retransmitida se nao houver confirmaçao de entrega
-* Mais comum de utilizaçao do protoclo mqqt
+* Mensagem pode ser retransmitida se não houver confirmação de entrega
+* Mais comum de utilizar do protocolo mqqt
 
-2
+### QoS 2
 
-* Mais caro porque voce tem pelo menos 2 pares de comunicaçao com o servidor
-* O cliente publica a mensagem para o broker, e ele informa o cliente que ele armazenou a mensagem
-* S eele nao eceber a confirmaçao que a mensagem foi gravada, ele vai mandar a mensagem novamente ate ee eceber a confirmaçao do broker
-* o client precisa informar o broker que a mensagem foi recebida e que o obroker pode processar a mensgaem ou remover do local onde ele armazenou internamente, que é o pubrel, e ai o broker é removida e ja ta em proessaente, ele confirma ao client que a comunicaçao esta completa.
+![QoS 2](assets/img/qos2qos1.png "QoS 2")
 
-CLOUD
+* Mais caro porque você tem pelo menos 2 pares de comunicação com o servidor
+* O client publica a mensagem para o broker, e ele informa o client que ele armazenou a mensagem
+* Se ele não receber a confirmação que a mensagem foi gravada, ele vai mandar a mensagem novamente até receber a confirmação do broker que a mensagem foi recebida.
+* Uma vez que o broker devolve a mensagem para o client que ela foi recebida, o client agora precisa informar o broker que agora ele sabe que a mensagem foi recebida e de que o broker pode processar a mensagem ou remover do local onde ele armazenou internamente, que é o **pubrel.** E então, uma vez que essa mensagem for removida e ja ta em processamento, o broker confirma ao client que a comunicação esta completa.
+
+## CLOUD
 
 * Grande e cada vez maior numero de devices conectados
-* TBs ou PBs de informaçoes
+* TBs ou PBs de informações
 * Potencial de escala global
 
-o importante e vc ter uma visao de como funciona e tirar beneficios
+O importante é você ter uma visão de como funciona e tirar benefícios.
 
-no problema que estamos tentando resolver de rastrear a posiçao da frota de veicuos, eu preciso de duas coisas: a primeira é armazenar as infos geografica q eu to obtendo dos meus veiculos em uma base de dados onde elas vao permanecer por o tempo q eu definir, e depois podem ser utilizadas.
+No problema que estamos tentando resolver de rastrear a posição da frota de veículos, eu preciso de duas coisas: a primeira é armazenar as informações geográficas que eu to obtendo dos meus veículos em uma base de dados onde elas vão permanecer por o tempo que eu definir e depois podem ser utilizadas.
 
-o obj primario da iot é coletar o dado e armazenar na nuvem, e a primncipal meta é utilizar o dado de forma inteligente.
+O objetivo primáio do IoT é coletar o dado e armazenar na nuvem, e a principal meta é utilizar o dado de forma inteligente.
 
-..
+![Cloud](assets/img/opa.png "Cloud")
 
-na segunda linha de soluçao eu nao quero armazenar uma grande quantidad ed einfo geograficas, eu quero so colocar em uma tela, graficos, dipspobilizar ao usuario um mapa onde nele vai conseguir ver a ultima psiçao de cada um dos veiculos, a mais att.
+Na segunda linha de solução eu não quero armazenar uma grande quantidade de informações geográficas, eu quero só colocar em uma tela com os gráficos, disponibilizar ao usuário um mapa onde nele vai conseguir ver a ultima posição de cada um dos veículos, ou seja, a posição mais atualizada.
 
-e nesse caso to usando uma area em memoria de cache onde o dado vive de maneira mais volatil e que ele seja entregue de forma mais rapida.
+E nesse caso estou usando uma área em memoria de cache onde o dado vive de maneira mais volátil e no qual ele é entregue de forma mais rápida.
 
-nos dois casos eu preciso ter o Worker, que é a minha aplicaçao, meu codigo, minha regra de negocio, aquiloq faço com minha info, o broker nao faz nada alaem de rotear as mensagem q estao chegando nele, o meu worker vai ter que fazer o subscribe nos topicos ou no topico do broker onde os apps ou gps traker vao publicar as informaçoes, o woker se inscever e ai o broker saber q ele tem que entregar a info do worker, e o worker pega a info e grava no local onde a info vai residir.
+Nos dois casos eu preciso ter o **Worker**, que é a minha aplicação, meu código, minha regra de negocio, aquilo que faço com minha informação, o **broker** nao faz nada além de rotear as mensagem que estão chegando nele, o meu **worker** vai ter que fazer o **subscribe** nos tópicos (ou tópico) do broker onde os aplicativos ou **gps tracker** irão publicar as informações. O **worker** se inscreve e ai o broker vai saber que tem que entregar a informação do worker, e o worker pega a informação e grava no local onde ela irá residir.
 
-no seungod worker so q ele praa ele o importante é o dado mais atual eai ele alimentaria a area de cache q ficaria a ultima posiçao apenas de cada usuarioo, dai asim eu posso ter uma aplicaçao web consumindo informaçoes e mostrando essa info real time.
+![](assets/img/db.png)
 
-..
+O armazenamento da informação dentro da nuvem tem que ser bem pensada. Hoje em dia você tem opções para armazenar os dados, o necessário de lembrar é os princípios básicos de IoT e Cloud, você estará lidando sempre com uma quantidade grande de informações que são geradas a todo momento pelos dispositivos, portanto existe a possibilidade do numero de dispositivos crescer de forma exponencial e de se tornar uma solução global, as preocupações que terá de ter no processamento e armazenamento dos dados são relacionados a **volume**, ou seja, *a solução que estou escolhendo pra armazenar meus dados vai suportar os requisitos de crescimento*?
 
-O armazenamento da informaçao dentro da nuvem ela tem q ser bem pensada e hoje em dia vc tem oopçoes pra armazenar os dados, o necessario de lembrar é os princips basicos de iot e cloutd, eu to lidando sempre com uma qtd grande de informaçoes q sao gradas a todod momentos pelos dispostivos e existe a possinilidade do numerod e dispotivos crecer de forma exponencial e de se tornar uma soluçao global, as preocupaçoes q tenho de ter no processamento e armazenamdno dos dados sao relacionados a volume, a soluçao q to escolhendo pra armazenar meus dados vai suportar os requsitos de crescimento?
+Um exemplo que eu poderia utilizar para poder armazenar os dados é um banco de dados relacional, mysql, postgres, etc. No postges por exemplo, eu crio a tabela de geolocalização, então o **broker** que recebeu o device em um determinado tópico está entregando para o **worker** inscrito nesse tópico. Ele vai receber a informação e inserir no banco de dados relacional. Neste caso pode se tornar um problema o banco de dados relacional, pois ele não escala, eu não consigo ter replicas de forma simples onde conforme a quantidade de dados forem aumentando eu vou aumentando a quantidade de instancia desse banco, normalmente você aumenta a capacidade da maquina pra poder lidar com os dados que estão chegando.
 
-um exemplo que eu poderia utiliar pra poder armazenar os dados é um banco de dados relacionados, mysql, postgress, etc. no postgess poe xemplo eu crio a tabela de geolocalizao, entao o broker q recebeu o device em um deteimnado dtopico esta entregando para o worker inscrito nesse topico e ele vai recebr a informaçao e inserir no banco de dados relacional. Neste caso pode se tornar um oriblema o banco de dados relacional, pois ele nao escala, eu nao consigo ter replicas de forma simples onde conforme a qtd de dados forem aumentando eu vou aumentando a qtd de instancia desse banco, normalmente voce aumenta acapacidade da maqina pra poder lidar co o dados que estao chegando, entao o bd relacional pode n er a menlhor opcional. imagina que depois que voce coletou 1 milhao de posiçoes geograficas vc precise fazer mautençao na tabela, isso pode e tornar invisvael, por isso na hora de decidir onde armazenar os dados vc leve em consideraçao o volume.
+Então o banco de dados relacional pode não ser a melhor opção... Imagina que depois que você coletou 1 bilhão de posições geográficas você precise fazer manutenção na tabela, isso pode e tornar inviável, por isso na hora de decidir onde armazenar os dados leve em consideração o volume.
