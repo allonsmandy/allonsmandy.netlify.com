@@ -6,19 +6,19 @@ image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
 background: '#88c18c'
 ---
-#### Conceitos da Internet das Coisas
+### Conceitos da Internet das Coisas
 
-A internet que conhecemos hoje começou com um projeto chamado ARPANET. Esse projeto visava interconectar os computadores da época, a ideia era conectar os computadores de centros de pesquisas para que os pesquisadores pudessem trocar informações!
+A internet que conhecemos hoje começou com um projeto chamado **ARPANET**. Esse projeto visava interconectar os computadores da época, a ideia era conectar os computadores de centros de pesquisas para que os pesquisadores pudessem trocar informações!
 
-A Arpanet cresceu e ao longo dos anos ela começou a não integrar somente centros de pesquisas, mas instituos do govenros, centros de inteligencia militar, e sssa expansao nao parou e hoje nós conhecemos ela como a rede mundial de computadores! :)
+A **Arpanet** cresceu e ao longo dos anos ela começou a não integrar somente centros de pesquisas, mas institutos dos governos, centros de inteligencia militar, e essa expansão não parou e hoje nós conhecemos ela como a rede mundial de computadores! :)
 
-Com o advento da internet começaram a surgir os aplicativos, os browsers de navegadores, começamos a consumir video e audios pelo youtube itunes, a participar de comunidades no facebook, trocar mensagens por email, e com a chegada do smarthphone houve uma explosao no numero de aplicativos.
+Com o advento da internet começaram a surgir os aplicativos, os browsers de navegadores, começamos a consumir vídeo e áudios pelo youtube e itunes, a participar de comunidades no facebook, trocar mensagens por email, e com a chegada do Smartphone houve uma explosão no numero de aplicativos.
 
-O que todos os aplicativos estão fazendo é utilizando uma rede mundial de comitadores pra poder conectar pessoas.
+O que todos os aplicativos estão fazendo é utilizando uma rede mundial de computadores para poder conectar pessoas.
 
-A interrt nada mais é que uma rede de pessoas conectadas trocando informações. 
+A internet nada mais é que uma rede de pessoas conectadas trocando informações. 
 
-É ai que surge a internet das coisas! QUnado as coisas que nao sao pesoas começam a utilizar dessa rede mundial que ja esta funcionando por anos pra poder tambem conectar dados e enviar informaões.
+É ai que surge a internet das coisas! Quando as coisas que não são pessoas começam a utilizar dessa rede mundial que já está funcionando por anos pra poder também conectar dados e enviar informações.
 
 ###### Por que conectar coisas?
 
@@ -30,37 +30,41 @@ A interrt nada mais é que uma rede de pessoas conectadas trocando informações
 
 A internet das coisas passa por essas três fases. 
 
-As coisas que é onde a gente quer colocar os nossos sensores, onde a gente quer coletar dados.
+As **coisas** que é onde a gente quer colocar os nossos sensores, onde a gente quer coletar dados.
 
-A nuvem que é onde a gente quer processar esses dados e armazenar esses dados
+A **nuvem** que é onde a gente quer processar esses dados e armazenar esses dados
 
-A inteligencia que é o processo de utilizar todos esses dados gerados, se beneficar do poder dessa rede, dessas coisas todas conectadas, e utilizar os dados de forma inteligente, pra resolver problemas, otimizar processos, ter vantagem competitiva.
+A **inteligencia** que é o processo de utilizar todos esses dados gerados, se beneficiar do poder dessa rede, dessas coisas todas conectadas, e utilizar os dados de forma inteligente, pra resolver problemas, otimizar processos, ter vantagem competitiva.
 
-EXEMPLOS DE ONDE PODEMOS IMPLEMENTAR O IOT
+#### Exemplos de onde podemos implementar IoT
 
-SMART BUILDING: As vezes a gente nao para pra pensar na quantidade de informações que eu poderia coletar de um predio, seja residencial, comerial, etc. Há uma série de componentes que compõe a estrutura do edficio.
+**SMART BUILDING**: As vezes a gente não para pra pensar na quantidade de informações que poderíamos coletar de um prédio, seja residencial, comercial, etc. Há uma série de componentes que compõe a estrutura do edificio.
 
-Smart building é a capacidade de voce conseguir coletar dados desses componentes e utilizar de forma inteligente pra poder melhorar por exemplo a segurança do predio, ou os sistemas de prevençao de incendio, etc.
+Smart building é a capacidade de você conseguir coletar dados desses componentes e utilizar de forma inteligente pra poder melhorar por exemplo a segurança do prédio, ou os sistemas de prevenção de incêndio, etc.
 
-START HOME: Tem caratceriscaparecia com a anteiro,r onde eu tenho diverso sensores na casa que eu posso coletar dados e monitorar, seja sensor de temepratura, dado de gerenciamento de enrgia da  cas,a ou dados pra acessar casa como fechadura eletronica por exemplo, sistema de alarme que notifica caso ocorra um disparo, entao eu tenho diversos sensores na casa que podem me entrear daos relacionados a isso.
+**START HOME**: Tem características parecidas com a anterior, onde eu tenho diversos sensores na casa que eu posso coletar dados e monitorar, seja sensor de temperatura, dado de gerenciamento de energia da casa ou dados pra acessar a casa como fechadura eletrônica por exemplo, sistema de alarme que notifica caso ocorra um disparo, então eu tenho diversos sensores na casa que podem me entregar dados relacionados a isso.
 
-Mas a diferneça é que ele tbm prever a presençar do morador da casa. Pra que eu coleto os dados? pra suprir os moradores da casa e fornecer determinado tipo de sevriço, poderia ter um sensor de tempetuara que ao verificar que to abrindo o portao da garagem ele autoatiamente poderia ligar o ar codicionado e olocar em determinado comodo numa temperatura ais agravel, entao eu tenho essa automaçao que coletando dados do sensores toma uma decisao por mim.
+Mas a diferença é que ele também prever a presença do morador da casa!! 
 
-WEARABLES: Cada vez mais comu, eles sao vestiveis, componentes que a gente coloca no corpo e ele caba coletando dado sobre a nossa saude, os nossos habitos, os lugares que frequentamos, nossos horarios, etc.
+**Pra que eu coleto os dados?** Pra suprir os moradores da casa e fornecer determinado tipo de serviço, poderia ter um sensor de temperatura que ao verificar que to abrindo o portão da garagem ele automaticamente poderia ligar o ar condicionado e colocar em determinado comodo numa temperatura mais agradável, então eu tenho essa automação que coletando dados do sensores é tomada uma decisão por mim.
 
-AGRICULTURE Ja ta bastante impregado principalmente ao que se refere a ter processos produtivos mais sutenciaveis, eu posso ter junto do que to planatando poderia ter um sensor que mediria a umidade do solo e assim eu saberia se poderia aplicar mais ou menos irrigaçao na planta.
+**WEARABLES**: Cada vez mais comum, eles são ***vestíveis***, componentes que a gente coloca no corpo e ele caba coletando dado sobre a nossa saúde, os nossos hábitos, os lugares que frequentamos, nossos horários, etc.
 
-SMART TRANSPORTATION: oS veiculos passam a ser agentes que coletam dados de transito, um exemplo é a empresa Tesla
+**AGRICULTURE**: Já ta bastante impregnado principalmente ao que se refere a ter processos produtivos mais sustentáveis, eu poderia ter junto do que to plantando um sensor que mediria a umidade do solo e assim eu saberia se poderia aplicar mais ou menos irrigação na planta.
 
-RFID Supply chain: Aqui na verdade é onde o IoT nasceu. Rfid é aquela etiqueta por radio frequencia, onde voce coloca a etiqueta no produto e ao passar por um scanner de raido frequencia lee é detectado.
+**SMART TRANSPORTATION**: Os veículos passam a ser agentes que coletam dados de transito, um exemplo é a empresa Tesla.
 
-Toda essa cadeia desde o momento que o produto é produzido até o momento que ele é adqurido pode ser rastreado atraves do rfid.
+**RFID Supply chain**: Aqui na verdade é onde o IoT nasceu. **Rfid** é aquela etiqueta por radio frequência, onde você coloca a etiqueta no produto e ao passar por um scanner de rádio frequência ele é detectado.
 
-ENERGY EFFICIENT: COm Iot é possivel começar a coletar dados tanto de fontes geradores de energia como tbm consumidoras criando uma rede de informaçoes iportantepra tomada de decisao..
+Toda essa cadeia desde o momento que o produto é produzido até o momento que ele é adquirido pode ser rastreado através do rfid.
 
-Como vimos, o IoI ja esta bastante presente em nossa vida. cada vez mais o que veremos é uma quantidade maior de coisas se conectando em uma ede, mandando informaçoes e info
+**ENERGY EFFICIENT**: Com Iot é possível começar a coletar dados tanto de fontes geradoras de energia como também consumidoras, criando uma rede de informações importantes para a tomada de decisões...
 
-Segnundo mark weiser, nos estamos entrando na era da computaçao obliquea, esse momento é quando os computadores saem do nosso campo de visao, a tecnologia recua para um plano de fundo, e é nesse momento em que a tech se torna mt importante em nossas vidas pois n conseguimos vela de forma facil, com o crescimento de IoT esse processo vai se tornar cada vez mais rapido. Quando a tecnologia se trna realmente eficaz.
+Como vimos, o IoI ja esta bastante presente em nossa vida. Cada vez mais o que veremos é uma quantidade maior de coisas se conectando em uma rede mandando informações.
+
+###### Computação Oblíqua
+
+Segundo Mark Weiser, nós estamos entrando na era da computação oblíqua, esse momento é quando os computadores saem do nosso campo de visão, a tecnologia recua para um plano de fundo, e é nesse momento em que a tecnologia se torna muito importante em nossas vidas pois já não conseguimos vê-la de forma fácil, com o crescimento de IoT esse processo vai se tornar cada vez mais rápido. É quando a tecnologia se torna realmente eficaz.
 
 ###### Desafios da Internet das Coisas
 
@@ -245,7 +249,7 @@ O # significa que o broker vai te entregar todas as mensagens dos tópicos inter
 
 Mas se a gente tem um protocolo de comunicação, é importante ter certos níveis de garantia que ele vai funcionar. Por isso, o mqtt fornece o QoS, que possui níveis diferentes de qualidade de serviços. Ele fornece 3 niveis.
 
-### QoS 0
+#### QoS 0
 
 ![QoS 0](assets/img/qos0bg.png "QoS 0")
 
@@ -254,7 +258,7 @@ Mas se a gente tem um protocolo de comunicação, é importante ter certos níve
 * Mensagem não é retransmitida
 * Custo menor em recursos computacionais
 
-### QoS 1
+#### QoS 1
 
 ![QoS 1](assets/img/qos1.png "QoS 1")
 
@@ -262,7 +266,7 @@ Mas se a gente tem um protocolo de comunicação, é importante ter certos níve
 * Mensagem pode ser retransmitida se não houver confirmação de entrega
 * Mais comum de utilizar do protocolo mqqt
 
-### QoS 2
+#### QoS 2
 
 ![QoS 2](assets/img/qos2qos1.png "QoS 2")
 
@@ -271,7 +275,7 @@ Mas se a gente tem um protocolo de comunicação, é importante ter certos níve
 * Se ele não receber a confirmação que a mensagem foi gravada, ele vai mandar a mensagem novamente até receber a confirmação do broker que a mensagem foi recebida.
 * Uma vez que o broker devolve a mensagem para o client que ela foi recebida, o client agora precisa informar o broker que agora ele sabe que a mensagem foi recebida e de que o broker pode processar a mensagem ou remover do local onde ele armazenou internamente, que é o **pubrel.** E então, uma vez que essa mensagem for removida e ja ta em processamento, o broker confirma ao client que a comunicação esta completa.
 
-## CLOUD
+### CLOUD
 
 * Grande e cada vez maior numero de devices conectados
 * TBs ou PBs de informações
@@ -298,3 +302,61 @@ O armazenamento da informação dentro da nuvem tem que ser bem pensada. Hoje em
 Um exemplo que eu poderia utilizar para poder armazenar os dados é um banco de dados relacional, mysql, postgres, etc. No postges por exemplo, eu crio a tabela de geolocalização, então o **broker** que recebeu o device em um determinado tópico está entregando para o **worker** inscrito nesse tópico. Ele vai receber a informação e inserir no banco de dados relacional. Neste caso pode se tornar um problema o banco de dados relacional, pois ele não escala, eu não consigo ter replicas de forma simples onde conforme a quantidade de dados forem aumentando eu vou aumentando a quantidade de instancia desse banco, normalmente você aumenta a capacidade da maquina pra poder lidar com os dados que estão chegando.
 
 Então o banco de dados relacional pode não ser a melhor opção... Imagina que depois que você coletou 1 bilhão de posições geográficas você precise fazer manutenção na tabela, isso pode e tornar inviável, por isso na hora de decidir onde armazenar os dados leve em consideração o volume.
+
+### Estudo de caso
+
+###### Arquitetura é escolha
+
+![](assets/img/arquitetura.png)
+
+Arquitetura é uma questão também de escolha, uma vez que vc entendeu o probl,eam e os principais componentes da arquitetura, como é exemplificado acia. Ate entao to trabalhando com conceitos genericos, mas em algum momento eu tenho que fazer as escolhas.
+
+eu preciso escolher que completem aminha soluçao de poblemapa necessidade apresentada, o que eu vou utilizar como broker? como vai ser meu worker? onde vou armazenar os dados?
+
+##### Prova de conceito
+
+![](assets/img/PROVA DE CONCEITOarquitetura.png)
+
+Eu poderia começar com uma prova de conceito por exemplo, eu nao to tao preocupado no mometo com escablidade mas sim como testar este conceito pra ver se eu consigo resolver o problema com tecnologias simples do dia a dia.
+
+Bom, sabemos que todo smartphone possui gps, que é uma ferramenta incrivel pra gete poder trabalhar, eu poderia aqui ter um app desenvolvido em java pra rodar no android que pediria permissao para o android para utilizar o gps e a cada nova posiçao do gps recebida pelo meu app ele iria transmitir isso para um broker via protocolo http
+
+uma solução simples que podemosutilizar pra aprovar um conceito no caso do brokker é uchamado mosquitto que é do projero  eclipse, ele é simples de vc executar ele, rodando um linux vc consegue instalar e rodar ele rapidamente e le da uma estrutura basica de um broker pra vc fazer o q vc preicsa q é ciar conexao combroker e publicar a mensagem com posçoes geografica naquele topico q ja discutimos
+
+esse broker agora ele pode entregar a mensagem para a figura que seria do worker, que no caso optamos por termos uma app em nodejs, eu poderia utilizar o nodejs e alguma biblioteca, algum client mqtt presente ali no nodejs pra primeiro fazer conexao com o broker mosquitto e depois a incriçao no topico, (onde eu vou receber as info as positioes geograficas do veiculo), o nodejs tem que armzelas, enessa prova eu peguei um bd confortavel de utilizar e utilizando outra biblitoeca do node eu consigo conectar no mysql e persistir esa informaçao nele
+
+aqui é um exemplo de como eu resolvo aquele problema arquitetural utilizandoa s tecnologias.
+
+##### Minimo produto viavel
+
+![](assets/img/Modelo minimo viavel.png)
+
+A soluçao anteiror evoluiu!
+
+Deu pra rodar, consegui testar e validar a minha ideia, agora ela parece bastante promissora, entao vamos evoluir essa ideia inicla para soluçao robusta
+
+aqui eu ja poderia substituir aqueles compoenntes poroutros mais apropriados para um carga maior de dados, componentes q nao vao trazer cetos problema como o bd relacional q vai crescer de forma rapida  e trazer problemas
+
+la era um app android q tava lendo a info do gps do proprio smartphone, e no gps embarcADO EU QUERO TER UM NIVELDE OCONFIABILDIAD EMAIOR.
+
+no broker ao inves de usar no mosquitto q é mais pra fazer tipos de testes ou ambientes produtivos em q vc ainda tem um controle, aqui vou pra robustez, um broker de nivel empresarial e quem da certas garantias de entregas e pacotes,ha idversos, no exemplo eé o hive bastante conhecido, ja me daria uma soluçao mais coportariva pra poder operar essa coleta de dados
+
+agora eu vou substiuir o node do exemplo anterior uma tecnologia mais apropriada e robusta pra lidar com multiprocessamento e eu poder lidar comm grande fluxo de dados q pode de repente chegar aqui e eu nao osso ter um gargalo nesa camada, nesse exemplo akka que é um framework justamente desenhando pra poder lidar com multiprocessamento no lado dos servidores, 
+
+na soluçao de armazenamento no lugar do bd relacional q posso ter diversos tipos deprobleams foi utilizado o mongodb q vai da um pouco mais de robustez no armazenamento e segmentacao desses dados geograficos
+
+qual das duas é melhor? nao tem isso! ambos sao validas dependendo da sua necessidade
+
+seja ela apenas para testes e provar conceitos ou algo um pouco mais corporativo e robusta
+
+##### SOLUÇÃO
+
+![](assets/img/SOLICAO.png)
+
+Uma outra solução que eu poderia utilizar é exercitar um pouco mais daquilo que a própria nuvem tem pra me oferecer.
+
+Esses clouds, servers, providers como amazon, google, eles tem evoluído mais para prover soluções em nuvem para empresas, a maioria desses providers estão desenvolvendo produtos que muitas vezes estão prontos pra serem consumidos, conectados pra fazer aquilo que você tem que fazer de forma extremamente eficiente e escalável como por exemplo esses 3 produtos da amazon.
+
+O **Aws iot core** nada mais é que um broker de mensageria da amzon. A amazon tem uma serie de produtos voltadas pra IoT e podemos utilizar este broker deles.
+
+O meu objetivo é conectar nesse broker é ler as posições geográficas, o **aws kinesis** é uma solução, são produtos voltados pra você gerenciar seu fluxo de dados, e eu peguei essa solução especifica que através dele eu posso configurar pra que ele passe a ouvir um tópico do meu broker e eu vou direcionar esses dados que estão chegando diretamente para o **S3**, os serviços de armazenamento em nuvem da Amazon altamente escalável.
