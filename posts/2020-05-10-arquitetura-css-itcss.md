@@ -21,7 +21,6 @@ Aqui será suas configurações básicas! Geralmente é aqui que você define as
 ```css
 $cor-principal: #E7E4D8;
 $rgba: rgba(0, 0, 0, 0.6);
-
 ```
 
 ###### Tools
@@ -29,7 +28,6 @@ $rgba: rgba(0, 0, 0, 0.6);
 É aqui que ficará seus mixins e as funções que construirão seu estilo e layout.
 
 ```scss
-
 @mixin botao {
     position: relative;
     bottom: 0;
@@ -56,12 +54,9 @@ $rgba: rgba(0, 0, 0, 0.6);
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
-}
 ```
 
-###### Base
+###### Base/Elements
 
 Aqui ficará algumas estilizações básicas. Nesta camada você não utilizará seletores por id ou classes, apenas seletores diretamente nas tags. Lembre-se que são estilizações mais básicas ok?
 
