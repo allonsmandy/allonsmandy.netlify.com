@@ -44,43 +44,62 @@ Também é preciso ter isolamento! Eu tenho uma informação e eu preciso que ma
 
 Uma vez que tenhamos a necessidade de um modelo sustentável, e também de sistemas que o gerencie, é ai que surge o banco de dados. **Banco de dados** nada mais é que conjuntos de sistemas e funcionalidades que gerenciam esses dados e permite que tenhamos acesso e controle sobre eles, independente da plataforma, seja windows ou linux; Há vários tipos de sistemas de banco de dados e cada sistema de acordo com sua  plataforma, tem uma maneira de gerenciar o aspecto físico da informação, do armazenamento, enfim. Isso não é de importância para o nosso usuário, então temos que ter no nosso sistema a capacidade de abstração, em que pegará a informação que ta no meio físico e vai abstrair em uma visão que seja pratica no qual realmente traga a informação e o conhecimento para os usuários.
 
+![Abstração](assets/img/abstração.png "Abstração")
 
+Esses sistemas são chamados de **sgbd's**. No nível de abstração foi criada então linguagens e ferramentas que controlam todo esse mecanismo. 
 
-Esses sistemas são chamados de **sgbd's**.No nível de abstração foi criada então linguagens e ferramentas que controlam todo esse mecanismo. Os três grandes pilares é 
+Os três grandes pilares: 
 
-linguagem de definiçao, ondeposso definir a esrudutura dos meus dados
+* Linguagem de definição
 
-linguaye de manipulaacao, como eu recupero a info
+Onde posso definir a estrutura dos meus dados
 
-dicioniario de daods, bd dentro do bd  q guarda tda essa estrutura pq preciso saber como meu bd foi etsruturado 
+* Linguagem de manipulação, 
 
-o mais basicomo delos é o frat q se assemelha mt que era registros anotados em uma linha so q dessa vez nos temos uma estruturaçao melhor onde eu tenho a definiçao colunas e linhase o enriquecimento da expliaçao, o dicionario da informaçao, ele nada mais é que uma tabela, 
+Como eu vou recuperar a informação
 
-na evoluao de bd o primeiro modelo a surgir foi o hierarquico que a divisao certos aspectos da informaçao em grupos em arvores hhieraqruica, era a forma de acessar os dados, nao é tao utilizado mas por exemplo o registro do windows q é um dicionario onde contem todas as informaes é baseada no modelo hierarquico q é rapido de se obter infos mas ele é cmomplocoado de manter e apesentar redundancia de info
+* Dicionário de dados
 
-o odelo relacional mais utilizado no mercaod atualmente pois ele resolve uma serie de necessidades, alem da compreensao emanutençao dosdados
+Banco de dados dentro de outro, no qual guarda toda a estrutura pois preciso saber como meu banco foi estruturado.
 
-basicmanete um conjunto de tabelas do modelo flat que se relcionalm entre si obedenceind regas
+###### Modelo Flat
+
+![Modelo Flat](assets/img/Captura de tela de 2020-05-14 11-07-11.png "Modelo Flat")
+
+O modelo mais básico é o Flat, no qual se assemelha nos registros anotados em uma linha, só que dessa vez nós temos uma estruturação melhor com a definição de colunas e linhas, além do enriquecimento da explicação, o dicionario da informação. O modelo flat nada mais é que uma tabela.
+
+###### Modelo hierárquico
+
+![Modelo Hierárquico](assets/img/modelo hierarquico.png "Modelo Hierárquico")
+
+Na evolução do banco de dados, o primeiro modelo a surgir foi o hierárquico, em que ocorre a divisão de certos aspectos da informação em grupos na arvores hierárquica, essa era a forma de acessar os dados, esse modelo não é tao utilizado, mas por exemplo, o registro do windows que é um dicionario onde contem todas as informações é baseada no modelo hierárquico já que ele é rápido de se obter informações, porém é complicado de manter e acaba apresentando redundância de informação.
+
+###### Modelo relacional
+
+![](assets/img/modelo relacional.png)
+
+É o modelo mais utilizado no mercado atualmente pois ele resolve uma serie de necessidades, alem da melhor compreensão e manutenção dos dados.
+
+Ele é basicamente um conjunto de tabelas do modelo flat que se relacionam entre si obedecendo regras...
 
 OUTROS MODELOS
 
-\- Redes - grapho
+* \- Redes (grapho) 
+* Modelo orientado a objeto 
+* Objeto relacional
+* Big data
 
-\- MOdelo orientado a objeto 
+#### BANCO DE DADOS RELACIONAIS
 
-\- Objeto relacional
+![Banco de dados relacionais](assets/img/banco de dados relacional.png "Banco de dados relacionais")
 
-\- Big data
+Os sistemas que gerenciam esse tipo de arquitetura são chamados de **sgdbr**, ele é composto por entidades que agrupam as nossas informações, na qual são chamadas de tabelas!
 
-BANCO DE DADOS RELACIONAIS
+Nossas tabelas possuem as linhas que contém as informações, que são os nossos dados, elas são chamadas de Registros ou Tuplas. Essas linhas precisam ter uma classificação em que iria conter um enriquecimento do que significa aquela informação, essa divisão no qual fica na vertical são as colunas. Temos em sistemas de banco de dados relacionais as chaves que podem ser **primary key**, em que eu não posso ter duplicidade então ela é unica, e também temos a **foreign key** que é a herança da chave primaria de uma outra tabela e que cria o nosso relacionamento entre as duas tabelas, as duas instancias da informação.
 
-modelo mais utilizado nos mais variados sistemas
+#### Modelagem
 
-os sistemas que gerenciam esse tipo de arquitetura sao chamados de sgdbr, ele é composto por entidades q agrupam as nsosas informaçoes, na qual sao chamadas de tabelas!
 
-nossas tabelas possuem as linhas que contém as informações, os nosso dados, elas sao chamados de Registros ou duplas, e as linhas precisam ter uma claissificaçao q é o enriquecimento do que significa aquela informação, essa divisao q fica na vertical sao as colunas,temos em sisemas de bd relacionais as cuaves q podem ser primary key, eu n posso te duplibicade entoa ela é unica, e a foreign key que é a herança da chave primaria de ua outra tabela e q cria o nosso relcionamento entre as duas tabelas, as duas instancias da informaçao
-
-MODELAGEM
 
 Pra criar o nosso bd relaconall nos preicsamos primeiramente criar um mdoelo. ele descreve com oo negocio funciona dentro do banco de dados relacional
 
