@@ -42,9 +42,11 @@ Também é preciso ter isolamento! Eu tenho uma informação e eu preciso que ma
 
 ### O que é um banco de dados?
 
-Uma vez q tenhamoss a necessidade de um modelo sustentavel sua a necsesidade de sistemas que o grencie e é ai que sugre  o bd, nada mais é que conjuntos de sistemas e funcioaplidades que gerenciam esses dados e permtie q tenhamos acesso e cotrole sobre sses dados, independente da plaatforma seja win linux ha varios tios de sisteams de bd e cada sistea de acodo com sja  pataforma tem uma maneira de gerenciar o ascpecto ifisoc da info, armazenamenot, isso n importa para o nosso usuarios entao nos temos q ter no nosso sistmea tbm a capacidade de abstracao, pegara info q ta no meio fisico e abstrir em uma visao q seja pratica e realmente traga informaao e conhecimento par aos usuarios
+Uma vez que tenhamos a necessidade de um modelo sustentável, e também de sistemas que o gerencie, é ai que surge o banco de dados. **Banco de dados** nada mais é que conjuntos de sistemas e funcionalidades que gerenciam esses dados e permite que tenhamos acesso e controle sobre eles, independente da plataforma, seja windows ou linux; Há vários tipos de sistemas de banco de dados e cada sistema de acordo com sua  plataforma, tem uma maneira de gerenciar o aspecto físico da informação, do armazenamento, enfim. Isso não é de importância para o nosso usuário, então temos que ter no nosso sistema a capacidade de abstração, em que pegará a informação que ta no meio físico e vai abstrair em uma visão que seja pratica no qual realmente traga a informação e o conhecimento para os usuários.
 
-esses sistemas sao chamados de sgbds, no nivel de abstraçao foi criada entao linguagens e ferramentas q controlam todo esse mercanismo, ostres grandes pilares é 
+
+
+Esses sistemas são chamados de **sgbd's**.No nível de abstração foi criada então linguagens e ferramentas que controlam todo esse mecanismo. Os três grandes pilares é 
 
 linguagem de definiçao, ondeposso definir a esrudutura dos meus dados
 
@@ -54,17 +56,7 @@ dicioniario de daods, bd dentro do bd  q guarda tda essa estrutura pq preciso sa
 
 o mais basicomo delos é o frat q se assemelha mt que era registros anotados em uma linha so q dessa vez nos temos uma estruturaçao melhor onde eu tenho a definiçao colunas e linhase o enriquecimento da expliaçao, o dicionario da informaçao, ele nada mais é que uma tabela, 
 
-
-
-
-
 na evoluao de bd o primeiro modelo a surgir foi o hierarquico que a divisao certos aspectos da informaçao em grupos em arvores hhieraqruica, era a forma de acessar os dados, nao é tao utilizado mas por exemplo o registro do windows q é um dicionario onde contem todas as informaes é baseada no modelo hierarquico q é rapido de se obter infos mas ele é cmomplocoado de manter e apesentar redundancia de info
-
-
-
-
-
-
 
 o odelo relacional mais utilizado no mercaod atualmente pois ele resolve uma serie de necessidades, alem da compreensao emanutençao dosdados
 
@@ -80,8 +72,6 @@ OUTROS MODELOS
 
 \- Big data
 
-
-
 BANCO DE DADOS RELACIONAIS
 
 modelo mais utilizado nos mais variados sistemas
@@ -90,13 +80,9 @@ os sistemas que gerenciam esse tipo de arquitetura sao chamados de sgdbr, ele é
 
 nossas tabelas possuem as linhas que contém as informações, os nosso dados, elas sao chamados de Registros ou duplas, e as linhas precisam ter uma claissificaçao q é o enriquecimento do que significa aquela informação, essa divisao q fica na vertical sao as colunas,temos em sisemas de bd relacionais as cuaves q podem ser primary key, eu n posso te duplibicade entoa ela é unica, e a foreign key que é a herança da chave primaria de ua outra tabela e q cria o nosso relcionamento entre as duas tabelas, as duas instancias da informaçao
 
-
-
 MODELAGEM
 
 Pra criar o nosso bd relaconall nos preicsamos primeiramente criar um mdoelo. ele descreve com oo negocio funciona dentro do banco de dados relacional
-
-
 
 1 - modelos conceitual projetado atraves do MER
 
@@ -108,13 +94,7 @@ MODELO LOGICO
 
 é a implementaçao
 
-
-
 umm MER pode ser representado através do DER que é nosso diagrama  entdade e relaconamento dado, facilita q tenhamos compreensao de ocmo um modelo deve se comportar e tbm possamos aplicar conceitos de normalizaçao , o der é um diagarama grafico ondep odemos representar nossas entidades q sao as tabelas, com o nome da entidade com seus atributos, o relacionamento entre uma nova entidade, nesse eu tenho que vendas possui itens da identidade produto e tbm possui cliente que é outra etnidade, o relacinamento entre as entidades se da de forma direta ou indireta e por isso nova entidade tem um poder de existencia, nos temos entidades fortes  q n dependem de outra entidade pra existir, eu tenho produto q nao depende de venda pra existir, eu posso ter info cadastar na lista de produto sem nunca ter feito uma venda, eu to alimentando o sistema co dados q nao depende de outra pra existir, assimcomo cliente q nao depende de outra info pra exisitr, no DER tbm tem a entidade grafica q dpeende de outras pra existir, eu n posso ter ua vendase  eu nao tenho client ou produto pra vender
-
-
-
-
 
  a nsosa entidade psossui uma relaçao entre eleas e eu precos desrevr como ela vai se comportar, no modelo do der temos umanotalaonq vem ao lado da entidade, eu posso dizer da direta pra esquerda que venda tem que ter 1 ou N produto, nos chamamos isso de M, ela precisa ter no minimo 1 produto e pode ter N, varios.
 
@@ -122,21 +102,11 @@ ada esqurda pradireita eu digo q a entidade pode ter 0 ou n vendas, o produto po
 
 esse relcinamento é chamado de M pra N
 
-
-
 NA outra ponta temos um relacionamento chamado 1 que a venda so pode ter sido feita pra um client, e precisa ter feita pra 1, eu n posso ter 0 venda
 
 na contramaçao eu tenho u relacionamento M, um client pode ta no sistema mas nunca ter feiot uma venda, ou pode ter feito N vendas esse relacionamento é chamado 1 pra N
 
-
-
-
-
 NO der quando eu tiver um relacionamento m pra n, o meu relacionamento tbm asusme o comportamente de uma entidade associativa, se eu posos ter mtos produtos na venda e muitas vendas pra o produto eu preciso de outra enifade q explique essa relaçao de multicplidade, por sisó essaligaçao de chave n resolveira meu problema entao crio new entifade chama item q pertence a venda e produto e é chamada de entidade sociisdativa, ela vai possuir uma chave estrangeira herdada de produto e outra de venda, e nos temos tbm  a quantidade d eprodutos ventidos, entao essa entidade pass a existir quando tenho um relacionamento de M pra N, e ai precisa ser resolvida dessa foma.
-
-
-
-
 
 Agora qtemos uma entidade no meio eu tbm vou ter um novo relacionamento entrre eles q funciona da mesma forma que anteiromente, para o produto e item eu tenho que ter pelo menos 1 produto e o produto pode etsar em nehnhum item e ele n depende pra exitir mas pode estar em n itens
 
