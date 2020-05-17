@@ -101,34 +101,112 @@ Nossas tabelas possuem as linhas que contém as informações, que são os nosso
 
 Para criar o nosso banco de dados relacional, nós precisamos primeiramente criar um modelo, ou seja, projetar o nosso banco. Ele descreve como o negocio funciona dentro do banco de dados relacionais ele tem que estar muito bem alinhado a necessidade do sistema alvo.
 
-Modelo conceitual projetado através do MER
+###### Modelo conceitual projetado através do **MER (Modelo Entidade-Relacionamento)**
 
-VAMOS DESCREVER AS NSOSAS identidades e os relcionamentos e qual tipo de relacionaento cada uma possui entre si
+![Modelo conceitual projetado através do MER](assets/img/modelo conceitual mer.png "Modelo conceitual projetado através do MER")
 
-elas como vimso antes sao as tabelas entao é uma abstacao conceitual do modelo anteiror das tabelas linha scolunas e como osdados vao se relcionarentre si, entr as chave priaria e estrangeria
+Vamos descrever as nossas entidades e os relacionamento, além de qual tipo de relacionamento cada entidade possui entre si.
 
-MODELO LOGICO
+Como vimos anteriormente, as entidades são as tabelas, então é apenas uma abstração conceitual do modelo anterior que vimos, onde tem as tabelas, linhas, colunas, e como os dados vão se relacionar entre si, entre as chave primaria e chave estrangeira.
 
-é a implementaçao
+###### Modelo Lógico
 
-umm MER pode ser representado através do DER que é nosso diagrama  entdade e relaconamento dado, facilita q tenhamos compreensao de ocmo um modelo deve se comportar e tbm possamos aplicar conceitos de normalizaçao , o der é um diagarama grafico ondep odemos representar nossas entidades q sao as tabelas, com o nome da entidade com seus atributos, o relacionamento entre uma nova entidade, nesse eu tenho que vendas possui itens da identidade produto e tbm possui cliente que é outra etnidade, o relacinamento entre as entidades se da de forma direta ou indireta e por isso nova entidade tem um poder de existencia, nos temos entidades fortes  q n dependem de outra entidade pra existir, eu tenho produto q nao depende de venda pra existir, eu posso ter info cadastar na lista de produto sem nunca ter feito uma venda, eu to alimentando o sistema co dados q nao depende de outra pra existir, assimcomo cliente q nao depende de outra info pra exisitr, no DER tbm tem a entidade grafica q dpeende de outras pra existir, eu n posso ter ua vendase  eu nao tenho client ou produto pra vender
+O modelo lógico por si só é a implementação do nosso modelo lógico na linguagem, ou melhor, no sistema de banco de dados relacional que escolhemos para a instalação.
 
- a nsosa entidade psossui uma relaçao entre eleas e eu precos desrevr como ela vai se comportar, no modelo do der temos umanotalaonq vem ao lado da entidade, eu posso dizer da direta pra esquerda que venda tem que ter 1 ou N produto, nos chamamos isso de M, ela precisa ter no minimo 1 produto e pode ter N, varios.
+![](assets/img/versao1.png)
 
-ada esqurda pradireita eu digo q a entidade pode ter 0 ou n vendas, o produto pode ter sido vendido em nenhuma ele n depende da existencia da venda pra exidtir, mas ele pode ter varias vendas
+O **MER** pode ser representado através do **DER** que é nosso Diagrama de Entidade-Relacionamento. Esse diagrama facilita que nós tenhamos uma compreensão de como o modelo deve se comportar, e que também possamos aplicar conceitos de normalização. (Veremos sobre isto mais adiante).
 
-esse relcinamento é chamado de M pra N
+O **DER** é um diagrama gráfico onde podemos representar nossas entidades que são as tabelas, com o nome da entidade, os atributos da entidade que seriam as colunas, o relacionamento entre uma nova entidade, enfim. Nesse caso eu tenho que, a entidade **Venda** possui itens da entidade **Produto**, e também possui **Cliente** que é uma outra entidade. O relacionamento entre essas entidades se dá de uma forma direta ou indireta e por isso nossa entidade tem um poder de existência. 
 
-NA outra ponta temos um relacionamento chamado 1 que a venda so pode ter sido feita pra um client, e precisa ter feita pra 1, eu n posso ter 0 venda
+![](assets/img/versao2.png)
 
-na contramaçao eu tenho u relacionamento M, um client pode ta no sistema mas nunca ter feiot uma venda, ou pode ter feito N vendas esse relacionamento é chamado 1 pra N
+Nós temos entidades fortes que são entidades que não dependem de outra entidade pra existir, por exemplo, eu tenho **Produto** que não depende de Venda pra existir, eu posso ter no meu sistema informações cadastradas na lista de produto sem nunca ter feito uma venda, isso é perfeitamente normal! Eu to alimentando o sistema com dados que não depende de nenhum outro pra existir, assim como na minha entidade **Cliente** que não depende de outra informação pra existir.
 
-NO der quando eu tiver um relacionamento m pra n, o meu relacionamento tbm asusme o comportamente de uma entidade associativa, se eu posos ter mtos produtos na venda e muitas vendas pra o produto eu preciso de outra enifade q explique essa relaçao de multicplidade, por sisó essaligaçao de chave n resolveira meu problema entao crio new entifade chama item q pertence a venda e produto e é chamada de entidade sociisdativa, ela vai possuir uma chave estrangeira herdada de produto e outra de venda, e nos temos tbm  a quantidade d eprodutos ventidos, entao essa entidade pass a existir quando tenho um relacionamento de M pra N, e ai precisa ser resolvida dessa foma.
+![](assets/img/versao3.png)
 
-Agora qtemos uma entidade no meio eu tbm vou ter um novo relacionamento entrre eles q funciona da mesma forma que anteiromente, para o produto e item eu tenho que ter pelo menos 1 produto e o produto pode etsar em nehnhum item e ele n depende pra exitir mas pode estar em n itens
+ No **DER** eu também tenho a entidade fraca, no qual ela vai depender de outras entidades pra existir. Eu não posso ter uma **Venda** se eu não tenho **Cliente** para quem eu possa vender, ou também o **Produto** pra vender.
 
-eu tenho agora um relacionamento 1 pra n
+![](assets/img/versao4.png)
 
-da mesma forma do outro lado, eu vou te meu rlecioanment N onde a venda precisa ter 0 ou N itens, o item precisa estar associado a uma e no maximo uma venda q é um relaionamento de chave composta, eu tenho produto amis venda se transformando em chave primaria e que pertence a so ua venda
+A nossa entidade neste nosso modelo possui uma relação entre elas, portanto eu vou precisar descrever como que essa relação vai se comportar. No modelo do **DER** nós temos uma notação que vem ao lado da entidade, ou seja, eu posso dizer que da direita pra esquerda, a **Venda** tem que ter 1 ou N produtos, nós chamamos isso de M, ela precisa ter no minimo 1 produto, ou seja, 1 item da outra entidade, e pode ter N, pode ter vários.
 
-o 0 arcado diz q quando to criando uma venda eu n preciso ter um item, eu posso ter registrado a venda sem nenhum item, mas isso nao faria sentido no mundo do negocio, entao embora no meu entendiment odo mer der eu possa colocar q tem 0 ou N, na pratica nao vai acontecer,etnao pode ser alterado pra 1 ou N. o importante entender é que eu preciso entender como meu negocio funciona
+![](assets/img/versao5.png)
+
+Da esquerda pra direita, eu digo que a entidade pode ter 0 ou N vendas, ou seja, o **Produto** pode ter sido vendido nenhuma vez, já que ele não depende da existência da Venda pra existir (entidade forte), mas ele pode ter varias vendas.
+
+Esse relacionamento é chamado de **M pra N.**
+
+![](assets/img/versao6.png)
+
+Na outra ponta temos um relacionamento chamado **1**, emque a **Venda** só pode ter sido feita para 1 **Cliente**, e precisa ter sido feita para 1 **Cliente**, eu não posso ter uma **Venda** pra ninguém. Então neste caso eu tenho um relacionamento de 1 pra 1, uma Venda precisa ter um 1 no máximo 1 Cliente.
+
+![](assets/img/versao7.png)
+
+Na contramão eu tenho um relacionamento **N**, ou seja, um **Cliente** pode estar no cadastrado no meu sistema mas nunca ter feito uma **Venda**, ou pode ter feito **N** vendas.
+
+Esse relacionamento é chamado de **1 pra N**
+
+![](assets/img/versao8.png)
+
+No **DER**, quando eu tiver um relacionamento **M pra N**, o meu relacionamento também assume o comportamento de uma **entidade associativa**. Se eu posso ter muitos produtos na **Venda** e posso ter muitas vendas para o **Produto**, eu preciso de uma outra entidade que explique essa relação de multiplicidade.
+
+![](assets/img/versao9.png)
+
+Por si só essa ligação de chave não resolveria o meu problema, então eu crio uma nova entidade chamada **Item** que vai pertencer a **Venda** e ao **Produto**, e que é chamada de entidade associativa. Ela vai possuir uma chave estrangeira herdada de Produto (então eu vou ter o código do produto no Item), e outra chave estrangeira de Venda, além de que temos também a quantidade, ou seja, quantos produtos eu vendi na minha Venda. Então essa entidade associativa passa a existir quando tenho um relacionamento de **M pra N**, é uma necessidade que precisa ser resolvida dessa forma.
+
+![](assets/img/versao11.png)
+
+Agora que temos uma entidade no meio, eu também vou ter um novo relacionamento entre eles que funciona da mesma forma que os demais. 
+
+Para o **Produto** e **Item** eu tenho que ter pelo menos 1 Produto, e o Produto pode estar em nenhum item(pois ele é uma entidade forte) mas pode estar em N itens.
+
+Eu tenho agora um relacionamento **1 pra N**.
+
+![](assets/img/versao12.png)
+
+Da mesma forma, eu vou te meu relacionamento **N** onde a **Venda** precisa ter 0 ou N Itens (logo mais irei explicar esse numero azul da cor azul), e o **Item** precisa estar associado a 1 e no máximo 1 **Venda**, que é um relacionamento de chave composta, eu tenho **Produto** mais **Venda** se transformando em uma *chave primária* e que pertence apenas a 1 **Venda**.
+
+Esse número zero marcado na cor azul, diz que, por **Venda** e **Item** serem uma entidade fraca, quando estou criando uma **Venda** eu não preciso ter um **Item**, eu posso ter registrado uma venda sem nenhum item, mas isso não faria sentido no mundo dos negócios. **Por que eu vou ter uma venda na qual eu não tenho nenhum item?** Embora no meu entendimento de descrição do meu **DER** eu possa colocar que tem 0 ou N, na pratica isso não vai acontecer, então isso pode ser alterado pra **1** ou **N**, o importante é entender que quando eu estou desenhando eu preciso entender como meu negocio funcionará, e essa visão é importante depois para definirmos os mecanismos de proteção desse meu modelo.
+
+#### Normalização
+
+Quando eu estou modelando, aquele passo onde eu fiz a quebra numa entidade de relacionamento, nós chamamos esse processo de **Normalização**.
+
+Na Literatura nós vamos encontrar normalizações que vão de 1 a 5, ou seja, Primeira a Quinta forma normal. Mas na prática o que é aplicado é a primeira, segunda e a terceira forma normal. O modelo relacional permite que você crie ele sem utilizar nenhuma normalização, mas isso pode gerar alguns problemas no controle e na duplicidade de informação, é pra isso que aplicamos a normalização.
+
+
+
+###### PRIMEIRA FORMA NORMAL
+
+![](assets/img/NORMA1.png)
+
+A **primeira forma normal** tem haver com a existência de valores únicos em cada coluna, ou seja, note que eu tenho dois telefones dentro de uma mesma coluna, é possível ter essa informação? Sim! Mas ela não é prática de ser gerenciada, pois eu teria que editar uma unica coluna inteira pra remover ou alterar essa informação. O outro problema que podemos observar é com relação a duplicidade de valor e também o erro de digitação, veja que eu tenho duas informações que aparentemente pertence a uma Profissão de **Vendedor**, mas por um erro de digitação alguém emitiu a **letra "e"** e acabou ficando *Venddor*.
+
+É por isso que se da a necessidade de que apliquemos as normalizações.
+
+Esses são os pontos que precisamos resolver inicialmente, portanto vamos aplicar a primeira forma normal.
+
+![](assets/img/Normalizaçao primeira.png)
+
+Uma vez que eu tenha dois telefones ou duas informações, essa informação precisa ser quebrada em uma nova coluna, veja que agora eu tenho o **Telefone_2.** Ou então eu posso ter uma nova entidade, como por exemplo uma tabela onde eu tenha uma relação de chave estrangeira em que informo que o cliente do código 111 por exemplo possui dois telefones. Eu poderia resolver destas duas formas, nesse caso eu to aplicando a minha 1º forma normal.
+
+###### Segunda forma Normal
+
+![](assets/img/PRIMEIRA FORMA NORMAL.png)
+
+A segunda forma normal resolve aquele problema da digitação errada ou da duplicidade de informação nas linhas, ou seja, onde eu tinha a minha profissão no qual possuía por escrito **Vendedor**, inclusive a palavra errada, eu transformo em uma nova entidade que será chamada de **Profissão**, onde eu vou ter apenas dois cadastros, um registro com o Código do Vendedor, e um registro com Código do Consultor, e ali na minha chave estrangeira eu apenas aponto para a minha entidade que contém a informação. Dessa maneira, se eu digitar errado ou até mesmo alterar a informação, automaticamente todos os registros pertencentes por exemplo ao cadastro 1 serão alterados.
+
+###### Terceira forma Normal
+
+![](assets/img/norma3.png)
+
+A Terceira Forma Normal diz que os valores precisam ser totalmente dependentes das chaves primárias e não podem ser dependentes de valores que não são chaves em meu conjunto.
+
+Neste exemplo, eu tenho na tabela alguns itens. Veja que na linha 1 a minha venda teve uma quantidade 10 e o valor foi de 22, 300, mas eu inclui também o valor Total, observe que esse valor Total é dependente da multiplicação da **quantidade** com o **valor unitário**, ou seja, se eu fizer alguma alteração na quantidade ou no valor, eu teria que criar um mecanismo que altere também o valor Total.
+
+Isso gera uma dependência desses valores que não são chaves, e que são desnecessárias podendo gerar problemas para o meu sistema. Note que se eu não tiver esse mecanismo que faça essa alteração, e caso eu vier a mudar esse valor da quantidade para 11 ainda neste exemplo da linha 1, e mesmo assim não mudar o Total, eu vou ter uma inconsistência de informação. Então essa terceira forma normal é importante de ser aplicada.
+
+![](assets/img/norma33.png)
+
+Neste caso nós temos que remover a coluna Total, e é desta forma que eu estou na terceira forma normal. A partir de então, o meu sistema e NÃO meu banco de dados resolverá esse calculo de **quantidade** vezes **valor** sem criar uma dependência física que cause problemas de informação. Um detalhe que vale a penar mencionar é que, eu só posso estar na *segunda forma normal* se eu já tiver aplicado no meu modelo a *primeira forma normal*, ou seja, primeiro eu preciso aplicar a primeira normalização pra aplicar a segunda, e assim por diante :)
