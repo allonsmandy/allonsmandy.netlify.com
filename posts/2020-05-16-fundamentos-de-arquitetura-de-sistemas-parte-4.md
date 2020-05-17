@@ -175,8 +175,6 @@ Quando eu estou modelando, aquele passo onde eu fiz a quebra numa entidade de re
 
 Na Literatura nós vamos encontrar normalizações que vão de 1 a 5, ou seja, Primeira a Quinta forma normal. Mas na prática o que é aplicado é a primeira, segunda e a terceira forma normal. O modelo relacional permite que você crie ele sem utilizar nenhuma normalização, mas isso pode gerar alguns problemas no controle e na duplicidade de informação, é pra isso que aplicamos a normalização.
 
-
-
 ###### PRIMEIRA FORMA NORMAL
 
 ![](assets/img/NORMA1.png)
@@ -210,3 +208,7 @@ Isso gera uma dependência desses valores que não são chaves, e que são desne
 ![](assets/img/norma33.png)
 
 Neste caso nós temos que remover a coluna Total, e é desta forma que eu estou na terceira forma normal. A partir de então, o meu sistema e NÃO meu banco de dados resolverá esse calculo de **quantidade** vezes **valor** sem criar uma dependência física que cause problemas de informação. Um detalhe que vale a penar mencionar é que, eu só posso estar na *segunda forma normal* se eu já tiver aplicado no meu modelo a *primeira forma normal*, ou seja, primeiro eu preciso aplicar a primeira normalização pra aplicar a segunda, e assim por diante :)
+
+#### SGBDR - SQL
+
+Nós precisamos ter uma linguagem que orquestre todos os mecanismos que controlam esse sistema
