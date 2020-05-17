@@ -99,11 +99,9 @@ Nossas tabelas possuem as linhas que contém as informações, que são os nosso
 
 #### Modelagem
 
+Para criar o nosso banco de dados relacional, nós precisamos primeiramente criar um modelo, ou seja, projetar o nosso banco. Ele descreve como o negocio funciona dentro do banco de dados relacionais ele tem que estar muito bem alinhado a necessidade do sistema alvo.
 
-
-Pra criar o nosso bd relaconall nos preicsamos primeiramente criar um mdoelo. ele descreve com oo negocio funciona dentro do banco de dados relacional
-
-1 - modelos conceitual projetado atraves do MER
+Modelo conceitual projetado através do MER
 
 VAMOS DESCREVER AS NSOSAS identidades e os relcionamentos e qual tipo de relacionaento cada uma possui entre si
 
