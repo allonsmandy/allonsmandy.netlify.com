@@ -51,7 +51,7 @@ const GlobalStyles = createGlobalStyle`
     > p {
       color: var(--mediumBackground) !important;
       font-family: monospace;
-      font-size: 1rem !important;
+      font-size: 1.2rem !important;
       position: relative;
       top: 6px;
     }
@@ -119,16 +119,16 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto 1rem;
     letter-spacing: 2px;
     font-family: sans-serif;
+    padding: 0 1rem;
   }
 
   h6 {
-    letter-spacing: 2px;
-    line-height: 1.3;
+    line-height: 1;
     font-size: 1.3rem;
-    font-weight: bold;
+    font-weight: normal;
     color: var(--maiscor);
-    padding: 0.7rem 1.4rem;
-    text-transform: uppercase;
+    padding: 0.3rem 1.4rem;
+    /* text-transform: uppercase; */
   }
 
   h1 {
@@ -163,7 +163,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.4rem;
   }
   h5 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   strong {
     font-weight: 700;
@@ -174,22 +174,21 @@ const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.2rem !important;
   }
 
   body.dark {
     --borders: #584750;
     --texts: #d8b15a;
-    --postColor: #d5dac2bf;
-    --highlight: #b59faa;
+    --postColor: #fcfff3bf;
+    --highlight: #a3d8ecd9;
     --mediumBackground: #330d24c7;
-    --background: #1f0d18;
+    --background: #080607a6;
     --code: #a04e4e;
-    --secondary: #ceafce;
+    --secondary: #ffceff;
     --outracor: #443537bd;
     /* --post: #e2bc94; */
-    --post: #e097a4d3;
+    --post: #dc9cb1;
     --maiscor: #dc7f7f;
     --algo: #e2e2ec;
 

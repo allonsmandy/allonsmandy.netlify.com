@@ -74,7 +74,7 @@ module.exports = {
       options: {
         name: `Amanda Almeida Matos`,
         short_name: `Amanda Almeida Matos`,
-        start_url: `/home`,
+        start_url: `/`,
         background_color: `#211b1fb0`,
         theme_color: `#211b1fb0`,
         display: `minimal-ui`,
