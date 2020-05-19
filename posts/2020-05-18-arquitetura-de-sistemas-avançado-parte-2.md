@@ -10,8 +10,7 @@ Business Intelligence em Modelos de Dados é o que vai nos dar um norte para mod
 
 o que é B.I? Bi é um conjunto de coisas que vao fornecer ferramentas para gestores, diretores, enfim toda organizaçao de uma empresacomporraçao a tomar decieos extrategicas de negocio, modelo, enfim sao ferramentas voltadas a toda a conduçao de direotira e de areas de inteligentecia dentro das empresas e organizaçoes
 
-é composto por ferramentas que vao permtiir que essas pessoas q precisam tomar decisoes extrategicas interpretem os dados de maneira pratica e facil de ajudar com essa decisao q precisa tomar ou entender quais rumos dessa operaçao q ele ta controlando. Pra suportar estas ferramentas precisamos de infraestrutura. seriam os servidores pra armazenar ferramentas ou dados, a rede, enfim ,tudo que compoe de infra prasuportar as ferramentas de bi profissionais corpo tecnico q vai trabalhar dentro desse ecossistema q sao pessoas que tem cunho de analitycs q conseguem manusear os dados e ferramentas, profissionais q irao compor todas as fases e necessidades de um bi
-vem os dados por fim q é alvo doq ue iremos discutir novamente
+é composto por ferramentas que vao permtiir que essas pessoas q precisam tomar decisoes extrategicas interpretem os dados de maneira pratica e facil de ajudar com essa decisao q precisa tomar ou entender quais rumos dessa operaçao q ele ta controlando. Pra suportar estas ferramentas precisamos de infraestrutura. seriam os servidores pra armazenar ferramentas ou dados, a rede, enfim ,tudo que compoe de infra prasuportar as ferramentas de bi profissionais corpo tecnico q vai trabalhar dentro desse ecossistema q sao pessoas que tem cunho de analitycs q conseguem manusear os dados e ferramentas, profissionais q irao compor todas as fases e necessidades de um bi vem os dados por fim q é alvo doq ue iremos discutir novamente
 
 de onde vem os dados para BI? os dados essencilamente dentro de uma corporaçde bi vem inicialemnte dos sistemas de sgbds ou outros q sao sistemas de operaçao, mas sao os dados dos sistemas q estao na operaçao da empresa
 
@@ -67,8 +66,6 @@ veja bem, é mt mais vantahoso tanto de hardware performance concorrencia e visa
 
 outros aspecto importante em dw É que vc pode implementar a estrutura de dados num banco de dados relacional ou noSQL (dados nao estruturados) mas o conceito mais impactante q diferencia daquilo q a gente pode ter vistos anteriomente bano de dados transacionais, voltados ao oltp, é q essa estrutura de relacionamento ocupa processamento dentro do meu sistema, entao toda evvz q incluir uma venda eu preciso verificar se o produto existe pelas regras do sistema, eutenho toda uma estrutura q mantem o meu bd relacional e q agora no DW com a consolidaçao eu n tenho mais, entao os inserts sao mt mais rapidos pq n tenho essa verificaçao e nas consultas eu n preciso mais ter o custo do relacionamento do join entre uma tabela e outra pq ja tao consolidadas, eu posso ate ter outras pequenas consultas q sao direcionadas a departamentos olhando para aquele cubo ou para pequenas fraçoes do dw  mas eu ja nao tenho mais necessidade de ter todo esse relacionamento, exceto algumas tabelas de apoio q podem  ate ficar em outro bd relacional q vao controlar por ex o acesso a essa info, estruturas de apoio a essa info mas q n tao ligadas diretamente aos dados q foram gerados pela operaçao em si
 
-
-
 O QUE É BIG DATA E dados nao estruturados
 
 de uma maneira bem direta, big data nada mais é q umtermo q descreve um grande volume de daods, seja ele estruturadosou nao estruturados, ou tbm semi estruturados como vermeos adiante.
@@ -111,4 +108,36 @@ um dos maiores e mais conhecido é o hadoop, que alem de varias ferramentas pra 
 
 pra rabalhar com esses dados vc precisa de um ecossitema bem grande q vai te trazer esse tipo de resultado
 
-DATA LAKE
+DATA LAKE vs BIG DATA
+
+dL é tbm um grande conjunto de infos, mas como o nome praticamente diz é um lago de dados, isso qer dizer q é um big data mais reservado, mais coportavito, mais tratado, dentro de casa, ou seja, vc tem entradas q sao de dados estrutruados, os dados nao ettusutrado e semi, etoda esa info é armazenada em repositos de data lake dentro de uma empresa,um sistema enfim
+
+o dl precisa ter um pouquinho mais q o big data quando eu digo q ele precisa ter um sistema de data creation q da manutençao desses dados, quanto tempo ele fica, como ele vai ficar e algumas transformaçoes
+
+eu posso tbm ter ja alguns pre trabalhos desses daods, uma limpeza deles, ou uma seleçao, catalogar os dados, enfim, eu tenho um pouco mais de trabalo pra manter esses dados aonde em algum momento eu posso ter outro sistema extraindo esas infos de forma mais viusal ou coerente q de algum sentido, e por fim eu tenho  o consumo desses dados, eu posso ter ingestao em outros bd com dados pre trabalhados, a geraçao de graficos, relatorios, todo um apoio para a minha area de bi ou gerencial, operacional
+
+o dl é um repositorio gigantesco de tudo q tenho de info da minha empresa onde vou ter um pouco de trabalho com esses dados e todo ecossistema dps eu vou ter a extraçao desses dados e ter informaçao deles
+
+MONGODB\\
+
+gerenciador de banco de dados semi estruturados baseado em json
+
+show databases
+
+use loja
+
+db.produtos.insert({ codigo: "01", descricao: "caneta" })
+
+o nome da variavel no formato json nao precisa ta em string! :)
+
+foi inserido uma nova linha da minha coleçao/tabela produtos
+
+db.produtos.find()
+
+retorna o id que é um codigo unico dentro do banco pra esse obj com o valor que inseri
+
+o interassante é q ele é semi estruturado, entao nao ha necessidade q eu altere minha entidade produtos pra inserir um novo produto
+
+db.produtos.insert({ codigo: "01", descricao: "caneta", cor: "vermelha" })
+
+foi inserido mais um item na minha entidade sem que eu precisasse redefinir a estrutura dela pra que pudesse receber mais um registor com valor de cor
