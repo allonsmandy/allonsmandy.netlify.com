@@ -179,7 +179,7 @@ const GlobalStyles = createGlobalStyle`
   body.dark {
     --borders: #584750;
     --texts: #d8b15a;
-    --postColor: #d0ceb8;
+    --postColor: #a9a9a9;
     --highlight: #b9b1e6d9;
     --mediumBackground: #222;
     /* --background: #331b2b; */

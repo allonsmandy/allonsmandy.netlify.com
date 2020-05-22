@@ -4,14 +4,16 @@ import ReactTooltip from "react-tooltip"
 
 import * as S from "../components/About/styles"
 import Layout from "../components/Layout"
-import IconsAbout from '../components/IconsAbout'
 import { FaHeart, FaLaptopCode, FaBook, FaCheck } from 'react-icons/fa'
 import SEO from "../components/seo"
+
+import imagegirl from "../images/escuro.gif"
+import imagecode from "../images/computer2.gif"
 
 const AboutPage = () => (
   <Layout>
     <SEO title="About" />
-    <h1 className="titlePage">Sobre mim</h1>
+    <img src={imagegirl} />
     <S.AboutDescription>
       <p>
         Olá! Meu nome é Amanda (◠‿◠✿) <br />
@@ -30,11 +32,13 @@ const AboutPage = () => (
       </p>
     </S.AboutDescription>
 
+    <img src={imagecode} />
+
     {/* <IconsAbout /> */}
 
     <S.Section>
       <div>
-        <S.AboutSubtitle> <FaHeart /> Skills </S.AboutSubtitle>
+        <S.AboutSubtitle> <FaHeart /> My Skills <FaHeart /></S.AboutSubtitle>
         <S.AboutSkillsList>
           <S.AboutSkillsListItem>
             <span>HTML5</span>
@@ -99,27 +103,26 @@ const AboutPage = () => (
             <p>ago 2018 - dez 2018</p>
           </S.TimelineTitle>
         </S.Entry>
+        <S.AboutEducation>
+          <S.AboutSubtitle><FaBook /> Education</S.AboutSubtitle>
+
+          <ul>
+            <li><a data-tip="Técnico de Informática"> <FaCheck /> EEEP Walter Ramo de Araújo </a></li>
+            <li>
+              <a data-tip data-for="freeCodeCamp"> <FaCheck /> freeCodeCamp </a>
+              <ReactTooltip id='freeCodeCamp' aria-haspopup='true' >
+                - Responsive Web Design <br />
+                - Front End Libraries Certification
+       </ReactTooltip>
+            </li>
+          </ul>
+
+          <S.btnDownload href="https://resume.io/r/52EFAw2F7" target="_blank">
+            Ver curriculo
+    </S.btnDownload>
+        </S.AboutEducation>
       </S.Timeline>
     </S.Section>
-
-    <S.AboutEducation>
-      <S.AboutSubtitle><FaBook /> Education</S.AboutSubtitle>
-
-      <ul>
-        <li><a data-tip="Técnico de Informática"> <FaCheck /> EEEP Walter Ramo de Araújo </a></li>
-        <li>
-          <a data-tip data-for="freeCodeCamp"> <FaCheck /> freeCodeCamp </a>
-          <ReactTooltip id='freeCodeCamp' aria-haspopup='true' >
-            - Responsive Web Design <br />
-            - Front End Libraries Certification
-       </ReactTooltip>
-        </li>
-      </ul>
-
-      <S.btnDownload href="https://resume.io/r/52EFAw2F7" target="_blank">
-        Ver curriculo
-    </S.btnDownload>
-    </S.AboutEducation>
 
     <S.AboutGithub>
       <GitHubCalendar username="allonsmandy">

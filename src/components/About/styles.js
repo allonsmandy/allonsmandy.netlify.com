@@ -1,23 +1,26 @@
 import styled from "styled-components"
 
 export const Timeline = styled.section`
-  max-width: 360px;
+  max-width: 357px;
   display: flex;
   flex-direction: column;
-  padding: 5px 40px;
+  padding: 5px 21px 21px 4px;  
   position: relative;
+  background: #231d29;
+  box-shadow: 2px 1px 10px 1px #767888;
+  border-radius: 10px;
 
   strong {
     position: relative;
-    left: 71px;
+    left: 15px;
     top: 15px;
   }
 
   &:before {
     content: "";
     position: absolute;
-    top: 74px;
-    left: 347px;
+    top: 57px;
+    left: 341px;
     height: 215px;
     bottom: 0px;
     width: 4px;
@@ -26,10 +29,11 @@ export const Timeline = styled.section`
 `
 
 export const Section = styled.section`
+  margin-top: 40px;
   width: 100%;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: space-around;
 
   svg {
     position: relative;
@@ -45,9 +49,10 @@ export const Entry = styled.div`
 
 export const TimelineTitle = styled.div`
   margin-bottom: 0.5em;
-  width: 107%;
+  width: 100%;
   text-align: right;
   position: relative;
+  padding-right: 15px;
 
   &:before {
     content: "";
@@ -58,7 +63,7 @@ export const TimelineTitle = styled.div`
     background-color: #fff;
     border-radius: 100%;
     top: 15%;
-    right: -18px;
+    right: -15px;
     z-index: 99;
   }
 
@@ -92,8 +97,10 @@ export const btnDownload = styled.a`
 `
 
 export const AboutSkillsList = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* grid-template-columns: 1fr 1fr; */
 `
 
 export const AboutSubtitle = styled.strong`
@@ -101,9 +108,12 @@ export const AboutSubtitle = styled.strong`
   color: var(--maiscor);
   padding: 1rem 0;
   text-align: center;
+  margin-bottom: 7px;
   text-transform: uppercase;
+  position: relative;
+  left: 18px;
   /* font-family: sans-serif; */
-
+/* 
   &:after {
     content: "";
     display: block;
@@ -111,7 +121,7 @@ export const AboutSubtitle = styled.strong`
     width: 15px;
     height: 2px;
     background: var(--algo);
-  }
+  } */
 `
 
 export const AboutEducation = styled.div`
@@ -152,11 +162,13 @@ export const AboutSkillsListItem = styled.li`
   padding: 0.225rem 0;
   color: var(--secondary);
   list-style-type: none;
+  text-align: center;
+
   & > ul {
     margin-bottom: 0;
   }
 
-  span::before {
+  /* span::before {
     content: "";
     display: inline-block;
     width: 10px;
@@ -166,7 +178,7 @@ export const AboutSkillsListItem = styled.li`
     border-radius: 50%;
     box-shadow: 1px 1px 0px 3px var(--algo);
     margin-right: 20px;
-  }
+  } */
   
 `
 
@@ -183,7 +195,7 @@ export const AboutDescription = styled.div`
 
   p {
     color: var(--postColor);
-    line-height: 1.4;
+    line-height: 1.7;
 
     a {
       border-bottom: 1px dashed var(--texts);
