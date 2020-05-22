@@ -4,7 +4,7 @@ description: Arquitetura de dados essencial
 date: '2020-05-14 09:39:09'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
-background: '#88c18c'
+background: '#b49bf1'
 ---
 ### Dados?
 
