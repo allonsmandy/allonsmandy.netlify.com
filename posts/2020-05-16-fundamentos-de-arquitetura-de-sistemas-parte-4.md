@@ -4,7 +4,7 @@ description: Arquitetura de dados essencial
 date: '2020-05-14 09:39:09'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
-background: '#88c18c'
+background: '#b49bf1'
 ---
 ### Dados?
 
@@ -209,6 +209,93 @@ Isso gera uma dependência desses valores que não são chaves, e que são desne
 
 Neste caso nós temos que remover a coluna Total, e é desta forma que eu estou na terceira forma normal. A partir de então, o meu sistema e NÃO meu banco de dados resolverá esse calculo de **quantidade** vezes **valor** sem criar uma dependência física que cause problemas de informação. Um detalhe que vale a penar mencionar é que, eu só posso estar na *segunda forma normal* se eu já tiver aplicado no meu modelo a *primeira forma normal*, ou seja, primeiro eu preciso aplicar a primeira normalização pra aplicar a segunda, e assim por diante :)
 
-#### SGBDR - SQL
+#### SGBDR (Sistema Gerenciador de Banco de Dados Relacional) - SQL
 
-Nós precisamos ter uma linguagem que orquestre todos os mecanismos que controlam esse sistema
+Nós precisamos ter uma linguagem que orquestre todos os mecanismos que controlam esse sistema, então dentro de um sgbdrs eu vou ter vários processos, gravando em discos, gravando em memória, extraindo dados, protegendo dados, verificando permissões, enfim. Mas eu tenho uma necessidade maior que é gerenciar o proprio modelo, realizar a manutenção dos dados e recuperar os dados. E para isso, nos sistemas de banco de dados relacionais foram implantados códigos chamados de SQL que é uma lingugaem estruturada de consulta, além de fazrr outras operações dentro do nosso banco.
+
+O SQL está fundado dentro de três pilares
+
+* **DDL - Data Definition Language**
+
+Ou seja, é o mecanismo que utilizo para criar o dicionário do meu banco, definir as minhas entidades, os relacionamentos e todos meus objetos criados dentro do meu banco.
+
+* **DML - Data Manipulation Language**
+
+Essa linguagem tem ação sobre os dados mas ela é responsável pela manipulação dos dados no termo físico, ou seja, eu posso incluir os meus dados nas minhas tabelas, posso alterar as informações dessas tabelas e remover a linha ou todas as linhas da tabela, enfim, eu posso transformar as informações que tenho nas minhas entidades.
+
+* **DQL - Data Query Language**
+
+É a minha linguagem de consulta de dados, apenas extração e exibição dessa informação.
+
+###### DDL
+
+```sql
+Create Table Cliente (
+  Codigo number(10) Not Null Primary Key,
+  Nome varchar(50) Not Null,
+  Telefone varchar(15)
+)
+```
+
+Quando falamos de DDL, eu tenho por exemplo o comando que cria uma tabela no banco de dados. Há algumas pequenas diferenças entre as versões de sistemas de banco de dados relacionais no mercado, mas meio que esse é o padrão.
+
+Eu tenho o comando auto explicativo que cria a tabela chamada Cliente, onde eu vou ter 3 colunas. A primeira é o Código que o tipo de dados é vai ser numérico, eu estou definindo que essa variável vai poder conter 10 posições numéricas. Não será permitido que eu cria uma linha nessa coluna com o valor nulo, ou seja, esse campo se torna OBRIGATÓRIO! É uma regra do meu banco e que faz parte também das regras de banco de dados relacionais. Além de que também estou definindo que ela vai ser uma Primary Key, ou seja, essa coluna será a chave principal e ela terá um valor único para cada linha dentro da minha tabela.
+
+Em seguida, estou criando uma coluna chamada Nome que seu tipo vai ser Varchar(aceita diversos caracteres) de 50 posições, também será Not Null, pois não faz sentido que eu tenha uma tabela Cliente onde eu tenha o código do cliente mas não tenha o nome, e também há a outra coluna de Telefone com Varchar de 15 posições, e nesse caso eu não to especificando que ela é Not Null, portanto é permitido que tenha um Cliente que não precise adicionar  o Telefone.
+
+###### DML
+
+```sql
+Insert into Cliente (Codigo, Nome, Telefone)
+values (1, "Lorem Ipsum", "(88) 999 9999")
+
+Delete from Cliente
+Where Codigo = 1
+
+Update Cliente
+set Nome = "Lorem Ipsum"
+Where Codigo = 1
+```
+
+Para manipularmos a informação para dentro da tabela, ou até mesmo que já existe na tabela, nós vamos utilizar a DML, que é composta por esses três comandos:
+
+* **Insert**
+
+Neste caso ele vai inserir dentro de Cliente nas colunas Codigo, Nome e Telefone os seus respectivos valores: o código de número 1, o nome Lorem Ipsum e o telefone (88) 999 9999. 
+
+Eu posso omitir colunas no meu Insert, mas quando a coluna for obrigatória, eu vou receber um erro se eu tentar inserir essa informação sem passar o valor para os campos que são obrigatórios. Neste caso, se eu omitir o telefone no insert, ele vai fazer a inserção da linha na tabela com o código e nome do cliente, e vai deixar o telefone em branco ou nulo. 
+
+* **Delete**
+
+Neste caso ele vai apagar da tabela Cliente o registro quando o código for igual a 1
+
+* **Update**
+
+Neste caso ele vai atualizar a tabela Cliente para o Nome recebendo esse novo nome quando o código for igual a 1.
+
+###### **DQL**
+
+```sql
+Select Codigo, Nome
+from Cliente
+<Where> Codigo = 1
+  <Group by> Profissao
+  <Having> Count(1) > 0
+<Order by> Nome, Codigo
+```
+
+Neste exemplo eu vou selecionar as colunas Código e Nome da tabela Cliente. Abaixo desses comandos eu posso ter clausulas complementares ao meu comando DQL, onde eu tenho o Where que é meu filtro, ou seja, quando meu codigo for igual a 1, assim eu traria o unico registro pertencente a este codigo. Em seguida, temos o Group By, Having e Order By, elas não são obrigatórias.
+
+##### Query
+
+```sql
+Select Codigo, Nome
+from Cliente
+Where Codigo = 2
+Union
+Select Codigo, Nome
+from Cliente
+Where Nome = "Lorem Ipsum"
+```
+
+Nós temos aqui uma primeira Query onde eu seleciono Codigo e Nome da tabela Cliente quando o código é igual a 2, e eu vou juntar com outro conjunto de informações que é utilizando o comando Union com o meu segundo Sleect, ou seja, quando eu tiver o primeiro resultado da tabela cliente quando n ome for igual a Loem Ipsum.
