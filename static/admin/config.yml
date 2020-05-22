@@ -48,7 +48,8 @@ collections:
               "UI",
               "UX",
               "WP",
-              "GraphQL"
+              "GraphQL",
+              "Testes"
             ],
         }
       - {
@@ -59,7 +60,7 @@ collections:
             [
               { label: "Devops", value: "#B9D030" },
               { label: "Frontend", value: "#E6548F" },
-              { label: "CSS", value: "#0169B0" },
+              { label: "CSS", value: "#3182bb" },
               { label: "Sass", value: "#C76495" },
               { label: "JS", value: "#D6BA32" },
               { label: "HTML", value: "#EB7728" },
@@ -72,10 +73,11 @@ collections:
               { label: "Gulp", value: "#E1494F" },
               { label: "Python", value: "#F8D44C" },
               { label: "Dicas", value: "#a9aaaa" },
-              { label: "Dev", value: "#88c18c" },
+              { label: "Dev", value: "#b49bf1" },
               { label: "Mobile", value: "#9fbb68" },
               { label: "Offtopic", value: "#989898" },
               { label: "GraphQL", value: "#e663ab" },
+              { label: "Testes", value: "#bf975a" }
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }

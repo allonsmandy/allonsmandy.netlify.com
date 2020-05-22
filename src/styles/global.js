@@ -45,12 +45,12 @@ const GlobalStyles = createGlobalStyle`
   blockquote {
     margin: 2.125rem 1rem;
     transition: border-left 0.5s;
-    background-color: var(--texts);
+    background-color: #9c4444;
     padding: 0.2rem;
 
     > p {
-      color: var(--mediumBackground) !important;
-      font-family: monospace;
+      color: white !important;
+      /* font-family: monospace; */
       font-size: 1.2rem !important;
       position: relative;
       top: 6px;
@@ -88,13 +88,13 @@ const GlobalStyles = createGlobalStyle`
     padding-left: 2.5rem;
     list-style: disc;
     margin: 0 auto 1.2rem;
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
   li {
     padding: 0.325rem 0;
     color: var(--highlight);
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 
     & > ul {
       margin-bottom: 0;
@@ -114,19 +114,18 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5 {
     font-weight: 600;
-    letter-spacing: 0.069rem;
     line-height: 1.4;
     margin: 0 auto 1rem;
-    letter-spacing: 2px;
-    font-family: sans-serif;
+    /* letter-spacing: 2px; */
+    /* font-family: sans-serif; */
     padding: 0 1rem;
   }
 
   h6 {
-    line-height: 1;
-    font-size: 1.3rem;
-    font-weight: normal;
-    color: var(--maiscor);
+    line-height: 1.4;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--algo);
     padding: 0.3rem 1.4rem;
     /* text-transform: uppercase; */
   }
@@ -153,14 +152,14 @@ const GlobalStyles = createGlobalStyle`
     `}
   }
   h3 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 
     ${media.lessThan("large")`
       font-size: 1.125rem;
     `}
   }
   h4 {
-    font-size: 1.4rem;
+    font-size: 1.9rem;
   }
   h5 {
     font-size: 1.5rem;
@@ -174,23 +173,24 @@ const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
   }
 
   body.dark {
     --borders: #584750;
     --texts: #d8b15a;
-    --postColor: #fcfff3bf;
-    --highlight: #a3d8ecd9;
-    --mediumBackground: #330d24c7;
-    --background: #080607a6;
+    --postColor: #d0ceb8;
+    --highlight: #b9b1e6d9;
+    --mediumBackground: #222;
+    /* --background: #331b2b; */
+    --background: #120817b0;
     --code: #a04e4e;
-    --secondary: #ffceff;
-    --outracor: #443537bd;
+    --secondary: #ccacbf;
+    --outracor: #b9ba93;
     /* --post: #e2bc94; */
     --post: #dc9cb1;
     --maiscor: #dc7f7f;
-    --algo: #e2e2ec;
+    --algo: #ff9a9a;
 
     --filter: opacity(100%);
   }

@@ -102,7 +102,7 @@ export const AboutSubtitle = styled.strong`
   padding: 1rem 0;
   text-align: center;
   text-transform: uppercase;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 
   &:after {
     content: "";

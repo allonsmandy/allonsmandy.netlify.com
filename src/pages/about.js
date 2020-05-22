@@ -4,6 +4,7 @@ import ReactTooltip from "react-tooltip"
 
 import * as S from "../components/About/styles"
 import Layout from "../components/Layout"
+import IconsAbout from '../components/IconsAbout'
 import { FaHeart, FaLaptopCode, FaBook, FaCheck } from 'react-icons/fa'
 import SEO from "../components/seo"
 
@@ -28,6 +29,8 @@ const AboutPage = () => (
         indo de Devops até Inteligencia Artificial.
       </p>
     </S.AboutDescription>
+
+    {/* <IconsAbout /> */}
 
     <S.Section>
       <div>

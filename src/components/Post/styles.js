@@ -5,7 +5,7 @@ export const PostHeader = styled.header`
   color: var(--maiscor);
   margin: auto;
   max-width: 70rem;
-  padding: 5rem 5rem 0;
+  padding: 5rem 3rem 0;
 
   ${media.lessThan("large")`
     padding: 3rem 0 0;
@@ -55,8 +55,8 @@ export const PostDate = styled.p`
   font-size: 0.7rem;
   font-weight: 100;
   text-transform: uppercase;
-  font-family: sans-serif;
-  padding: 0 1.4rem;
+  /* font-family: sans-serif; */
+  padding: 0 1.3rem;
 
   ${media.lessThan("large")`
     padding: 0 1rem;
@@ -83,7 +83,7 @@ export const MainContent = styled.section`
   .button-post {
     color: var(--postColor);
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.7;
     padding: 0 1.4rem;
 
     ${media.lessThan("large")`

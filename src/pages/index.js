@@ -10,7 +10,7 @@ const ImagemWrapper = styled.section`
   height: 100vh;
   width: 100vw;
   background: url(${img}) center/cover no-repeat;
-  filter: grayscale(0.6);
+  /* filter: grayscale(0.6); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +22,7 @@ const ImagemWrapper = styled.section`
     transition: all 0.2s ease;
     text-decoration: none;
     color: #ccc;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 
     &:before {
       content: "";

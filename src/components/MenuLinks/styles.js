@@ -19,15 +19,16 @@ export const MenuLinksItem = styled.li`
   padding: 0.1rem 0;
 
   .active {
-    color: var(--highlight);
-    background: var(--mediumBackground);
+    color: var(--texts);
+    font-weight: bold;
+    border-bottom: 1px solid var(--texts);
   }
 `
 
 export const MenuLinksLink = styled(AniLink)`
   color: var(--post);
   text-transform: uppercase;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   text-decoration: none;
   transition: color 0.5s;
   /* border-bottom: 1px solid var(--background); */

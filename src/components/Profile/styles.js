@@ -26,8 +26,9 @@ export const ProfileLink = styled(AniLink)`
 export const ProfileAuthor = styled.h1`
   font-size: 1.2rem;
   margin: 0.5rem auto 1rem;
+  color: var(--texts);
   text-transform: uppercase;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 
   ${media.lessThan("large")`
     font-size: 1.2rem;

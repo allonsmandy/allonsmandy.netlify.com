@@ -3,7 +3,7 @@ import media from "styled-media-query"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 export const PostItemLink = styled(AniLink)`
-  color: var(--post);
+  color: var(--secondary);
   display: flex;
   text-decoration: none;
   transition: all .3s;
@@ -22,7 +22,7 @@ export const PostItemWrapper = styled.section`
   align-items: center;
   border-bottom: 1px solid var(--borders);
   display: flex;
-  padding: 1rem 3rem;
+  padding: 1rem;
   width: 100%;
   transition: all .3s;
 
@@ -47,15 +47,15 @@ export const PostItemWrapper = styled.section`
 export const PostItemTag = styled.div`
   align-items: center;
   background: ${props => (props.background ? props.background : "pink")};
-  border-radius: 50%;
-  font-family: sans-serif;
+  /* border-radius: 50%; */
+  /* font-family: sans-serif; */
   color: var(--background);
   display: flex;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   justify-content: center;
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 100px;
+  min-width: 100px;
   text-transform: uppercase;
 
   ${media.lessThan("large")`
@@ -75,7 +75,7 @@ export const PostItemTag = styled.div`
 export const PostItemInfo = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 1.5rem;
+  margin-left: 1.2rem;
 
   ${media.lessThan("large")`
     margin: 0;
@@ -95,14 +95,14 @@ export const PostItemDate = styled.time`
 `
 
 export const PostItemTitle = styled.h1`
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
+  /* text-transform: uppercase; */
+  font-size: 1.6rem;
+  font-weight: 600;
   margin: 0.2rem 0 0.3rem;
 `
 
 export const PostItemDescription = styled.p`
-  font-size: 1rem;
+  font-size: 0.9rem !important;
   font-weight: 300;
   line-height: 1.2;
 `

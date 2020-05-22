@@ -23,10 +23,10 @@ export const IconsAboutCard = styled.div`
 `
 
 export const IconsAboutTitle = styled.h2`
-  color: var(--postColor);
+  color: var(--background);
   font-size: 1.5rem;
   text-transform: uppercase;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   margin-bottom: 0.4rem;
 `
 
