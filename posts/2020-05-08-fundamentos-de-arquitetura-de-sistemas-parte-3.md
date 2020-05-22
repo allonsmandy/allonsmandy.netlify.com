@@ -4,7 +4,7 @@ description: A arquitetura de aplicações móveis e internet das coisas
 date: '2020-05-08 11:48:10'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
-background: '#88c18c'
+background: '#b49bf1'
 ---
 ### Conceitos da Internet das Coisas
 
