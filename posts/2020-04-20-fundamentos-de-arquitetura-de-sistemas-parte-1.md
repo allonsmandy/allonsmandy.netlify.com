@@ -4,7 +4,7 @@ description: Vantagens e desenvolvimento de web services
 date: '2020-04-20 08:09:30'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
-background: '#88c18c'
+background: '#b49bf1'
 ---
 Irei documentando aqui todo o meu aprendizado da disciplina de **Fundamentos de Arquiterura de Sistemas**, do bootcamp **Code Like a Fullstack Girl**. Espero que estes conteúdos possam ajudar outras pessoas também :)
 
