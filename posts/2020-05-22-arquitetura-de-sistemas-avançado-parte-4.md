@@ -77,3 +77,13 @@ E temos a parte de oepraçao que suporta toda implantaçao  que foi feita, podem
 E depois disso a gente tem ferramentas que ajuda a coletar metricas pra que a gente possa entender o feeedback do nosso software e melhorar constanemnte, como zabbix, prometheus, datadog, rollbar. Essa parte é mt importante pra que a gente saiba se recuperar rapidamente quando houver uma falha.
 
 Esse é mais ou menos o fluxo q agente tem pra entregar um software e fazer isso de fomra continua, no qual eu planejo, codifico, construo, testo, distribuo a minha release, faço implantaçao em produçao, tenho toda uma infra pra suportar minha implatançao em produçao, eu monitoro, coleto feedback e ai com esse feedback gero um novo planejamento e ai entro em um ciclo infinito pra ta desenvolvendo software rapido e com qualidade entregando constante valor com qaulidade para o cliente.
+
+
+
+CI/CD Continuos integration
+
+nós temos primeiramente a aplicação onde eu estou liberando um novo codigo, commitando um codigo no meu repositorio, seja no github ou enfim, e a partir dai eu tenho algum gatilho pra acionar minha integraçao continua.
+
+A ic pode ser composta por um pipeline com diversas etapas, essas etapas podem ser as mais diversas possiveis que voce poderá definir de acordo com o seu projeto, porem temos como as principais a etapa de contruçao, teste unitario, a analise da qualidade do seu codigo e o empacotamento da sua release, o que vai realmente estar deployado para produçao, entao a ic temc omo limite  ageraçao do artefato, ela nao faz a implantaçao em produçao, e ai a gente começa a ir para a implantaçao continua que é uma opçao em paralelo com a ic, no exemplo da continuous deployment o deploy é feito automaticmaent,e apos o meu pipeline de int cont a implat cont é feita de maneira automatica e a app esta no ambiente q vc deseha, seja de homol, produçao, etc.
+
+A etapa de entrega continua ou cotinuos delivery é mt parecida com a etapa de implantaçao contua, porem ela necessita de um aprovador no meio do caminho para q sua app seja aplicada em prod ou em outro ambiente.
