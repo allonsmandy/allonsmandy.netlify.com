@@ -4,7 +4,7 @@ description: ' Conceitos de arquitetura em aplicações para Internet'
 date: '2020-04-21 09:59:22'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
-background: '#88c18c'
+background: '#b49bf1'
 ---
 ### Introdução a Arquitetura de Sistemas
 
