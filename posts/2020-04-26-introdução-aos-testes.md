@@ -4,7 +4,7 @@ description: Um pouco da teoria sobre testes + Mocha e Chai + code coverage
 date: '2020-04-26 06:59:50'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: testes
-background: '#88c18c'
+background: '#bf975a'
 ---
 #### Por que testar?
 
