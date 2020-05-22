@@ -4,7 +4,7 @@ description: Conceitos de responsividade e experiência do usuário
 date: '2020-05-17 12:35:09'
 image: assets/img/arquitetura-sistemas-768x512.jpg
 category: dev
-background: '#88c18c'
+background: '#b49bf1'
 ---
 #### Tópicos introdutórios sobre UX e UI
 
