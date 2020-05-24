@@ -78,12 +78,48 @@ E depois disso a gente tem ferramentas que ajuda a coletar metricas pra que a ge
 
 Esse é mais ou menos o fluxo q agente tem pra entregar um software e fazer isso de fomra continua, no qual eu planejo, codifico, construo, testo, distribuo a minha release, faço implantaçao em produçao, tenho toda uma infra pra suportar minha implatançao em produçao, eu monitoro, coleto feedback e ai com esse feedback gero um novo planejamento e ai entro em um ciclo infinito pra ta desenvolvendo software rapido e com qualidade entregando constante valor com qaulidade para o cliente.
 
-
-
 CI/CD Continuos integration
 
-nós temos primeiramente a aplicação onde eu estou liberando um novo codigo, commitando um codigo no meu repositorio, seja no github ou enfim, e a partir dai eu tenho algum gatilho pra acionar minha integraçao continua.
+nós temos primeiramente a aplicação onde eu estou liberando um novo codigo, estou commitando um codigo no meu repositorio, seja no github ou enfim, e a partir dai eu tenho algum gatilho pra acionar minha integraçao continua.
 
-A ic pode ser composta por um pipeline com diversas etapas, essas etapas podem ser as mais diversas possiveis que voce poderá definir de acordo com o seu projeto, porem temos como as principais a etapa de contruçao, teste unitario, a analise da qualidade do seu codigo e o empacotamento da sua release, o que vai realmente estar deployado para produçao, entao a ic temc omo limite  ageraçao do artefato, ela nao faz a implantaçao em produçao, e ai a gente começa a ir para a implantaçao continua que é uma opçao em paralelo com a ic, no exemplo da continuous deployment o deploy é feito automaticmaent,e apos o meu pipeline de int cont a implat cont é feita de maneira automatica e a app esta no ambiente q vc deseha, seja de homol, produçao, etc.
+A integraçao continua pode ser composta por um pipeline com diversas etapas, essas etapas podem ser as mais diversas possiveis que voce poderá definir de acordo com o seu projeto, porem temos como as principais a etapa de contruçao, teste unitario, a analise da qualidade do seu codigo e o empacotamento da sua release, o que vai realmente estar deployado para produçao, entao a integraçao continua temc omo limite  ageraçao do artefato, ela nao faz a implantaçao em produçao, e ai a gente começa a ir para a implantaçao continua que é uma opçao em paralelo com a entrega continua, no exemplo da continuous deployment o deploy é feito automaticmaent,e apos o meu pipeline de int cont a implat cont é feita de maneira automatica e a app esta no ambiente q vc deseja, seja de homol, produçao, etc.
 
-A etapa de entrega continua ou cotinuos delivery é mt parecida com a etapa de implantaçao contua, porem ela necessita de um aprovador no meio do caminho para q sua app seja aplicada em prod ou em outro ambiente.
+A etapa de entrega continua ou continuos delivery é mt parecida com a etapa de implantaçao contua, porem ela necessita de um aprovador no meio do caminho para q sua app seja aplicada em prod ou em outro ambiente.
+
+Esse processo pode ser executado da amesma maneira para os diversos ambientes,
+
+PRINCIPAIS FERRAMENTAS
+
+* Gitlab cl
+* jenkins
+* tavis cl
+* azure pipelines
+* cicrcle cl
+
+PIPELINES...
+
+
+
+CODE QUALITY ANALISITYS CONTINUOUS INSPECTION
+
+Principais ferramentas
+
+* Sonarqube
+* Code climaty
+* codacity
+
+esas ferramentas servem para resolver problemas como identificar complexidade ciclomatica da sua aplicação, entao conforme voce sobe um novo codigo, é feita uma analise de qualidade e verifica se seu codigo está ficando mais complexo ou não. 
+
+O que seria essa complexidade ciclomatica?
+
+Basicamente é o quantos caminhos independentes o seu código pode seguir em determinado pedaço da sua aplicação. Então quanto mais ramificações eu tiver maior é a complexidade ciclomática, que seria a complexidade do seu codigo.
+
+Um exemplos das ferramentas, aqui a gente consegue visualizar que ela identificou a complexidade cognitiva (que é um pouquinho diferente da complexidade ciclomática) mas é parecido, e ela bloqueou o meu processo. ELa indicou que a complexidade cognitiva está 298 e só é permitida ter uma complexidade de 15.
+
+Aqui tem um exemplo de como ele calcula, no caso ele identificou os IF's, tambem identificou que vai pontuar uma complexidade em uma orperação de && ou ||, normalmente qualquer fluxo de repetiçao ou condiçao ele vai pontuando.
+
+Além disso as ferramentas ajudam a identificar códigos que foram copiados e não necessariamente um código tem que ta escrito da mesma maneira. A um certo tempo atrás elas identificavam exatamente o texto de estado era igual, hoje essa ferramentas mais poderosas consegue identificar o que seu codigo quer expressar, independente se as pessoas modificarem só o nome da variavel da pra saber se o codigo é duplicado.
+
+VULNERABILIDADES / CODE SMELL
+
+Por exemplo, seria ter um password amarrado no seu código, isso além de nao ser boa pratica apresenta uma vulnerabilidade pois você está expondo a sua senha.
