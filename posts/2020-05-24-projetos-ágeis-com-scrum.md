@@ -92,7 +92,7 @@ Transparencia, Adaptaçao e Inspeção
 * As tarefas são do time e todos são responsáveis
 * Forte comprometimento com os resultados
 
-###### PAPEIS E RESPONSABILIDADES DE CADA UM DO TIME 
+###### PAPEIS E RESPONSABILIDADES DE CADA UM DO TIME
 
 **Product Owner (PO)**
 
@@ -171,16 +171,31 @@ numa sprint de 30 dias, o timebox dessa reuniao é de 4h. Como é feita no ultim
 
 O PO representa o profissional que tem a visao do que será desenvolvido, as necessidades a serem atendidas, o publico que vai utilizar os serviços e os objetivos a serem alcançados. Mas mais do que isso, ele é o proffisional que  que visualiza o valor que sera agregado pra empresa e pro cliente que vai utilizar o produto construido o PO é quem define a ordem que as atividades serao desenvolvidas, e ele tbm responsavel por validar se esses itens estao sendo entregues na sprint e estao agregando o valor esperado, caso nao esteja ele tem que planejar os ajustes necessarios nas proximas sprints afim de manter o objetivo iniicla proposto. Na pior das hipoteses, o po tbm é o responsavel por cancelar uma sprint, quando as atividades planejadas nao puderem ser mais entreguesou o po entender q o valor esperaod n vai ser mais atingido, neste caos cabe o PO replanejar a sprint mantendo os dias pra conclusao dela, com alguma entrega de valor possivel. se nenhuma entrega executavel for possivel o po pode priorizar um estudo afim de agilizar o desenvolvimento da proxima sprint, esse estudo é conhecido como spike.
 
-Refining e Planning
+**SCRUM MASTER**
+
+Já o scrum master deve acima de tudo ser responsavel por disseminar a cultura agil no time, ensinando todos os conceitos do scrum, ensinando o time a executar todas as cerimonias e principalmmente ensinar o time a se tornar cada vez mais independente e auto gerenciavel ate chegar ao ponto da presença do scrum master nao ser mais necessaria no time.
+
+Parece contraditorio voce treinar um time pra que voce se torne dispensavel, mas exatamente esese conceito. 
 
 **RELEASE PLAINING**
 
-Liberaçao ou lançamento de software, é o lançamento de nova versao oficial de produto de software. Cada vez que um produto de software é criado ou modificado, o fabricante e seus desenvolvedores decidem sobre como distribuir ou o novo produto ou a modificação às pessoas que o utilizam.
+Liberaçao ou lançamento de software, é o lançamento de nova versao oficial de produto de software. Cada vez que um produto de software é criado ou modificado, o fabricante e seus desenvolvedores decidem sobre como distribuir ou o novo produto ou a modificação às pessoas que o utilizam. Não é obrigatorio ter uma release ao final de cada sprint, você pode acumular umas 10 sprints por exemplo pra poder realizar uma release, porém deve ser considerado que quanto mais sprints você acumular pra fazer uma release maior a probabilidade de você enfrentar algum problema durante o merge (junção dos codigos de cada sprint), e maior o tempo de teste necessário para garantir que todas as funcionalidades estejam funcionando corretamente após esse merge. Então não é um problema você acumular sprints pra poder fazer a release, voce só tem que tomar cuidado que quanto mais sprints voce acumular antes de uma release mais complexa essa release vai se tornar. 
 
 existem 2 tipos de release plaining
 
-* de multiplas squads
+* release planning de multiplas squads
+
+São varios times de desenvolvimento agrupado fazendo varias coisas distintas que podem ou não ter correlaçao entre as atividades, mas que ao final da sprint devem ser agrupadas em uma unica release para serem implementadas em produção. Esse é um tipo de release planning tecnica em que a complexidade consiste nas varias entregas distintas feitas por times distintos mas que precisam obedecer as mesmas regras técnicas, para que possam subir juntas para produção sem que a entrega de uma squad impacte na entrega da outra squad. Esta é uma parte tecnica super importante mas que nao tem açao direta do PO, o importante neste caso é o PO ficar atento nos prazos que o time deve cumprir pra entrega do codigo e acompanhar a homologaçao após o merge pra se certificar que suas entregas serão cumpridas ao final da release. 
+
 * release planning de projeto
+
+O PO possui uma demanda muito grande que será necessária quebrar essa entrega em várias histórias e consequentemente quebrar em várias sprints.
+
+Neste ponto é importante que o PO tenha certa senioridade, quando o PO deve compreender a real dimensão da demanda, deve compreender a real dimensão de cada história e deve quebrar as historias o maximo que puder. Por exemplo, o PO deve ter a consciencia de que nao é possivel desenvolver uma nova plataforma de autenticação do usuario em uma unica sprint, e ele tbm deve ter discenimento pra entender que uma historia com o titulo de Novo Autenticador  não será suficiente para o time compreender a dimensão e poder quebrar corretamente as atividades. O PO também é responsavel por gerenciar as expectativas dos stackeholder, entao ele precisa ter discenimento pra ja na reuniao que ele recebe a demanda acalmar os animos dos stackholders, informar que a demanda é grande e que poderá levar várias sprints pra ser entregue, sem nunca informar quantas sprints pois isso só será possivel saber ao longo do projeto.
+
+O PO  deve quebrar as historias e priorizr
+
+
 
 ANALISANDO ESCOPO E DEFININDO PRIORIDADEDES
 
