@@ -193,11 +193,13 @@ O PO possui uma demanda muito grande que será necessária quebrar essa entrega 
 
 Neste ponto é importante que o PO tenha certa senioridade, quando o PO deve compreender a real dimensão da demanda, deve compreender a real dimensão de cada história e deve quebrar as historias o maximo que puder. Por exemplo, o PO deve ter a consciencia de que nao é possivel desenvolver uma nova plataforma de autenticação do usuario em uma unica sprint, e ele tbm deve ter discenimento pra entender que uma historia com o titulo de Novo Autenticador  não será suficiente para o time compreender a dimensão e poder quebrar corretamente as atividades. O PO também é responsavel por gerenciar as expectativas dos stackeholder, entao ele precisa ter discenimento pra ja na reuniao que ele recebe a demanda acalmar os animos dos stackholders, informar que a demanda é grande e que poderá levar várias sprints pra ser entregue, sem nunca informar quantas sprints pois isso só será possivel saber ao longo do projeto.
 
-O PO  deve quebrar as historias e priorizr
+O PO  deve quebrar as historias e priorizr-las de acorod com a entrega de mais valor primeiro, e se possivel que ja possa ir testando a solução com o cliente e captando retorno para ir adaptando a solução ao longo do desenvolvimento. A release planning talvez seja um dos pontos mais criticos que o PO tenha que lidar, pois as empresas ainda estao muito acostumadas com os metodos tradicionais de gestão de projetos, onde todo planejamento é feito antes do inicio do desenvolvimento, e neste ponto é que o PO enfrenta as maiores dificuldades ja que ele nunca terá visão completa do projeto visto que esse irá se modificar ao longo do processo. O PO ainda é visto erroneamente como o Gerente de projetos do SCRUM porém os papéis nao sao iguais e a parte mais parecida entre os dois é justamente o planejamento de release, e isso acaba confundindo a maioria das pessoas.
 
+O Papel do PO no planejamento da release consiste em: definir as maiores entregas de valor para o cliente, priorizar as maiores entregar de valor para serem desenvolvidas primeiro, organizar as sprints para que seja possivel captar o retorno do cliente o mais breve possivel, e com o retorno do cliente ir ajustando as estorias para que elas entreguem cada vez mais valor e organizando quando as releases serão organizadas para agregar cada vez mais valor. 
 
+Outro ponto importante no planejamento de release é entender quando a entrega em si trará um ganho real para o cliente, ou se a entrega será apenas estética ou funcional, nao alterando a dinamica do usuario do sistema. Dependendo da entrega, o código pode valer a pena esperar uma ou duas sprints pra entrar na release, afim de impactar menos possivel o cliente. Pois em caso de desenvolvimento de aplicativos, cada release lançada é necessário que o cliente efetue uma atualização e atualizações em excesso podem acabar gerando impacto negativo para o cliente e ao invés de incentivá-lo você pode acabar afastando do seu produto
 
-ANALISANDO ESCOPO E DEFININDO PRIORIDADEDES
+**ANALISANDO ESCOPO E DEFININDO PRIORIDADEDES**
 
 <https://artia.com/scrum/>
 
