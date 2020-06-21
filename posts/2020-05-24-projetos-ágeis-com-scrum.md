@@ -201,6 +201,8 @@ Outro ponto importante no planejamento de release é entender quando a entrega e
 
 **ANALISANDO ESCOPO E DEFININDO PRIORIDADEDES**
 
+A definição de escopo do projeto é algo muito complexo pois normalmente temos muitas pessoas envolvidas e vários departamentos diferentes com objetivos diferentes. A definição de escopo é um dos pontos mais criticos do processo de gestão de projetos, pois é neste momento que será definido o que será desenvolvido e é do artefato desta fase que serão extraídos beneficios a serem atingidos, portanto, se você fizer uma definição de escopo ruim você poderá atingir beneficios errados ou menos assertivos. Uma forma muito eficiente pra você conseguir definir o escopo corretamente é justamente invertendo a ordem e começando a entender qual o objetivo ou valor que você quer atingir, antes mesmo de definir o COMO, assim você terá muito claro onde quer chegar e você terá muito mais possibilidades e caminhos a seguir para atingir o objetivo. Na imagem 2 temos isto muito claro, enquanto na parte de cima da imagem nós temos claro que o objetivo final era construir um carro, na parte de baixo nós temos que o objetivo na realidade era disponibilizar um meio de locomoção. Ainda na imagem 2, na parte de cima, vemos que o projeto do carro foi dividido em sprints, porém eram sprints que não agregavam nenhum valor para quem iria utilizar, era entregar a roda, o chassi ou a lataria sem motor, ou seja, não agrega nenhum valor para quem gostaria de utilizar
+
 <https://artia.com/scrum/>
 
 conceitos
