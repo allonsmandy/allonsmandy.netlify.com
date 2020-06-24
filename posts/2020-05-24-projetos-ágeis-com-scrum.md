@@ -215,7 +215,7 @@ ESTÓRIA: Detalhamento dos épicos, um épico normalmente se divide em várias e
 
 O product backlog deve conter apenas o conteúdo de um produto, cada produto tem o seu próprio backlog e normalmente esse backlog nunca se acaba, visto que conforme as sprints estão sendo entregues, as inspeções vão sendo realizadas, novos épicos vão sendo gerados para manter o produto sempre em evolução.
 
-O PO deve sempre buscar o mais valor possivel independente se seja financeiro ou não, e o PO nunca deve negar um projeto logo de cara, ele deve sempre validar todos os possiveis ganhos 
+O PO deve sempre buscar o mais valor possivel independente se seja financeiro ou não, e o PO nunca deve negar um projeto logo de cara, ele deve sempre validar todos os possiveis ganhos pois até mesmo os demandantes não enxergam os posssiveis beneficios, uma vez que eles podem estar focados apenas em um tipo de ganho. Um exemplo pratico e simples de validação que um PO deve fazer é: vamos supor que o desenvolvimento de uma sprint custe em torno de 50000 mil reais pra empresa. chega pro PO uma demanda de desenvolvimento de um produto muito simples, e ao analisar o PO verifica baseado na sua experiencia que deve ser possivel realizar a contrução em apenas uma sprint, a certeza a gente só vai ter na plainning onde o time de desenvolvimento irá verificar e estimar o tempo. Mas quando o PO verificar qual o retorno esperado pro produto, ele viu que o ganho maximo esperado pra esse produto é de 35000 reais. Pode parecer estranho mas nao é comum ete tipo de analise dentro das empresas, 
 
 <https://artia.com/scrum/>
 
