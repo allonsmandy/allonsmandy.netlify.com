@@ -260,6 +260,16 @@ Ser agil é estar um passo a frnete.
 
 Projetos ageis sao mais bem planejados do que um projeto tradicional.
 
-Transformaçao digital é trabalhar junto com o cliente, é ser centralizado no cliente e ter uma mente focada no objetivo de atender ocliente da melhor forma possivel, por siso o PO tem u mpaple fundamental na trandformaçao digital, ele que entende a necessidade do cliente e transforma em produtos melhores 
+Transformaçao digital é trabalhar junto com o cliente, é ser centralizado no cliente e ter uma mente focada no objetivo de atender ocliente da melhor forma possivel, por siso o PO tem u mpaple fundamental na trandformaçao digital, ele que entende a necessidade do cliente e transforma em produtos melhores.
+
+CONCEITOS E PLANEJAMENTO DE TAREFAS
+
+ESTORIA VS TAREFAS
+
+Imagine que você quer construir uma bicicleta, a bicicleta em si é o objetivo do projeto, entao quando todos os EPICOS tiverem sido concluidos o projeto estará pronto, logo o projeto BICICLETA é um conjunto dos épicos, quadro, garfo, selim, rodas, sistema de freio. repare que nao mencionei o guidão e nem os pedais, o EPICO é o objetivo macro que deve ser atingido e para ser atingido este objetivo macro deve ser quebrado em objetivos menores, logo o epico garfo consiste nas estorias Guidao, Amortecedores, e o Garfo que neste caso tambem é o nome da peça central.
+
+o Guidao é uma estoria do epico Garfo, assim como o pedal é uma estoria do epico sistema de traçao, e a manopla de freio é uma estoria do sistema de freios. Porem essas estorias por si só ainda nao dao a dimensao do trabalho que deve ser feito para que o trabalho seja concluido. É ai que entram as tarefas!
+
+Para realizaçao da estoria Garfo, eu preciso realizar a tarefa Montar o Guidão, Montar o Garfo, Montar o Garfo no quadro, Montar a roda no garfo, e montar o sistema de freio na roda. Neste exemplo, estou considerando que as peças ja estao prontas, caso nao estivessem eu poderia criar epicos relacionados á construção das peças e outros epicos relacionados da montagem. Neste exemplo, verifique que tivemos dependencias de tarefas com outras estorias, este é um dos grandes motivos de realizarmos este tipo de atividade antes de iniciar a construção, para podermos mapear todas as dependencias internas e externas e assim conseguirmos priorizar estorias e atividades de maneira mais assertiva. Ou seja, basicamente uma estoria é um conjunto de tarefas e um epico é um conjunto de estorias. Nós começamos pensando nos epicos do projeto e quando este projeto for priorizado nos quebramos as estorias, e neste momento se acharmos necessário podemos quebrar os epico em mais epicos. Quando as estorias forem priorizadas nas sprints, essas estorias sao quebradas em tarefas e neste momento tambem podemos quebrar uma estoria em mais estorias se for entendido pelo time que é o melhor caminho.
 
 <https://artia.com/scrum/>
