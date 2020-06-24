@@ -238,12 +238,28 @@ Gestão de riscos em projetos ageis é tão importante quanto em qualquer outro 
 
 O risco positivo é muito comum por incrivel que pareça, por exemplo: um projeto está em backlog a muito tempo e foi priorizado para iniciar na proxima sprint, porem em 2 meses entrará em vigor uma nova legislação que afetará o sistema e este deverá ser refeito, se não houver uma interação entre o PO e os stackeholders após a priorizaçao inicial, esse tipo de risco pode nao ser mapeado, e algo que era ruim (pois ficou muito tempo no backlog) acaba se tornando algo positivo pois a empresa terá oportunidade de se adequar a nova legislação com mais eficiência.
 
-Outro risco positivo muito comum é quando existem varios times de desenvolvimento trabalhando em varias frentes diferentes, é comum o que esta sendo feito em um time possa ser reaproveitado por outro time, porem se nao houver um acompanhamento sobre o que os outros times estao desenvolvendo, o PO pode perder uma excelente oportunidade pra entregar valor sem que haja o desenvolvimento do proprio time: Exemplo: um outro time ta desenvolvendo um fluxo para que o cliente consiga solicitar o cancelamento do teu plano de telefone diretamente pelo site ou app, sem que o cliente precise ligar no call center. E você esta desenvolvendo um produto de auto atendimento em que uma das saidas é permitir para o cliente solicitar o cancelamento do seu produto de telefone. Se voce nao souber que o outro time esta desenvolvendo uma solução para tratar esse caso você pode acabar refazendo uma solução que ja esta sendo desenvolvida ou pior, voce pode enviar o cliente para um soluçao pior ainda, mais demorado e com usabilidade muito ruim 
+Outro risco positivo muito comum é quando existem varios times de desenvolvimento trabalhando em varias frentes diferentes, é comum o que esta sendo feito em um time possa ser reaproveitado por outro time, porem se nao houver um acompanhamento sobre o que os outros times estao desenvolvendo, o PO pode perder uma excelente oportunidade pra entregar valor sem que haja o desenvolvimento do proprio time: Exemplo: um outro time ta desenvolvendo um fluxo para que o cliente consiga solicitar o cancelamento do teu plano de telefone diretamente pelo site ou app, sem que o cliente precise ligar no call center. E você esta desenvolvendo um produto de auto atendimento em que uma das saidas é permitir para o cliente solicitar o cancelamento do seu produto de telefone. Se voce nao souber que o outro time esta desenvolvendo uma solução para tratar esse caso você pode acabar refazendo uma solução que ja esta sendo desenvolvida ou pior, voce pode enviar o cliente para um soluçao pior ainda, mais demorado e com usabilidade muito ruim.
 
+PAPEL DO PO NA TRANSFORMAÇÃO DIGITAL
 
+A transformação digital é um processo no qual as empresas fazem uso da tecnologia para melhorar o desempenho, aumentar o alcance e garantir resultados melhores. É uma mudança estrutural nas organizações dando um papel essencial para a tecnologia. Não é segredo para ninguem que a transformação digital está nos objetivos das maiores empresas do país, porém nem todas ainda estão investindo nesta area, simplesmente por não entender o que é de fato a transformação digital.
+
+Existem diversos conceitos e teorias sobre a transformação digital que podem serem facilmente encontradas na internet, porém quem já viveu a transformaçao digital e a viu crescer e cair, posso lhe afirmar uma coisa, transformação digital é muito mais sobre pessoas do que tecnologia. A transformaçao digital é mostrar para as pessoas como usar a tecnologia que ja esta disponivel a algum tempo da melhor maneira possivel, extraindo o melhor da tecnologia para otimizar o nosso trabalho no dia a dia. É sobre como podemos diminuir processos, diminuir atritos, e principalmente potencializar resultados. A transformação digital é muito mais uma mudança de mindset, alterar a forma como as pessoas agem e pensam sobre a tecnologia, é sobre entender que a evoluçao é inevitavel e sobre o que podemos fazer para nos beneficiar dela. E o papel do PO nesse contexto pode ser entendido como fundamental! Pois o papel do PO representa a mudança na forma como os projetos são tratados, a maneira como o conhecimento é disseminado. Se antes voce precisava de um analista de projetos dentro de cada departamento para que este acompanhasse e cobrasse o gerente de projetos, e o departamento era o unico dono do conhecimento que ali era gerado, com a mudança de mindset teremos cada vez menos pessoas fazendo mais coisas, e para isso precisaremos de tecnologia nos suportando para aguentar uma maior carga de trabalho. O PO nao é o novo gp, e o gp nao foi quebrando entre PO e Scrum master. Se na verdade o papel do gp esta sendo divida em  varias pequenas partes especialistas dentro do departamento, e essas pastas especalistas precisam interagirem entre si em prol de entregar um beneficio maior para empresa ou para o cliente.
+
+O PO será apenas o orquestrador dessa comunicação, o PO é responsavel por juntar todas as pequenas partes e montar o planejamento do produto, porem esse planejamento podera ser alterado a cada sprint, e essa é a complexidade que teremos que conviver de agora em diante, por issso acreditamos que o PO se tornara cada vez mais o papel estrategico dentro das empresas, pois ele sera o responsavel direto pelo sucesso ou não do produto. 
+
+Lembrando que o mindset agil tambem prega que o PO deve ter autonomia para o desempenho de suas funções, o que ainda é um entrave nas grandes organizações, ocasionando o surgimento de falsos times ageis.
+
+Muitas empresas passaram a organizar os eu seus times em squads, implementaram o kanban como metodologia de acompanhamento de tasks, criaram um falso backlog e assim dizem para o mercado que implementaram com sucesso a transformação digital, porem continuam pensando e agindo como antes, continuam planejando 100% do projeto antes de testar com o cliente, e assim continua uma briga interna de poder.
+
+Ser agil nao é usar post its! Ser agil é agregar valor para o cliente o mais rapido possivel.
+
+Ser agil é errar rapido e corrigir rapido.
+
+Ser agil é estar um passo a frnete.
+
+Projetos ageis sao mais bem planejados do que um projeto tradicional.
+
+Transformaçao digital é trabalhar junto com o cliente, é ser centralizado no cliente e ter uma mente focada no objetivo de atender ocliente da melhor forma possivel, por siso o PO tem u mpaple fundamental na trandformaçao digital, ele que entende a necessidade do cliente e transforma em produtos melhores 
 
 <https://artia.com/scrum/>
-
-conceitos
-
-ESTÓRIAS VS TAREFAS
