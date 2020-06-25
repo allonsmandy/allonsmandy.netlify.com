@@ -276,4 +276,36 @@ E assim ficamos com alguns épicos com algumas estorias vinculadas e algumas est
 
 A estoria deve ser descrita em nivel de negocio e serve para que o time de desenvolvimento entenda o objetivo daquela atividade e pra isso é importante que o time entenda não só o que deve ser feito mas tambem para que será usado e como será usado, assim o time poderá desenvolver com mais assertividade aumentando a qualidade da entrega, consequentemente do produto e do retorno. 
 
+CRITERIOS DE ACEITE, ESTIMATIVA E PLANEJAMENTO DE TAREFAS
+
+O que é um critério de aceite?
+
+É uma lista de critérios que precisam ser alcançados para que a User Story atenda os requisitos do usuario e seja aceita pelo Product Owner.
+
+Os critérios de aceitação tem o objetivo de: definir limites para as user stories. Ajudar o PO a detalhar em alto nivel o que é necessário para entregar valor ao cliente.
+
+O PO precisa saber qual o objetivo a demanda precisa cumprir para que ele considere aquela estoria como aceita e concluida. Ou seja, é o objetivo que aquela estoria tem que concluir. Se uma estoria nao tem criterio de aceite, muito provavelmente o PO não entendeu a demanda, e apenas descreveu a estoria para cumprir tabela. Como PO, a primeira coisa que eu tenho que descobrir de uma demanda é justamente qual o objetivo dela, onde se quer chegar, qual o objetivo queremos atingir, pois uma vez com este entendimento claro é muito mais facil definir um caminho pra chegar no objetivo. Por incrivel que pareça, muitas demandas tambem nao sao muito claras para os demandantes, nem ele as vezes entendem os objetivos que querem atingir, eles apenas querem resolver o problema, mas nem sequer sabem se é de fato um problema. 
+
+Demandantes tambem costuam ocultar os objetivos para conseguir fazer com que o projeto seja priorizado, pois quando o objetivo real é descoberto, o projeto pode não fazer sentido. Porém, aquele projeto era importante politicamente para o demandante.
+
+ESTIMATIVA E PLANEJAMENTO
+
+Planning poker: O planning poker é disparado o metodo mais usado pra se fazer estimativas do tamanho das tarefas dos times ágeis, porem essa nao é a unica ferramenta disponivel. O planning poker é de fato um jogo de cartas, onde cada membro do time de desenvolvimento recebe um deck contendo todos os numeros da sequencia de fibonnaci. Quanto todos estão prontos, as estorias são lidas e as tarefas são criadas, após a criação de cada tarefa o time de desenvolvimento inteiro vota jogando uma das cartas falando qual tamanho daquela atividade, deve se levar em conta a complexidade de se realizar aquela tarefa, o trabalho manual em si e o tempo. Existem tarefas que a complexidade de se fazer é muito baixa, porém exige muito trabalho manual por parte do desenvolvedor, isso acaba aumentando a complexidade e consequentemente o tempo de desenvolvimento e são essas as questões que os membros do time de desenvolvimento usam para estimar as tarefas.
+
+Uma tarefa considerada muito simples de se fazer pode receber voto 1, uma tarefa muito dificil pode receber 13, normalmente quando uma tarefa recebe 20 pontos os times entendem que a tarefa/estoria está grande demais e deve-se quebra-la em duas ou mais estorias/tarefas. Os membros do time que derem a maior ou menor nota devem justificar o motivo de sua pontuação pois eles devem ter pensado em alguma coisa que os outros membros do time não consideraram, e esse é o maior ganho que temos neste framework. O time acaba ficando muito proximo e um acaba ajudando o outro, mesmo que sejam de áreas diferentes como frontend, backend, android, etc.
+
+Planning t-shirt size: Alguns times tem dificuldade de utilizar o fibonacci por achar muito complicado, porém como o tamanho de camisa fica muito mais simples pra eles devendo sempre levar em consideraçao os fatores de complexidade x esforço x tempo e deve-se manter o processo de quem deu o menor e maior tamanho justificar a sua pontuação.
+
+PLANEJAMENTO
+
+Conforme dito anteriormente, a planning precisa ser dividida em 2 etapas. Na primeira parte, o PO irá pegar os itens mais refinados e priorizados do product backlog e irá apresentar para o time, conforme vimos a pouco, o PO junto com o time de desenvolvimento ler as estorias e tira as duvidas. Na segunda parte da planning, o time quebra as tarefas e as estima. Na segunda etapa da planning é sugerido que o PO não participe para nao exercer uma influencia sobre as atividades a serem desenvolvidas. Na segunda parte o time irá pegar cada estória e irá escrever quais atividades deverão serem desenvolvidas para que a estoria seja considerada entregue. Por ser uma parte mais tecnica, é importante que o PO se abstenha para que o time possa colocar suas próprias opinioes, e até mesmo ter algumas discussões que normalmente não teriam na frente do PO, isso costuma ser bastante comum principalmente em times poucos maduros que ainda olham o cargo do PO como superior ao invés de um par. Durante a segunda etapa da planning, o time pode fazer um outro corte e diminuir ainda mais as estorias a serem entregues, visto que ao quebrar as estorias eles podem validar que ela é mais complexa do que se imaginava anteriormente e isso é super aceitavel, por isso a existencia da quebra de atividades na planning e nao após o inicio da sprint.
+
+Com as estorias mapeadas, e as atividades descritas, é definido um sprint backlog. Com essa informaçao na mao, o PO deverá validar qual dos itens é considerado mais prioritário e que deve ser considerado o objetivo principal da sprint, isso significa que em teoria, se essa atividade cair, todo o resto da sprint nao vai fazer sentido e que alguma mudança deverá ser realizada no meio da sprint para que o objetivo seja atingido  ou em casos extremos a sprint é cancelada, ja que o objetivo da sprint nao sera mais alcançado.
+
+
+
+
+
+
+
 <https://artia.com/scrum/>
