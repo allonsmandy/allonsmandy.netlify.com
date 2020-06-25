@@ -316,6 +316,32 @@ Alguns casos podem nao ser viaveis economicamente para a empresa, porem trazem o
 
 O relacionamento do PO com este publico deve ser feita sempre de maneira mais amistosa possivel. Lidar com pessoas é uma arte :) 
 
+DAILY E RETROSPECTIVA
+
+A daily deve ter um tempo total de 15 minutos, ocorrer sempre no mesmo horario e no mesmo lugar com a presença de todo time de desenvolvimento, a presença do scrum master e do PO não é obrigatoria, apesar de muitas pessoas ainda acreditarem nisso. E isso é porque a daily é para o time de desenvolvimento saber o que cada um está fazendo e se algum tiver com algum problema o outro membro pode ajudar de alguma forma. Este é o motivo da existencia da daily :)
+
+Na daily normalmente é cobrado as 3 perguntas magicas
+
+* O que eu fiz ontem?
+* O que eu farei hoje?
+* Possuo algum impedimento?
+
+Mas a daily nao se limita somente a isso! Desde que respeitado o prazo de 15 minutos, se algum membro do time achar que deve falar alguma outra coisa ele pode falar. O Scrum master irá verificar se é um assunto pra se encerrar na propria daily ou se será necesário marcar um novo horario para discutir somente aquele ponto. POrém é permitido falar qualquer assunto na daily, desde que agregue valor ao projeto. Ao contrario da daily que é executada diariamente dentro da sprint, a retrospectiva acontece apenas uma vez na sprint sempre apos a conclusao da sprint. Nessa cerimonia a presença do PO é muito importante, porem nao é obrigatoria. EM times menos maduros é até importante separar a retrospectiva em duas partes, uma COM e outra SEM o PO para que o time fique mais a vontade. 
+
+Na retrospectiva é discutido os pontos que foram bons e ruins na sprint, o que se deve melhorar ou nao se deve fazer  e o que podemos ja tentar fazer na proxima sprint. Verifique a essencia da daily e da retro são exatamente as mesmas, a diferença é que a daily é focada nas tarefas do dia a dia, e a retro é focada na sprint como um todo.
+
+REFINAMENTO
+
+O refinamento é uma cerimonia nao oficial do scrum, porem muito utilizada para que o time juntamente com o PO  discuta como será a proxima sprint, quais serão os entregáveis e adiantar possiveis duvidas que normalmente apareceriam apenas na planning. O refinamento tem a finalidade de aumentar o entendimento da demanda por parte do time e melhorar a qualidade da entrega e aumentar o retorno esperado pro projeto. Neste momento normalmente o time de desenvolvimento começa a fazer varias perguntas para o PO afim de entender do que se trata a demanda, por isso é de suma importancia que a estoria ja esteja muito bem escrita neste momento para que fique menos duvidas possiveis ou que nao se tenha duvidas. A ideia é facilitar a planning e torna-la muito mais efetiva e assertiva. 
+
+Nesta cerimonia a presença de todo o time scrum é obrigatoria para que todos possam ouvir e entender a demanda e possam ajudar no desenho da melhor solução. 
+
+REVIEW
+
+Na review quem apresenta é o time de desenvolvimento, neste momento eles tem a oportunidade de mostrar o trabalho que cada um desenvolveu na sprint anterior, e pode tirar qualquer duvida tecnica que o publico presente tenha em relação a solução. Duvidas de negocio continuam sendo tiradas pelo PO que deve estar presente na cerimonia assim como o scrum master, nesta cerimonia sao convidados todos os interessados na entrega, sejam eles os stakeholder, os demandantes diretos,, os lideres tecnicos e outros gestores. A ideia principal desta cerimonia é ver de fato o que esta sendo entregue, validar se ta de acordo com o que foi solicitado inicialmente, validar se houve alguma mudança no meio do fluxo, bater com o que foi definido no refinamento e na planning, e por fim e mais importante, se agrega valor ao negocio!
+
+
+
 
 
 <https://artia.com/scrum/>
