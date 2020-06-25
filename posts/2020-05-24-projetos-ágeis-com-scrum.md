@@ -308,6 +308,14 @@ O stakeholder é uma pessoa ou um grupo que legitima as ações de uma organiza�
 
 Alguns exemplos de stakeholder de uma empresa podem ser seus funcionários, gestores, gerentes, proprietários, fornecedores, concorrentes, ongs,  clientes, o Estado, credores, sindicatos e diversas outras pessoas ou empresas que estejam relacionadas com uma determinada ação ou projeto. 
 
- 
+O stakeholder nao necessariamente é o patrocinador do projeto, o patrocinador pode ser o diretor de um departamento mas o stakeholder pode ser um analista ou gerente deste mesmo departamento. E o PO precisa saber conversar com todo esse publico! Dai a necessidade do PO de ter um excelente jogo de cintura na hora de tocar os seus projetos ;)
+
+Muitas pessoas abrem projetos que nao necessariamente trazem um grande beneficio pra empresa, mas que trazem grande ganho politico para o stakeholder, como por exemplo substituir uma planilha excel chatinha por um sistema. Acontece que em alguns casos o custo de produção do sistema para substituição da planilha excel não se paga, ou seja, o retorno é muito pouco em detrimento do custo de implementação e por isso é muito comum um stakeholder se aproveitar de uma outra demanda de maior relevancia pra poder encaixar demandas de baixissimas relevancia. Esse é um dos motivos que o PO deve sempre entender muito bem a demanda e os objetivos que sevem ser alcançados para que nao acabe focando esforço onde não é interessante pra empresa. 
+
+Alguns casos podem nao ser viaveis economicamente para a empresa, porem trazem outros beneficios como melhora na percepção de imagem na companhia, uma empresa com percepção de alta tecnologia, no final todo esses itens ate podem ser mensurados mas de outras perspectivas o que torna muito complexo.
+
+O relacionamento do PO com este publico deve ser feita sempre de maneira mais amistosa possivel. Lidar com pessoas é uma arte :) 
+
+
 
 <https://artia.com/scrum/>
