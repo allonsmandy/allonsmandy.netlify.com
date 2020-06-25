@@ -302,10 +302,12 @@ Conforme dito anteriormente, a planning precisa ser dividida em 2 etapas. Na pri
 
 Com as estorias mapeadas, e as atividades descritas, é definido um sprint backlog. Com essa informaçao na mao, o PO deverá validar qual dos itens é considerado mais prioritário e que deve ser considerado o objetivo principal da sprint, isso significa que em teoria, se essa atividade cair, todo o resto da sprint nao vai fazer sentido e que alguma mudança deverá ser realizada no meio da sprint para que o objetivo seja atingido  ou em casos extremos a sprint é cancelada, ja que o objetivo da sprint nao sera mais alcançado.
 
+RELACIONAMENTO COM CLIENTES/STACKEHOLDERS
 
+O stakeholder é uma pessoa ou um grupo que legitima as ações de uma organização e que tem um papel direto ou indireto na gestão e resultados dessa mesma organização. Desta forma, um stakeholder pode ser afetado positivamente ou negativamente, dependendo das suas politicas e forma de atuação.
 
+Alguns exemplos de stakeholder de uma empresa podem ser seus funcionários, gestores, gerentes, proprietários, fornecedores, concorrentes, ongs,  clientes, o Estado, credores, sindicatos e diversas outras pessoas ou empresas que estejam relacionadas com uma determinada ação ou projeto. 
 
-
-
+ 
 
 <https://artia.com/scrum/>
