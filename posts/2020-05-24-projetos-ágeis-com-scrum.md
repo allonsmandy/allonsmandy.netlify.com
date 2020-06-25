@@ -340,8 +340,4 @@ REVIEW
 
 Na review quem apresenta é o time de desenvolvimento, neste momento eles tem a oportunidade de mostrar o trabalho que cada um desenvolveu na sprint anterior, e pode tirar qualquer duvida tecnica que o publico presente tenha em relação a solução. Duvidas de negocio continuam sendo tiradas pelo PO que deve estar presente na cerimonia assim como o scrum master, nesta cerimonia sao convidados todos os interessados na entrega, sejam eles os stakeholder, os demandantes diretos,, os lideres tecnicos e outros gestores. A ideia principal desta cerimonia é ver de fato o que esta sendo entregue, validar se ta de acordo com o que foi solicitado inicialmente, validar se houve alguma mudança no meio do fluxo, bater com o que foi definido no refinamento e na planning, e por fim e mais importante, se agrega valor ao negocio!
 
-
-
-
-
 <https://artia.com/scrum/>
