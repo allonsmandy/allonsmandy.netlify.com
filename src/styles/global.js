@@ -45,13 +45,13 @@ const GlobalStyles = createGlobalStyle`
   blockquote {
     margin: 2.125rem 1rem;
     transition: border-left 0.5s;
-    background-color: #9c4444;
+    background-color: #9c4460;
     padding: 0.2rem;
 
     > p {
       color: white !important;
       /* font-family: monospace; */
-      font-size: 1.2rem !important;
+      font-size: 1rem !important;
       position: relative;
       top: 6px;
     }
@@ -181,9 +181,9 @@ const GlobalStyles = createGlobalStyle`
     --texts: #d8b15a;
     --postColor: #a9a9a9;
     --highlight: #b9b1e6d9;
-    --mediumBackground: #222;
+    --mediumBackground: #1a1821;
     /* --background: #331b2b; */
-    --background: #120817b0;
+    --background: #231d29;
     --code: #a04e4e;
     --secondary: #ccacbf;
     --outracor: #b9ba93;

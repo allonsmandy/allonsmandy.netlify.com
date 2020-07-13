@@ -6,7 +6,7 @@ export const PostItemLink = styled(AniLink)`
   color: var(--secondary);
   display: flex;
   text-decoration: none;
-  transition: all .3s;
+  transition: all 0.3s;
 
   body#grid & {
     background-color: var(--background);
@@ -15,16 +15,15 @@ export const PostItemLink = styled(AniLink)`
     background-color: var(--mediumBackground);
     /* color: var(--mediumBackground); */
   }
-
 `
 
 export const PostItemWrapper = styled.section`
   align-items: center;
   border-bottom: 1px solid var(--borders);
   display: flex;
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100%;
-  transition: all .3s;
+  transition: all 0.3s;
 
   body#grid & {
     text-align: center;
@@ -47,8 +46,6 @@ export const PostItemWrapper = styled.section`
 export const PostItemTag = styled.div`
   align-items: center;
   background: ${props => (props.background ? props.background : "pink")};
-  /* border-radius: 50%; */
-  /* font-family: sans-serif; */
   color: var(--background);
   display: flex;
   font-size: 1rem;
@@ -96,9 +93,10 @@ export const PostItemDate = styled.time`
 
 export const PostItemTitle = styled.h1`
   /* text-transform: uppercase; */
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 600;
   margin: 0.2rem 0 0.3rem;
+  padding: 0 !important;
 `
 
 export const PostItemDescription = styled.p`

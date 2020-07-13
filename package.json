@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@sendgrid/mail": "^7.2.1",
     "algoliasearch": "^4.0.2",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.7",
@@ -30,6 +31,7 @@
     "gsap": "^3.1.1",
     "lazysizes": "^5.2.0",
     "netlify-cms-app": "^2.11.19",
+    "netlify-lambda": "^1.6.3",
     "prismjs": "^1.19.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
