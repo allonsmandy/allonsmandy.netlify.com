@@ -22,4 +22,6 @@ O docker vai tentar encontrar uma imagem localmente, quando ele não encontra na
 
 ![](assets/img/Captura de tela de 2020-07-14 20-51-26.png)
 
-##### Comandos básicos com containers
+##### Imagens e containers
+
+Quando você executa o comando acima, o docker vai primeiro verificar se você tem essa imagem localmente que você está tentando rodar, se não tiver ele vai baixar lá do Docker Hub, e essa imagem nada mais é que uma serie de instruções que você tem que fazer para criar um container, a imagem é como se fosse uma receita que o docker utiliza pra criar o container. Em seguida, o container é executado!
