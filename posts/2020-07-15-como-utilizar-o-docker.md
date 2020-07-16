@@ -24,4 +24,6 @@ O docker vai tentar encontrar uma imagem localmente, quando ele não encontra na
 
 ##### Imagens e containers
 
-Quando você executa o comando acima, o docker vai primeiro verificar se você tem essa imagem localmente que você está tentando rodar, se não tiver ele vai baixar lá do Docker Hub, e essa imagem nada mais é que uma serie de instruções que você tem que fazer para criar um container, a imagem é como se fosse uma receita que o docker utiliza pra criar o container. Em seguida, o container é executado!
+Quando você executa o comando acima, o docker vai primeiro verificar se você tem essa imagem localmente que você está tentando rodar, se não tiver ele vai baixar lá do Docker Hub, e essa imagem nada mais é que uma serie de instruções do que você tem que fazer para criar um container, a imagem é como se fosse uma receita que o docker utiliza pra criar o container, no qual vai conter as instruções do Hello World que foi nosso caso.. Em seguida, o container é executado!
+
+![](assets/img/docker pull.png)
