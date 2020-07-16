@@ -27,3 +27,9 @@ O docker vai tentar encontrar uma imagem localmente, quando ele não encontra na
 Quando você executa o comando acima, o docker vai primeiro verificar se você tem essa imagem localmente que você está tentando rodar, se não tiver ele vai baixar lá do Docker Hub, e essa imagem nada mais é que uma serie de instruções do que você tem que fazer para criar um container, a imagem é como se fosse uma receita que o docker utiliza pra criar o container, no qual vai conter as instruções do Hello World que foi nosso caso.. Em seguida, o container é executado!
 
 ![](assets/img/docker pull.png)
+
+###### Layered Filesystem
+
+Toda imagem que você baixa é composta de mais de uma camada, isso pode trazer beneficios, pois uma imagem composta por várias camadas que podem ser reaproveitadas em outras imagens. Por exemplo, baixei a imagem do ubuntu e agora quero do CentOS, se eu quero baixar uma imagem do centOS e compartilhar uma camada que já tem na imagem no ubuntu, o docker vai ser esperto e baixar as camadas que ainda não tem. As camadas baixas de uma imagem são read only, ou seja, bloqueadas pra escrita. Quando criamos um container, não estamos necessariamente escrevendo nas imagens, o container cria uma segunda layer de read/write em que consigo escrever.
+
+Uma vantagem disso é que como tenho uma imagem base, eu posso reutilizar em varios containers, aproveitando só a camada read only e inserindo uma camada de read/write.
