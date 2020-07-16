@@ -33,3 +33,11 @@ Quando você executa o comando acima, o docker vai primeiro verificar se você t
 Toda imagem que você baixa é composta de mais de uma camada, isso pode trazer beneficios, pois uma imagem composta por várias camadas que podem ser reaproveitadas em outras imagens. Por exemplo, baixei a imagem do ubuntu e agora quero do CentOS, se eu quero baixar uma imagem do centOS e compartilhar uma camada que já tem na imagem no ubuntu, o docker vai ser esperto e baixar as camadas que ainda não tem. As camadas baixas de uma imagem são read only, ou seja, bloqueadas pra escrita. Quando criamos um container, não estamos necessariamente escrevendo nas imagens, o container cria uma segunda layer de read/write em que consigo escrever.
 
 Uma vantagem disso é que como tenho uma imagem base, eu posso reutilizar em varios containers, aproveitando só a camada read only e inserindo uma camada de read/write.
+
+###### Volumes
+
+Quando eu removo um container, a camada de dados dele também vai embora. Imagina que eu queira criar um container pra colocar meu banco de dados, os meus logs, então toda vez que esse container for removido ela vai levar junto todos meus dados? Não é isso que quero! Quero fazer com que haja a persistência de dados.
+
+Esse lugar onde salvamos os dados no container são os volumes.
+
+Se eu escrever apenas no container, assim que ele for removido os dados somem. Mas eu posso criar um local especial nesse container, chamado de volume que especifica a pasta que será meu volume de dados. O que eu to fazendo na verdade é apontando essa pasta para uma pequena pasta do Docker host (o docker host é o que está hosteando nossa maquina). Então quando to criando um volume, o que eu to fazendo é criando uma pastinha dentro do meu container dizendo tipo "olha, o que eu escrever nessa pasta do container na verdade eu to escrevendo é no meu docker host"
