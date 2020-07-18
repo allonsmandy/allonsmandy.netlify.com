@@ -44,34 +44,30 @@ Se eu escrever apenas no container, assim que ele for removido os dados somem. M
 
 ##### Comandos
 
-docker ps docker ps -a
-docker run ubuntu
-docker run -it ubuntu => coloca o terminal tambem
-docker start ID
+`docker ps` \
+`docker ps -a docker run ubuntu
+docker run -it ubuntu` => coloca o terminal tambem
+`docker start ID
 docker stop ID
-docker start -a -i => conecta com o container e liga o terminal com ele
-docker rm ID => remove o container
-docker containe prune => limpa todos os containers inativos
-docker images 
-docker rmi hello-world => pra remover imagens
-docker run -d -P --name meu-site dockersamples/static-site => atrela um nome ao inves de id
-docker run -d -p 12345:80 dockersamples-static-site => mapeia uma porta escolhida
+docker start -a -i` => conecta com o container e liga o terminal com ele
+`docker rm ID` => remove o container
+`docker containe prune` => limpa todos os containers inativos
+`docker images
+docker rmi hello-world` => pra remover imagens
+`docker run -d -P --name meu-site dockersamples/static-site` => atrela um nome ao inves de id
+`docker run -d -p 12345:80 dockersamples-static-site` => mapeia uma porta escolhida
  => seta uma variavel de ambiente
 
-* Praticando * docker run dockersamples/static-site
-  docker run -d dockersamples/static-site => não atrela o terminal ao processo do meu container
+* Praticando * docker run dockersamples/static-site docker run -d dockersamples/static-site => não atrela o terminal ao processo do meu container
   docker stop -t 0 ID => passa o tempo de espera pra parar esse container
-* linkar uma porta do container para meu computador * docker run -d -P dockersamples/static-site => o docker atribui uma porta para que minha maquina possa acessar
-  docker port ID
+* linkar uma porta do container para meu computador * docker run -d -P dockersamples/static-site => o docker atribui uma porta para que minha maquina possa acessar docker port ID
   localhost:32769
 * aonde salvar o codigo? logs? dados? *
-* Nos volumes!! /var/www criando essa pasta dentro de container que na verdade ta escrevendo no docker host.
-  nao ta sendo escrita na camada fina do container e sim em uma pasta do docker host 
+* Nos volumes!! /var/www criando essa pasta dentro de container que na verdade ta escrevendo no docker host. nao ta sendo escrita na camada fina do container e sim em uma pasta do docker host 
 
-docker run -v "C:\Users\Mandy\Desktop:var/www" ubuntu => cria o container com o volume nesta pasta  docker inspect ID => infos do container (Mounts => destination)
+`docker run -v "C:\Users\Mandy\Desktop:var/www" ubuntu` => cria o container com o volume nesta pasta  `docker inspect ID` => infos do container (Mounts => destination)
 
-* rodando codigo no container * docker run -v -d -p 8080:3000 "endereço_da_pasta:/var/www" -w "/var/www" node npm start
-  (diretorio pra executar o comando -w)
+* rodando codigo no container * docker run -v -d -p 8080:3000 "endereço_da_pasta:/var/www" -w "/var/www" node npm start (diretorio pra executar o comando -w)
 * executando comando dentro do outro * docker run -v -d -p 8080:3000 "$(pwd):/var/www" -w "/var/www" node npm start
 * Dockerfile *
 * FROM -> O dockerfile vai montar sua imagem a partir de outra existente (onde se baseia ela?)
@@ -83,18 +79,18 @@ docker run -v "C:\Users\Mandy\Desktop:var/www" ubuntu => cria o container com o 
 * ENV -> Setar variavel de ambiente
 * WORKDIR -> É onde vai começar!  Assim que meu container carregar, ele carregar nessa pasta pro npm ser exeutado nela
 
-FROM node:latest WORKDIR /var/www
-MAINTAINER Mandy 
+```dockerfile
+FROM node:latest WORKDIR /var/www MAINTAINER Mandy 
 ENV NODE_ENV=production
 ENV PORT=3000
 COPY . /var/www 
 RUN npm install 
 ENTRYPOINT \["npm", "start"] EXPOSE $PORT
+```
 
-* buildando a imagem * -t => como voce quer taguear sua imagem? (nome do usuario que criou / nome da imagem)
-  -f => nome do arquivo do meu Dockerfile (não precisa se tiver o nome padrao)
+* buildando a imagem * -t => como voce quer taguear sua imagem? (nome do usuario que criou / nome da imagem) -f => nome do arquivo do meu Dockerfile (não precisa se tiver o nome padrao)
 
-docker build -f Dockerfile -t mandy/node .
+`docker build -f Dockerfile -t mandy/node .`
 
 \-> cada STEP do meu Dockerfile acaba gerando um CONTAINER INTERMEDIARIO -> porque ele ta se aproveitando das camadas que vai fazer parte do final
 
@@ -104,10 +100,9 @@ docker run -d -p 8080:3000 mandy/node  docker ps
 
 **_**SUBINDO IMAGEM NO DOCKERHUB PARA COMPARTILHAR SUA IMAGEM COM OUTRAS PESSOAS**__** (crie sua conta no dockerhub)
 
-docker login docker push mandy/node 
-docker pull mandy/node 
+docker login docker push mandy/node  docker pull mandy/node 
 
-**__**NETWORKING**__**
+###### Networking
 
 * no docker existe uma default networking, quando voce cria seus containers por padrao todos eles estao funcionando na mesma rede 
 
@@ -115,13 +110,11 @@ hostname -i => ip recebeu atribuido na rede local
 
 o docker cria uma rede default e para cada container que for criar, novos ips. Dentro da rede eles podem se falar pelos ips 
 
-docker run -it ubuntu  apt-get update && apt-get install -y iputils-ping
-ping OUTRO_IP
+docker run -it ubuntu  apt-get update && apt-get install -y iputils-ping ping OUTRO_IP
 
 \=> a rede default eu só posso me comunicar utilizando IPS, se eu criar minha propria rede poderei  batizar cada container, a partir disso eles se conectam com o nome 
 
- **criando minha propria rede**   docker network create --driver bridge minha-rede
-docker network ls
+ **criando minha propria rede**   docker network create --driver bridge minha-rede docker network ls
 
 docker run -it --name meu-container-de-ubuntu --network minha-rede ubuntu
 
@@ -131,8 +124,9 @@ docker run -it --name segundo-ubuntu --network minha-rede ubuntu
 
 ping segundo-ubuntu ping meu-container-de-ubuntu
 
-**__**PEGANDO DADOS DO BANCO**__** docker pull douglasq/alura-books>cap05
-docker run -d -p 8080:3000 douglasq/alura-books:cap05 
+###### Pegando dados do banco 
+
+docker pull douglasq/alura-books>cap05 docker run -d -p 8080:3000 douglasq/alura-books:cap05 
 
 docker rm -f 43
 
@@ -140,12 +134,10 @@ docker run -d --name meu-mongo --network minha-rede mongo docker run -d -p 8080:
 
 docker network inspect minha-rede 
 
-**__**DOCKER COMPOSE**__**
+###### Docker compose
 
 * orquesta quando quero subir multiplos container 
 * ele funciona subindo o .yml
-
-
 
 docker run -d -p 1235:00 dockersamples/static-site -- mapeia a porta 12345 do meu computador pra ser a porta 80 do container que vou criar
 
