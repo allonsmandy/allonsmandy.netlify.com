@@ -18,12 +18,13 @@ export const PostItemLink = styled(AniLink)`
 `
 
 export const PostItemWrapper = styled.section`
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 1px solid var(--borders);
   display: flex;
-  padding: 0.5rem;
+  padding: 1rem;
   width: 100%;
   transition: all 0.3s;
+  flex-direction: column;
 
   body#grid & {
     text-align: center;
@@ -35,12 +36,6 @@ export const PostItemWrapper = styled.section`
   &:hover {
     background-color: var(--mediumBackground);
   }
-
-  ${media.lessThan("large")`
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 2rem 1rem;
-  `}
 `
 
 export const PostItemTag = styled.div`
@@ -48,21 +43,15 @@ export const PostItemTag = styled.div`
   background: ${props => (props.background ? props.background : "pink")};
   color: var(--background);
   display: flex;
-  font-size: 1rem;
   font-weight: 600;
   justify-content: center;
-  min-height: 100px;
-  min-width: 100px;
   text-transform: uppercase;
-
-  ${media.lessThan("large")`
-    border-radius: 0;
-    font-size: 1rem;
-    min-height: auto;
-    min-width: auto;
-    padding: .2rem .5rem;
-    margin-bottom: .7rem;
-  `}
+  border-radius: 0;
+  font-size: 1rem;
+  min-height: auto;
+  min-width: auto;
+  padding: .2rem .5rem;
+  margin-bottom: .7rem;
 
   body#grid & {
     margin-bottom: 1.5rem;
@@ -72,11 +61,7 @@ export const PostItemTag = styled.div`
 export const PostItemInfo = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 1.2rem;
-
-  ${media.lessThan("large")`
-    margin: 0;
-  `}
+  margin: 0;
 
   body#grid & {
     line-height: 1.1;

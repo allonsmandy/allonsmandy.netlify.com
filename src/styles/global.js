@@ -188,7 +188,7 @@ const GlobalStyles = createGlobalStyle`
     --secondary: #ccacbf;
     --outracor: #b9ba93;
     /* --post: #e2bc94; */
-    --post: #dc9cb1;
+    --post: #dcc1d5;
     --maiscor: #dc7f7f;
     --algo: #ff9a9a;
 
@@ -197,19 +197,22 @@ const GlobalStyles = createGlobalStyle`
 
   body.light {
     --borders: #d0ceb8;
-    --postColor: #222;
+    --postColor: #424242;
     --code: black;
-    --texts: #b78f6b;
-    --highlight: #043838aa;
-    --mediumBackground: #e6e4da;
-    --background: #e8e7db;
-    --secondary: #af6774;
-    --outracor: #cab5ba47;
-    --post: #bf527dcf;
-    --maiscor: #d45175;
+    --texts: #ca7a94;
+    --highlight: #0a7f80ed;
+    --mediumBackground: #fdfdfd;
+    --background: #f1f0ec;
+    --secondary: #675b5d;
+    --outracor: #00000080;
+    --post: #4e4e4e;
+    --maiscor: #966796;
     --algo: brown;
+    --filter: opacity(75%);
+  }
 
-    --filter: opacity(70%);
+  .filterImg {
+    filter: var(--filter); 
   }
 
 
@@ -223,8 +226,8 @@ const GlobalStyles = createGlobalStyle`
     background: var(--highlight);
 }
 
-::selection{background: var(--texts); color: var(--postColor);}
-::-moz-selection{background: var(--texts); color: var(--postColor);}
+::selection{background: var(--texts); color: var(--mediumBackground);}
+::-moz-selection{background: var(--texts); color: var(--mediumBackground);}
 
 `
 export default GlobalStyles

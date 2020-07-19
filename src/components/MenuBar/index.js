@@ -57,7 +57,7 @@ const MenuBar = () => {
       </S.MenuBarGroup>
 
       <S.MenuBarGroup>
-        {/* <S.MenuBarItem
+        <S.MenuBarItem
           title="Mudar o tema"
           onClick={() => {
             window.__setPreferredTheme(isDarkMode ? "light" : "dark")
@@ -65,7 +65,7 @@ const MenuBar = () => {
           className={theme}
         >
           <Light />
-        </S.MenuBarItem> */}
+        </S.MenuBarItem>
         <S.MenuBarItem
           title="Mudar a visualização"
           onClick={() => {

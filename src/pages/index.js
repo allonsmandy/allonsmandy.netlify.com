@@ -75,7 +75,7 @@ const InicioPage = () => (
   <ImagemWrapper className="home">
     <GlobalStyles />
     <SEO title="Inicio" />
-    <Link to="/blog">
+    <Link to="/home">
       <span>Acessar</span>
       <svg width="13px" height="10px" viewBox="0 0 13 10">
         <path d="M1,5 L11,5"></path>

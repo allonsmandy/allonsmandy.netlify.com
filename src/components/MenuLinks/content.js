@@ -1,19 +1,19 @@
 const links = [
   {
+    label: "Home",
+    url: "/home",
+  },
+  {
     label: "Blog",
     url: "/blog",
   },
   {
-    label: "Sobre mim",
-    url: "/about",
+    label: "Categorias",
+    url: "/categorias",
   },
   // {
   //   label: "Contato",
   //   url: "/contato",
-  // },
-  // {
-  //   label: "Tags",
-  //   url: "/tags",
   // },
   // {
   //   label: "Laboratório",
