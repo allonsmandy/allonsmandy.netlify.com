@@ -307,22 +307,25 @@ Neste exemplo, se eu rodasse agora localhost:1234 já exibiria direitinho a apli
 `docker version` -> Exibe a versão do docker que está instalada\
 `docker ps` -> Exibe os containers em atividade\
 `docker ps -a`  -> Exibe todos os containers criados, incluindo os que estiverem parados.\
-`docker run ubuntu` -> Executa um container utilizando a imagem do ubuntu`
-docker run -it ubuntu` -> Executa a imagem do ubuntu e em seguida já integra o terminal dele\
-`docker start ID_CONTAINER` -> Ativa meu container`
-docker stop ID_CONTAINER` -> Para meu container`
-docker start -a -i ID_CONTAINER` -> Ativa meu container e liga o terminal com ele, possibilitando interação entre ambos \
+`docker run ubuntu` -> Executa um container utilizando a imagem do ubuntu\
+`docker run -it ubuntu` -> Executa a imagem do ubuntu e em seguida já integra o terminal dele\
+`docker start ID_CONTAINER` -> Ativa meu container\
+`docker stop ID_CONTAINER` -> Para meu container\
+`docker start -a -i ID_CONTAINER` -> Ativa meu container e liga o terminal com ele, possibilitando interação entre ambos \
 `docker rm ID_CONTAINER` -> Remove o container \
 `docker container prune` -> Remove todos os containers que estão parados \
-`docker images` -> Exibe todas as minhas imagens`
-docker rmi NOME_DA_IMAGEM` -> Remove alguma imagem \
+`docker images` -> Exibe todas as minhas imagens\
+`docker rmi NOME_DA_IMAGEM` -> Remove alguma imagem \
 `docker run -d -P --name meu-site dockersamples/static-site` -> Atrela um nome ao container\
 `docker run -d -p 12345:80 dockersamples-static-site` -> Define uma porta específica para ser atribuída à porta 80 do container, neste caso 12345.\
 `docker stop -t 0 ID_CONTAINER` -> Passa o tempo de espera pra parar esse container, neste caso é 0\
 `docker run -d -P dockersamples/static-site` -> O docker atribui uma porta para que minha maquina possa acessar \
 `docker port ID_CONTAINER` -> Exibe a porta do meu container\
 `docker build -f Dockerfile` -> Cria uma imagem a partir de um Dockerfile\
-`docker build -f Dockerfile -t NOME_USUARIO/NOME_IMAGEM` -> Contrói e nomeia uma imagem não-oficial
+`docker build -f Dockerfile -t NOME_USUARIO/NOME_IMAGEM` -> Contrói e nomeia uma imagem não-oficial\
+`docker run -d -p 1235:00 dockersamples/static-site` -> Mapeia a porta 12345 do meu computador pra ser a porta 80 do container que vou criar\
+`docker run -d -P -e AUTHOR="Amanda" dockersamples/static-site` -> Seta uma variável de ambiente no meu container\
+`docker stop -t 0 $(docker ps -q)` -: Executa esse docker ps, "armazena" os resultados ele e da um docker stop no que ele retornar, ou seja, vai parar ao mesmo tempo os containers que estão rodando
 
 ![](assets/img/Captura de tela de 2020-07-26 08-51-17.png)
 
@@ -382,19 +385,15 @@ Na rede default os containers só podem se comunicar utilizando IPS, se eu criar
 
 **Criando minha propria rede**
 
-`docker network create --driver bridge minha-rede `\
+`docker network create --driver bridge minha-rede`\
 `docker network ls`\
 `docker run -it --name meu-container-de-ubuntu --network minha-rede ubuntu`\
 `docker inspect meu-container-de-ubuntu`  -> "Networks" atrelado a "minha-rede"\
 `docker run -it --name segundo-ubuntu --network minha-rede ubuntu`\
-`ping segundo-ubuntu `\
+`ping segundo-ubuntu`\
 `ping meu-container-de-ubuntu`
 
 **Docker compose**
 
 * Orquestra quando quero subir múltiplos container 
 * Ele funciona subindo o arquivo .yml
-
-`docker run -d -p 1235:00 dockersamples/static-site` -> Mapeia a porta 12345 do meu computador pra ser a porta 80 do container que vou criar\
-`docker run -d -P -e AUTHOR="Amanda" dockersamples/static-site` -> Seta uma variável de ambiente no meu container\
-`docker stop -t 0 $(docker ps -q)` -: Executa esse docker ps, "armazena" os resultados ele e da um docker stop no que ele retornar, ou seja, vai parar ao mesmo tempo os containers que estão rodando
