@@ -6,17 +6,43 @@ image: assets/img/sass.png
 category: css
 background: '#3182bb'
 ---
+Olá! Vamos aprender um pouquinho sobre o pré-processador de CSS chamado SASS?
+
 Um pre processador é um programa que pega alguns dados como entrada, e os devolve de forma diferente, na qual outro programa vai poder entendê-los. Os dados de entrada neste caso serão os arquivos .scss ou .sass, que sao compilados em um arquivo .css, podendo serem interpretados pelo browser.
 
 > O Sass é uma extensão do CSS que adiciona poder e elegância à linguagem básica
 
 * Totalmente compativel com CSS
-* Funções internas paa manipular cores e outros valores
+* Funções internas para manipular cores e outros valores
 * CSS com superpoderes
 * Variaveis, importação, herança, aninhamento, mixins e funções
 * Saída bem formatada e personalizável
 * Redução no tamanho do CSS
 * Diretivas de condicionais e de repetição, além de bibliotecas
+
+```scss
+$cor-principal: #84E;
+$cor-secundaria: #88B;
+
+a {
+  color: $cor-principal;
+  &:hover {
+    color: $cor-secundaria;
+  }
+}
+```
+
+O código acima será convertido em css normal:
+
+```css
+a {
+  color: #8AE;
+}
+
+a:hover {
+  color: #88B;
+}
+```
 
 ###### Sass ou Scss?
 
@@ -182,7 +208,7 @@ type-of(dados) ou type_of(dado)
 
 ###### Imports
 
-Utilizamos a diretiva @import para importar arquivos para dentro do Sass.
+Utilizamos a diretiva **@import** para importar arquivos para dentro do Sass.
 
 Oque podemos importar?
 
@@ -276,8 +302,6 @@ O sasscript possibilita que se realize operações que normalmente são prevista
 20% + 6% = 26%
 20em + 6em - 4 = 22em
 20 - 1px = 19px
-
-
 ```
 
 o sinal / a saida é o proprio /, exceto se um ou ambos os valores dai retorna a divisao:
@@ -316,15 +340,11 @@ adjust-hue - altera a tonalidade
 
 rgba(cor, alpha) - cor em hexideimal mas voce quer aplicar um alpha nela
 
-
-
 OPERAÇÕES COM STRINGS
 
 Em  sass, o operador de adição destina-se a concatenar strings
 
 font + -size = font-size
-
-
 
 DIRETIVAS DE CONTROLE @if, @else e @else if, @for, @each e @while
 
@@ -407,8 +427,7 @@ O for usa uma variavel contadora que é incrementada. Normalmente o proprio valo
 Se trocar o through por to, ele nao vai mais executar 4 vezes e sim, executar até o 4, so que vai excluir o 4 e ir até o 3
 
 //div.item-1 { width: 20%; } \
-//div.item-2 { width: 40%; }
-//div.item-3 { width: 60%; }
+//div.item-2 { width: 40%; } //div.item-3 { width: 60%; }
 
 ```scss
 @for $i from 1 to 4 {
@@ -517,8 +536,6 @@ complement($cor); invert($cor)
 
 adjuste-hue, lighten, darken, saturate, desaturate
 
-
-
 \- Funçoes para opacidade
 
 alpha($cor) ou opacity($cor);
@@ -528,8 +545,6 @@ rgba($cor, $alpha)
 opacity($Cor, $val) ou fade-in($cor, $val)
 
 transparentize($cor, $val) ou fade-out($cor, $val)
-
-
 
 \-Funçoes para strings
 
@@ -543,8 +558,6 @@ to-upper-case($string)
 
 to-lower-case($string)
 
-
-
 \- funçoes para numeros
 
 percentage($num, round($arredonda);
@@ -555,8 +568,6 @@ min($numeros...); max($numeros...)
 
 random($limite)
 
-
-
 \-funções para listas
 
 length($lista);
@@ -564,8 +575,6 @@ length($lista);
 nth($lista, $pos-item);
 
 set-nth($lista, $pos-item, $novo-valor)
-
-
 
 \- funçoes para mapas
 
