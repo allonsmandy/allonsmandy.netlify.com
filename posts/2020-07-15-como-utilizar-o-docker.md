@@ -1,6 +1,6 @@
 ---
 title: Como utilizar o Docker
-description: 'Comandos, networks, imagens, Dockerfile'
+description: 'Imagens, volumes, networks, Dockerfile, Docker Compose, Comandos gerais'
 date: '2020-07-14 10:03:14'
 image: assets/img/devops_712619128.jpg
 category: devops
@@ -16,27 +16,29 @@ Após você ter instalado direitinho, abra seu terminal e digite o seguinte:
 docker run hello-world
 ```
 
-Este comando significa que eu to falando lá para o docker enginee que eu quero criar um container com a imagem do hello-world.
+Este comando significa que eu to falando lá para o docker enginee que eu quero criar um container com a imagem do **hello-world.**
 
-O docker vai tentar encontrar uma imagem localmente, quando ele não encontra nada ele vai e baixa do Docker Hub (lá tem várias imagens que podemos utilizar em nossos projetos). Depois que ele baixa, vai ser exibido uma mensagenzinha no terminal de Hello World! (junto com os passos que o docker executou)
+O docker vai tentar encontrar uma imagem localmente, quando ele não encontra nada ele vai e baixa do Docker Hub (lá tem várias imagens que podemos utilizar em nossos projetos). Depois que ele baixa, vai ser exibido uma mensagenzinha no terminal de Hello World! (junto com os passos que o docker executou) ^_^
 
 ![](assets/img/Captura de tela de 2020-07-14 20-51-26.png)
 
 ##### Imagens e containers
 
-Quando você executa o comando acima, o docker vai primeiro verificar se você tem essa imagem localmente que você está tentando rodar, se não tiver ele vai baixar lá do Docker Hub, e essa imagem nada mais é que uma serie de instruções do que você tem que fazer para criar um container, a imagem é como se fosse uma receita que o docker utiliza pra criar o container, no qual vai conter as instruções do Hello World que foi nosso caso.. Em seguida, o container é executado!
+Quando você executa o comando acima, o docker vai primeiro verificar se você tem essa imagem localmente que você está tentando rodar, se não tiver ele vai baixar lá do Docker Hub, e essa imagem nada mais é que uma serie de instruções do que você tem que fazer para criar um container, a imagem é como se fosse uma receita que o docker utiliza pra criar o container, no qual vai conter as instruções do Hello World que foi nosso caso. Em seguida, o container é executado!
 
 ![](assets/img/docker pull.png)
 
 ###### Layered Filesystem
 
-Toda imagem que você baixa é composta de mais de uma camada, principalmente se for uma imagem mais complexa, isso pode trazer beneficios, pois uma imagem é composta por várias camadas que podem ser reaproveitadas em outras imagens. Por exemplo, baixei a imagem do ubuntu e agora quero do CentOS, se eu quero baixar uma imagem do centOS e compartilhar uma camada que já tem na imagem no ubuntu, o docker vai ser esperto e só vai baixar as camadas referentes ao CentOS, ele não vai baixar as camadas que já tenho. 
+Toda imagem que você baixa é composta por mais de uma camada, principalmente se for uma imagem mais complexa, isso pode trazer benefícios, pois uma imagem é composta por várias camadas que podem ser reaproveitadas em outras imagens. Por exemplo, baixei a imagem do ubuntu e agora quero do CentOS, se eu quero baixar uma imagem do centOS e compartilhar uma camada que já tem na imagem no ubuntu, o docker vai ser esperto e só vai baixar as camadas referentes ao CentOS, ele não vai baixar as camadas que já tenho. 
 
-As camadas bases de uma imagem são read only, ou seja, bloqueadas pra escrita. Quando criamos um container, não estamos necessariamente escrevendo nas imagens, o container cria uma segunda layer principal, e essa layer é de read/write em que consigo escrever.
+As camadas bases de uma imagem são **read only**, ou seja, bloqueadas pra escrita. Quando criamos um container, não estamos necessariamente escrevendo nas imagens, o container cria uma segunda layer principal, e essa layer é de **read/write** e é nela que eu consigo escrever.
 
-Uma vantagem disso é que como tenho uma imagem base, eu posso reutilizar em varios containers, fazendo com que me traga economia de espaço, aproveitando só a camada read only e inserindo para cada container uma camada de read/write.
+![](assets/img/layer.png)
 
-###### Volumes
+Uma vantagem disso é que como tenho uma imagem base, eu posso reutilizar em vários containers, fazendo com que me traga economia de espaço, aproveitando só a camada **read only** e inserindo para cada container uma camada de **read/write.**
+
+##### Volumes
 
 Quando eu removo um container, a camada de dados dele também vai embora. Imagina que eu queira criar um container pra colocar meu banco de dados, os meus logs, então toda vez que esse container for removido ele vai levar junto todos meus dados. Não é isso que quero! Quero fazer com que haja a persistência de dados.
 
@@ -107,7 +109,7 @@ Para isso, precisamos criar um arquivo chamado **Dockerfile**. O código dele fi
 ```dockerfile
 FROM node:latest 
 WORKDIR /var/www 
-MAINTAINER Mandy Matos
+LABEL maintainer="Mandy Matos"
 ENV PORT=3000
 COPY . /var/www 
 RUN npm install 
@@ -132,231 +134,267 @@ Eu quero que quando ele der um **npm install** seja na pasta onde esta meus arqu
 Vamos buildar a imagem?
 
 ```
-docker build -f Dockerfile -t allonsmandy/node
+docker build -f Dockerfile -t allonsmandy/node .
 ```
 
-\-f: diz o nome do arquivo do meu dockerfile, se voce deixa por padrao nao precisa especificar
+**\-f**: Diz o nome do arquivo do meu Dockerfile, se você deixa por padrão não precisa especificar, mas se colocar por exemplo node.dockerfile, precisa passar essa flag
 
-\-t: como voce quer taguear sua imagem
+**\-t**: como você quer taguear sua imagem, nesta caso, *seu_nome/nome_da_imagem*
 
-e aonde estáo contexto que está o dockerfile, como eu tava na pasta só utilizei o .
+E por fim, aonde está o contexto que está o meu arquivo dockerfile, como eu estou na pasta só utilizei o . (ponto)
 
-se tiver ok vai estar no docker images, agora só criar um container a partir desta imagem
+![](assets/img/Captura de tela de 2020-07-26 07-26-22.png)
 
+Se tiver tudo ok vai estar no Docker images, agora só criar um container a partir desta imagem. Bora?
+
+```
 docker run -d -p 8080:3000 allonsmandy/node
+```
 
-docker ps
+![](assets/img/Captura de tela de 2020-07-26 07-28-16.png)
 
-Você pode colocar essa sua imagem no dockerhub para que outras pessoas possam baixar ela e contruir containers a partir dela.
+Como a minha porta 8080 já estava sendo usada por outro container, eu tive que matar ele e subir o outro com a minha imagem!
+
+![](assets/img/Captura de tela de 2020-07-26 07-31-41.png)
+
+Você pode colocar essa sua imagem no Docker Hub para que outras pessoas possam baixar ela e construir containers a partir dela.
 
 ###### Networking
 
-Normalmente uma aplicação é composta por diversas partes, entao é bem costumeiro separar cada pedaço em um container, o banco em um container, a aplicaçao em outra, etc. Assim cada container fica com uma responsabilidade só. Se eu tenho entao 1 pedaço da minha app em cada container, como eu posso fazer pra esses pedaços falarem entre si? Visto que eles tem que conseguir trocar dados pra que consiga funcionar como um todo.
+Normalmente uma aplicação é composta por diversas partes, então é bem costumeiro separar cada pedaço em um container, como por exemplo o banco em um container, a aplicação em outra, etc. Assim cada container fica com uma responsabilidade só. Se eu tenho 1 pedaço da minha aplicação em cada container, como eu posso fazer pra esses pedaços falarem entre si? Visto que eles tem que conseguir trocar dados pra que consiga funcionar como um todo...
 
-Por padrao no docker existe uma default network que quando voce cria seus containers, por padrao todos estao funcionando na mesma rede.
+Por padrão no docker existe uma **default network** que quando você cria seus containers, por padrão todos estão funcionando na mesma rede.
 
-docker run -it ubuntu 
+```
+docker run -it ubuntu
+```
 
+Se você rodar o ubuntu e em seguida dar um `docker ps` em outro terminal nós podemos inspecionar ele utilizando o `docker inspect ID_CONTAINER`
 
+Lá vai ter o **Network Settings** que por padrão está em uma rede, que é a **bridge**, e todo container já está por padrão na rede default.
 
-rodando o ubuntu e da um docker ps no outro container, podemos inspecionar
+![](assets/img/Captura de tela de 2020-07-26 07-36-42.png)
 
-lá vai ter o network settings que por padrao ele ta em uma rede, que é a bridge, e todo container ja esao por padrao da rede default
+![](assets/img/Captura de tela de 2020-07-26 07-37-23.png)
 
-hostname -i > ver o ip da rede
+No terminal dentro do meu container do ubuntu eu posso adicionar o comando `hostname -i` e ver o ip da rede.
 
-no primeiro container eu posso dar um ping no outro container, porem vai dizer queo  ping nao é um comando encontrado no ubuntu, isso porque a imagem do docker so tem o essencial para o ubuntu funcionar, entao nesse caso o ping nao vem instalado
+![](assets/img/Captura de tela de 2020-07-26 07-38-16.png)
 
-app-get update && apt-get install iputils-ping
+Vamos fazer uns testes. Vou criar dois containers da imagem do ubuntu e já abrir no modo iterativo (docker run -it ubuntu), o **primeiro container** e o **segundo container.**
 
-agora pode pingar o outro container
+No **primeiro container** eu posso dar um ping no do **segundo container**, porém vai dizer que o  ping não é um comando encontrado no ubuntu, isso porque a imagem do docker só tem o essencial para o ubuntu funcionar, então nesse caso o ping não vem instalado, mas é super simples resolver isto! Só digitar o comandinho abaixo no ubuntu que desejar utilizar o comando ping :)
 
-veja que ta dando pra fazer a comunicação! :)
+```
+apt-get update && apt-get install iputils-ping
+```
 
-Porém, cada hora que subir o container novo ele vai receber um novo ip determinado pelo docker, entao nao é muito util se eu nao saber, e pra saber exatamente eu tenho que configurar o nome do meu container
+Agora posso pingar o outro container. Veja que agora ta dando pra fazer a comunicação! :)
 
-docker run -it --name meu-ubuntu ubuntu
+![](assets/img/Captura de tela de 2020-07-26 07-47-22.png)
 
-só que dentro do outro container eu nao posso dar um ping no meu-ubuntu porque a rede default do docker nao permite que voce dê atribua um hostname a um determinado container, ou seja, na rede default eu só posso me comunicar utilizando IPS, se eu criar minha propria rede eu vou poder batizar o meu container de bd, aplicaçao, e com esses nomes eu posso fazer essa conexao, fazendo com que tenha uma camada de abstraçao acima do ip, eu nao preciso dizer pra que ip especificamente conectar, porem isso nao pode ser feito na rede default do docker, so quando crio a minha propria rede.
+Porém, cada hora que subir o container novo ele vai receber um novo ip determinado pelo docker, então não é muito útil se eu não saber dependendo do que eu for fazer, que neste caso é conectar as partes de minha aplicação. Pra saber exatamente eu tenho que configurar o nome do meu container.
+
+```
+docker run -it --name meu-primeiro-container ubuntu
+```
+
+Só que dentro do outro container sem nome eu não posso dar um **ping meu-primeiro-container** porque a rede default do docker não permite que você atribua um hostname a um determinado container, ou seja, na rede default eu só posso me comunicar utilizando IP, se eu criar minha própria rede eu vou poder batizar o meu container de banco de dados, aplicaçao, etc, e com esses nomes eu posso fazer essa conexão, fazendo com que tenha uma camada de abstração acima do ip, assim eu não preciso dizer pra que ip especificamente conectar.
+
+Porém isso não pode ser feito na rede default do docker, só quando crio a minha própria rede.
 
 ```
 docker network create --driver bridge minha-rede
 ```
 
-quando to criando uma network eu tenho que dizer qual driver eu quero utilizar, o padrao desse que estamos falando aqui é o de bridge, ele é o mais comum mas voce pode utilizar outros tambem, geralmente o de bridge é o que utilizamos quando queremos fazer com que um container fale com outro, depois que voce especificar o driver é só voce dar um nome pra ela
+Quando  eu to criando uma network, eu tenho que dizer qual driver eu quero utilizar, o padrão desse que estamos falando aqui é o de **bridge**, ele é o mais comum, mas você pode utilizar outros também, geralmente o de bridge é o que utilizamos quando queremos fazer com que um container fale com outro. Depois que você especificar o driver é só dar um nome pra sua rede.
 
-docker network ls vai listar todos os nomes da minha rede
+Para listar todos os nomes da sua rede você pode utilizar o seguinte comando:
 
-e quando eu to criando um container, em vez de deixar ele ser associado por padrao  na rede default do docker, ele pode ser atrelado a uma rede que eu especificar 
+```
+docker network ls
+```
 
-docker run -it --name meu-container-de-ubuntu --network minha-rede ubuntu
+Quando eu to criando um container, em vez de deixar ele ser associado por padrão na rede default do docker, ele pode ser atrelado a uma rede que eu especificar. 
 
-se voce der um docker inspect nele vai ver que na aba de network vai dizer que ele ta atrelado a minha-rede, e se eu criar outro container e atrelar na minha-rede, quando eu der um ping meu-container-de-ubuntu
+```
+docker run -it --name primeiro-container --network minha-rede ubuntu
+```
+
+Se você der um docker inspect nele, vai ver que na aba de network irá conter que ele está atrelado a **minha-rede.** Se eu criar outro container e atrelar na **minha-rede**, posso dar um **ping primeiro-container**
+
+![](assets/img/Captura de tela de 2020-07-26 08-02-21.png)
+
+![](assets/img/Captura de tela de 2020-07-26 08-02-42.png)
 
 ###### Docker compose
 
-Como subir multiplos containers? Se a aplicaçao começa a crescer e que trablha com diversas comandos, voce precisaria subir os containeirs manualmente e digitar varios comandos, deavnstagens desta abordagem:
+Como subir múltiplos containers? Se a aplicação começa a crescer, você acaba tendo que trabalhar com diversos comandos, portanto precisaria subir os containers manualmente e digitar vários comandos, desvantagens desta abordagem:
 
 * muitas flags para se lembrar
 * é muito manual
-* facil de errar
-* tenho que garantir a ordem, por exemplo, eu tenho que subir o meu banco antes da aplicaçao
+* fácil de errar
+* tenho que garantir a ordem, por exemplo, eu tenho que subir o meu container do banco antes da aplicação
 
-O Docker compose vai orquestrar quandoquero subir multiplos containers ele funciona seguindo u marquivo de texto do tipo YML, em que vamos descrever tudo que deve acontecer pra subir a aplicaçao assim eu nao preciso executar muitos comandos no terminal\
-todo arquivo de docker compose a promeria coisa é a versao do docker compose
+**O Docker Compose vai orquestrar quando quero subir múltiplos containers**. Ele funciona seguindo um arquivo de texto do tipo **YML**, em que vamos descrever tudo que deve acontecer pra subir a aplicação, assim eu não preciso executar muitos comandos no terminal. Veja um exemplo de arquivo do docker compose para analisarmos e estudarmos juntos.
 
-o service um serviço é uma das diferentes partes da nossa aplicaçao, é como se o node fosse um serviço, o banco é outro serviço, o serviço é cada parte da nossa app destrinchada, se eu quero ocntruir 5 contsiners vao ser 5 serviços cada um com nomes especificos
-
-neste caso ele vai construir o primeiro serviço que se chama nginx, ele vai criar a partir de um dockerfile que ele vai procurar nessa pasta,a partir desse contexto da pasta principal e chamo o nome da imagem
-
-quando ele criar um container a partir dessa imagem eu quero que dê um nome de nginx. La no dockerfile do ngix ele travalha com a porta 80 e 443 entao eu falo pra ele exibir a porta 80 e eu posso mapear como fazia antigamente, olha a porta 80 do meu container vai ser mapeada pra porta 1234 do meu hsot, por exemplo.
-
-eu tbm tenho que falar a network que ele vai fazer parte, pois os containers precisam estar na mesma network 
-
-entao eu crio a network fora da camada de services, essa network o nome vai ser minha-rede, e toda network tem que utilizar o driver e neste caso eu coloquei o mesmo visto anteriormente que é o bridge.
-
-quando eu criar o container do ngnix eu ja atribuo a minha network minha-rede
-
-EM seguida criei o serviço de mongo, como o mongo nao vai ser buildado a partir do dockerfile, ele vai ser buildado pela imagem padraodo mongo
-
-Lembra que eu tenho que subir em uma ordem certinha? Eu poso botar que ele dependem que um serviço suba antes deles
-
-Se eu quero construir esses containers eu tenho que garantir que tenho todas as imagens do docker compose, pra isso eu posso adicionar docker-compose build, emqueelevai procurar e executar o yml
-
-docker-compose up vai executar e levantar todos os serviços que especifiquei, todo o passo a passo :)
-
-
-
-```dockerfile
+```yaml
 version: '3'
 services:
   nginx:
     build:
       dockerfile: ./docker/nginx.dockerfile
       context: .
-     image: allonsmandy/nginx
-     container_name: nginx
-     ports:
-       - "80:80"
-      networks:
-       - minha-rede
-     depends_on: 
-       - "node"
+    image: allonsmandy/nginx
+    container_name: nginx
+    ports:
+      - "1234:80"
+    networks:
+      - minha-rede
+    depends_on: 
+      - "node"
        
-    mongo-db:
-      image: mongo
-      networks: 
-        - minha-rede
+  mongo-db:
+    image: mongo
+    networks: 
+      - minha-rede
         
-     node:
-       build:
-         dockerfile: ./docker/books.dockerfile
-         context: .
-       image: allonsmandy/mybooks
-       container_name: books
-       ports: 
-         - "3000"
-       networks:
-         - minha-rede
-      depends_on: 
-        - "mongodb"
+  node:
+    build:
+      dockerfile: ./docker/books.dockerfile
+      context: .
+    image: allonsmandy/mybooks
+    container_name: books
+    ports: 
+      - "3000"
+    networks:
+      - minha-rede
+    depends_on: 
+      - "mongodb"
         
- networks:
-   minha-rede
-     driver: bridge
-  
+networks:
+  minha-rede
+    driver: bridge
 ```
 
-Comandos e anotações
+\
+A primeira coisa a se colocar no arquivo do docker compos é a versao do dele, neste caso é a versão 3.
 
-`docker ps` \
-`docker ps -a docker run ubuntu
-docker run -it ubuntu` => coloca o terminal tambem `docker start ID
-docker stop ID
-docker start -a -i` => conecta com o container e liga o terminal com ele `docker rm ID` => remove o container `docker containe prune` => limpa todos os containers inativos `docker images
-docker rmi hello-world` => pra remover imagens `docker run -d -P --name meu-site dockersamples/static-site` => atrela um nome ao inves de id `docker run -d -p 12345:80 dockersamples-static-site` => mapeia uma porta escolhida  => seta uma variavel de ambiente
+No **services** é onde você vai colocar um serviço, que é uma das diferentes partes da nossa aplicação, é como se o node fosse um serviço, o banco outro serviço. O serviço é cada parte da nossa aplicação destrinchada, se eu quero construir 5 containers, vão ser 5 serviços, cada um com nomes especificos
 
-* Praticando * docker run dockersamples/static-site docker run -d dockersamples/static-site => não atrela o terminal ao processo do meu container docker stop -t 0 ID => passa o tempo de espera pra parar esse container
-* linkar uma porta do container para meu computador * docker run -d -P dockersamples/static-site => o docker atribui uma porta para que minha maquina possa acessar docker port ID localhost:32769
-* aonde salvar o codigo? logs? dados? *
-* Nos volumes!! /var/www criando essa pasta dentro de container que na verdade ta escrevendo no docker host. nao ta sendo escrita na camada fina do container e sim em uma pasta do docker host 
+Neste caso, ele vai construir o primeiro serviço que se chama **nginx**, que vai criar a partir de um dockerfile na qual irá procurar na pasta especificada no build, e a partir desse contexto da pasta principal eu chamo o nome lá da imagem. 
 
-`docker run -v "C:\Users\Mandy\Desktop:var/www" ubuntu` => cria o container com o volume nesta pasta  `docker inspect ID` => infos do container (Mounts => destination)
+Quando ele criar um container a partir dessa imagem, eu quero que dê um nome de **nginx**. La no dockerfile do nginx ele trabalha com a porta 80 e 443, então eu falo pra ele exibir a porta 80 (só irei utilizar ela mas poderia colocar mais) e posso mapear da mesma forma que fazia antigamente. A porta 80 do meu container vai ser mapeada pra porta 1234 do meu host, por exemplo.
 
-* rodando codigo no container * docker run -v -d -p 8080:3000 "endereço_da_pasta:/var/www" -w "/var/www" node npm start (diretorio pra executar o comando -w)
-* executando comando dentro do outro * docker run -v -d -p 8080:3000 "$(pwd):/var/www" -w "/var/www" node npm start
-* Dockerfile *
-* FROM -> O dockerfile vai montar sua imagem a partir de outra existente (onde se baseia ela?)
-* MAINTAINER -> Quem cuida da imagem, ver se ela ta sendo atualizada
-* COPY -> Copia o que voce indicar pra dentro da imagem, entao a imagem ja terá o codigo fonte. Se você distribuir pra outra pessoa ela ja vai ter aquele codigo fonte imbutido na imagem
-* RUN -> executa o comando quando a imagem estiver sendo construida
-* EXPOSE -> Porta
-* ENTRYPOINT -> Carregado assim que for executado o seu container
-* ENV -> Setar variavel de ambiente
-* WORKDIR -> É onde vai começar!  Assim que meu container carregar, ele carregar nessa pasta pro npm ser exeutado nela
+Eu também tenho que falar a network que ele vai fazer parte, pois os containers precisam estar na mesma network.
+
+Eu crio a network fora da camada de services, o nome dela vai ser **minha-rede**, e toda network tem que utilizar o driver que neste caso eu coloquei o mesmo visto anteriormente que é o bridge.
+
+Quando eu criar o container do **ngnix** eu já atribuo a network **minha-rede** a ele.
+
+Em seguida criei o serviço de **mongo**, o mongo não vai ser buildado a partir do dockerfile, ele vai ser buildado pela imagem padrão do mongo.
+
+Lembra que eu tenho que subir em uma ordem certinha? Eu posso botar que eles dependem que um serviço suba antes deles.
+
+Se eu quero construir esses containers eu tenho que garantir que tenho todas as imagens do docker compose, pra isso eu posso adicionar `docker-compose build`, e então ele vai procurar e executar o yml.
+
+Executando `docker-compose up` ele vai levantar todos os serviços que especifiquei, vai criar todo o passo a passo descrito :)
+
+Neste exemplo, se eu rodasse agora localhost:1234 já exibiria direitinho a aplicação exemplificada. E se eu rodasse no terminal `docker-compose ps` eu poderia visualizar os meus containers rodando direitinho!
+
+###### Comandos e anotações simplificadas
+
+`docker version` -> Exibe a versão do docker que está instalada\
+`docker ps` -> Exibe os containers em atividade\
+`docker ps -a`  -> Exibe todos os containers criados, incluindo os que estiverem parados.\
+`docker run ubuntu` -> Executa um container utilizando a imagem do ubuntu`
+docker run -it ubuntu` -> Executa a imagem do ubuntu e em seguida já integra o terminal dele\
+`docker start ID_CONTAINER` -> Ativa meu container`
+docker stop ID_CONTAINER` -> Para meu container`
+docker start -a -i ID_CONTAINER` -> Ativa meu container e liga o terminal com ele, possibilitando interação entre ambos \
+`docker rm ID_CONTAINER` -> Remove o container \
+`docker container prune` -> Remove todos os containers que estão parados \
+`docker images` -> Exibe todas as minhas imagens`
+docker rmi NOME_DA_IMAGEM` -> Remove alguma imagem \
+`docker run -d -P --name meu-site dockersamples/static-site` -> Atrela um nome ao container\
+`docker run -d -p 12345:80 dockersamples-static-site` -> Define uma porta específica para ser atribuída à porta 80 do container, neste caso 12345.\
+`docker stop -t 0 ID_CONTAINER` -> Passa o tempo de espera pra parar esse container, neste caso é 0\
+`docker run -d -P dockersamples/static-site` -> O docker atribui uma porta para que minha maquina possa acessar \
+`docker port ID_CONTAINER` -> Exibe a porta do meu container\
+`docker build -f Dockerfile` -> Cria uma imagem a partir de um Dockerfile\
+`docker build -f Dockerfile -t NOME_USUARIO/NOME_IMAGEM` -> Contrói e nomeia uma imagem não-oficial
+
+![](assets/img/Captura de tela de 2020-07-26 08-51-17.png)
+
+`docker run -v "C:\Users\Mandy\Desktop:var/www" ubuntu` -> Cria o container em que os dados salvos em var/www sejam salvos no meu diretorio local do Desktop\
+`docker inspect ID_CONTAINER` -> Informações do container
+
+**DOCKERFILE**
 
 ```dockerfile
-FROM node:latest WORKDIR /var/www MAINTAINER Mandy 
-ENV NODE_ENV=production
-ENV PORT=3000
-COPY . /var/www 
-RUN npm install 
-ENTRYPOINT \["npm", "start"] EXPOSE $PORT
+FROM
+  dockerfile vai montar sua imagem a partir de outra existente (onde se baseia ela?)
+LABEL
+  Quem cuida da imagem, ver se ela ta sendo atualizada
+COPY
+  Copia o que voce indicar pra dentro da imagem, entao a imagem ja terá o codigo fonte. Se você distribuir pra outra pessoa ela ja vai ter aquele codigo fonte imbutido na imagem
+RUN
+  Executa o comando quando a imagem estiver sendo construida
+EXPOSE
+  Porta
+ENTRYPOINT
+  Carregado assim que for executado o seu container
+ENV
+  Setar variavel de ambiente
+
+WORKDIR
+  É onde vai começar!  Assim que meu container carregar, ele carrega nessa pasta para o npm ser executado nela
 ```
 
-* buildando a imagem * -t => como voce quer taguear sua imagem? (nome do usuario que criou / nome da imagem) -f => nome do arquivo do meu Dockerfile (não precisa se tiver o nome padrao)
+**Buildando a imagem** 
 
-`docker build -f Dockerfile -t mandy/node .`
+`docker build -f Dockerfile -t allonsmandy/node .`
 
-\-> cada STEP do meu Dockerfile acaba gerando um CONTAINER INTERMEDIARIO -> porque ele ta se aproveitando das camadas que vai fazer parte do final
+ **Agora que temos a imagem pronta (docker images) da pra criar um container com ela** 
 
- **agora que temos a imagem pronta (docker images) da pra criar um container com ela** 
+`docker run -d -p 8080:3000 allonsmandy/node`
 
-docker run -d -p 8080:3000 mandy/node  docker ps
+`docker ps`
 
 **_**SUBINDO IMAGEM NO DOCKERHUB PARA COMPARTILHAR SUA IMAGEM COM OUTRAS PESSOAS**__** (crie sua conta no dockerhub)
 
-docker login docker push mandy/node  docker pull mandy/node 
+**Subindo sua imagem no Docker Hub para compartilhar com outras pessoas**
+
+* Crie sua conta no dockerhub
+* `docker login`
+* `docker push allonsmandy/node`
+* `docker pull allonsmandy/node (baixa a imagem)`
 
 ###### Networking
 
-* no docker existe uma default networking, quando voce cria seus containers por padrao todos eles estao funcionando na mesma rede 
+No docker existe uma default networking, quando voce cria seus containers por padrao todos eles estao funcionando na mesma rede 
 
-hostname -i => ip recebeu atribuido na rede local
+`hostname -i` => ip que o container recebeu e que foi atribuido a ele na rede local (funciona apenas dentro do container)
 
-o docker cria uma rede default e para cada container que for criar, novos ips. Dentro da rede eles podem se falar pelos ips 
+O docker cria uma rede default e para cada container que for criar, cria novos ips. Dentro da rede eles podem se falar pelos ips 
 
-docker run -it ubuntu  apt-get update && apt-get install -y iputils-ping ping OUTRO_IP
+Na rede default os containers só podem se comunicar utilizando IPS, se eu criar minha própria rede poderei  batizar cada container, e a partir disso eles se conectam com o nome 
 
-\=> a rede default eu só posso me comunicar utilizando IPS, se eu criar minha propria rede poderei  batizar cada container, a partir disso eles se conectam com o nome 
+**Criando minha propria rede**
 
- **criando minha propria rede**   docker network create --driver bridge minha-rede docker network ls
+`docker network create --driver bridge minha-rede `\
+`docker network ls`\
+`docker run -it --name meu-container-de-ubuntu --network minha-rede ubuntu`\
+`docker inspect meu-container-de-ubuntu`  -> "Networks" atrelado a "minha-rede"\
+`docker run -it --name segundo-ubuntu --network minha-rede ubuntu`\
+`ping segundo-ubuntu `\
+`ping meu-container-de-ubuntu`
 
-docker run -it --name meu-container-de-ubuntu --network minha-rede ubuntu
+**Docker compose**
 
-docker inspect meu-container-de-ubuntu  "Networks" atrelado a "minha-rede"
+* Orquestra quando quero subir múltiplos container 
+* Ele funciona subindo o arquivo .yml
 
-docker run -it --name segundo-ubuntu --network minha-rede ubuntu
-
-ping segundo-ubuntu ping meu-container-de-ubuntu
-
-###### Pegando dados do banco
-
-docker pull douglasq/alura-books>cap05 docker run -d -p 8080:3000 douglasq/alura-books:cap05 
-
-docker rm -f 43
-
-docker run -d --name meu-mongo --network minha-rede mongo docker run -d -p 8080:3000 --network minha-rede douglasq/alura-books:cap05 
-
-docker network inspect minha-rede 
-
-###### Docker compose
-
-* orquesta quando quero subir multiplos container 
-* ele funciona subindo o .yml
-
-docker run -d -p 1235:00 dockersamples/static-site -- mapeia a porta 12345 do meu computador pra ser a porta 80 do container que vou criar
-
-docker run -d -P -e AUTHOR="Amanda" dockersamples/static-site -- seta uma variavel de ambiente no meu container
-
-docker stop -t 0 $(docker ps -q) -- executa esse docker ps, coloca ele aqui e da um docker stop no que ele retornar, ou seja, para os container rodando ao mesmo tempo
+`docker run -d -p 1235:00 dockersamples/static-site` -> Mapeia a porta 12345 do meu computador pra ser a porta 80 do container que vou criar\
+`docker run -d -P -e AUTHOR="Amanda" dockersamples/static-site` -> Seta uma variável de ambiente no meu container\
+`docker stop -t 0 $(docker ps -q)` -: Executa esse docker ps, "armazena" os resultados ele e da um docker stop no que ele retornar, ou seja, vai parar ao mesmo tempo os containers que estão rodando
