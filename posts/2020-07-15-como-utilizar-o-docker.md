@@ -16,7 +16,7 @@ Após você ter instalado direitinho, abra seu terminal e digite o seguinte:
 docker run hello-world
 ```
 
-O comando significa que eu to falando lá para o docker enginee que eu quero criar um container com a imagem do hello-world.
+Este comando significa que eu to falando lá para o docker enginee que eu quero criar um container com a imagem do hello-world.
 
 O docker vai tentar encontrar uma imagem localmente, quando ele não encontra nada ele vai e baixa do Docker Hub (lá tem várias imagens que podemos utilizar em nossos projetos). Depois que ele baixa, vai ser exibido uma mensagenzinha no terminal de Hello World! (junto com os passos que o docker executou)
 
@@ -30,38 +30,59 @@ Quando você executa o comando acima, o docker vai primeiro verificar se você t
 
 ###### Layered Filesystem
 
-Toda imagem que você baixa é composta de mais de uma camada, isso pode trazer beneficios, pois uma imagem composta por várias camadas que podem ser reaproveitadas em outras imagens. Por exemplo, baixei a imagem do ubuntu e agora quero do CentOS, se eu quero baixar uma imagem do centOS e compartilhar uma camada que já tem na imagem no ubuntu, o docker vai ser esperto e baixar as camadas que ainda não tem. As camadas baixas de uma imagem são read only, ou seja, bloqueadas pra escrita. Quando criamos um container, não estamos necessariamente escrevendo nas imagens, o container cria uma segunda layer de read/write em que consigo escrever.
+Toda imagem que você baixa é composta de mais de uma camada, principalmente se for uma imagem mais complexa, isso pode trazer beneficios, pois uma imagem é composta por várias camadas que podem ser reaproveitadas em outras imagens. Por exemplo, baixei a imagem do ubuntu e agora quero do CentOS, se eu quero baixar uma imagem do centOS e compartilhar uma camada que já tem na imagem no ubuntu, o docker vai ser esperto e só vai baixar as camadas referentes ao CentOS, ele não vai baixar as camadas que já tenho. 
 
-Uma vantagem disso é que como tenho uma imagem base, eu posso reutilizar em varios containers, aproveitando só a camada read only e inserindo uma camada de read/write.
+As camadas bases de uma imagem são read only, ou seja, bloqueadas pra escrita. Quando criamos um container, não estamos necessariamente escrevendo nas imagens, o container cria uma segunda layer principal, e essa layer é de read/write em que consigo escrever.
+
+Uma vantagem disso é que como tenho uma imagem base, eu posso reutilizar em varios containers, fazendo com que me traga economia de espaço, aproveitando só a camada read only e inserindo para cada container uma camada de read/write.
 
 ###### Volumes
 
-Quando eu removo um container, a camada de dados dele também vai embora. Imagina que eu queira criar um container pra colocar meu banco de dados, os meus logs, então toda vez que esse container for removido ela vai levar junto todos meus dados? Não é isso que quero! Quero fazer com que haja a persistência de dados.
+Quando eu removo um container, a camada de dados dele também vai embora. Imagina que eu queira criar um container pra colocar meu banco de dados, os meus logs, então toda vez que esse container for removido ele vai levar junto todos meus dados. Não é isso que quero! Quero fazer com que haja a persistência de dados.
 
-Esse lugar onde salvamos os dados no container são os volumes.
+**Esse lugar onde salvamos os dados no container são os volumes.** 
 
-Se eu escrever apenas no container, assim que ele for removido os dados somem. Mas eu posso criar um local especial nesse container, chamado de volume que especifica a pasta que será meu volume de dados. O que eu to fazendo na verdade é apontando essa pasta para uma pequena pasta do Docker host (o docker host é o que está hosteando nossa maquina). Então quando to criando um volume, o que eu to fazendo é criando uma pastinha dentro do meu container dizendo tipo "olha, o que eu escrever nessa pasta do container na verdade eu to escrevendo é no meu docker host"
+![](assets/img/volumes.png)
+
+Se eu escrever apenas no container, assim que ele for removido os dados somem. Mas eu posso criar um local especial nesse container, chamado de *volume* que especifica a pasta que será meu volume de dados. O que eu to fazendo na verdade é apontando essa pasta para uma pequena pasta do Docker host (o docker host é o que está hosteando nossa maquina). Então quando to criando um volume, o que eu to fazendo é criando uma pastinha dentro do meu container dizendo tipo "*olha, o que eu escrever nessa pasta do container na verdade eu to escrevendo em uma pasta do meu docker host*"
+
+Digite o seguinte comando no terminal:
+
+```
+docker run -v "/var/www" ubuntu
+```
+
+A flag -v especifica que o caminho é ***/var/www,*** e quando eu criar o container baseado na imagem do ubuntu, ele vai, cria, roda, mas eu posso dar uma inspecionada pra ver se ele conseguiu criar o volume. 
+
+O comando `docker inspect ID_CONTAINER` exibe lá no **Mounts**, o caminho ***/var/www*** do meu container,  no qual vai ser escrito no local do computador do caminho exibido em **Source**, então é neste endereço que o docker automaticamente gerou pra salvar os dados de ***/var/www***. Portanto, quando eu remover o container, essa pasta de source ainda existe, entao o que escrevi no ***/var/www*** vai continuar no meu computador. 
+
+![](assets/img/Captura de tela de 2020-07-25 22-22-52.png)
+
+Eu posso configurar esse endereço **Source** pra outro com o seguinte comando: 
+
+```
+docker run -it -v "/home/mandy:/var/www" ubuntu
+```
+
+, Os sinal de dois pontos (:) é pra separar o que é o do meu computador pra o que é do meu container.
+
+Neste caso, eu rodei o comando acima e utilizei a flag -it pra já abrir o terminal integrado da imagem do ubuntu. Veja o teste:
+
+![](assets/img/Captura de tela de 2020-07-25 22-48-21.png)
+
+![](assets/img/Captura de tela de 2020-07-25 22-49-52.png)
 
 ##### Comandos
 
 `docker ps` \
 `docker ps -a docker run ubuntu
-docker run -it ubuntu` => coloca o terminal tambem
-`docker start ID
+docker run -it ubuntu` => coloca o terminal tambem `docker start ID
 docker stop ID
-docker start -a -i` => conecta com o container e liga o terminal com ele
-`docker rm ID` => remove o container
-`docker containe prune` => limpa todos os containers inativos
-`docker images
-docker rmi hello-world` => pra remover imagens
-`docker run -d -P --name meu-site dockersamples/static-site` => atrela um nome ao inves de id
-`docker run -d -p 12345:80 dockersamples-static-site` => mapeia uma porta escolhida
- => seta uma variavel de ambiente
+docker start -a -i` => conecta com o container e liga o terminal com ele `docker rm ID` => remove o container `docker containe prune` => limpa todos os containers inativos `docker images
+docker rmi hello-world` => pra remover imagens `docker run -d -P --name meu-site dockersamples/static-site` => atrela um nome ao inves de id `docker run -d -p 12345:80 dockersamples-static-site` => mapeia uma porta escolhida  => seta uma variavel de ambiente
 
-* Praticando * docker run dockersamples/static-site docker run -d dockersamples/static-site => não atrela o terminal ao processo do meu container
-  docker stop -t 0 ID => passa o tempo de espera pra parar esse container
-* linkar uma porta do container para meu computador * docker run -d -P dockersamples/static-site => o docker atribui uma porta para que minha maquina possa acessar docker port ID
-  localhost:32769
+* Praticando * docker run dockersamples/static-site docker run -d dockersamples/static-site => não atrela o terminal ao processo do meu container docker stop -t 0 ID => passa o tempo de espera pra parar esse container
+* linkar uma porta do container para meu computador * docker run -d -P dockersamples/static-site => o docker atribui uma porta para que minha maquina possa acessar docker port ID localhost:32769
 * aonde salvar o codigo? logs? dados? *
 * Nos volumes!! /var/www criando essa pasta dentro de container que na verdade ta escrevendo no docker host. nao ta sendo escrita na camada fina do container e sim em uma pasta do docker host 
 
@@ -124,7 +145,7 @@ docker run -it --name segundo-ubuntu --network minha-rede ubuntu
 
 ping segundo-ubuntu ping meu-container-de-ubuntu
 
-###### Pegando dados do banco 
+###### Pegando dados do banco
 
 docker pull douglasq/alura-books>cap05 docker run -d -p 8080:3000 douglasq/alura-books:cap05 
 
