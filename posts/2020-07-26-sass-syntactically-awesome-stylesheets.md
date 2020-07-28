@@ -69,7 +69,7 @@ p {
 }
 ```
 
-###### Convertendo arquivo do tipo Sass para Scss e vise-versa (linha de comando)
+###### Convertendo arquivo do tipo Sass para Scss e vice-versa (linha de comando)
 
 No [site oficial do sass](https://sass-lang.com/install) você consegue instalar ele globalmente no seu sistema de maneira bem simples! Caso você faça isso, você consegue utilizar os comandos do sass para fazer as conversões e testar seus usos, basta adicionar o comando que você deseja no seu terminal.
 
@@ -141,7 +141,7 @@ Só substituir o compressed por outro estilo que desejar, seja nested, compact e
 
 ###### Aninhamento
 
-O Sass permite que as regras CSS sejam aninhadas umas nas outas. A regra interna aplica-se somente dentro do seletor da regra externa. O código aninhamento obedece a uma hierarquia.
+O Sass permite que as regras CSS sejam aninhadas umas nas outras. A regra interna aplica-se somente dentro do seletor da regra externa. O código aninhamento obedece a uma hierarquia.
 
 ```scss
 .card {
@@ -164,7 +164,7 @@ O **&** representa o seletor pai, ao invés de repetir o nome a gente coloca o &
 .card {
   width: 50%;
   
-  &:__text { // .card__text (metodologia BEM)
+  &__text { // vai compilar para .card__text (metodologia BEM)
     color: pink;
   }
 }
@@ -196,7 +196,6 @@ Conseguimos executar operações, podemos usar pra criar variáveis, etc. É só
 
 ```sass
 sass -interative
-
 ```
 
 ###### Tipos de dados SassScript
@@ -219,7 +218,7 @@ Visualizando o tipo de dado: `type-of(dados)` ou `type_of(dado)`
 
 Utilizamos a diretiva **@import** para importar arquivos para dentro do Sass.
 
-* Oque podemos importar?
+* O que podemos importar?
 
   * Arquivos com extensões: .scss, .sass ou .css
   * Arquivos começando com http://
@@ -254,7 +253,7 @@ podemos colocar sem a extensão se quiser.
 
 Essa estrutura de pastas é da [Arquitetura ITCSS](https://allonsmandy.netlify.app/blog/arquitetura-css-itcss/), recomendo a leitura! ^_^
 
-##### Mixins
+###### Mixins
 
 Mixins são blocos de código escrito com sintaxe sass, que pode ser incluído uma ou mais vezes em um arquivo sass a ser compilado.
 
