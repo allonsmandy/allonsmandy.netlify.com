@@ -8,14 +8,14 @@ background: '#3182bb'
 ---
 Olá! Vamos aprender um pouquinho sobre o pré-processador de CSS chamado SASS?
 
-Um pre processador é um programa que pega alguns dados como entrada, e os devolve de forma diferente, na qual outro programa vai poder entendê-los. Os dados de entrada neste caso serão os arquivos .scss ou .sass, que sao compilados em um arquivo .css, podendo serem interpretados pelo browser.
+Um pre processador é um programa que pega alguns dados como entrada, e os devolve de forma diferente, na qual outro programa vai poder entendê-los. Os dados de entrada neste caso serão os arquivos **.scss** ou **.sass**, que são compilados em um arquivo **.css**, podendo serem interpretados pelo browser.
 
 > O Sass é uma extensão do CSS que adiciona poder e elegância à linguagem básica
 
-* Totalmente compativel com CSS
+* Totalmente compatível com CSS
 * Funções internas para manipular cores e outros valores
 * CSS com superpoderes
-* Variaveis, importação, herança, aninhamento, mixins e funções
+* Variáveis, importação, herança, aninhamento, mixins e funções
 * Saída bem formatada e personalizável
 * Redução no tamanho do CSS
 * Diretivas de condicionais e de repetição, além de bibliotecas
@@ -50,6 +50,7 @@ A sintaxe do Sass é mais antiga, onde não há ponto e virgula no final e tamb�
 
 ```sass
 // style.sass
+
 $font-family: sans-serif
 $font-size: 14px
 p 
@@ -59,6 +60,7 @@ p
 
 ```scss
 // style.scss
+
 $font-family: sans-serif;
 $font-size: 14px;
 p {
@@ -69,30 +71,34 @@ p {
 
 ###### Convertendo arquivo do tipo Sass para Scss e vise-versa (linha de comando)
 
-TODO
+No [site oficial do sass](https://sass-lang.com/install) você consegue instalar ele globalmente no seu sistema de maneira bem simples! Caso você faça isso, você consegue utilizar os comandos do sass para fazer as conversões e testar seus usos, basta adicionar o comando que você deseja no seu terminal.
 
+```sass
+// converte .sass em .scss
 sass arquivo.sass arquivo.scss
 
+// converte .scss em .css
 sass arquivo.scss arquivo.css
 
+// converte .scss em outro arquivo .css e vai alterar automaticamente sempre
+// que você fizer alterações
 sass --watch input.scss:output.css
 
-sass --watch scss:css -> monitora tudo que tiver da pasta scss e coloca na pasta css
+// monitora tudo que tiver na pasta scss e coloca na pasta css
+sass --watch scss:css
+```
 
-**Ambiente gráfico**
+###### **Ambiente gráfico**
 
-TODO
+É bem comum também utilizar um ambiente gráfico para essas tarefas. Existem vários aplicativos de compilar o sass de forma gráfica. Acesse <https://sass-lang.com/install> e confira em *Applications* algumas das propostas :)
 
-Existem varios aplicativos de compilar o sass de forma gráfica\
-KOALA (css, sass)
+###### **Sass online**
 
-**Sass online**
+Caso você prefira fazer algo rapidinho pra estudar e testar seu código, pode acessar o ambiente online :) <https://www.sassmeister.com/>
 
-<https://www.sassmeister.com/>
+##### Tipos de estilo de saida
 
-###### Tipos de estilo de saida
-
-O Sass permite que você escolha entre quando diferentes estilos de saída
+O Sass permite que você escolha entre diferentes estilos de saída
 
 * aninhado (nested)
 
@@ -100,7 +106,7 @@ O Sass permite que você escolha entre quando diferentes estilos de saída
 #main {
   font-size: 14px;
   border: 1px solid black;}
-  #main p{
+  #main p {
     width: 10em; }
 ```
 
@@ -123,22 +129,24 @@ O Sass permite que você escolha entre quando diferentes estilos de saída
 #main p{ width: 10em; }
 ```
 
-* Comprimido (compressed) - Ocupa a quantidade minima de espaço possivel
+* Comprimido (compressed) - Ocupa a quantidade minima de espaço possível
 
 ```css
 #main{font-size:14px;border:1px solid black;}#main p{width:10em;}
 ```
 
-sass --watch scss:css --style compressed
+Você pode testar esses estilos de saídas com o seguinte comando: `sass --watch scss:css --style compressed`
+
+Só substituir o compressed por outro estilo que desejar, seja nested, compact etc.
 
 ###### Aninhamento
 
-O Sass permite que as regras CSS sejam aninhadas umas nas outas. A regra interna aplica-se somente dentro do seletor da regra externa. O codigo aninhamento obedece a uma hierarquia.
+O Sass permite que as regras CSS sejam aninhadas umas nas outas. A regra interna aplica-se somente dentro do seletor da regra externa. O código aninhamento obedece a uma hierarquia.
 
 ```scss
-#main {
+.card {
   width: 50%;
-  p, div {
+  p {
     color: #000;
     
     a { 
@@ -150,21 +158,21 @@ O Sass permite que as regras CSS sejam aninhadas umas nas outas. A regra interna
 
 ###### Referenciando seletor pai
 
-O & representa o seletor pai, ao invés de repetir a gente coloca o &, podemos aplicar a separação com hifen ou underline
+O **&** representa o seletor pai, ao invés de repetir o nome a gente coloca o &, podemos aplicar a separação com *hífen* ou *underline*
 
 ```scss
-$cor: black;
-
-.#{$cor} {
-  color: $cor;
+.card {
+  width: 50%;
+  
+  &:__text { // .card__text (metodologia BEM)
+    color: pink;
+  }
 }
 ```
 
 ###### Propriedades em namespace
 
-Existe a possibilidade de usar a sintaxe abreviada, que reune todas as sintaxes estendidas font/border/background
-
-Cria um namespace para aquela propriedade
+Existe a possibilidade de usar a sintaxe abreviada que reúne todas as sintaxes estendidas ***font/border/background***
 
 ```scss
 div {
@@ -178,21 +186,22 @@ div {
 
 ###### Variáveis
 
-Uma variável é um espaço reservado na memória do computador. A variavel começa com o sinal de $.
+Uma variável é um espaço reservado na memória do computador. A variável começa com o sinal de $.
 
 > Boa prática do CSS: Escolha nomes de ID e classes que lembrem a função que o seletor desempenha no documento e não a sua apresentação (estilização)
 
 ###### Shell interativo SassScript
 
+Conseguimos executar operações, podemos usar pra criar variáveis, etc. É só digitar o comando abaixo no seu terminal :)
+
+```sass
 sass -interative
 
-$sass -i
-
-Conseguimos executar operações, podemos usar pra criar variveis, 
+```
 
 ###### Tipos de dados SassScript
 
-* Numeros (1.2, 10, 200px, 50%)
+* Números (1.2, 10, 200px, 50%)
 * Cadeias de texto, com e sem aspas ("lateral", 'content', principal)
 * Cores (red, #cccccc, rgba(255, 255, 0, 0.8)
 * Booleanos (true, false)
@@ -202,37 +211,54 @@ Conseguimos executar operações, podemos usar pra criar variveis,
 
   * Acessando o mapa:
 
-    * $cor: map-get($mapa, chave1)
+    * `$cor: map-get($mapa, chave1)`
 
-type-of(dados) ou type_of(dado)
+Visualizando o tipo de dado: `type-of(dados)` ou `type_of(dado)`
 
 ###### Imports
 
 Utilizamos a diretiva **@import** para importar arquivos para dentro do Sass.
 
-Oque podemos importar?
+* Oque podemos importar?
 
-Arquivos com:
+  * Arquivos com extensões: .scss, .sass ou .css
+  * Arquivos começando com http://
+  * Arquivo com nome do arquivo em uma url()
 
-extensoes: .scss, .sass ou .css
+Se o **@import** tiver qualquer media queries
 
-começando com http://
+`@import 'reset.sass'`
 
-nome do arquivo uma url()
+podemos colocar sem a extensão se quiser.
 
-e se o @import tiver qualquer media queries
+`@import 'reset' 'variaveis'`
 
-@import 'reset.sass'
+```scss
+// main.scss
 
-podemos colocar sem a extensao se quiser.
+/* Settings */
+@import 'settings/_all';
 
-@import 'reset' 'variaveis'
+/* Generic */
+@import 'generic/_all';
 
-###### Mixins
+/* Tools */
+@import 'tools/_all';
 
-Mixins são blocos de código escrito com sintaxe sass, que pode ser incluido uma ou mais vezes em um arquivo sass a ser compilado
+/* Object */
+@import 'object/_all';
 
-pra importar voce usa o @include
+/* Components */
+@import 'components/_all'
+```
+
+Essa estrutura de pastas é da [Arquitetura ITCSS](https://allonsmandy.netlify.app/blog/arquitetura-css-itcss/), recomendo a leitura! ^_^
+
+##### Mixins
+
+Mixins são blocos de código escrito com sintaxe sass, que pode ser incluído uma ou mais vezes em um arquivo sass a ser compilado.
+
+Você pode importar seu mixin utilizando o **@include**
 
 ```scss
 @mixin colorir($cor-bg, $cor-texto: black) {
@@ -250,9 +276,9 @@ pra importar voce usa o @include
 }
 ```
 
-Voce nao pode colocar o valror padrao do padrao no inicio, tem que colocar no final o que tem valor padrao
+Você não pode colocar o parâmetro com o valor padrão no inicio, tem que colocar no final. (caso você já queira definir algum valor padrão para algum dos parâmetros como é exemplificado no código acima)
 
-MIXINS COM NUMERO DE ARGUMENTOS DESCONHECIDOS
+Exemplo de mixin com número de argumentos desconhecidos
 
 ```scss
 @mixin box-shadow($sombras...) {
@@ -268,7 +294,7 @@ MIXINS COM NUMERO DE ARGUMENTOS DESCONHECIDOS
 
 ###### Extend
 
-vai herdar essas propriedas e funciona como uma herança
+Com o extend você consegue herdar as propriedades, funcionando como uma herança
 
 ```scss
 %componente-pai {
@@ -290,13 +316,13 @@ vai herdar essas propriedas e funciona como uma herança
 }
 ```
 
-Placeholder é o sinal de identificador desse seletor, entao colocamos o %, ele vai funcionar como um seletor normal porem nao vai se rprocessado
+O placeholder é o sinal de identificador desse seletor, então colocamos o %, ele vai funcionar como um seletor normal porem não vai se processado \o/
 
 ###### Operações em sasscript
 
-O sasscript possibilita que se realize operações que normalmente são previstas em outras linguagens de script. As operações possibilitam comparação e manipulação de dados.  Operadores aritmeticos, relacionais e de igualdade. 
+O sasscript possibilita que se realize operações que normalmente são previstas em outras linguagens de script. As operações possibilitam comparação e manipulação de dados. São utilizados operadores aritméticos, relacionais e de igualdade. 
 
-```
+```scss
 20px + 6px = 26px
 20px + 6em = syntax error
 20% + 6% = 26%
@@ -304,51 +330,42 @@ O sasscript possibilita que se realize operações que normalmente são prevista
 20 - 1px = 19px
 ```
 
-o sinal / a saida é o proprio /, exceto se um ou ambos os valores dai retorna a divisao:
+* **Divisão com resultado adimensional sem a unidade de medida**
 
-* da divisao forem armazenados em uma variavel ou retornado por uma funçao
-* estiverem entre parenteses e nãõ fizerem parte de uma lista
-* forem parte de uma epxresao aritmetica
+  (20px) / 6px = 3.33333.
+* **Opções com cores: só é possível a operação em cores com o mesmo alpha**
 
-Divisao com resultado adminesional sem a undiade de medida
+  \#112233 + #223344 = #335577
 
-(20px) / 6px = 3.33333.
+  \#330044 * 2 = #660088
 
-Opçoes com cores: só é possivel a operação emcores com o mesmo alpha
+  red - 9 = #f60000
 
-\#112233 + #223344 = #335577
+  red + blue - 4 = #fb00fb
+* **Cores HSL**
 
-\#330044 * 2 = #660088
+  Os parâmetros de cor utilizados nesse sistema são tonalidades **hue**, **saturação** e **brilho**
 
-red - 9 = #f60000
+  hsl(120, 75%, 100%)
 
-red + blue - 4 = #fb00fb
+  darken(escurecer) e lighten(clarear)
 
-CORES HSL
+  lighteen(blue, 30%)
 
-Os parametros de cor utilizados nesse sistema sao tonalidadehue satuaçao naturation e brilho lightness
+  sturate(aumentar) e desaturate(diminuir)
 
-hsl(120, 75% 100%)
+  adjust-hue - altera a tonalidade
 
-darken(escurecer) e lighten(clarear)
+  rgba(cor, alpha) - cor em hexideimal mas voce quer aplicar um alpha nela
+* **Operações com strings**
 
-lighteen(blue, 30%)
+  Em sass, o operador de adição destina-se a concatenar strings
 
-sturate(aumentar) e desaturate(diminuir)
+  font + -size = font-size
 
-adjust-hue - altera a tonalidade
+#### Diretivas de controle: @if, @else e @else if, @for, @each e @while
 
-rgba(cor, alpha) - cor em hexideimal mas voce quer aplicar um alpha nela
-
-OPERAÇÕES COM STRINGS
-
-Em  sass, o operador de adição destina-se a concatenar strings
-
-font + -size = font-size
-
-DIRETIVAS DE CONTROLE @if, @else e @else if, @for, @each e @while
-
-O Sass script suporta diretivas de controle e expressoes basicas para incluir estilos sob algumas condiçoes ou incluindo o mesmo estilo varias vezes com variações. As diretivas são um recurso avançado e são incomuns no dia a dia. Elas existem principalmente para uso em mixins.
+O Sass script suporta diretivas de controle e expressões básicas para incluir estilos sob algumas condições ou incluindo o mesmo estilo varias vezes com variações. As diretivas são um recurso avançado e são incomuns no dia a dia. Elas existem principalmente para uso em mixins.
 
 ```sass
 @diretiva expressao {
@@ -364,7 +381,7 @@ O Sass script suporta diretivas de controle e expressoes basicas para incluir es
 }
 ```
 
-MIXINS BASEADO NO HORARIO
+Exemplo de mixin baseado em horário
 
 ```scss
 @mixin tema($horario) {
@@ -407,9 +424,9 @@ body {
 }
 ```
 
-REPETIÇÃO COM FOR
+###### Repetição com @for
 
-O for usa uma variavel contadora que é incrementada. Normalmente o proprio valor da variavel contadora é utilizado no script.
+O for usa uma variável contadora que é incrementada. Normalmente o próprio valor da variável contadora é utilizado no script.
 
 ```scss
 @for $i from 1 through 4 {
@@ -424,10 +441,7 @@ O for usa uma variavel contadora que é incrementada. Normalmente o proprio valo
 //div.item-4 { width: 80%; }
 ```
 
-Se trocar o through por to, ele nao vai mais executar 4 vezes e sim, executar até o 4, so que vai excluir o 4 e ir até o 3
-
-//div.item-1 { width: 20%; } \
-//div.item-2 { width: 40%; } //div.item-3 { width: 60%; }
+Se você trocar o **through** por **to**, ele não vai mais executar 4 vezes e sim, executar só até o 4, só que vai excluir o 4 e ir até o 3
 
 ```scss
 @for $i from 1 to 4 {
@@ -440,9 +454,9 @@ Se trocar o through por to, ele nao vai mais executar 4 vezes e sim, executar at
 // div.item-600 { width: 600px; }
 ```
 
-REPETIÇÃO COM EACH
+###### Repetição com @each
 
-O each usa uma variavelque atua como um ponteiroe executa o script toda vez que o ponteiro encontra um valor em uma lista ou um mapa
+O each usa uma variável que atua como um ponteiro e executa o script toda vez que o ponteiro encontra um valor em uma lista ou um mapa
 
 ```scss
 @each $icon in insta, face, youtube {
@@ -465,9 +479,9 @@ $redes-sociais: (insta, face, youtube);
 }
 ```
 
-REPETIÇÃO COM WHILE
+###### Repetição com @while
 
-execut aum lboco de ocdigo enquanto um valor for verdadeiro
+Executa um bloco de código enquanto um valor for verdadeiro
 
 ```scss
 $cont: 1;
@@ -482,13 +496,11 @@ $cont: 1;
 // .item-2 { width: 100px; }
 // .item-3 { width: 150px; }
 // .item-4 { width: 200px; }
-
-#f23
 ```
 
-OQ UE SÃO FUNÇOES
+##### O que são funções?
 
-FUnçoes destinam-se a criar blcoos de codigos para serem executdos em vrios pontos de um script, sao semelhantes ao mixins, a diferença é que ela sempe vai ter um retorn
+Funções destinam-se a criar blocos de códigos para serem executados em vários pontos de um script, são semelhantes aos mixins, a diferença é que ela sempre vai ter um retorno!
 
 ```ags
 @function calc($arg1, $arg2, ...) {
@@ -508,78 +520,50 @@ h1 {
 // h1 { font-size: 36px; }
 ```
 
-FUNÇOES NATIVAS
+**Funções nativas** 
 
- O sass prevê funçoes nativas para manipular todos os tipos de dados
+O sass prevê funções nativas para manipular todos os tipos de dados
 
-\- funçoes para cores (rgb)
+* **Funções para cores (rgb)**
 
-rgb($red, $blue, $green);
+  * rgb($red, $blue, $green);
+  * rgba($red, $blue, $green, $alpha)
+  * red($cor); blue($cor); green($cor)
+  * mix($cor1, $cor2, $porcentagem)
+* **Funções para cores (HSL)**
 
-rgba($red, $blue, $green, $alpha)
+  * hsl($hue, $saturation, $lighten)
+  * hsla($tom, $sat, $lum, $alpha)
+  * hue($cor); saturation($cor); lightess($cor)
+  * grayscale($cor)
+  * complement($cor); invert($cor)
+  * adjuste-hue, lighten, darken, saturate, desaturate
+* **Funções para opacidade**
 
-red($cor); blue($cor); green($cor)
+  * alpha($cor) ou opacity($cor);
+  * rgba($cor, $alpha)
+  * opacity($Cor, $val) ou fade-in($cor, $val)
+  * transparentize($cor, $val) ou fade-out($cor, $val)
+* **Funções para strings**
 
-mix($cor1, $cor2, $porcentagem)
+  * unquote($string);
+  * quote($string);
+  * str-length($string);
+  * to-upper-case($string)
+  * to-lower-case($string)
+* **Funções para numeros**
 
-\- funções para cores (HSL)
+  * percentage($num, round($arredonda);
+  * ceil($arred-prox); floor($arred-ante);
+  * min($numeros...); max($numeros...)
+  * random($limite)
+* **Funções para listas**
 
-hsl($hue, $saturation, $lighten)
+  * length($lista);
+  * nth($lista, $pos-item);
+  * set-nth($lista, $pos-item, $novo-valor)
+* **Funções para mapas**
 
-hsla($tom, $sat, $lum, $alpha)
-
-hue($cor); saturation($cor); lightess($cor)
-
-grayscale($cor)
-
-complement($cor); invert($cor)
-
-adjuste-hue, lighten, darken, saturate, desaturate
-
-\- Funçoes para opacidade
-
-alpha($cor) ou opacity($cor);
-
-rgba($cor, $alpha)
-
-opacity($Cor, $val) ou fade-in($cor, $val)
-
-transparentize($cor, $val) ou fade-out($cor, $val)
-
-\-Funçoes para strings
-
-unquote($string);
-
-quote($string);
-
-str-length($string);
-
-to-upper-case($string)
-
-to-lower-case($string)
-
-\- funçoes para numeros
-
-percentage($num, round($arredonda);
-
-ceil($arred-prox); floor($arred-ante);
-
-min($numeros...); max($numeros...)
-
-random($limite)
-
-\-funções para listas
-
-length($lista);
-
-nth($lista, $pos-item);
-
-set-nth($lista, $pos-item, $novo-valor)
-
-\- funçoes para mapas
-
-map-get($mapa, $chave)
-
-map-merge($mapa1, $mapa2)
-
-map-remove($mapa, $chaves..)
+  * map-get($mapa, $chave)
+  * map-merge($mapa1, $mapa2)
+  * map-remove($mapa, $chaves..)
