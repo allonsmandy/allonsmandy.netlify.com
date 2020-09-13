@@ -65,4 +65,5 @@ export const PostDescription = styled.h2`
   font-size: 0.9rem !important;
   font-weight: 300;
   line-height: 1.2;
+  padding-left: 0 !important;
 `

@@ -12,7 +12,7 @@ export const Section = styled.section`
 export const TitleHome = styled.h2`
   font-size: 1.8rem;
   color: var(--outracor);
-  padding: 1rem 1rem 0;
+  padding: 1rem 0;
 
   svg {
     width: 35px;
@@ -34,7 +34,7 @@ export const TimelineTitle = styled.div`
   h3 {
     margin: 0;
     padding: 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--texts);
   }
 

@@ -45,11 +45,13 @@ collections:
               "testes",
               "gulp",
               "mobile",
-              "UI",
-              "UX",
-              "WP",
+              "User Interface",
+              "User Experience",
+              "wordpress",
               "GraphQL",
-              "Testes"
+              "dicas",
+              "sass",
+              "svelte"
             ],
         }
       - {
@@ -58,26 +60,28 @@ collections:
           widget: "select",
           options:
             [
+              { label: "Offtopic", value: "#989898" },
+              { label: "CSS", value: "#3182bb" },
+              { label: "Javascript", value: "#D6BA32" },
+              { label: "HTML", value: "#EB7728" },
               { label: "Devops", value: "#B9D030" },
               { label: "Frontend", value: "#E6548F" },
-              { label: "CSS", value: "#3182bb" },
-              { label: "Sass", value: "#C76495" },
-              { label: "JS", value: "#D6BA32" },
-              { label: "HTML", value: "#EB7728" },
+              { label: "Dev", value: "#b49bf1" },
               { label: "Vue", value: "#50B883" },
               { label: "React", value: "#48acc7" },
               { label: "Git", value: "#EA4E32" },
-              { label: "UI", value: "#D17E7B" },
-              { label: "UX", value: "#a87bd1" },
-              { label: "WP", value: "#71AB13" },
-              { label: "Gulp", value: "#E1494F" },
               { label: "Python", value: "#F8D44C" },
               { label: "Dicas", value: "#a9aaaa" },
-              { label: "Dev", value: "#b49bf1" },
+              { label: "Testes", value: "#bf975a" },
+              { label: "Gulp", value: "#E1494F" },
               { label: "Mobile", value: "#9fbb68" },
-              { label: "Offtopic", value: "#989898" },
+              { label: "User Interface", value: "#D17E7B" },
+              { label: "User Experience", value: "#a87bd1" },
+              { label: "Wordpress", value: "#71AB13" },
               { label: "GraphQL", value: "#e663ab" },
-              { label: "Testes", value: "#bf975a" }
+              { label: "Dicas", value: "#32d6bf" },
+              { label: "Sass", value: "#C76495" },
+              { label: "Svelte", value: "#F34423" }
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }

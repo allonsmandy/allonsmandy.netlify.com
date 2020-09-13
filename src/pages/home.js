@@ -3,7 +3,6 @@ import * as S from "../components/Home/style"
 import { Code, Computer, FavoriteBorder, LibraryBooks, Home } from "@styled-icons/material"
 import { Html5, Css3, Javascript, Vuejs, Git, Wordpress, ReactLogo, Bootstrap, Figma, Less, Sass, Nodejs } from "@styled-icons/boxicons-logos"
 import { Gulp } from "@styled-icons/fa-brands"
-import codegirl from "../images/escuro.gif"
 import GitHubCalendar from "react-github-calendar"
 import ReactTooltip from "react-tooltip"
 import Layout from "../components/Layout"
@@ -12,7 +11,6 @@ import SEO from "../components/seo"
 const Homepage = () => (
   <Layout>
     <SEO title="Home" />
-    <img src={codegirl} className="filterImg" />
     <S.Section>
       <S.TitleHome><Home />Introdução</S.TitleHome>
       <p>

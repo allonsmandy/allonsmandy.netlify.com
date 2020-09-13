@@ -66,7 +66,7 @@ const MenuBar = () => {
         >
           <Light />
         </S.MenuBarItem>
-        <S.MenuBarItem
+        {/* <S.MenuBarItem
           title="Mudar a visualização"
           onClick={() => {
             window.__setPreferredDisplay(isListMode ? "grid" : "list")
@@ -74,7 +74,7 @@ const MenuBar = () => {
           className={display}
         >
           {isListMode ? <Grid /> : <List />}
-        </S.MenuBarItem>
+        </S.MenuBarItem> */}
         <S.MenuBarItem title="Ir para o topo"
           onClick={() => {
             GA.topClickTrack()

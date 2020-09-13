@@ -10,7 +10,6 @@ const ImagemWrapper = styled.section`
   height: 100vh;
   width: 100vw;
   background: url(${img}) center/cover no-repeat;
-  /* filter: grayscale(0.6); */
   display: flex;
   align-items: center;
   justify-content: center;

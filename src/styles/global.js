@@ -87,7 +87,6 @@ const GlobalStyles = createGlobalStyle`
   ol {
     padding-left: 2.5rem;
     list-style: disc;
-    margin: 0 auto 1.2rem;
     line-height: 1.4;
   }
 
@@ -115,10 +114,7 @@ const GlobalStyles = createGlobalStyle`
   h5 {
     font-weight: 600;
     line-height: 1.4;
-    margin: 0 auto 1rem;
-    /* letter-spacing: 2px; */
-    /* font-family: sans-serif; */
-    padding: 0 1rem;
+    padding: 0.3rem 1.4rem;
   }
 
   h6 {
@@ -127,7 +123,6 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 600;
     color: var(--algo);
     padding: 0.3rem 1.4rem;
-    /* text-transform: uppercase; */
   }
 
   h1 {
@@ -140,7 +135,6 @@ const GlobalStyles = createGlobalStyle`
 
   h1.titlePage {
     color: #c5aec5;
-    padding: 0 1rem;
     font-weight: 100;
   }
 
@@ -173,7 +167,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    font-size: 1.1rem !important;
+    font-size: 1rem;
   }
 
   body.dark {
@@ -181,13 +175,11 @@ const GlobalStyles = createGlobalStyle`
     --texts: #d8b15a;
     --postColor: #a9a9a9;
     --highlight: #b9b1e6d9;
-    --mediumBackground: #1a1821;
-    /* --background: #331b2b; */
-    --background: #231d29;
+    --mediumBackground: #17121f;
+    --background: #140d1b;
     --code: #a04e4e;
     --secondary: #ccacbf;
     --outracor: #b9ba93;
-    /* --post: #e2bc94; */
     --post: #dcc1d5;
     --maiscor: #dc7f7f;
     --algo: #ff9a9a;
@@ -199,12 +191,12 @@ const GlobalStyles = createGlobalStyle`
     --borders: #d0ceb8;
     --postColor: #424242;
     --code: black;
-    --texts: #ca7a94;
+    --texts: #e66e95;
     --highlight: #0a7f80ed;
-    --mediumBackground: #fdfdfd;
-    --background: #f1f0ec;
+    --mediumBackground: #ffeded59;
+    --background: #fff;
     --secondary: #675b5d;
-    --outracor: #00000080;
+    --outracor: #615056;
     --post: #4e4e4e;
     --maiscor: #966796;
     --algo: brown;
@@ -226,8 +218,8 @@ const GlobalStyles = createGlobalStyle`
     background: var(--highlight);
 }
 
-::selection{background: var(--texts); color: var(--mediumBackground);}
-::-moz-selection{background: var(--texts); color: var(--mediumBackground);}
+::selection{background: var(--texts); color: #fff;}
+::-moz-selection{background: var(--texts); color: #fff;}
 
 `
 export default GlobalStyles

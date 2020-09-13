@@ -11,7 +11,7 @@ import SEO from '../components/seo'
 import Post from '../components/PostCategory'
 
 const CategoryTitle = styled.h2`
-  background: var(--outracor);
+  background: ${props => props.background};
   color: var(--background);
   font-size: 1.5rem;
   font-weight: 700;
@@ -23,9 +23,22 @@ const SeriesPage = props => {
     ({ node }) => node.frontmatter.category !== null
   )
 
-  const category = postList
+  const category = () => {
+    const categories = postList
     .map(({ node }) => node.frontmatter.category)
     .filter(unique)
+
+    const background = postList
+    .map(({ node }) => node.frontmatter.background)
+    .filter(unique)
+
+    const data = categories.reduce((acc, val, index) => {
+      acc.push({ category: val, background: background[index] })
+      return acc
+    }, [])
+
+    return data
+  }
 
   const slugifyCategory = cat => slugify(cat, { lower: true })
 
@@ -38,11 +51,12 @@ const SeriesPage = props => {
         title="Categorias"
         description="Aqui ficarão organizados os posts em suas determinada categoria"
       />
-      {category.map((category, i) => (
+      {category().map(({ category, background }, i) => (
         <section key={i}>
           <CategoryTitle 
+            background={background}
             id={slugifyCategory(category)}>
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category.toUpperCase() }
           </CategoryTitle>
 
           {getPostsByCategory(category).map(({ node }) => (
@@ -76,6 +90,7 @@ export const PostListQuery = graphql`
             title
             description
             category
+            background
           }
         }
       }
