@@ -1,20 +1,23 @@
 ---
-title: ' Currying hoisting e imutabilidade'
-description: ' Currying hoisting e imutabilidade'
+title: ' Currying, hoisting e immutability'
+description: 3 conceitos interessantes sobre o uso do javascript
 date: '2020-05-13 01:26:34'
 image: assets/img/1200px-Unofficial_JavaScript_logo_2.svg.png
 category: js
 background: '#D6BA32'
 ---
-###### Currying
+## Currying
 
-É bem comum em linguagens funcionais, o javascript não é na verdade uma linguagem é funcional por padrão, mas você consegue escrever código funcional!
+> Em ciência da computação, currying é uma técnica de transformação de uma função que recebe múltiplos parâmetros de forma que ela pode ser chamada como uma cadeia de funções que recebem somente um parâmetro cada. 
 
-Currying é a tecnica de transformar uma função de n paramentros em apenas uma função que recebe só um parametro, e pra cada parametro é retornado uma nova função!
+O currying bem comum em linguagens funcionais! O javascript não é na verdade uma linguagem funcional por padrão, mas você consegue escrever código funcional!
 
-Função normal:
+* Posso reutilizar e criar diferentes versões por causa do currying
+* Posso criar versões intermediárias das funções
 
-```
+**Função normal:**
+
+```javascript
 function soma(a, b) {
   return a + b
 }
@@ -25,9 +28,11 @@ soma(2, 4)
 soma(2, 5)
 ```
 
-Percebe que o primeiro parametro ta sendo repetido? Podemos aplica ressa tecnica na funçao soma (pra cada parametro vamos criar uma nova funçao certo?)
+Perceba que o primeiro parâmetro está sendo repetido! Podemos aplicar essa técnica na função soma (então pra cada parâmetro vamos criar uma nova função)
 
-```
+**Com currying**
+
+```javascript
 function soma(a) {
   return function(b) {
     return a + b
@@ -40,24 +45,25 @@ soma2(2)
 soma2(3)
 soma2(4)
 soma2(5)
-
 ```
 
-HOISTING
+Para mais exemplos:
 
-Comportamento que occorre no javascriptna declaçarao devaris e funcoes, elas sao elevadas no escopo que ela ta, seja de lboco func global.
+<https://github.com/allonsmandy/js-functional-reactive/blob/master/functional-programming/currying_v1.js>
 
-variaveis
+<https://github.com/allonsmandy/js-functional-reactive/blob/master/functional-programming/currying_v2.js>
 
-funçoes
+<https://github.com/allonsmandy/js-functional-reactive/blob/master/functional-programming/currying_v3.js>
 
-tipo ^
+## Hoisting
 
+> As variáveis declaradas com **var** é como se fossem declaradas no **topo do escopo de uma função** (se forem colocadas dentro de uma), ou no **topo do escopo global** (se forem declaradas fora de uma função), independentemente de onde a declaração real ocorrer. Isso essencialmente é “hoisting”.
 
+Basicamente é o comportamento que ocorre no javascript na declaração de variáveis e funções. Elas são elevadas no escopo!
 
-o hoist de var so eleva a criaçao e nao sua atribuçao, ja a funçao é elevada ao topo como um todo
+O hoisting de variáveis só **eleva a CRIAÇÃO** e **não sua ATRIBUIÇÃO**, já a função é elevada ao topo como um todo. 
 
-HOISTING VARIAVEIS
+**Variáveis**
 
 ```javascript
 function fn() {
@@ -69,53 +75,54 @@ function fn() {
 }
 
 /*
+// o código acima seria o mesmo que este:
+
 function fn() {
-var text;
-console.log(text)
-  
-  text = 'exemplo'
+  var text;
   
   console.log(text)
-  }
+  
+  text = 'exemplo'
+  console.log(text)
+ }
 */
 ```
 
-Foi criada uma função que faz o console da variavel declada em baixo, se vc for tentarusar uma var q n foi declarada ainda, provavelmente vai da erro pois nao existe, no js por causa do hoisting, o comportamento vai ser tipo como esta no bloco comentado. Seeu tenho um var text, ele vai declarar a variavel la no topo SEM  o seu valor, portanto no primeiro console vai dar um undefined pois aindan possui valor, porem existe!
+Foi criada uma função que faz o console da variável declarada em baixo, mas se você for tentar usar a variável que não foi declarada ainda, provavelmente vai dar erro pois não existe! No javascript por causa do hoisting, o comportamento vai ser tipo como está no bloco comentado. Seu tenho um **var text**, ele vai declarar a variável lá no topo SEM o seu valor, portanto no primeiro console vai dar **undefined** pois ainda não possui valor, porém a variável existe!
 
-FUNÇAO
+Por isto é importante que usemos **let** e **const** :)
+
+**Função**
 
 ```javascript
 function fn() {
   log('Hoisting de função')
   
-function log(value) {
+  function log(value) {
     console.log(value)
-}
-
+  }
 }
 
 fn()
 
 /*
-function fn() {
-function log(value) {
-    console.log(value)
-}
-log('Hoisting de função')
-}
+// o código acima seria o mesmo que este:
 
+function fn() {
+  function log(value) {
+    console.log(value)
+  }
+
+  log('Hoisting de função')
+}
 */
 ```
 
-diferença é que a funçao é içada como um todo entao qunado for executado o log, por mais que elesteja antes da declarao da funçao, eu vou conseguir executar o value.
+A diferença aqui é que a função é elevada ao topo, então quando for executado o **log()**, por mais que ele esteja antes da declaração da função, eu vou conseguir executar!
 
-IMUTABILDADE
+## Imutabilidade
 
-Um conceito tbm de linguagem funcional masque temos no js
-
-os dados que vamos criando nuncamudam, a varivel nunca vai mudar e se vc precisar alterar ela vc cra ua nova
-
-ao inves de mudar um array, a gente cria um novo array baseado no q querems alterar e pra add pega tod o oarray e concatena, e pra removerfiltra, assim como obj, ele nuncaé atualizado, ele vai ser cpiado e vc alterar so o que quiser
+Este é outro conceito de linguagem funcional que temos no javascript. Os dados que vamos criando nunca mudam, a variável nunca vai mudar, e se você precisar alterar ela você cria uma nova! Ao invés de mudar um array por exemplo, a gente cria um novo array baseado no que queremos alterar, e pra adicionar é só pegar todo o array e concatenar. Para remover um elemento podemos filtrar o array por exemplo, assim como o objeto ele nunca é atualizado, ele vai ser COPIADO e assim você altera só o que quiser :)
 
 ```javascript
 const user = {
@@ -135,25 +142,11 @@ const userWithFullName = getUserWithFullName(user)
 console.log(userWithFullName)
 ```
 
-temos um user e ua func que recebe o user e eu add um novo atributo do fullname, entao passo um user e retorna um fullname, name + lastname, aqui ja temos duas implementaçoes novas do ecmascript
+Veja que neste exemplo temos uma função que recebe o objeto **user** e adiciona um novo atributo que é o nome completo (fullName), então eu passo um **user** como parâmetro e que vai retornar o nome, ultimo nome e nome completo. 
 
-primeiro é o spread operator + string literals
+A ideia da imutabilidade é que, por exemplo, toda vez que passarmos pra função um objeto ou array, ele é **passado por referencia**, ou seja, se você alterar ele ele vai estar alterando o mesmo local que a variável aponta, *não vamos alterar um user e sim criar um novo.*
 
-user.name + ' ' + user.lastname
-
-spread pra cada prop que eu sreceber do user ele coloca no meu novo obj
-
-imutabilidade : eu nao vou pegar o user e alterar direto a eferencia dele
-
-toda vez q passamos pra func um obj ou aray ele é passado por referencia ou seja se vc alterar ele ele vai ta alterando o mesmo local q a variavel aponta, n vamos alterar um user e sim criar um novo
-
-
-
-criar uma conste chamar a funçao passando o user q criei em cima
-
-esperoqeleretorne um novo objeto com esses atributos mais  ofullname
-
-OUTRO EXEMPLO DE IMUTABILIDADE
+**Outro exemplo de imutabilidade utilizando filtro:**
 
 ```javascript
 const students = [
@@ -181,3 +174,11 @@ console.log(getApprovedStudents(students))
 console.log('Lista de alunos')
 console.log(students)
 ```
+
+Para mais exemplos:
+
+<https://github.com/allonsmandy/js-functional-reactive/blob/master/functional-programming/immutability_1.js>
+
+<https://github.com/allonsmandy/js-functional-reactive/blob/master/functional-programming/immutability_2.js>
+
+<https://github.com/allonsmandy/js-functional-reactive/blob/master/functional-programming/immutability_3.js>
