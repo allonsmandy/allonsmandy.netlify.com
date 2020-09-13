@@ -10,10 +10,9 @@ background: '#D6BA32'
 
 > Em ciência da computação, currying é uma técnica de transformação de uma função que recebe múltiplos parâmetros de forma que ela pode ser chamada como uma cadeia de funções que recebem somente um parâmetro cada. 
 
-O currying bem comum em linguagens funcionais! O javascript não é na verdade uma linguagem funcional por padrão, mas você consegue escrever código funcional!
+O currying é bem comum em linguagens funcionais! O javascript não é uma linguagem funcional por padrão, mas você consegue escrever código funcional!
 
-* Posso reutilizar e criar diferentes versões por causa do currying
-* Posso criar versões intermediárias das funções
+* Com o currying eu posso reutilizar e criar diferentes versões e também criar versões intermediárias das funções
 
 ###### Função normal:
 
@@ -39,12 +38,12 @@ function soma(a) {
   }
 }
 
-const soma2 = soma(2)
+const somaCom2 = soma(2)
 
-soma2(2)
-soma2(3)
-soma2(4)
-soma2(5)
+somaCom2(2)
+somaCom2(3)
+somaCom2(4)
+somaCom2(5)
 ```
 
 Para mais exemplos:
@@ -57,7 +56,7 @@ Para mais exemplos:
 
 ## Hoisting
 
-> As variáveis declaradas com **var** é como se fossem declaradas no **topo do escopo de uma função** (se forem colocadas dentro de uma), ou no **topo do escopo global** (se forem declaradas fora de uma função), independentemente de onde a declaração real ocorrer. Isso essencialmente é “hoisting”.
+> As variáveis declaradas com **var** é serão adicionadas no **topo do escopo de uma função** (se forem colocadas dentro de uma), ou no **topo do escopo global** (se forem declaradas fora de uma função), independentemente de onde a declaração real ocorrer. Isso essencialmente é “hoisting”.
 
 Basicamente é o comportamento que ocorre no javascript na declaração de variáveis e funções. Elas são elevadas no escopo!
 
@@ -88,7 +87,7 @@ function fn() {
 */
 ```
 
-Foi criada uma função que faz o console da variável declarada em baixo, mas se você for tentar usar a variável que não foi declarada ainda, provavelmente vai dar erro pois não existe! No javascript por causa do hoisting, o comportamento vai ser tipo como está no bloco comentado. Seu tenho um **var text**, ele vai declarar a variável lá no topo SEM o seu valor, portanto no primeiro console vai dar **undefined** pois ainda não possui valor, porém a variável existe!
+Foi criada uma função que faz o console da variável declarada embaixo, mas se você for tentar usar a variável que não foi declarada ainda, provavelmente vai dar erro pois não existe! No javascript por causa do hoisting o comportamento vai ser como está no bloco comentado. Seu tenho um **var text**, ele vai declarar a variável lá no topo SEM o seu valor, portanto no primeiro console vai dar **undefined** pois ainda não possui valor, porém a variável existe!
 
 Por isto é importante que usemos **let** e **const** :)
 
@@ -122,7 +121,7 @@ A diferença aqui é que a função é elevada ao topo, então quando for execut
 
 ## Imutabilidade
 
-Este é outro conceito de linguagem funcional que temos no javascript. Os dados que vamos criando nunca mudam, a variável nunca vai mudar, e se você precisar alterar ela você cria uma nova! Ao invés de mudar um array por exemplo, a gente cria um novo array baseado no que queremos alterar, e pra adicionar é só pegar todo o array e concatenar. Para remover um elemento podemos filtrar o array por exemplo, assim como o objeto ele nunca é atualizado, ele vai ser COPIADO e assim você altera só o que quiser :)
+Este é outro conceito de linguagem funcional que temos no javascript. Os dados que criamos nunca mudam, a variável nunca vai mudar, e se você precisar alterar ela você cria uma nova! Então ao invés de você mudar um array por exemplo, você cria um novo array baseado no que se quer alterar, e pra adicionar é só pegar todo o array e concatenar. Para remover um elemento podemos filtrar o array por exemplo. Assim como o objeto ele nunca é atualizado, ele vai ser COPIADO e assim você altera só o que quiser :)
 
 ```javascript
 const user = {
@@ -142,7 +141,7 @@ const userWithFullName = getUserWithFullName(user)
 console.log(userWithFullName)
 ```
 
-Veja que neste exemplo temos uma função que recebe o objeto **user** e adiciona um novo atributo que é o nome completo (fullName), então eu passo um **user** como parâmetro e que vai retornar o nome, ultimo nome e nome completo. 
+Veja que neste exemplo temos uma função que recebe o objeto **user** e adiciona um novo atributo que é o nome completo (fullName), então eu passo um **user** como parâmetro e daí será retornado o nome, ultimo nome e nome completo. 
 
 A ideia da imutabilidade é que, por exemplo, toda vez que passarmos pra função um objeto ou array, ele é **passado por referencia**, ou seja, se você alterar ele ele vai estar alterando o mesmo local que a variável aponta, *não vamos alterar um user e sim criar um novo.*
 
