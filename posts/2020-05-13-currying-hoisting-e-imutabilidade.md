@@ -1,7 +1,7 @@
 ---
 title: ' Currying, hoisting e immutability'
 description: 3 conceitos interessantes sobre o uso do javascript
-date: '2020-05-13 01:26:34'
+date: '2020-09-13 01:26:00'
 image: assets/img/1200px-Unofficial_JavaScript_logo_2.svg.png
 category: js
 background: '#D6BA32'
@@ -15,7 +15,7 @@ O currying bem comum em linguagens funcionais! O javascript não é na verdade u
 * Posso reutilizar e criar diferentes versões por causa do currying
 * Posso criar versões intermediárias das funções
 
-**Função normal:**
+###### Função normal:
 
 ```javascript
 function soma(a, b) {
@@ -30,7 +30,7 @@ soma(2, 5)
 
 Perceba que o primeiro parâmetro está sendo repetido! Podemos aplicar essa técnica na função soma (então pra cada parâmetro vamos criar uma nova função)
 
-**Com currying**
+###### **Com currying**
 
 ```javascript
 function soma(a) {
@@ -63,7 +63,7 @@ Basicamente é o comportamento que ocorre no javascript na declaração de vari�
 
 O hoisting de variáveis só **eleva a CRIAÇÃO** e **não sua ATRIBUIÇÃO**, já a função é elevada ao topo como um todo. 
 
-**Variáveis**
+###### **Variáveis**
 
 ```javascript
 function fn() {
@@ -92,7 +92,7 @@ Foi criada uma função que faz o console da variável declarada em baixo, mas s
 
 Por isto é importante que usemos **let** e **const** :)
 
-**Função**
+###### **Função**
 
 ```javascript
 function fn() {
@@ -146,7 +146,7 @@ Veja que neste exemplo temos uma função que recebe o objeto **user** e adicion
 
 A ideia da imutabilidade é que, por exemplo, toda vez que passarmos pra função um objeto ou array, ele é **passado por referencia**, ou seja, se você alterar ele ele vai estar alterando o mesmo local que a variável aponta, *não vamos alterar um user e sim criar um novo.*
 
-**Outro exemplo de imutabilidade utilizando filtro:**
+###### Outro exemplo de imutabilidade utilizando filtro:
 
 ```javascript
 const students = [
