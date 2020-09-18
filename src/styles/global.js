@@ -172,14 +172,14 @@ const GlobalStyles = createGlobalStyle`
 
   body.dark {
     --borders: #584750;
-    --texts: #d8b15a;
-    --postColor: #a9a9a9;
-    --highlight: #b9b1e6d9;
+    --texts: #dab156;
+    --postColor: #c7c7c7;
+    --highlight: #c4b9fdd9;
     --mediumBackground: #17121f;
     --background: #140d1b;
     --code: #a04e4e;
-    --secondary: #ccacbf;
-    --outracor: #b9ba93;
+    --secondary: #d8c6d3;
+    --outracor: #dadc9b;
     --post: #dcc1d5;
     --maiscor: #dc7f7f;
     --algo: #ff9a9a;

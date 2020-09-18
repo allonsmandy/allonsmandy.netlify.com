@@ -51,7 +51,9 @@ collections:
               "GraphQL",
               "dicas",
               "sass",
-              "svelte"
+              "svelte",
+              "Redes",
+              "Engenharia de Software"
             ],
         }
       - {
@@ -82,6 +84,8 @@ collections:
               { label: "Dicas", value: "#32d6bf" },
               { label: "Sass", value: "#C76495" },
               { label: "Svelte", value: "#F34423" }
+              { label: "Redes", value: "#1daafa"},
+              { label: "Engenharia de sofware", value: "#caa6aa"}
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
