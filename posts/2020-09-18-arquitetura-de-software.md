@@ -8,6 +8,8 @@ background: '#b49bf1'
 ---
 > *Architecture is about the important stuff. Whatever that is.*– Ralph Johnson
 
+A boa arquitetura orienta e propicia formas produtivas para desenvolver, manter, atualizar, entregar (deploy) e operacionalizar software.
+
 **Projeto em mais alto nível**
 
 * Foco não são mais unidades pequenas (ex: classes), mas sim unidades maiores e mais relevantes (pacotes, módulos, subsistemas, camadas, serviços....)
