@@ -89,7 +89,7 @@ collections:
               { label: "Redes", value: "#1daafa"},
               { label: "Engenharia de sofware", value: "#caa6aa" },
               { label: "snippets", value: "#fff" },
-              { label: "leituras", value: "#fff" }
+              { label: "leituras", value: "#ffc" }
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }

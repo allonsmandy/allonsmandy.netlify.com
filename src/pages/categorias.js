@@ -1,14 +1,14 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import slugify from 'slugify'
+import React from "react"
+import { graphql } from "gatsby"
+import slugify from "slugify"
 
-import { unique } from '../utils/index'
+import { unique } from "../utils/index"
 
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import Layout from '../components/Layout/'
-import SEO from '../components/seo'
-import Post from '../components/PostCategory'
+import Layout from "../components/Layout/"
+import SEO from "../components/seo"
+import Post from "../components/PostCategory"
 
 const CategoryTitle = styled.h2`
   background: ${props => props.background};
@@ -25,12 +25,12 @@ const SeriesPage = props => {
 
   const category = () => {
     const categories = postList
-    .map(({ node }) => node.frontmatter.category)
-    .filter(unique)
+      .map(({ node }) => node.frontmatter.category)
+      .filter(unique)
 
     const background = postList
-    .map(({ node }) => node.frontmatter.background)
-    .filter(unique)
+      .map(({ node }) => node.frontmatter.background)
+      .filter(unique)
 
     const data = categories.reduce((acc, val, index) => {
       acc.push({ category: val, background: background[index] })
@@ -51,25 +51,32 @@ const SeriesPage = props => {
         title="Categorias"
         description="Aqui ficarão organizados os posts em suas determinada categoria"
       />
-      {category().map(({ category, background }, i) => (
-        <section key={i}>
-          <CategoryTitle 
-            background={background}
-            id={slugifyCategory(category)}>
-              {category.toUpperCase() }
-          </CategoryTitle>
+      {category().map(({ category, background }, i) => {
+        if (category === "snippets" || category === "leituras") {
+          return ""
+        } else {
+          return (
+            <section key={i}>
+              <CategoryTitle
+                background={background}
+                id={slugifyCategory(category)}
+              >
+                {category.toUpperCase()}
+              </CategoryTitle>
 
-          {getPostsByCategory(category).map(({ node }) => (
-            <Post
-              key={node.id}
-              slug={node.fields.slug}
-              title={node.frontmatter.title}
-              date={node.frontmatter.date}
-              description={node.frontmatter.description}
-            />
-          ))}
-        </section>
-      ))}
+              {getPostsByCategory(category).map(({ node }) => (
+                <Post
+                  key={node.id}
+                  slug={node.fields.slug}
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}
+                  description={node.frontmatter.description}
+                />
+              ))}
+            </section>
+          )
+        }
+      })}
     </Layout>
   )
 }

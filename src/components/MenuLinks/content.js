@@ -11,6 +11,14 @@ const links = [
     label: "Categorias",
     url: "/categorias",
   },
+  {
+    label: "Snippets",
+    url: "/snippets"
+  },
+  {
+    label: "Leituras",
+    url: "/leituras"
+  }
   // {
   //   label: "Contato",
   //   url: "/contato",
