@@ -32,8 +32,9 @@ const BlogList = props => {
               },
             },
             index
-          ) => (
-            <PostItem
+          ) => 
+          category !== 'snippets' || category !== 'leituras' ? 
+          (<PostItem
               key={index}
               slug={slug}
               background={background}
@@ -42,8 +43,8 @@ const BlogList = props => {
               timeToRead={timeToRead}
               title={title}
               description={description}
-            />
-          )
+            />)
+            : ""
         )}
       </S.ListWrapper>
 
