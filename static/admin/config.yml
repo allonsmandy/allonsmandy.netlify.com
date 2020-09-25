@@ -53,7 +53,9 @@ collections:
               "sass",
               "svelte",
               "Redes",
-              "Engenharia de Software"
+              "Engenharia de Software",
+              "snippets",
+              "leituras"
             ],
         }
       - {
@@ -85,7 +87,9 @@ collections:
               { label: "Sass", value: "#C76495" },
               { label: "Svelte", value: "#F34423" },
               { label: "Redes", value: "#1daafa"},
-              { label: "Engenharia de sofware", value: "#caa6aa"}
+              { label: "Engenharia de sofware", value: "#caa6aa" },
+              { label: "snippets", value: "#fff" },
+              { label: "leituras", value: "#fff" }
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
