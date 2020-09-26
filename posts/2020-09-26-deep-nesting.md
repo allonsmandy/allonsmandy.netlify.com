@@ -18,7 +18,7 @@ exampleArray.forEach((array1) => {
  })
 })
 
-//good
+// good
 const retrieveFinalValue = (element) => {
  if(Array.isArray(element)) {
   return retrieveFinalValue(element[0])
