@@ -21,7 +21,6 @@ export const MenuLinksItem = styled.li`
   .active {
     color: var(--texts);
     font-weight: bold;
-    border-bottom: 1px solid var(--texts);
   }
 `
 
