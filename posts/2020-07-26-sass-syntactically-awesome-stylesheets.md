@@ -1,5 +1,5 @@
 ---
-title: SASS ( Syntactically Awesome StyleSheets)
+title: SASS (Syntactically Awesome StyleSheets)
 description: Um poderoso pre-processador CSS
 date: '2020-07-26 09:19:58'
 image: assets/img/sass.png
