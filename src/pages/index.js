@@ -20,8 +20,7 @@ const ImagemWrapper = styled.section`
     margin: auto;
     transition: all 0.2s ease;
     text-decoration: none;
-    color: #ccc;
-    /* font-family: sans-serif; */
+    color: #fff;
 
     &:before {
       content: "";
@@ -30,11 +29,12 @@ const ImagemWrapper = styled.section`
       left: 0;
       display: block;
       border-radius: 28px;
-      background: rgba(255, 171, 157, 0.5);
+      background: rgb(160, 105, 155);
       width: 56px;
       height: 56px;
       transition: all 0.3s ease;
     }
+
     span {
       position: relative;
       font-size: 16px;
@@ -44,6 +44,7 @@ const ImagemWrapper = styled.section`
       text-transform: uppercase;
       vertical-align: middle;
     }
+
     svg {
       position: relative;
       top: 0;
@@ -59,6 +60,7 @@ const ImagemWrapper = styled.section`
         transform: translateX(0);
       }
     }
+
     &:hover:before {
       width: 100%;
       background: #6c3a6b;

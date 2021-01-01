@@ -3,9 +3,18 @@ import media from "styled-media-query"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 export const ProfileWrapper = styled.section`
+  display: ${props => (props.isMobileHeader ? "none" : "flex")};
   color: var(--postColor);
-  display: flex;
   flex-direction: column;
+
+  ${media.lessThan("large")`
+    align-items: flex-start;
+    display: ${props => (props.isMobileHeader ? "flex" : "none")};
+    background: var(--mediumBackground);
+    border-bottom: 1px solid var(--borders);
+    padding: 1rem;
+    width: 100vw;
+  `}
 `
 
 export const ProfileLink = styled(AniLink)`

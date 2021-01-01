@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 export const Section = styled.section`
-  background-color: var(--mediumBackground);
+  background-color: var(--algo);
+  border-radius: 10px;
   color: var(--post);
   margin: 10px;
   padding: 1rem;
@@ -46,10 +47,10 @@ export const TimelineTitle = styled.div`
 `
 
 export const Divisor = styled.div`
-    width: 100%;
-    background: var(--borders);
-    height: 1px;
-    margin: 10px 0;
+  width: 100%;
+  background: var(--borders);
+  height: 1px;
+  margin: 10px 0;
 `
 
 export const List = styled.ul`
@@ -61,7 +62,6 @@ export const List = styled.ul`
       text-decoration: underline;
     }
   }
-
 `
 
 export const Subtitle = styled.span`
@@ -70,20 +70,25 @@ export const Subtitle = styled.span`
 `
 
 export const TechSkills = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-    svg {
-        border: 1px solid var(--borders);
-        padding: 10px;
-        border-radius: 50%;
-        color: ${props => (props.color)};
-        margin-right: 10px;
-        width: 60px;
-        height: 60px
-    }
-`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
 
+  svg {
+    border: 1px solid var(--borders);
+    padding: 10px;
+    border-radius: 50%;
+    color: ${props => props.color};
+    cursor: pointer;
+    margin-right: 10px;
+    width: 60px;
+    height: 60px;
+
+    &:hover {
+      background-color: var(--background);
+    }
+  }
+`
 
 export const AboutGithub = styled.div`
   padding: 1rem 2rem;

@@ -34,7 +34,7 @@ export const PostItemWrapper = styled.section`
     justify-content: center;
   }
   &:hover {
-    background-color: var(--mediumBackground);
+    background-color: var(--algo);
   }
 `
 
@@ -50,8 +50,8 @@ export const PostItemTag = styled.div`
   font-size: 1rem;
   min-height: auto;
   min-width: auto;
-  padding: .2rem .5rem;
-  margin-bottom: .7rem;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 0.7rem;
 
   body#grid & {
     margin-bottom: 1.5rem;

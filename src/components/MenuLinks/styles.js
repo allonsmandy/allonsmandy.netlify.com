@@ -4,7 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 export const MenuLinksWrapper = styled.nav`
   ${media.lessThan("large")`
-    display: none;
+    margin: auto;
   `}
 `
 
@@ -13,6 +13,10 @@ export const MenuLinksList = styled.ul`
   font-weight: 300;
   list-style: none;
   padding-left: 0;
+
+  ${media.lessThan("large")`
+    font-size: 1.8rem;
+  `}
 `
 
 export const MenuLinksItem = styled.li`
@@ -22,6 +26,10 @@ export const MenuLinksItem = styled.li`
     color: var(--texts);
     font-weight: bold;
   }
+
+  ${media.lessThan("large")`
+    padding: 1rem 0;
+  `}
 `
 
 export const MenuLinksLink = styled(AniLink)`

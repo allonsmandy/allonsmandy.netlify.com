@@ -45,12 +45,11 @@ const GlobalStyles = createGlobalStyle`
   blockquote {
     margin: 2.125rem 1rem;
     transition: border-left 0.5s;
-    background-color: #9c4460;
+    background-color: var(--highlight);
     padding: 0.2rem;
 
     > p {
-      color: white !important;
-      /* font-family: monospace; */
+      color: var(--background) !important;
       font-size: 1rem !important;
       position: relative;
       top: 6px;
@@ -92,7 +91,7 @@ const GlobalStyles = createGlobalStyle`
 
   li {
     padding: 0.325rem 0;
-    color: var(--highlight);
+    color: var(--secondary);
     /* font-family: sans-serif; */
 
     & > ul {
@@ -121,7 +120,7 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.4;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--algo);
+    color: var(--outracor);
     padding: 0.3rem 1.4rem;
   }
 
@@ -172,17 +171,17 @@ const GlobalStyles = createGlobalStyle`
 
   body.dark {
     --borders: #584750;
-    --texts: #dab156;
-    --postColor: #c7c7c7;
-    --highlight: #c4b9fdd9;
-    --mediumBackground: #17121f;
-    --background: #140d1b;
+    --texts: #ff989d;
+    --postColor: #fffbfb;
+    --highlight: #ffb65d;
+    --mediumBackground: rgba(30, 30, 30, 0.97);
+    --background: #1e1a1b;
     --code: #a04e4e;
-    --secondary: #d8c6d3;
-    --outracor: #dadc9b;
-    --post: #dcc1d5;
+    --secondary: #ffe2e2;
+    --outracor: #ff9b8b;
+    --post: #f0e9e9;
     --maiscor: #dc7f7f;
-    --algo: #ff9a9a;
+    --algo: #141414;
 
     --filter: opacity(100%);
   }
@@ -191,15 +190,15 @@ const GlobalStyles = createGlobalStyle`
     --borders: #d0ceb8;
     --postColor: #424242;
     --code: black;
-    --texts: #e66e95;
-    --highlight: #0a7f80ed;
-    --mediumBackground: #ffeded59;
+    --texts: #e07a8c;
+    --highlight: #c27958;
+    --mediumBackground: #f3eee8;
     --background: #fff;
     --secondary: #675b5d;
-    --outracor: #615056;
+    --outracor: #e87d83;
     --post: #4e4e4e;
-    --maiscor: #966796;
-    --algo: brown;
+    --maiscor: #000;
+    --algo: #fcf9f5;
     --filter: opacity(75%);
   }
 
@@ -218,8 +217,8 @@ const GlobalStyles = createGlobalStyle`
     background: var(--highlight);
 }
 
-::selection{background: var(--texts); color: #fff;}
-::-moz-selection{background: var(--texts); color: #fff;}
+::selection{background: var(--outracor); color: #fff;}
+::-moz-selection{background: var(--outracor); color: #fff;}
 
 `
 export default GlobalStyles
