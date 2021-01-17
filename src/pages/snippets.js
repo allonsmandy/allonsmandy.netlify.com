@@ -36,7 +36,7 @@ const Snippets = props => {
     <Layout>
       <SEO
         title="Snippets"
-        description="Aqui ficarão organizados os posts em suas determinada categoria"
+        description="Snippets de códigos interessantes"
       />
       {category().map(({ category, background }, i) => {
         if (category !== "snippets") {
@@ -44,11 +44,13 @@ const Snippets = props => {
         } else {
           return (
             <S.SnippetsSection key={i}>
-              <S.SnippetsTitlePage>Snippets</S.SnippetsTitlePage>
-              <S.SnippetsDescriptionPage>
-                Olá (✿◠‿◠)! Coloco aqui nesta humilde páginas alguns snippets
-                bacanas e aleatórios! xD
-              </S.SnippetsDescriptionPage>
+              <S.Wrapper>
+                <S.SnippetsTitlePage>Snippets</S.SnippetsTitlePage>
+                <S.SnippetsDescriptionPage>
+                  Olá (✿◠‿◠)! Esta página é destinada a publicar snippets úteis 
+                  e interessantes de códigos.
+                </S.SnippetsDescriptionPage>
+              </S.Wrapper>
               {getPostsByCategory(category).map(({ node }) => (
                 <S.SnippetsWrapper>
                   <S.SnippetsTitle>{node.frontmatter.title}</S.SnippetsTitle>

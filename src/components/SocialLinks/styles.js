@@ -21,19 +21,19 @@ export const SocialLinksList = styled.ul`
 export const SocialLinksItem = styled.li`
   border: 1px solid var(--mediumBackground);
   margin: auto 0.175rem;
-  background: var(--mediumBackground);
+  background: var(--borders);
   border-radius: 50%;
 `
 
 export const SocialLinksLink = styled.a`
-  color: var(--maiscor);
+  color: var(--background);
   text-decoration: none;
   transition: color 0.5s;
   display: flex;
   padding: 0 0.275rem;
 
   &:hover {
-    color: var(--secondary);
+    color: var(--algo);
   }
 `
 

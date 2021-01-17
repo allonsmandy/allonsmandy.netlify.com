@@ -33,7 +33,9 @@ export const PostItemWrapper = styled.section`
     flex-direction: column;
     justify-content: center;
   }
+
   &:hover {
+    color: var(--span);
     background-color: var(--algo);
   }
 `
