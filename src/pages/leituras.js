@@ -36,7 +36,7 @@ const Readings = props => {
     <Layout>
       <SEO
         title="Leituras"
-        description="Aqui ficarão organizados os posts em suas determinada categoria"
+        description="Trechos de livros técnicos que é interessante saber"
       />
       {category().map(({ category, background }, i) => {
         if (category !== "leituras") {

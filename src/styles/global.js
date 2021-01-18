@@ -25,8 +25,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+    font-family: "Catamaran";
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
@@ -91,8 +90,8 @@ const GlobalStyles = createGlobalStyle`
 
   li {
     padding: 0.325rem 0;
-    color: var(--secondary);
-    /* font-family: sans-serif; */
+    color: var(--postColor);
+    font-family: monospace;
 
     & > ul {
       margin-bottom: 0;
@@ -117,17 +116,21 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h6 {
-    line-height: 1.4;
+    display: inline-block;
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--outracor);
-    padding: 0.3rem 1.4rem;
+    background-color: var(--background);
+    margin: 1rem 1.4rem;
+    color: var(--texts);
+    padding: 0.4rem 0.4rem;
+    text-transform: uppercase;
+    background-color
   }
 
   h1 {
     font-size: 2.8rem;
 
-    ${media.lessThan("large")`
+    ${media.lessThan("medium")`
       font-size: 1.875rem;
     `}
   }
@@ -140,14 +143,14 @@ const GlobalStyles = createGlobalStyle`
   h2 {
     font-size: 2.1rem;
 
-    ${media.lessThan("large")`
+    ${media.lessThan("medium")`
       font-size: 1.375rem;
     `}
   }
   h3 {
     font-size: 1.8rem;
 
-    ${media.lessThan("large")`
+    ${media.lessThan("medium")`
       font-size: 1.125rem;
     `}
   }
@@ -166,39 +169,45 @@ const GlobalStyles = createGlobalStyle`
   }
 
   p {
-    font-size: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
 
   body.dark {
-    --borders: #584750;
+    --borders: #9c8792;
     --texts: #ff989d;
-    --postColor: #fffbfb;
-    --highlight: #ffb65d;
-    --mediumBackground: rgba(30, 30, 30, 0.97);
-    --background: #1e1a1b;
+    --postColor: #dcdcdc;
+    --highlight: #ffcc8f;
+    --mediumBackground: #34313c;
+    --background: #120817b0;
     --code: #a04e4e;
     --secondary: #ffe2e2;
-    --outracor: #ff9b8b;
+    --outracor: #fff;
     --post: #f0e9e9;
-    --maiscor: #dc7f7f;
-    --algo: #141414;
-
+    --maiscor: #ffc6c6;
+    --algo: #e0c9bd;
+    --title: #d6424a;
+    --span: #2f281e;
+    --postHome: #57505a;
     --filter: opacity(100%);
   }
 
   body.light {
-    --borders: #d0ceb8;
+    --borders: #9c8a82;
     --postColor: #424242;
     --code: black;
     --texts: #e07a8c;
-    --highlight: #c27958;
-    --mediumBackground: #f3eee8;
+    --highlight: #f1aa8a;
+    --mediumBackground: #fffefc;
     --background: #fff;
-    --secondary: #675b5d;
-    --outracor: #e87d83;
+    --secondary: #7f7f7f;
+    --outracor: #f7babe;
     --post: #4e4e4e;
     --maiscor: #000;
     --algo: #fcf9f5;
+    --title: #d6424a;
+    --span: #2f281e;
+    --postHome: #e7e4e8;
     --filter: opacity(75%);
   }
 
@@ -217,8 +226,8 @@ const GlobalStyles = createGlobalStyle`
     background: var(--highlight);
 }
 
-::selection{background: var(--outracor); color: #fff;}
-::-moz-selection{background: var(--outracor); color: #fff;}
+::selection{background: var(--texts); color: var(--outracor);}
+::-moz-selection{background: var(--texts); color: var(--outracor);}
 
 `
 export default GlobalStyles

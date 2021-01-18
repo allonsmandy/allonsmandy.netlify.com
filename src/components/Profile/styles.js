@@ -7,7 +7,7 @@ export const ProfileWrapper = styled.section`
   color: var(--postColor);
   flex-direction: column;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     align-items: flex-start;
     display: ${props => (props.isMobileHeader ? "flex" : "none")};
     background: var(--mediumBackground);
@@ -22,7 +22,7 @@ export const ProfileLink = styled(AniLink)`
   text-decoration: none;
   transition: color 0.5s;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     display: flex;
     text-align: left;
   `}
@@ -39,7 +39,7 @@ export const ProfileAuthor = styled.h1`
   text-transform: uppercase;
   /* font-family: sans-serif; */
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     font-size: 1.2rem;
     margin: 0 0 0 10px;
   `}
@@ -51,7 +51,7 @@ export const ProfilePosition = styled.small`
   font-weight: 300;
   text-transform: lowercase;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     font-size: 0.8rem;
     margin-top: 0.2rem;
   `}
@@ -62,7 +62,7 @@ export const ProfileDescription = styled.p`
   font-weight: 300;
   line-height: 1.4;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     display: none;
   `}
 `

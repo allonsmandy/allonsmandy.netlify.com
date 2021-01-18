@@ -7,9 +7,9 @@ export const AvatarWrapper = styled(Img)`
   height: 8rem;
   margin: auto;
   width: 8rem;
-  border: 4px solid var(--background);
+  border: 4px solid var(--algo);
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     height: 1.875rem;
     width: 1.875rem;
     border: none;

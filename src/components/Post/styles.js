@@ -7,7 +7,7 @@ export const PostHeader = styled.header`
   max-width: 70rem;
   padding: 5rem 3rem 0;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 3rem 0 0;
     max-width: 100%;
   `}
@@ -19,7 +19,7 @@ export const PostTitle = styled.h1`
   padding: 0 1.4rem;
   margin: 0.5rem auto;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     font-size: 2.8rem;
     line-height: 1.1;
     padding: 0 1rem;
@@ -44,7 +44,7 @@ export const PostDescription = styled.h2`
     display: inline-block;
   }
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     font-size: 1.6rem;
     line-height: 1.3;
     padding: 0 1rem;
@@ -58,7 +58,7 @@ export const PostDate = styled.p`
   /* font-family: sans-serif; */
   padding: 0 1.3rem;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 0 1rem;
   `}
 `
@@ -68,7 +68,7 @@ export const MainContent = styled.section`
   max-width: 70rem;
   padding: 1rem 3rem;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 2rem 0;
     max-width: 100%;
   `}
@@ -86,7 +86,7 @@ export const MainContent = styled.section`
     line-height: 1.7;
     padding: 0 1.4rem;
 
-    ${media.lessThan("large")`
+    ${media.lessThan("medium")`
       padding: 0 1rem;
       word-break: break-word;
     `}
@@ -104,7 +104,7 @@ export const MainContent = styled.section`
     padding: 0 1.6rem 1.6rem;
     width: 100%;
 
-    ${media.lessThan("large")`
+    ${media.lessThan("medium")`
       padding: 0 1rem;
     `}
   }
@@ -153,7 +153,7 @@ export const MainContent = styled.section`
   .gatsby-highlight {
     padding: 0 1.6rem 1.6rem;
 
-    ${media.lessThan("large")`
+    ${media.lessThan("medium")`
       padding: 0;
     `}
 

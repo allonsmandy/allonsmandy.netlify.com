@@ -8,11 +8,19 @@ export const Section = styled.section`
   padding: 1rem;
   line-height: 1.5;
   border: 1px solid var(--borders);
+
+  p {
+    color: var(--span);
+  }
+
+  ul li {
+    color: var(--span);
+  } 
 `
 
 export const TitleHome = styled.h2`
   font-size: 1.8rem;
-  color: var(--outracor);
+  color: var(--span);
   padding: 1rem 0;
 
   svg {
@@ -36,13 +44,13 @@ export const TimelineTitle = styled.div`
     margin: 0;
     padding: 0;
     font-size: 1.1rem;
-    color: var(--texts);
+    color: var(--title);
   }
 
   span {
     margin: 0;
     font-size: 0.8rem !important;
-    color: var(--highlight);
+    color: var(--span);
   }
 `
 
@@ -51,17 +59,6 @@ export const Divisor = styled.div`
   background: var(--borders);
   height: 1px;
   margin: 10px 0;
-`
-
-export const List = styled.ul`
-  a {
-    color: var(--secondary);
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 `
 
 export const Subtitle = styled.span`
@@ -75,18 +72,29 @@ export const TechSkills = styled.div`
   margin-bottom: 15px;
 
   svg {
-    border: 1px solid var(--borders);
+    border: 1px solid var(--postHome);
+    background-color: var(--secondary);
     padding: 10px;
     border-radius: 50%;
     color: ${props => props.color};
     cursor: pointer;
     margin-right: 10px;
     width: 60px;
-    height: 60px;
+    height: 60px; 
+    transition: all .3s;
 
     &:hover {
-      background-color: var(--background);
+      background-color: var(--highlight);
     }
+  }
+`
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-style: italic;
   }
 `
 
@@ -112,12 +120,16 @@ export const AboutGithub = styled.div`
 `
 
 export const DescriptionInteresses = styled.p`
-  a {
-    text-decoration: none;
-    color: var(--secondary);
-
+    a {
+      text-decoration: none;
+      color: var(--span);
+      box-shadow: inset 0 -4px 0 var(--texts);
+      transition: background-color .25s ease-out;
+    
     &:hover {
-      text-decoration: underline;
+      background-color: var(--texts);
+      padding-top: 2px;
+      box-shadow: none;
     }
   }
 `

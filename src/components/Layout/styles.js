@@ -4,7 +4,7 @@ import media from "styled-media-query"
 export const LayoutWrapper = styled.section`
   display: flex;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     flex-direction: column;
   `}
 `
@@ -22,7 +22,7 @@ export const LayoutMain = styled.main`
       "pagination";
   }
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 4.125rem 0 3rem 0;
   `}
 `

@@ -25,20 +25,45 @@ const Homepage = () => (
       <S.TitleHome><Code /> Work</S.TitleHome>
       <S.Entry>
           <S.TimelineTitle>
+            <S.Wrapper>
+
             <h3>Front end Developer - Instruct</h3>
             <span>fev 2020 - até o momento</span>
+
+            </S.Wrapper>
+            <span>
+              <strong>Stack: </strong> 
+              Vue.js, Nuxt.js, Testes unitários com Jest, Javascript ES6+, 
+              Typescript, Graphql, Scss, Git, Design de interfaces com figma.
+            </span>
           </S.TimelineTitle>
         </S.Entry>
         <S.Entry>
           <S.TimelineTitle>
-            <h3>Front end Developer - Freelancer</h3>
-            <span>mai 2018 - fev 2020</span>
+            <S.Wrapper>
+              <h3>Front end Developer - Freelancer</h3>
+              <span>mai 2018 - fev 2020</span>
+            </S.Wrapper>
+            <span>
+              <strong>Stack: </strong> 
+              Desenvolvimento front end de sites institucionais e e-commerces, utilizando 
+              principalmente Wordpress, HTML, CSS, PHP, Javascript e experimentando tópicos 
+              de Experiência do Usuário e usabilidade.
+            </span>
           </S.TimelineTitle>
         </S.Entry>
         <S.Entry>
           <S.TimelineTitle>
-            <h3>Suporte - Secretária municipal da educação</h3>
-            <span>ago 2018 - dez 2018</span>
+            <S.Wrapper>
+              <h3>Suporte - Secretária municipal da educação</h3>
+              <span>ago 2018 - dez 2018</span>
+            </S.Wrapper>
+            <span>
+              <strong>Stack: </strong>
+              Manutenção de computadores, cabeamento de redes, configuração em impressoras 
+              e roteadores, formatação e backup de computadores, manutenção em laboratórios 
+              escolares, planejamento inicial do sistema interno para ajudar nos chamados.
+            </span>
           </S.TimelineTitle>
         </S.Entry>
     </S.Section>
@@ -46,79 +71,69 @@ const Homepage = () => (
       <S.TitleHome><LibraryBooks />Estudos</S.TitleHome>
       <S.Entry>
         <S.TimelineTitle>
-          <h3>IGTI - Bootcamp Devops</h3>
-          <span>2020</span>
-          <p>
-            Atualmente estou aprendendo cada vez mais sobre DevOps, e este bootcamp do IGTI
-            está me auxiliando muito em meus estudos.
-          </p>
+          <S.Wrapper>
+            <h3>UFMG - Engenharia de software moderna</h3>
+            <span>2021</span>
+          </S.Wrapper>
+          <span>
+            <strong>Principais disciplinas: </strong>
+            Agilidade, Design e Arquitetura, Testes e refactoring
+          </span>
         </S.TimelineTitle>
       </S.Entry>
       <S.Entry>
         <S.TimelineTitle>
-          <h3>Free Code Camp - Certifications - Front End Libraries | Responsive Web Design</h3>
-          <span>2019</span>
-          <p>
-            O freeCodeCamp é uma capacitação internacional gratuita que aborda muitas horas de exercicios
-            práticos e demanda da execução de projetos para finalização dos estudos.
-            Sempre que possivel tento fazer mais exercicios por lá, fique a vontade
-            para <a href="https://www.freecodecamp.org/allonsmandy" target="_blank">conferir meu perfil</a>.
-          </p>
+          <S.Wrapper>
+            <h3>Universidade Estácio de Sá - Análise e desenvolvimento de Sistemas</h3>
+            <span>2020 - 2023</span>
+          </S.Wrapper>
+          <span>
+            <strong>Principais disciplinas: </strong>
+            Organização e arquitetura de computadores, banco de dados, computação em nuvem e web services em linux,
+            desenvolvimento web, programação em Python, pensamento computacional, engenharia de software,
+            web design, algoritmos, modelagem de sistemas, padrões de projeto
+          </span>
         </S.TimelineTitle>
       </S.Entry>
       <S.Entry>
         <S.TimelineTitle>
-          <h3>EEEP Walter Ramos de Araújo - Técnica em informática</h3>
-          <span>2016 - 2018</span>
-          <p>
-            O curso técnico integrado com o ensino médio me possibilitou aprender gradativamente sobre
-            programação e suporte, no qual dei inicio ao desenvolvimento de meus conhecimentos principalmente
-            na área de programação, aprendendo sobre lógica, sistemas operacionais, banco de dados e outras
-            diversas linguagens em que tive a oportunidade de criar e manter projetos para fins acadêmicos.
-          </p>
+          <S.Wrapper>
+            <h3>IGTI - Bootcamp Devops</h3>
+            <span>2020 - 2020</span>
+          </S.Wrapper>
+          <span>
+            <strong>Principais disciplinas: </strong>
+            As três maneiras (fluxo, feedback, aprendizagem e experimentação), Docker, 
+            Integração e entrega contínua, Testes, Git, Jenkins, Sonar, 
+            metodologias ágeis para desenvolvimento de software
+          </span>
         </S.TimelineTitle>
       </S.Entry>
-
-      <S.Divisor />
-
-      <S.Subtitle>Cursos realizados</S.Subtitle>
-      <S.List>
-        <li>
-          <a href="https://cursos.alura.com.br/user/allonsmandy/career/desenvolvedor-front-end/certificate" target="_blank">
-            Desenvolvimento Front-End - Alura
-          </a>
-        </li>
-        <li>
-          <a href="https://cursos.alura.com.br/user/allonsmandy/career/ux-designer/certificate" target="_blank">
-            UX Design - Alura
-          </a>
-        </li>
-        <li>
-          <a href="https://www.origamid.com/certificate/5edf2823/" target="_blank">
-            Javascript ES6+ - Origamid
-          </a>
-        </li>
-        <li>
-          <a href="https://certificates.digitalinnovation.one/A5DE6342" target="_blank">
-            Code Like a FullStack Girl - Digital Innovation One Inc.
-          </a>
-        </li>
-        <li>
-          <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-9UUPU8AP.jpg?l=null" target="_blank">
-            Wordpress Completo - Udemy
-          </a>
-        </li>
-        <li>
-          <a href="https://www.udemy.com/course/js-com-tdd-na-pratica/" target="_blank">
-            Javascript com TDD na prática - Udemy
-          </a>
-        </li>
-        <li>
-          <a href="https://www.origamid.com/certificate/487fe331/" target="_blank">
-            VueJS - Origamid
-          </a>
-        </li>
-      </S.List>
+      <S.Entry>
+        <S.TimelineTitle>
+          <S.Wrapper>
+            <h3>Free Code Camp - Certifications - Front End Libraries | Responsive Web Design</h3>
+            <span>2019</span>
+          </S.Wrapper>
+          <span>
+            <strong>Principais disciplinas: </strong>
+            Front End Libraries, Responsive Web Design, Algoritmos e estrutura de dados em javascript
+          </span>
+        </S.TimelineTitle>
+      </S.Entry>
+      <S.Entry>
+        <S.TimelineTitle>
+          <S.Wrapper>
+            <h3>EEEP Walter Ramos de Araújo - Ensino técnico de Informática/Software e médio</h3>
+            <span>2016 - 2018</span>
+          </S.Wrapper>
+          <span>
+            <strong>Principais disciplinas: </strong>
+            Lógica de programação, HTML/CSS, Sistemas operacionais, Javascript, PHP, práticas 
+            de software e hardware, redes de computadores, banco de dados, inglês técnico
+          </span>
+        </S.TimelineTitle>
+      </S.Entry>
     </S.Section>
     <S.Section>
       <S.TitleHome><Computer />Tecnologias</S.TitleHome>
@@ -137,7 +152,9 @@ const Homepage = () => (
         <Nodejs color="#8CC03D" title="NodeJs (Básico)" />
         <Gulp color="#E54849" title="Gulp" />
       </S.TechSkills>
-      Gosto de conhecer e aplicar em projetos: 
+      <p>
+        Gosto de conhecer e aplicar em projetos: 
+      </p>
       <ul>
         <li>Automação front-end</li>
         <li>Arquiteturas CSS</li>

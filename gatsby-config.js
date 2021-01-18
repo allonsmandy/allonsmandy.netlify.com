@@ -14,6 +14,12 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Catamaran`, `Roboto`],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `uploads`,
@@ -75,8 +81,8 @@ module.exports = {
         name: `Amanda Almeida Matos`,
         short_name: `Amanda Almeida Matos`,
         start_url: `/`,
-        background_color: `#211b1fb0`,
-        theme_color: `#211b1fb0`,
+        background_color: `#34313c`,
+        theme_color: `#34313c`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
       },

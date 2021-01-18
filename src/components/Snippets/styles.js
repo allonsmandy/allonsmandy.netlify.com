@@ -4,6 +4,10 @@ export const SnippetsSection = styled.section`
   display: flex;
   flex-wrap: wrap;
 `
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 export const SnippetsWrapper = styled.article`
     background-color: var(--secondary);

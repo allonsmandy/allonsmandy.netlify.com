@@ -19,7 +19,7 @@ export const RecommendedLink = styled(AniLink)`
   transition: background 0.5s;
   width: 50%;
 
-  ${media.lessThan("large")`
+  ${media.lessThan("medium")`
     padding: 2rem 1rem;
     line-height: 1.3;
     font-size: .9rem;
