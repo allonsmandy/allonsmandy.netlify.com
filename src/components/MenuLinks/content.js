@@ -13,19 +13,19 @@ const links = [
   // },
   {
     label: "Snippets",
-    url: "/snippets"
+    url: "/snippets",
   },
-  {
-    label: "Leituras",
-    url: "/leituras"
-  }
+  // {
+  //   label: "Leituras",
+  //   url: "/leituras",
+  // },
+  // {
+  //   label: "Portfólio",
+  //   url: "/portfolio",
+  // },
   // {
   //   label: "Contato",
   //   url: "/contato",
-  // },
-  // {
-  //   label: "Laboratório",
-  //   url: "/labs",
   // },
 ]
 

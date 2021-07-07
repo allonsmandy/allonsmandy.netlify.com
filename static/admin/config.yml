@@ -6,7 +6,8 @@ backend:
 
 publish_mode: editorial_workflow
 media_folder: "static/assets/img"
-public_folder: "assets/img"
+public_folder: "/assets/img"
+logo_url: https://allonsmandy.netlify.app/static/6e6183de22fe514474366168d6de2a85/9dc27/avatar-2.jpg
 
 collections:
   - name: "posts" # Used in routes, e.g., /admin/collections/blog
@@ -14,6 +15,7 @@ collections:
     folder: "posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    description: "Posts do blog"
     fields: # The fields for each document, usually in front matter
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
@@ -23,7 +25,6 @@ collections:
           widget: "datetime",
           format: "YYYY-MM-DD hh:mm:ss",
         }
-      - { label: "image", name: "image", widget: "image" }
       - {
           label: "Category",
           name: "category",
@@ -95,3 +96,24 @@ collections:
             ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "portfolio"
+    label: "Portfólio"
+    folder: "portfolio"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    description: "Portfolio"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "snippets"
+    label: "Snippets"
+    folder: "snippets"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    description: "Snippets de código"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Code", name: "code", widget: "code" }

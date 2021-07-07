@@ -1,21 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
 import slugify from "slugify"
-
 import { unique } from "../utils/index"
 
 import styled from "styled-components"
 
 import Layout from "../components/Layout/"
 import SEO from "../components/seo"
-import Post from "../components/PostCategory"
 
-const CategoryTitle = styled.h2`
+const Category = styled.a`
   background: ${props => props.background};
   color: var(--background);
   font-size: 1.5rem;
   font-weight: 700;
   padding: 1rem;
+  display: flex;
 `
 
 const SeriesPage = props => {
@@ -41,7 +40,6 @@ const SeriesPage = props => {
   }
 
   const slugifyCategory = cat => slugify(cat, { lower: true })
-
   const getPostsByCategory = category =>
     postList.filter(({ node }) => node.frontmatter.category === category)
 
@@ -57,22 +55,14 @@ const SeriesPage = props => {
         } else {
           return (
             <section key={i}>
-              <CategoryTitle
+              <Category
+                href={slugifyCategory(category)}
                 background={background}
                 id={slugifyCategory(category)}
               >
-                {category.toUpperCase()}
-              </CategoryTitle>
-
-              {getPostsByCategory(category).map(({ node }) => (
-                <Post
-                  key={node.id}
-                  slug={node.fields.slug}
-                  title={node.frontmatter.title}
-                  date={node.frontmatter.date}
-                  description={node.frontmatter.description}
-                />
-              ))}
+                {" "}
+                {category}
+              </Category>
             </section>
           )
         }
